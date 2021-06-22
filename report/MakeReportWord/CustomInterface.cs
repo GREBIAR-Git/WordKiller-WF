@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -57,16 +58,52 @@ namespace MakeReportWord
             label5.BackColor = Color.FromArgb(255, 84, 213, 245);
             label5.BackColor = Color.FromArgb(255, 84, 213, 245);
             button1.BackColor = Color.FromArgb(255, 238, 230, 246);
+            button2.BackColor = Color.FromArgb(255, 238, 230, 246);
+            button3.BackColor = Color.FromArgb(255, 238, 230, 246);
             checkBox1.BackColor = Color.FromArgb(255, 50, 39, 62);
             tableLayoutPanel1.BackColor = Color.FromArgb(255, 50, 39, 62);
+            tableLayoutPanel2.BackColor = Color.FromArgb(255, 50, 39, 62);
+            tableLayoutPanel3.BackColor = Color.FromArgb(255, 50, 39, 62);
             label6.BackColor = Color.FromArgb(255, 84, 213, 245);
             checkBox1.Refresh();
             label1.Focus();
+            showTop(sender, e);
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+            showBottom(sender, e);
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            showTop(sender, e);
+        }
+
+        private void showBottom(object sender, EventArgs e)
+        {
+            button2.Visible = false;
+            tableLayoutPanel1.Visible = false;
+            tableLayoutPanel2.RowStyles[0].Height = 0;
+            tableLayoutPanel2.RowStyles[1].Height = 0;
+
+            tableLayoutPanel2.RowStyles[2].Height = 35;
+            tableLayoutPanel2.RowStyles[3].Height = 450;
+            button3.Visible = true;
+            tableLayoutPanel3.Visible = true;
+        }
+
+        private void showTop(object sender, EventArgs e)
+        {
+            tableLayoutPanel3.Visible = false;
+            button3.Visible = false;
+            tableLayoutPanel2.RowStyles[2].Height = 0;
+            tableLayoutPanel2.RowStyles[3].Height = 0;
+
+            tableLayoutPanel2.RowStyles[0].Height = 450;
+            tableLayoutPanel2.RowStyles[1].Height = 35;
+            tableLayoutPanel1.Visible = true;
+            button2.Visible = true;
         }
     }
 }

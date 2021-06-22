@@ -9,3 +9,14 @@ C:\Project\PiAPS\PiAPS-labs\Lab7\MakeReportWord\obj\Debug\MakeReportWord.csproj.
 C:\Project\PiAPS\PiAPS-labs\Lab7\MakeReportWord\obj\Debug\MakeReportWord.csproj.CoreCompileInputs.cache
 C:\Project\PiAPS\PiAPS-labs\Lab7\MakeReportWord\obj\Debug\MakeReportWord.exe
 C:\Project\PiAPS\PiAPS-labs\Lab7\MakeReportWord\obj\Debug\MakeReportWord.pdb
+C:\PROJECTS\report\report\MakeReportWord\bin\Debug\MakeReportWord.exe.config
+C:\PROJECTS\report\report\MakeReportWord\bin\Debug\MakeReportWord.exe
+C:\PROJECTS\report\report\MakeReportWord\bin\Debug\MakeReportWord.pdb
+C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.csprojAssemblyReference.cache
+C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.csproj.ResolveComReference.cache
+C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.CustomInterface.resources
+C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.Properties.Resources.resources
+C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.csproj.GenerateResource.cache
+C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.csproj.CoreCompileInputs.cache
+C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.exe
+C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.pdb
