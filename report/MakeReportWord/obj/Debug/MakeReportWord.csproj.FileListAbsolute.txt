@@ -20,3 +20,14 @@ C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.csproj.Generat
 C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.csproj.CoreCompileInputs.cache
 C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.exe
 C:\PROJECTS\report\report\MakeReportWord\obj\Debug\MakeReportWord.pdb
+C:\Users\Nikitos\Desktop\report\report\MakeReportWord\bin\Debug\MakeReportWord.exe.config
+C:\Users\Nikitos\Desktop\report\report\MakeReportWord\bin\Debug\MakeReportWord.exe
+C:\Users\Nikitos\Desktop\report\report\MakeReportWord\bin\Debug\MakeReportWord.pdb
+C:\Users\Nikitos\Desktop\report\report\MakeReportWord\obj\Debug\MakeReportWord.csprojAssemblyReference.cache
+C:\Users\Nikitos\Desktop\report\report\MakeReportWord\obj\Debug\MakeReportWord.csproj.ResolveComReference.cache
+C:\Users\Nikitos\Desktop\report\report\MakeReportWord\obj\Debug\MakeReportWord.CustomInterface.resources
+C:\Users\Nikitos\Desktop\report\report\MakeReportWord\obj\Debug\MakeReportWord.Properties.Resources.resources
+C:\Users\Nikitos\Desktop\report\report\MakeReportWord\obj\Debug\MakeReportWord.csproj.GenerateResource.cache
+C:\Users\Nikitos\Desktop\report\report\MakeReportWord\obj\Debug\MakeReportWord.csproj.CoreCompileInputs.cache
+C:\Users\Nikitos\Desktop\report\report\MakeReportWord\obj\Debug\MakeReportWord.exe
+C:\Users\Nikitos\Desktop\report\report\MakeReportWord\obj\Debug\MakeReportWord.pdb

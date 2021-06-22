@@ -5,13 +5,24 @@ namespace MakeReportWord
 {
     internal class MakeReport
     {
+        Word.Document doc;
+        Word.Range word;
+
         public void CreateReport(string faculty, string numberLab, string theme, string discipline, string professor, string year)
         {
-            var end = Type.Missing;
+            var LengthDoc = 0;
             var app = new Word.Application();
             app.Visible = true;
-            var doc = app.Documents.Add();
-            var word = doc.Range();
+            doc = app.Documents.Add();
+            word = null;
+            string text = "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
+                "РОССИЙСКОЙ ФЕДЕРАЦИИ" + SkipLine(1) +
+                "ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ" + SkipLine(1) +
+                "ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
+                "«ОРЛОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ" + SkipLine(1) +
+                "ИМЕНИ И.С.ТУРГЕНЕВА»" + SkipLine(2) +
+                "Кафедра " + faculty + SkipLine(3);
+            WriteTextWord(text);
             word.PageSetup.TopMargin = CentimetersToPoints(2);
             word.PageSetup.BottomMargin = CentimetersToPoints(2);
             word.PageSetup.LeftMargin = CentimetersToPoints(3);
@@ -21,63 +32,74 @@ namespace MakeReportWord
             word.Paragraphs.SpaceAfter = 0;
             word.Paragraphs.Space1();
             word.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
-            word.Text = "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ";
-            word.Text += "РОССИЙСКОЙ ФЕДЕРАЦИИ";
-            word.Text += "ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ";
-            word.Text += "ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ";
-            word.Text += "«ОРЛОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ";
-            word.Text += "ИМЕНИ И.С.ТУРГЕНЕВА»" + SkipLine(1);
-            word.Text += "Кафедра " + faculty + SkipLine(3);
-            var LengthDoc = word.Text.Length;
-            word.Text += "ОТЧЁТ";
-            word = doc.Range(LengthDoc, end);
+
+            text = "ОТЧЁТ";
+            WriteTextWord(ref LengthDoc, text);
             word.Font.Size = 16;
             word.Font.Bold = 1;
-            LengthDoc += word.Text.Length;
-            word.Text += "По лабораторной работе №" + numberLab;
-            word = doc.Range(LengthDoc, end);
+
+            text = "По лабораторной работе №" + numberLab;
+            WriteTextWord(ref LengthDoc, text);
             word.Paragraphs.SpaceAfter = 10;
             word.Font.Bold = 0;
-            LengthDoc += word.Text.Length;
-            word.Text += "на тему: «" + theme + "»";
-            word = doc.Range(LengthDoc, end);
+
+            text = "на тему: «" + theme + "»" + "\n" + "по дисциплине: «" + discipline + "»" + SkipLine(8); ;
+            WriteTextWord(ref LengthDoc, text);
             word.Font.Size = 14;
             word.Paragraphs.SpaceAfter = 0;
-            word.Text += "по дисциплине: «" + discipline + "»" + SkipLine(8);
-            LengthDoc += word.Text.Length;
-            word.Text += "Выполнили: Музалевский Н.С., Аллянов М.Д.";
-            word.Text += "Институт приборостроения, автоматизации и информационных технологий";
-            word.Text += "Направление: 09.03.04 «Программная инженерия»";
-            word.Text += "Группа: 92ПГ";
-            word = doc.Range(LengthDoc, end);
+
+            text = "Выполнили: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
+                "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
+                "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
+                "Группа: 92ПГ";
+            WriteTextWord(ref LengthDoc, text);
             word.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
-            LengthDoc += word.Text.Length;
-            word.Text += "Проверил: " + professor;
-            word = doc.Range(LengthDoc, end);
+            text = "Проверил: " + professor;
+
+            WriteTextWord(ref LengthDoc, text);
             word.Paragraphs.SpaceAfter = 10;
-            LengthDoc += word.Text.Length;
-            word.Text += SkipLine(1) + "Отметка о зачете: ";
-            word = doc.Range(LengthDoc, end);
+            text = SkipLine(1) + "Отметка о зачёте: ";
+
+            WriteTextWord(ref LengthDoc, text);
             word.Paragraphs.SpaceAfter = 0;
-            LengthDoc += word.Text.Length;
-            word.Text += "Дата: «____» __________ " + year + "г.";
-            word = doc.Range(LengthDoc, end);
+            text = "Дата: «____» __________ " + year + "г.";
+
+            WriteTextWord(ref LengthDoc, text);
             word.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
-            LengthDoc += word.Text.Length;
-            word.Text += SkipLine(8) + "Орел, " + year;
-            word = doc.Range(LengthDoc, end);
+            text = SkipLine(8) + "Орел, " + year;
+
+            WriteTextWord(ref LengthDoc, text);
             word.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
-            LengthDoc += word.Text.Length - 1;
-            word = doc.Range(LengthDoc, end);
+
+            PageBreak(ref LengthDoc);
+        }
+
+        void WriteTextWord(ref int Length, string text)
+        {
+            Length += word.Text.Length;
+            word.Text += text;
+            word = doc.Range(Length, Type.Missing);
+        }
+
+        void WriteTextWord(string text)
+        {
+            word = doc.Range();
+            word.Text = text;
+        }
+
+        void PageBreak(ref int Length)
+        {
+            Length += word.Text.Length - 1;
+            word = doc.Range(Length, Type.Missing);
             word.InsertBreak(0);
             word.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
         }
-        
+
         float CentimetersToPoints(float cen)
         {
             return cen * 28.3465f;
         }
-                
+
         string SkipLine(int quantity)
         {
             var str = string.Empty;
