@@ -1,17 +1,17 @@
 ﻿using System;
-using Word = Microsoft.Office.Interop.Word;
+using Microsoft.Office.Interop.Word;
 
 namespace MakeReportWord
 {
     internal class MakeReport
     {
-        Word.Document doc;
-        Word.Range word;
+        Document doc;
+        Range word;
 
-        public void CreateReport(string faculty, string numberLab, string theme, string discipline, string professor, string year)
+        public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year)
         {
             var LengthDoc = 0;
-            var app = new Word.Application();
+            var app = new Application();
             app.Visible = true;
             doc = app.Documents.Add();
             word = null;
@@ -31,7 +31,7 @@ namespace MakeReportWord
             word.Font.Name = "Times New Roman";
             word.Paragraphs.SpaceAfter = 0;
             word.Paragraphs.Space1();
-            word.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+            word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
 
             text = "ОТЧЁТ";
             WriteTextWord(ref LengthDoc, text);
@@ -43,7 +43,7 @@ namespace MakeReportWord
             word.Paragraphs.SpaceAfter = 10;
             word.Font.Bold = 0;
 
-            text = "на тему: «" + theme + "»" + "\n" + "по дисциплине: «" + discipline + "»" + SkipLine(8); ;
+            text = "на тему: «" + theme + "»" + SkipLine(1) + "по дисциплине: «" + discipline + "»" + SkipLine(8); ;
             WriteTextWord(ref LengthDoc, text);
             word.Font.Size = 14;
             word.Paragraphs.SpaceAfter = 0;
@@ -53,7 +53,7 @@ namespace MakeReportWord
                 "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
                 "Группа: 92ПГ";
             WriteTextWord(ref LengthDoc, text);
-            word.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+            word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
             text = "Проверил: " + professor;
 
             WriteTextWord(ref LengthDoc, text);
@@ -65,11 +65,11 @@ namespace MakeReportWord
             text = "Дата: «____» __________ " + year + "г.";
 
             WriteTextWord(ref LengthDoc, text);
-            word.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
+            word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
             text = SkipLine(8) + "Орел, " + year;
 
             WriteTextWord(ref LengthDoc, text);
-            word.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+            word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
 
             PageBreak(ref LengthDoc);
         }
@@ -92,7 +92,7 @@ namespace MakeReportWord
             Length += word.Text.Length - 1;
             word = doc.Range(Length, Type.Missing);
             word.InsertBreak(0);
-            word.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+            word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
         }
 
         float CentimetersToPoints(float cen)
