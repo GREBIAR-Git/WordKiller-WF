@@ -116,42 +116,14 @@ namespace MakeReportWord
         {
             if (button8.Text == "К тексту")
             {
-                label7.Visible = false;
-                label8.Visible = false;
-                label9.Visible = false;
-                label11.Visible = false;
-                label10.Visible = false;
-                comboBox2.Visible = false;
-                comboBox4.Visible = false;
-                comboBox5.Visible = false;
-                comboBox3.Visible = false;
-                button1.Visible = false;
-                button4.Visible = false;
-                button5.Visible = false;
-                button6.Visible = false;
-                button7.Visible = false;
-                button9.Visible = false;
+                tableLayoutPanel4.Visible = false;
                 button8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
                 button8.Text = "К подстановкам";
                 label13.Text = "текст";
             }
             else
             {
-                label7.Visible = true;
-                label8.Visible = true;
-                label9.Visible = true;
-                label11.Visible = true;
-                label10.Visible = true;
-                comboBox2.Visible = true;
-                comboBox4.Visible = true;
-                comboBox5.Visible = true;
-                comboBox3.Visible = true;
-                button1.Visible = true;
-                button4.Visible = true;
-                button5.Visible = true;
-                button6.Visible = true;
-                button7.Visible = true;
-                button9.Visible = true;
+                tableLayoutPanel4.Visible = true;
                 button8.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
                 button8.Text = "К тексту";
                 label13.Text = "ничто";
@@ -161,6 +133,11 @@ namespace MakeReportWord
         private void Lab1_Click(object sender, EventArgs e)
         {
             Lab1.Checked = !Lab1.Checked;
+        }
+
+        private void ExitMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
