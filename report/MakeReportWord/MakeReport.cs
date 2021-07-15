@@ -23,10 +23,7 @@ namespace MakeReportWord
                 "ИМЕНИ И.С.ТУРГЕНЕВА»" + SkipLine(2) +
                 "Кафедра " + faculty + SkipLine(3);
             WriteTextWord(text);
-            word.PageSetup.TopMargin = CentimetersToPoints(2);
-            word.PageSetup.BottomMargin = CentimetersToPoints(2);
-            word.PageSetup.LeftMargin = CentimetersToPoints(3);
-            word.PageSetup.RightMargin = CentimetersToPoints(1.5f);
+            PageMargin(2,2,3,1.5f);
             word.Font.Size = 14;
             word.Font.Name = "Times New Roman";
             word.Paragraphs.SpaceAfter = 0;
@@ -93,6 +90,14 @@ namespace MakeReportWord
             word = doc.Range(Length, Type.Missing);
             word.InsertBreak(0);
             word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+        }
+
+        void PageMargin(float top, float bottom, float left, float right)
+        {
+            word.PageSetup.TopMargin = CentimetersToPoints(top);
+            word.PageSetup.BottomMargin = CentimetersToPoints(bottom);
+            word.PageSetup.LeftMargin = CentimetersToPoints(left);
+            word.PageSetup.RightMargin = CentimetersToPoints(right);
         }
 
         float CentimetersToPoints(float cen)
