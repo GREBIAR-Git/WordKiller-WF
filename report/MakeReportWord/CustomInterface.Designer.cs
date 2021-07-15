@@ -68,9 +68,6 @@ namespace MakeReportWord
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.скастоватьЗаклинаниеМатериализацииОтчётаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.скастоватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.разложитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Scroll1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ReadScroll = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseWindow = new System.Windows.Forms.ToolStripMenuItem();
@@ -305,10 +302,10 @@ namespace MakeReportWord
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 554F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1079, 1012);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1079, 1013);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -642,7 +639,6 @@ namespace MakeReportWord
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.скастоватьЗаклинаниеМатериализацииОтчётаToolStripMenuItem,
             this.Scroll1,
             this.Type1,
             this.Save1});
@@ -652,28 +648,6 @@ namespace MakeReportWord
             this.menuStrip1.Size = new System.Drawing.Size(1325, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // скастоватьЗаклинаниеМатериализацииОтчётаToolStripMenuItem
-            // 
-            this.скастоватьЗаклинаниеМатериализацииОтчётаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.скастоватьToolStripMenuItem,
-            this.разложитьToolStripMenuItem});
-            this.скастоватьЗаклинаниеМатериализацииОтчётаToolStripMenuItem.Name = "скастоватьЗаклинаниеМатериализацииОтчётаToolStripMenuItem";
-            this.скастоватьЗаклинаниеМатериализацииОтчётаToolStripMenuItem.Size = new System.Drawing.Size(12, 24);
-            // 
-            // скастоватьToolStripMenuItem
-            // 
-            this.скастоватьToolStripMenuItem.Name = "скастоватьToolStripMenuItem";
-            this.скастоватьToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.скастоватьToolStripMenuItem.Text = "Скастовать";
-            // 
-            // разложитьToolStripMenuItem
-            // 
-            this.разложитьToolStripMenuItem.Checked = true;
-            this.разложитьToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.разложитьToolStripMenuItem.Name = "разложитьToolStripMenuItem";
-            this.разложитьToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.разложитьToolStripMenuItem.Text = "Разложить";
             // 
             // Scroll1
             // 
@@ -814,9 +788,6 @@ namespace MakeReportWord
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem скастоватьЗаклинаниеМатериализацииОтчётаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem скастоватьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem разложитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Scroll1;
         private System.Windows.Forms.ToolStripMenuItem ReadScroll;
         private System.Windows.Forms.ToolStripMenuItem CloseWindow;

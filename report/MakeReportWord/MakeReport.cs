@@ -54,20 +54,20 @@ namespace MakeReportWord
                 "Группа: 92ПГ";
             WriteTextWord(ref LengthDoc, text);
             word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-            text = "Проверил: " + professor;
 
+            text = "Проверил: " + professor;
             WriteTextWord(ref LengthDoc, text);
             word.Paragraphs.SpaceAfter = 10;
-            text = SkipLine(1) + "Отметка о зачёте: ";
 
+            text = SkipLine(1) + "Отметка о зачёте: ";
             WriteTextWord(ref LengthDoc, text);
             word.Paragraphs.SpaceAfter = 0;
-            text = "Дата: «____» __________ " + year + "г.";
 
+            text = "Дата: «____» __________ " + year + "г.";
             WriteTextWord(ref LengthDoc, text);
             word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-            text = SkipLine(8) + "Орел, " + year;
 
+            text = SkipLine(8) + "Орел, " + year;
             WriteTextWord(ref LengthDoc, text);
             word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
 

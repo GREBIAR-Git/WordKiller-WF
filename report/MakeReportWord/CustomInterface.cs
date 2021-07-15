@@ -79,11 +79,6 @@ namespace MakeReportWord
         {
             button2.Visible = false;
             tableLayoutPanel1.Visible = false;
-            tableLayoutPanel2.RowStyles[0].Height = 0;
-            tableLayoutPanel2.RowStyles[1].Height = 0;
-
-            tableLayoutPanel2.RowStyles[2].Height = 50;
-            tableLayoutPanel2.RowStyles[3].Height = 450;
             button3.Visible = true;
             tableLayoutPanel3.Visible = true;
         }
@@ -92,11 +87,6 @@ namespace MakeReportWord
         {
             tableLayoutPanel3.Visible = false;
             button3.Visible = false;
-            tableLayoutPanel2.RowStyles[2].Height = 0;
-            tableLayoutPanel2.RowStyles[3].Height = 0;
-
-            tableLayoutPanel2.RowStyles[0].Height = 450;
-            tableLayoutPanel2.RowStyles[1].Height = 35;
             tableLayoutPanel1.Visible = true;
             button2.Visible = true;
         }
