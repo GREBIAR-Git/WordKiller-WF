@@ -115,7 +115,7 @@ namespace MakeReportWord
             string discipline = textBox2.Text;
             string professor = textBox3.Text;
             string year = textBox4.Text;
-            await Task.Run(() => report.CreateReport(faculty, numberLab, theme, discipline, professor, year));
+            await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year));
             if (CloseWindow.Checked)
             {
                 Application.Exit();
@@ -166,6 +166,11 @@ namespace MakeReportWord
                 button8.Text = "К тексту";
                 label13.Text = "ничто";
             }
+        }
+
+        private void Lab1_Click(object sender, EventArgs e)
+        {
+            Lab1.Checked = !Lab1.Checked;
         }
     }
 }

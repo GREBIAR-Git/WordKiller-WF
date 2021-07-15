@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Sprite-0007.ico</ApplicationIcon>
+    <ApplicationIcon>256x256.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -129,6 +129,7 @@
     <None Include="Resources\arrowsUp.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="256x256.ico" />
     <Content Include="Sprite-0007.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
