@@ -11,7 +11,7 @@ namespace MakeReportWord
         public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year)
         {
             var LengthDoc = 0;
-            var app = new Application();
+            Application app = new Application();
             app.Visible = true;
             doc = app.Documents.Add();
             word = null;

@@ -105,7 +105,15 @@ namespace MakeReportWord
             string discipline = textBox2.Text;
             string professor = textBox3.Text;
             string year = textBox4.Text;
-            await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year));
+            try
+            {
+                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year));
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так :(", "Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error,MessageBoxDefaultButton.Button1,MessageBoxOptions.DefaultDesktopOnly);
+            }
+
             if (CloseWindow.Checked)
             {
                 Application.Exit();
