@@ -147,5 +147,82 @@ namespace MakeReportWord
         {
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!comboBox2.Items.Contains(richTextBox1.Text))
+            {
+                comboBox2.Items.Add(richTextBox1.Text);
+                comboBox2.SelectedIndex = comboBox2.Items.IndexOf(richTextBox1.Text);
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedIndex != -1)
+            {
+                label13.Text = "Заголовок 1: " + (comboBox2.Items.IndexOf(comboBox2.SelectedItem) + 1).ToString();
+                richTextBox1.Text = comboBox2.SelectedItem.ToString();
+            }
+            else
+            {
+                label13.Text = "нечто";
+                richTextBox1.Text = "";
+            }
+        }
+
+        private void comboBox2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (Control.ModifierKeys != Keys.Shift && Control.ModifierKeys != Keys.Control && Control.ModifierKeys != Keys.Alt)
+                {
+                    comboBox2.SelectedIndex = -1;
+                }
+                else if (Control.ModifierKeys == Keys.Shift)
+                {
+                    if (comboBox2.SelectedIndex > 0)
+                    {
+                        int cursorSave = richTextBox1.SelectionStart;
+                        string save = comboBox2.Items[comboBox2.SelectedIndex].ToString();
+                        comboBox2.Items[comboBox2.SelectedIndex] = comboBox2.Items[comboBox2.SelectedIndex - 1];
+                        comboBox2.Items[comboBox2.SelectedIndex - 1] = save;
+                        comboBox2.SelectedIndex--;
+                        richTextBox1.SelectionStart = cursorSave;
+                    }
+                }
+                else if (Control.ModifierKeys == Keys.Control)
+                {
+                    if (comboBox2.SelectedIndex < comboBox2.Items.Count-1)
+                    {
+                        int cursorSave = richTextBox1.SelectionStart;
+                        string save = comboBox2.Items[comboBox2.SelectedIndex].ToString();
+                        comboBox2.Items[comboBox2.SelectedIndex] = comboBox2.Items[comboBox2.SelectedIndex + 1];
+                        comboBox2.Items[comboBox2.SelectedIndex + 1] = save;
+                        comboBox2.SelectedIndex++;
+                        richTextBox1.SelectionStart = cursorSave;
+                    }
+                }
+                else if (Control.ModifierKeys == Keys.Alt)
+                {
+                    comboBox2.Items.RemoveAt(comboBox2.SelectedIndex);
+                    comboBox2_SelectedIndexChanged(sender, e);
+                }
+            }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (label13.Text != "нечто" && label13.Text != "текст")
+            {
+                if (label13.Text.StartsWith("Заголовок 1"))
+                {
+                    int cursorSave = richTextBox1.SelectionStart;
+                    comboBox2.Items[comboBox2.SelectedIndex] = richTextBox1.Text;
+                    richTextBox1.SelectionStart = cursorSave;
+
+                }
+            }    
+        }
     }
 }
