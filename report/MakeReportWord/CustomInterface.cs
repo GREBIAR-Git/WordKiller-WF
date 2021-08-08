@@ -203,6 +203,11 @@ namespace MakeReportWord
                         richTextBox1.SelectionStart = cursorSave;
                     }
                 }
+                else if (Control.ModifierKeys == Keys.Alt)
+                {
+                    comboBox2.Items.RemoveAt(comboBox2.SelectedIndex);
+                    comboBox2_SelectedIndexChanged(sender, e);
+                }
             }
         }
 
