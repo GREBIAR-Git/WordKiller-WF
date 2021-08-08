@@ -69,6 +69,16 @@ namespace MakeReportWord
             word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
 
             PageBreak(ref LengthDoc);
+            DefaultText();
+            word.Text += "Проверка!" + SkipLine(1);
+            text = "1test1";
+            WriteTextWord(ref LengthDoc, text);
+
+            
+            text = "Lol";
+            WriteTextWord(ref LengthDoc, text);
+            Heading1();
+
         }
 
         void WriteTextWord(ref int Length, string text)
@@ -90,6 +100,49 @@ namespace MakeReportWord
             word = doc.Range(Length, Type.Missing);
             word.InsertBreak(0);
             word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+        }
+
+        void DefaultText()
+        {
+            word.Font.Size = 14;
+            word.Font.Bold = 0;
+            word.Font.ColorIndex = 0;
+            word.Paragraphs.Space15();
+            word.Paragraphs.LeftIndent = CentimetersToPoints(1.5f);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+        }
+
+        void Heading1()
+        {
+            word.Font.Size = 14;
+            word.Font.Bold = 1;
+            word.Font.AllCaps = 1;
+            word.Font.ColorIndex = 0;
+            word.Paragraphs.Space15();
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+        }
+
+        void Heading2()
+        {
+            word.Font.Size = 14;
+            word.Font.Bold = 1;
+            word.Font.ColorIndex = 0;
+            word.Paragraphs.Space15();
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+        }
+
+        void Picture()
+        {
+            word.Paragraphs.Space15();
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+        }
+
+        void СaptionForPicture()
+        {
+            word.Font.Size = 14;
+            word.Font.Bold = 0;
+            word.Paragraphs.Space15();
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
         }
 
         void PageMargin(float top, float bottom, float left, float right)
