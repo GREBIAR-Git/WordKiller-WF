@@ -9,6 +9,8 @@ namespace MakeReportWord
 {
     public partial class CustomInterface : Form
     {
+        string text;
+
         public CustomInterface()
         {
             InitializeComponent();
@@ -125,6 +127,7 @@ namespace MakeReportWord
                 button8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
                 button8.Text = "К подстановкам";
                 label13.Text = "текст";
+                richTextBox1.Text = text;
             }
             else
             {
@@ -132,6 +135,7 @@ namespace MakeReportWord
                 button8.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
                 button8.Text = "К тексту";
                 label13.Text = "нечто";
+                richTextBox1.Text = "";
             }
         }
 
@@ -260,7 +264,11 @@ namespace MakeReportWord
                     comboBox.Items[comboBox.SelectedIndex] = richTextBox1.Text;
                     richTextBox1.SelectionStart = cursorSave;
                 }
-            }    
+            }
+            if (label13.Text == "текст")
+            {
+                text = richTextBox1.Text;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
