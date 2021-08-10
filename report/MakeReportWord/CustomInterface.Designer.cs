@@ -46,12 +46,10 @@ namespace MakeReportWord
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -64,7 +62,6 @@ namespace MakeReportWord
             this.label13 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button9 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -307,12 +304,11 @@ namespace MakeReportWord
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label13, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.button8, 4, 1);
             this.tableLayoutPanel3.Controls.Add(this.richTextBox1, 4, 2);
-            this.tableLayoutPanel3.Controls.Add(this.button9, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 369);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(25, 15, 25, 15);
@@ -326,19 +322,17 @@ namespace MakeReportWord
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 5;
+            this.tableLayoutPanel4.ColumnCount = 4;
             this.tableLayoutPanel3.SetColumnSpan(this.tableLayoutPanel4, 5);
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00001F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.Controls.Add(this.button7, 4, 2);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00001F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Controls.Add(this.button6, 3, 2);
             this.tableLayoutPanel4.Controls.Add(this.button5, 2, 2);
             this.tableLayoutPanel4.Controls.Add(this.button4, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.button1, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.label10, 4, 0);
             this.tableLayoutPanel4.Controls.Add(this.comboBox5, 2, 1);
             this.tableLayoutPanel4.Controls.Add(this.comboBox4, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.label7, 0, 0);
@@ -346,27 +340,16 @@ namespace MakeReportWord
             this.tableLayoutPanel4.Controls.Add(this.label8, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.comboBox2, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label9, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.comboBox3, 4, 1);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(25, 15);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Controls.Add(this.comboBox3, 3, 1);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(100, 15);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(75, 0, 0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.37863F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.37862F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.81069F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.81069F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(753, 152);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(603, 152);
             this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // button7
-            // 
-            this.button7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(603, 110);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(147, 39);
-            this.button7.TabIndex = 27;
-            this.button7.Text = "Добавить";
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -378,6 +361,7 @@ namespace MakeReportWord
             this.button6.TabIndex = 26;
             this.button6.Text = "Добавить";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -389,6 +373,7 @@ namespace MakeReportWord
             this.button5.TabIndex = 25;
             this.button5.Text = "Добавить";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -400,6 +385,7 @@ namespace MakeReportWord
             this.button4.TabIndex = 24;
             this.button4.Text = "Добавить";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
@@ -413,21 +399,6 @@ namespace MakeReportWord
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(603, 3);
-            this.label10.Margin = new System.Windows.Forms.Padding(3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(147, 58);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "Подпись картинки";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // comboBox5
             // 
             this.comboBox5.DisplayMember = "1";
@@ -438,6 +409,8 @@ namespace MakeReportWord
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(144, 32);
             this.comboBox5.TabIndex = 22;
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.comboBox5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
             // 
             // comboBox4
             // 
@@ -449,6 +422,8 @@ namespace MakeReportWord
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(144, 32);
             this.comboBox4.TabIndex = 21;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.comboBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
             // 
             // label7
             // 
@@ -473,7 +448,7 @@ namespace MakeReportWord
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label11.Location = new System.Drawing.Point(453, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(144, 64);
+            this.label11.Size = new System.Drawing.Size(147, 64);
             this.label11.TabIndex = 18;
             this.label11.Text = "Картинка";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -502,8 +477,8 @@ namespace MakeReportWord
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(144, 32);
             this.comboBox2.TabIndex = 20;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            this.comboBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.comboBox2_MouseDown);
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.comboBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
             // 
             // label9
             // 
@@ -525,10 +500,12 @@ namespace MakeReportWord
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(603, 67);
+            this.comboBox3.Location = new System.Drawing.Point(453, 67);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(147, 32);
             this.comboBox3.TabIndex = 23;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.comboBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
             // 
             // label12
             // 
@@ -555,7 +532,7 @@ namespace MakeReportWord
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(144, 45);
             this.label13.TabIndex = 29;
-            this.label13.Text = "ничто";
+            this.label13.Text = "нечто";
             this.label13.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // button8
@@ -582,18 +559,6 @@ namespace MakeReportWord
             this.richTextBox1.TabIndex = 9;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
-            // 
-            // button9
-            // 
-            this.button9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(328, 180);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(144, 29);
-            this.button9.TabIndex = 31;
-            this.button9.Text = "Удалить нечто";
-            this.button9.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -805,7 +770,6 @@ namespace MakeReportWord
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox5;
@@ -814,11 +778,9 @@ namespace MakeReportWord
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.ToolStripMenuItem ExitMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
     }

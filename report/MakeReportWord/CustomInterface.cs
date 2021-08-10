@@ -39,7 +39,6 @@ namespace MakeReportWord
             label7.BackColor = Color.FromArgb(255, 253, 219, 124);
             label8.BackColor = Color.FromArgb(255, 253, 219, 124);
             label9.BackColor = Color.FromArgb(255, 208, 117, 252);
-            label10.BackColor = Color.FromArgb(255, 84, 213, 245);
             label11.BackColor = Color.FromArgb(255, 84, 213, 245);
             label12.BackColor = Color.FromArgb(255, 50, 39, 62);
             label13.BackColor = Color.FromArgb(255, 50, 39, 62);
@@ -49,9 +48,7 @@ namespace MakeReportWord
             button4.BackColor = Color.FromArgb(255, 238, 230, 246);
             button5.BackColor = Color.FromArgb(255, 238, 230, 246);
             button6.BackColor = Color.FromArgb(255, 238, 230, 246);
-            button7.BackColor = Color.FromArgb(255, 238, 230, 246);
             button8.BackColor = Color.FromArgb(255, 238, 230, 246);
-            button9.BackColor = Color.FromArgb(255, 238, 230, 246);
             comboBox2.BackColor = Color.FromArgb(255, 238, 230, 246);
             comboBox3.BackColor = Color.FromArgb(255, 238, 230, 246);
             comboBox4.BackColor = Color.FromArgb(255, 238, 230, 246);
@@ -134,7 +131,7 @@ namespace MakeReportWord
                 tableLayoutPanel4.Visible = true;
                 button8.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
                 button8.Text = "К тексту";
-                label13.Text = "ничто";
+                label13.Text = "нечто";
             }
         }
 
@@ -148,21 +145,25 @@ namespace MakeReportWord
             Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void AddToComboBox(ComboBox comboBox, string element)
         {
-            if (!comboBox2.Items.Contains(richTextBox1.Text))
+            if (!comboBox.Items.Contains(element))
             {
-                comboBox2.Items.Add(richTextBox1.Text);
-                comboBox2.SelectedIndex = comboBox2.Items.IndexOf(richTextBox1.Text);
+                comboBox.Items.Add(element);
+                comboBox.SelectedIndex = comboBox.Items.IndexOf(element);
             }
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox2.SelectedIndex != -1)
+            ComboBox comboBox = (ComboBox)sender;
+            if (comboBox.SelectedIndex != -1)
             {
-                label13.Text = "Заголовок 1: " + (comboBox2.Items.IndexOf(comboBox2.SelectedItem) + 1).ToString();
-                richTextBox1.Text = comboBox2.SelectedItem.ToString();
+                //label13.Text = "Заголовок 1: ";
+                Label13StartText(sender);
+                label13.Text += (comboBox.Items.IndexOf(comboBox.SelectedItem) + 1).ToString();
+                richTextBox1.Text = comboBox.SelectedItem.ToString();
             }
             else
             {
@@ -171,42 +172,49 @@ namespace MakeReportWord
             }
         }
 
-        private void comboBox2_MouseDown(object sender, MouseEventArgs e)
+        private void Label13StartText(object sender)
         {
+            Control senderControl = (Control)sender;
+            label13.Text = tableLayoutPanel4.Controls[tableLayoutPanel4.Controls.IndexOf(senderControl) - 4].Text + ": ";
+        }
+
+        private void ComboBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
             if (e.Button == MouseButtons.Right)
             {
                 if (Control.ModifierKeys != Keys.Shift && Control.ModifierKeys != Keys.Control && Control.ModifierKeys != Keys.Alt)
                 {
-                    comboBox2.SelectedIndex = -1;
+                    comboBox.SelectedIndex = -1;
                 }
                 else if (Control.ModifierKeys == Keys.Shift)
                 {
-                    if (comboBox2.SelectedIndex > 0)
+                    if (comboBox.SelectedIndex > 0)
                     {
                         int cursorSave = richTextBox1.SelectionStart;
-                        string save = comboBox2.Items[comboBox2.SelectedIndex].ToString();
-                        comboBox2.Items[comboBox2.SelectedIndex] = comboBox2.Items[comboBox2.SelectedIndex - 1];
-                        comboBox2.Items[comboBox2.SelectedIndex - 1] = save;
-                        comboBox2.SelectedIndex--;
+                        string save = comboBox.Items[comboBox.SelectedIndex].ToString();
+                        comboBox.Items[comboBox.SelectedIndex] = comboBox.Items[comboBox.SelectedIndex - 1];
+                        comboBox.Items[comboBox.SelectedIndex - 1] = save;
+                        comboBox.SelectedIndex--;
                         richTextBox1.SelectionStart = cursorSave;
                     }
                 }
                 else if (Control.ModifierKeys == Keys.Control)
                 {
-                    if (comboBox2.SelectedIndex < comboBox2.Items.Count-1)
+                    if (comboBox.SelectedIndex < comboBox.Items.Count - 1)
                     {
                         int cursorSave = richTextBox1.SelectionStart;
-                        string save = comboBox2.Items[comboBox2.SelectedIndex].ToString();
-                        comboBox2.Items[comboBox2.SelectedIndex] = comboBox2.Items[comboBox2.SelectedIndex + 1];
-                        comboBox2.Items[comboBox2.SelectedIndex + 1] = save;
-                        comboBox2.SelectedIndex++;
+                        string save = comboBox.Items[comboBox.SelectedIndex].ToString();
+                        comboBox.Items[comboBox.SelectedIndex] = comboBox.Items[comboBox.SelectedIndex + 1];
+                        comboBox.Items[comboBox.SelectedIndex + 1] = save;
+                        comboBox.SelectedIndex++;
                         richTextBox1.SelectionStart = cursorSave;
                     }
                 }
                 else if (Control.ModifierKeys == Keys.Alt)
                 {
-                    comboBox2.Items.RemoveAt(comboBox2.SelectedIndex);
-                    comboBox2_SelectedIndexChanged(sender, e);
+                    comboBox.Items.RemoveAt(comboBox.SelectedIndex);
+                    ComboBox_SelectedIndexChanged(sender, e);
                 }
             }
         }
@@ -215,14 +223,40 @@ namespace MakeReportWord
         {
             if (label13.Text != "нечто" && label13.Text != "текст")
             {
+                ComboBox comboBox = new ComboBox();
+                comboBox.Visible = false;
                 if (label13.Text.StartsWith("Заголовок 1"))
+                {
+
+                }
+                if (comboBox.Visible == true)
                 {
                     int cursorSave = richTextBox1.SelectionStart;
                     comboBox2.Items[comboBox2.SelectedIndex] = richTextBox1.Text;
                     richTextBox1.SelectionStart = cursorSave;
-
                 }
             }    
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddToComboBox(comboBox2, richTextBox1.Text);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AddToComboBox(comboBox4, richTextBox1.Text);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AddToComboBox(comboBox5, richTextBox1.Text);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AddToComboBox(comboBox3, richTextBox1.Text);
+            // picture
         }
     }
 }
