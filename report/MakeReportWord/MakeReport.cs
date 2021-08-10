@@ -107,13 +107,16 @@ namespace MakeReportWord
 
         void PageBreak()
         {
-            pgBreak = false;
-            Range word1 = doc.Range();
-            int Length = word1.Text.Length;
-            word = doc.Range(Length - 1, Type.Missing);
-            word.InsertBreak(0);
-            
-            word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            if (pgBreak)
+            {
+                pgBreak = false;
+                Range word1 = doc.Range();
+                int Length = word1.Text.Length;
+                word = doc.Range(Length - 1, Type.Missing);
+                word.InsertBreak(0);
+
+                word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            }
         }
 
         void DefaultText(string text)
