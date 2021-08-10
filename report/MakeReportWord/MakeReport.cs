@@ -68,7 +68,6 @@ namespace MakeReportWord
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
 
             PageBreak();
-            PageBreak();
             DefaultText("Привет1");
             Heading1("заголовок 1");
             Heading1("заголовок 2");
@@ -133,7 +132,7 @@ namespace MakeReportWord
         {
             PageBreak();
             WriteTextWord(text);
-            word.Paragraphs.FirstLineIndent = 0;
+            word.Paragraphs.FirstLineIndent = CentimetersToPoints(1.5f);
             word.Font.Size = 14;
             word.Font.Bold = 1;
             word.Font.AllCaps = 1;
@@ -144,8 +143,8 @@ namespace MakeReportWord
 
         void Heading2(string text)
         {
-            WriteTextWord(text);
-            word.Paragraphs.FirstLineIndent = 0;
+            WriteTextWord(SkipLine(1)+text);
+            word.Paragraphs.FirstLineIndent = CentimetersToPoints(1.5f);
             word.Font.AllCaps = 0;
             word.Font.Size = 14;
             word.Font.Bold = 1;
