@@ -69,16 +69,6 @@ namespace MakeReportWord
             word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
 
             PageBreak(ref LengthDoc);
-            DefaultText();
-            word.Text += "Проверка!" + SkipLine(1);
-            text = "1test1";
-            WriteTextWord(ref LengthDoc, text);
-
-            
-            text = "Lol";
-            WriteTextWord(ref LengthDoc, text);
-            Heading1();
-
         }
 
         void WriteTextWord(ref int Length, string text)
@@ -108,7 +98,8 @@ namespace MakeReportWord
             word.Font.Bold = 0;
             word.Font.ColorIndex = 0;
             word.Paragraphs.Space15();
-            word.Paragraphs.LeftIndent = CentimetersToPoints(1.5f);
+            word.Paragraphs.FirstLineIndent = CentimetersToPoints(1.5f);
+            // word.Paragraphs.LeftIndent = CentimetersToPoints(1.5f);
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
         }
 
@@ -134,6 +125,7 @@ namespace MakeReportWord
         void Picture()
         {
             word.Paragraphs.Space15();
+            word.Font.ColorIndex = 0;
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
         }
 
@@ -141,6 +133,8 @@ namespace MakeReportWord
         {
             word.Font.Size = 14;
             word.Font.Bold = 0;
+            word.Font.ColorIndex = 0;
+            word.Paragraphs.SpaceAfter= 8;
             word.Paragraphs.Space15();
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
         }
