@@ -78,6 +78,9 @@ namespace MakeReportWord
             this.VKR1 = new System.Windows.Forms.ToolStripMenuItem();
             this.RGR1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Save1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Open1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -597,7 +600,8 @@ namespace MakeReportWord
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Scroll1,
             this.Type1,
-            this.Save1});
+            this.Save1,
+            this.Open1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(994, 24);
@@ -701,6 +705,17 @@ namespace MakeReportWord
             this.Save1.Text = "Сохранение";
             this.Save1.Click += new System.EventHandler(this.Save1_Click);
             // 
+            // Open1
+            // 
+            this.Open1.Name = "Open1";
+            this.Open1.Size = new System.Drawing.Size(73, 20);
+            this.Open1.Text = "Открытие";
+            this.Open1.Click += new System.EventHandler(this.Open1_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // CustomInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -780,6 +795,9 @@ namespace MakeReportWord
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ToolStripMenuItem ExitMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem Open1;
     }
 }
 

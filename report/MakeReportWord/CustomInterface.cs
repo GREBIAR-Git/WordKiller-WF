@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -294,7 +295,45 @@ namespace MakeReportWord
 
         private void Save1_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "|*.wordkiller;";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileStream fileStream = File.Open(saveFileDialog.FileName, FileMode.Create);
+                StreamWriter output = new StreamWriter(fileStream);
+                output.WriteLine("вот так вот");
 
+                output.WriteLine("comboBox1==" + comboBox1.SelectedItem.ToString());
+                output.WriteLine("comboBox1==" + comboBox1.SelectedItem.ToString());
+
+
+                output.Close();
+            }
+        }
+
+        private void Open1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "|*.Аллянов;";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileStream file = new FileStream(openFileDialog.FileName, FileMode.Open);
+                StreamReader reader = new StreamReader(file);
+                try
+                {
+                    string data = reader.ReadToEnd();
+                    string[] lines = data.Split('\n');
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        lines[i] = lines[i].Remove('\r');
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Файл повреждён");
+                }
+                reader.Close();
+            }
         }
     }
 }
