@@ -158,9 +158,18 @@ namespace MakeReportWord
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
+            
             if (comboBox.SelectedIndex != -1)
             {
-                //label13.Text = "Заголовок 1: ";
+                for (int i = 4; i < 8; i++)
+                {
+                    ComboBox comboBoxToDeselect;
+                    if (i != tableLayoutPanel4.Controls.IndexOf(comboBox))
+                    {
+                        comboBoxToDeselect = (ComboBox)(tableLayoutPanel4.Controls[i]);
+                        comboBoxToDeselect.SelectedIndex = -1;
+                    }
+                }
                 Label13StartText(sender);
                 label13.Text += (comboBox.Items.IndexOf(comboBox.SelectedItem) + 1).ToString();
                 richTextBox1.Text = comboBox.SelectedItem.ToString();
@@ -185,7 +194,11 @@ namespace MakeReportWord
             {
                 if (Control.ModifierKeys != Keys.Shift && Control.ModifierKeys != Keys.Control && Control.ModifierKeys != Keys.Alt)
                 {
-                    comboBox.SelectedIndex = -1;
+                    for (int i = 4; i < 8; i++)
+                    {
+                        comboBox = (ComboBox)(tableLayoutPanel4.Controls[i]);
+                        comboBox.SelectedIndex = -1;
+                    }
                 }
                 else if (Control.ModifierKeys == Keys.Shift)
                 {
@@ -227,12 +240,24 @@ namespace MakeReportWord
                 comboBox.Visible = false;
                 if (label13.Text.StartsWith("Заголовок 1"))
                 {
-
+                    comboBox = comboBox2;
+                }
+                else if (label13.Text.StartsWith("Заголовок 2"))
+                {
+                    comboBox = comboBox4;
+                }
+                else if (label13.Text.StartsWith("Список"))
+                {
+                    comboBox = comboBox5;
+                }
+                else if (label13.Text.StartsWith("Картинка"))
+                {
+                    comboBox = comboBox3;
                 }
                 if (comboBox.Visible == true)
                 {
                     int cursorSave = richTextBox1.SelectionStart;
-                    comboBox2.Items[comboBox2.SelectedIndex] = richTextBox1.Text;
+                    comboBox.Items[comboBox.SelectedIndex] = richTextBox1.Text;
                     richTextBox1.SelectionStart = cursorSave;
                 }
             }    
