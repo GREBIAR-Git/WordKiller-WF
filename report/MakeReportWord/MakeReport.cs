@@ -67,20 +67,22 @@ namespace MakeReportWord
             WriteTextWord(text);
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
             PageBreak();
-            
 
+            //Тут обратка строки //
+            /*
             DefaultText("Привет1");
             Heading1("заголовок 1");
             Heading1("заголовок 2");
             Heading1("заголовок 3");
             DefaultText("Привет2");
             Heading1("заголовок 4");
+            */
         }
 
         void WriteTextWord(string text)
         {
-            Range word1 = doc.Range();
-            int Length = word1.Text.Length;
+            Range wordTemp = doc.Range();
+            int Length = wordTemp.Text.Length;
             try
             {
                 word.Text += text;
@@ -100,11 +102,6 @@ namespace MakeReportWord
                 word.Text = text;
             }
         }
-        void FirstTextDoc(string text)
-        {
-            word = doc.Range();
-            word.Text = text;
-        }
 
         void PageBreak()
         {
@@ -115,7 +112,6 @@ namespace MakeReportWord
                 int Length = word1.Text.Length;
                 word = doc.Range(Length - 1, Type.Missing);
                 word.InsertBreak(0);
-
                 word.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
             }
         }
