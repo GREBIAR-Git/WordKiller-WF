@@ -3,7 +3,7 @@ using Microsoft.Office.Interop.Word;
 
 namespace MakeReportWord
 {
-    internal class MakeReport
+    class MakeReport
     {
         Document doc;
         Range word;
@@ -66,8 +66,9 @@ namespace MakeReportWord
             text = SkipLine(8) + "Орел, " + year;
             WriteTextWord(text);
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-
             PageBreak();
+            
+
             DefaultText("Привет1");
             Heading1("заголовок 1");
             Heading1("заголовок 2");
