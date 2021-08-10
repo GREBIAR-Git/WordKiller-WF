@@ -699,6 +699,7 @@ namespace MakeReportWord
             this.Save1.Name = "Save1";
             this.Save1.Size = new System.Drawing.Size(86, 20);
             this.Save1.Text = "Сохранение";
+            this.Save1.Click += new System.EventHandler(this.Save1_Click);
             // 
             // CustomInterface
             // 
