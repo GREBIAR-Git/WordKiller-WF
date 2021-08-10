@@ -21,7 +21,7 @@ namespace MakeReportWord
                 "«ОРЛОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ" + SkipLine(1) +
                 "ИМЕНИ И.С.ТУРГЕНЕВА»" + SkipLine(2) +
                 "Кафедра " + faculty + SkipLine(3);
-            FirstTextDoc(text);
+            WriteTextWord(text);
             PageMargin(2,2,3,1.5f);
             word.Font.Size = 14;
             word.Font.Name = "Times New Roman";
