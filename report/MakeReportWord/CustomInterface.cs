@@ -106,7 +106,7 @@ namespace MakeReportWord
             string year = textBox4.Text;
             try
             {
-                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year));
+                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, "Содержание"));
             }
             catch
             {

@@ -8,7 +8,7 @@ namespace MakeReportWord
         Document doc;
         Range word;
         bool pgBreak = true;
-        public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year)
+        public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year, string content)
         {
             Application app = new Application();
             app.Visible = true;
