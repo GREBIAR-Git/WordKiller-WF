@@ -291,5 +291,10 @@ namespace MakeReportWord
             AddToComboBox(comboBox3, richTextBox1.Text);
             // picture
         }
+
+        private void Save1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
