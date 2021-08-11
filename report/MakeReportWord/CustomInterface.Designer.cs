@@ -65,7 +65,6 @@ namespace MakeReportWord
             this.buttonList = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.Scroll1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ReadScroll = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseWindow = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,8 +79,7 @@ namespace MakeReportWord
             this.RGR = new System.Windows.Forms.ToolStripMenuItem();
             this.Save = new System.Windows.Forms.ToolStripMenuItem();
             this.Open = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -622,20 +620,6 @@ namespace MakeReportWord
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
             // 
-            // menuStrip
-            // 
-            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Scroll1,
-            this.Type,
-            this.Save,
-            this.Open});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(953, 24);
-            this.menuStrip.TabIndex = 3;
-            this.menuStrip.Text = "menuStrip1";
-            // 
             // Scroll1
             // 
             this.Scroll1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -740,9 +724,19 @@ namespace MakeReportWord
             this.Open.Text = "Открытие";
             this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
-            // openFileDialog1
+            // menuStrip
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Scroll1,
+            this.Type,
+            this.Save,
+            this.Open});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(953, 24);
+            this.menuStrip.TabIndex = 3;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // CustomInterface
             // 
@@ -792,19 +786,6 @@ namespace MakeReportWord
         private System.Windows.Forms.TableLayoutPanel MainPanel;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.TableLayoutPanel DownPanel;
-        private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem Scroll1;
-        private System.Windows.Forms.ToolStripMenuItem ReadScroll;
-        private System.Windows.Forms.ToolStripMenuItem CloseWindow;
-        private System.Windows.Forms.ToolStripMenuItem Type;
-        private System.Windows.Forms.ToolStripMenuItem Lab;
-        private System.Windows.Forms.ToolStripMenuItem Practice;
-        private System.Windows.Forms.ToolStripMenuItem Kurs;
-        private System.Windows.Forms.ToolStripMenuItem Ref;
-        private System.Windows.Forms.ToolStripMenuItem Diplom;
-        private System.Windows.Forms.ToolStripMenuItem VKR;
-        private System.Windows.Forms.ToolStripMenuItem RGR;
-        private System.Windows.Forms.ToolStripMenuItem Save;
         private System.Windows.Forms.RichTextBox richTextBox;
         private System.Windows.Forms.Button buttonHeading1;
         private System.Windows.Forms.Label heading2Label;
@@ -821,12 +802,23 @@ namespace MakeReportWord
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem Exit;
         private System.Windows.Forms.TableLayoutPanel elementPanel;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.ToolStripMenuItem Open;
         private System.Windows.Forms.Button buttonSpecial;
+        private System.Windows.Forms.ToolStripMenuItem Scroll1;
+        private System.Windows.Forms.ToolStripMenuItem ReadScroll;
+        private System.Windows.Forms.ToolStripMenuItem CloseWindow;
+        private System.Windows.Forms.ToolStripMenuItem Exit;
+        private System.Windows.Forms.ToolStripMenuItem Type;
+        private System.Windows.Forms.ToolStripMenuItem Lab;
+        private System.Windows.Forms.ToolStripMenuItem Practice;
+        private System.Windows.Forms.ToolStripMenuItem Kurs;
+        private System.Windows.Forms.ToolStripMenuItem Ref;
+        private System.Windows.Forms.ToolStripMenuItem Diplom;
+        private System.Windows.Forms.ToolStripMenuItem VKR;
+        private System.Windows.Forms.ToolStripMenuItem RGR;
+        private System.Windows.Forms.ToolStripMenuItem Save;
+        private System.Windows.Forms.ToolStripMenuItem Open;
+        private System.Windows.Forms.MenuStrip menuStrip;
     }
 }
 
