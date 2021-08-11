@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace MakeReportWord
 {
+    
     public partial class CustomInterface : Form
     {
         string text;
@@ -108,7 +109,29 @@ namespace MakeReportWord
             try
             {
                 string text = richTextBox1.Text;
-                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, "Текст1☺h1Текст2☺h1Текст3"));
+                UserInput userInput = new UserInput();
+                userInput.comboBox22 = new string[comboBox2.Items.Count];
+                for (int i = 0; i < comboBox2.Items.Count; i++)
+                {
+                    userInput.comboBox22[i] = comboBox2.Items[i].ToString();
+                }
+                userInput.comboBox44 = new string[comboBox4.Items.Count];
+                for (int i = 0; i < comboBox2.Items.Count; i++)
+                {
+                    userInput.comboBox22[i] = comboBox2.Items[i].ToString();
+                }
+                userInput.comboBox55 = new string[comboBox5.Items.Count];
+                for (int i = 0; i < comboBox2.Items.Count; i++)
+                {
+                    userInput.comboBox22[i] = comboBox2.Items[i].ToString();
+                }
+                userInput.comboBox33 = new string[comboBox3.Items.Count];
+                for (int i = 0; i < comboBox2.Items.Count; i++)
+                {
+                    userInput.comboBox22[i] = comboBox2.Items[i].ToString();
+                }
+                userInput.text22 = this.text;
+                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, "Текст1\n☺h1\nТекст2\n☺h1\nТекст3\n☺h1\ntest\n", userInput));
             }
             catch
             {
@@ -337,7 +360,7 @@ namespace MakeReportWord
         private void Open1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "|*.Аллянов;";
+            openFileDialog.Filter = "|*.wordkiller;";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 FileStream file = new FileStream(openFileDialog.FileName, FileMode.Open);
@@ -361,27 +384,10 @@ namespace MakeReportWord
                 reader.Close();
             }
         }
-
-        public string ProcessSpecial(int i,string special)
-        {
-            string text = string.Empty;
-            if(special=="h1")
-            {
-                text=comboBox2.Items[i-1].ToString();
-            }
-            else if (special == "h2")
-            {
-                text=comboBox4.Items[i-1].ToString();
-            }
-            else if (special == "l")
-            {
-                text=comboBox5.Items[i-1].ToString();
-            }
-            else if (special == "p")
-            {
-                text=comboBox3.Items[i-1].ToString();
-            }
-            return text;
-        }
+    }
+    class UserInput
+    {
+        public string[] comboBox22, comboBox44, comboBox55, comboBox33;
+        public string text22;
     }
 }
