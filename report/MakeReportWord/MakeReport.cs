@@ -136,7 +136,7 @@ namespace MakeReportWord
             }
         }
 
-        public string ProcessSpecial(int i, string special, UserInput content)
+        string ProcessSpecial(int i, string special, UserInput content)
         {
             string text = string.Empty;
             if (special == "h1")

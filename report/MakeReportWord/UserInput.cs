@@ -1,5 +1,4 @@
-﻿
-namespace MakeReportWord
+﻿namespace MakeReportWord
 {
     class UserInput
     {
