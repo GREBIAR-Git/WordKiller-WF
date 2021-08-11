@@ -269,29 +269,12 @@ namespace MakeReportWord
             string year = yearTextBox.Text;
             try
             {
-                string text = richTextBox.Text;
                 UserInput userInput = new UserInput();
-                userInput.ComboBoxH1 = new string[heading1ComboBox.Items.Count];
-                for (int i = 0; i < heading1ComboBox.Items.Count; i++)
-                {
-                    userInput.ComboBoxH1[i] = heading1ComboBox.Items[i].ToString();
-                }
-                userInput.ComboBoxH2 = new string[heading2ComboBox.Items.Count];
-                for (int i = 0; i < heading2ComboBox.Items.Count; i++)
-                {
-                    userInput.ComboBoxH2[i] = heading2ComboBox.Items[i].ToString();
-                }
-                userInput.ComboBoxL = new string[listComboBox.Items.Count];
-                for (int i = 0; i < listComboBox.Items.Count; i++)
-                {
-                    userInput.ComboBoxL[i] = listComboBox.Items[i].ToString();
-                }
-                userInput.ComboBoxP = new string[pictureComboBox.Items.Count];
-                for (int i = 0; i < pictureComboBox.Items.Count; i++)
-                {
-                    userInput.ComboBoxP[i] = pictureComboBox.Items[i].ToString();
-                }
-                userInput.Text = this.text;
+                userInput.ComboBoxH1 = DataComboBox(heading1ComboBox);
+                userInput.ComboBoxH2 = DataComboBox(heading2ComboBox);
+                userInput.ComboBoxL = DataComboBox(listComboBox);
+                userInput.ComboBoxP = DataComboBox(pictureComboBox);
+                userInput.Text = richTextBox.Text;
                 await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, userInput));
             }
             catch
@@ -303,6 +286,16 @@ namespace MakeReportWord
             {
                 Application.Exit();
             }
+        }
+
+        string[] DataComboBox(ComboBox comboBox)
+        {
+            string[] dataComboBox = new string[comboBox.Items.Count];
+            for (int i = 0; i < comboBox.Items.Count; i++)
+            {
+                dataComboBox[i] = comboBox.Items[i].ToString();
+            }
+            return dataComboBox;
         }
 
         void CloseWindow_Click(object sender, EventArgs e)
