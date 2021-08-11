@@ -99,7 +99,10 @@ namespace MakeReportWord
                 buttonText.Text = "К подстановкам";
                 elementLabel.Text = "текст";
                 richTextBox.Text = text;
-                buttonSpecial.Visible = true;
+                buttonSpecialH1.Visible = true;
+                buttonSpecialH2.Visible = true;
+                buttonSpecialL.Visible = true;
+                buttonSpecialP.Visible = true;
             }
             else
             {
@@ -107,7 +110,10 @@ namespace MakeReportWord
                 buttonText.Text = "К тексту";
                 elementLabel.Text = "нечто";
                 richTextBox.Text = string.Empty;
-                buttonSpecial.Visible = false;
+                buttonSpecialH1.Visible = false;
+                buttonSpecialH2.Visible = false;
+                buttonSpecialL.Visible = false;
+                buttonSpecialP.Visible = false;
             }
         }
 
@@ -255,10 +261,11 @@ namespace MakeReportWord
 
         void buttonSpecial_Click(object sender, EventArgs e)
         {
+            Button button = (Button)sender;
             int cursorSave = richTextBox.SelectionStart;
-            richTextBox.Text=richTextBox.Text.Insert(richTextBox.SelectionStart, "☺");
+            richTextBox.Text=richTextBox.Text.Insert(richTextBox.SelectionStart, "☺"+ button.Text.ToLower());
             richTextBox.Focus();
-            richTextBox.SelectionStart = cursorSave+1;
+            richTextBox.SelectionStart = cursorSave+ button.Text.Length+1;
         }
 
         async void ReadScroll_Click(object sender, EventArgs e)

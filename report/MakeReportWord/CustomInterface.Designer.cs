@@ -45,7 +45,6 @@ namespace MakeReportWord
             this.professorLabel = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.TableLayoutPanel();
             this.DownPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonSpecial = new System.Windows.Forms.Button();
             this.displayedLabel = new System.Windows.Forms.Label();
             this.elementLabel = new System.Windows.Forms.Label();
             this.buttonText = new System.Windows.Forms.Button();
@@ -63,6 +62,11 @@ namespace MakeReportWord
             this.buttonHeading2 = new System.Windows.Forms.Button();
             this.buttonPicture = new System.Windows.Forms.Button();
             this.buttonList = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonSpecialL = new System.Windows.Forms.Button();
+            this.buttonSpecialH2 = new System.Windows.Forms.Button();
+            this.buttonSpecialH1 = new System.Windows.Forms.Button();
+            this.buttonSpecialP = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.Scroll1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,6 +88,7 @@ namespace MakeReportWord
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
             this.elementPanel.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -318,12 +323,12 @@ namespace MakeReportWord
             this.DownPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.DownPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.DownPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.DownPanel.Controls.Add(this.buttonSpecial, 3, 1);
             this.DownPanel.Controls.Add(this.displayedLabel, 0, 1);
             this.DownPanel.Controls.Add(this.elementLabel, 1, 1);
             this.DownPanel.Controls.Add(this.buttonText, 4, 1);
             this.DownPanel.Controls.Add(this.richTextBox, 4, 2);
             this.DownPanel.Controls.Add(this.elementPanel, 0, 0);
+            this.DownPanel.Controls.Add(this.tableLayoutPanel1, 2, 1);
             this.DownPanel.Location = new System.Drawing.Point(4, 570);
             this.DownPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DownPanel.Name = "DownPanel";
@@ -333,23 +338,9 @@ namespace MakeReportWord
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.DownPanel.Size = new System.Drawing.Size(1204, 683);
             this.DownPanel.TabIndex = 2;
-            // 
-            // buttonSpecial
-            // 
-            this.buttonSpecial.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonSpecial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSpecial.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecial.Location = new System.Drawing.Point(717, 262);
-            this.buttonSpecial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonSpecial.Name = "buttonSpecial";
-            this.buttonSpecial.Size = new System.Drawing.Size(217, 71);
-            this.buttonSpecial.TabIndex = 16;
-            this.buttonSpecial.Text = "☺";
-            this.buttonSpecial.UseVisualStyleBackColor = true;
-            this.buttonSpecial.Visible = false;
-            this.buttonSpecial.Click += new System.EventHandler(this.buttonSpecial_Click);
             // 
             // displayedLabel
             // 
@@ -436,6 +427,7 @@ namespace MakeReportWord
             this.elementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46F));
             this.elementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.elementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29F));
+            this.elementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.elementPanel.Size = new System.Drawing.Size(1038, 234);
             this.elementPanel.TabIndex = 0;
             // 
@@ -610,6 +602,83 @@ namespace MakeReportWord
             this.buttonList.Text = "Добавить";
             this.buttonList.UseVisualStyleBackColor = true;
             this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.DownPanel.SetColumnSpan(this.tableLayoutPanel1, 2);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.buttonSpecialP, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonSpecialL, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonSpecialH2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonSpecialH1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(488, 257);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(450, 81);
+            this.tableLayoutPanel1.TabIndex = 30;
+            // 
+            // buttonSpecialL
+            // 
+            this.buttonSpecialL.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSpecialL.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSpecialL.Location = new System.Drawing.Point(228, 5);
+            this.buttonSpecialL.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonSpecialL.Name = "buttonSpecialL";
+            this.buttonSpecialL.Size = new System.Drawing.Size(104, 71);
+            this.buttonSpecialL.TabIndex = 19;
+            this.buttonSpecialL.Text = "L";
+            this.buttonSpecialL.UseVisualStyleBackColor = true;
+            this.buttonSpecialL.Visible = false;
+            this.buttonSpecialL.Click += new System.EventHandler(this.buttonSpecial_Click);
+            // 
+            // buttonSpecialH2
+            // 
+            this.buttonSpecialH2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSpecialH2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSpecialH2.Location = new System.Drawing.Point(116, 5);
+            this.buttonSpecialH2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonSpecialH2.Name = "buttonSpecialH2";
+            this.buttonSpecialH2.Size = new System.Drawing.Size(104, 71);
+            this.buttonSpecialH2.TabIndex = 18;
+            this.buttonSpecialH2.Text = "H2";
+            this.buttonSpecialH2.UseVisualStyleBackColor = true;
+            this.buttonSpecialH2.Visible = false;
+            this.buttonSpecialH2.Click += new System.EventHandler(this.buttonSpecial_Click);
+            // 
+            // buttonSpecialH1
+            // 
+            this.buttonSpecialH1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSpecialH1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSpecialH1.Location = new System.Drawing.Point(4, 5);
+            this.buttonSpecialH1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonSpecialH1.Name = "buttonSpecialH1";
+            this.buttonSpecialH1.Size = new System.Drawing.Size(104, 71);
+            this.buttonSpecialH1.TabIndex = 17;
+            this.buttonSpecialH1.Text = "H1";
+            this.buttonSpecialH1.UseVisualStyleBackColor = true;
+            this.buttonSpecialH1.Visible = false;
+            this.buttonSpecialH1.Click += new System.EventHandler(this.buttonSpecial_Click);
+            // 
+            // buttonSpecialP
+            // 
+            this.buttonSpecialP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSpecialP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSpecialP.Location = new System.Drawing.Point(340, 5);
+            this.buttonSpecialP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonSpecialP.Name = "buttonSpecialP";
+            this.buttonSpecialP.Size = new System.Drawing.Size(104, 71);
+            this.buttonSpecialP.TabIndex = 16;
+            this.buttonSpecialP.Text = "P";
+            this.buttonSpecialP.UseVisualStyleBackColor = true;
+            this.buttonSpecialP.Visible = false;
+            this.buttonSpecialP.Click += new System.EventHandler(this.buttonSpecial_Click);
             // 
             // buttonUp
             // 
@@ -788,6 +857,7 @@ namespace MakeReportWord
             this.DownPanel.PerformLayout();
             this.elementPanel.ResumeLayout(false);
             this.elementPanel.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -829,9 +899,7 @@ namespace MakeReportWord
         private System.Windows.Forms.Button buttonPicture;
         private System.Windows.Forms.Label displayedLabel;
         private System.Windows.Forms.Label elementLabel;
-        private System.Windows.Forms.Button buttonText;
         private System.Windows.Forms.TableLayoutPanel elementPanel;
-        private System.Windows.Forms.Button buttonSpecial;
         private System.Windows.Forms.ToolStripMenuItem Scroll1;
         private System.Windows.Forms.ToolStripMenuItem ReadScroll;
         private System.Windows.Forms.ToolStripMenuItem CloseWindow;
@@ -847,6 +915,12 @@ namespace MakeReportWord
         private System.Windows.Forms.ToolStripMenuItem Save;
         private System.Windows.Forms.ToolStripMenuItem Open;
         private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.Button buttonText;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button buttonSpecialP;
+        private System.Windows.Forms.Button buttonSpecialL;
+        private System.Windows.Forms.Button buttonSpecialH2;
+        private System.Windows.Forms.Button buttonSpecialH1;
     }
 }
 
