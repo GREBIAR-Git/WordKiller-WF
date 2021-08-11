@@ -61,25 +61,25 @@ namespace MakeReportWord
             this.pictureComboBox = new System.Windows.Forms.ComboBox();
             this.buttonHeading1 = new System.Windows.Forms.Button();
             this.buttonHeading2 = new System.Windows.Forms.Button();
-            this.buttonList = new System.Windows.Forms.Button();
             this.buttonPicture = new System.Windows.Forms.Button();
+            this.buttonList = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.Scroll1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Scroll = new System.Windows.Forms.ToolStripMenuItem();
             this.ReadScroll = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseWindow = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Type1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Lab1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Practice1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Kurs1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Ref1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Diplom1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.VKR1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.RGR1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Save1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Open1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.Type = new System.Windows.Forms.ToolStripMenuItem();
+            this.Lab = new System.Windows.Forms.ToolStripMenuItem();
+            this.Practice = new System.Windows.Forms.ToolStripMenuItem();
+            this.Kurs = new System.Windows.Forms.ToolStripMenuItem();
+            this.Ref = new System.Windows.Forms.ToolStripMenuItem();
+            this.Diplom = new System.Windows.Forms.ToolStripMenuItem();
+            this.VKR = new System.Windows.Forms.ToolStripMenuItem();
+            this.RGR = new System.Windows.Forms.ToolStripMenuItem();
+            this.Save = new System.Windows.Forms.ToolStripMenuItem();
+            this.Open = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
@@ -337,7 +337,7 @@ namespace MakeReportWord
             this.buttonSpecial.Text = "☺";
             this.buttonSpecial.UseVisualStyleBackColor = true;
             this.buttonSpecial.Visible = false;
-            this.buttonSpecial.Click += new System.EventHandler(this.button7_Click);
+            this.buttonSpecial.Click += new System.EventHandler(this.buttonSpecial_Click);
             // 
             // label1
             // 
@@ -374,11 +374,11 @@ namespace MakeReportWord
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(628, 170);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 39);
+            this.button1.Size = new System.Drawing.Size(147, 39);
             this.button1.TabIndex = 30;
             this.button1.Text = "К тексту";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button8_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox
             // 
@@ -390,7 +390,7 @@ namespace MakeReportWord
             this.richTextBox.Size = new System.Drawing.Size(747, 211);
             this.richTextBox.TabIndex = 9;
             this.richTextBox.Text = "";
-            this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
             // 
             // tableLayoutPanel4
             // 
@@ -432,7 +432,7 @@ namespace MakeReportWord
             this.heading1Label.Location = new System.Drawing.Point(3, 0);
             this.heading1Label.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.heading1Label.Name = "heading1Label";
-            this.heading1Label.Size = new System.Drawing.Size(157, 67);
+            this.heading1Label.Size = new System.Drawing.Size(157, 64);
             this.heading1Label.TabIndex = 15;
             this.heading1Label.Text = "Заголовок 1";
             this.heading1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -447,7 +447,7 @@ namespace MakeReportWord
             this.heading2Label.Location = new System.Drawing.Point(166, 0);
             this.heading2Label.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.heading2Label.Name = "heading2Label";
-            this.heading2Label.Size = new System.Drawing.Size(157, 67);
+            this.heading2Label.Size = new System.Drawing.Size(157, 64);
             this.heading2Label.TabIndex = 16;
             this.heading2Label.Text = "Заголовок 2";
             this.heading2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -462,7 +462,7 @@ namespace MakeReportWord
             this.listLabel.Location = new System.Drawing.Point(329, 0);
             this.listLabel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.listLabel.Name = "listLabel";
-            this.listLabel.Size = new System.Drawing.Size(157, 67);
+            this.listLabel.Size = new System.Drawing.Size(157, 64);
             this.listLabel.TabIndex = 17;
             this.listLabel.Text = "Список";
             this.listLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -547,7 +547,7 @@ namespace MakeReportWord
             this.buttonHeading1.TabIndex = 10;
             this.buttonHeading1.Text = "Добавить";
             this.buttonHeading1.UseVisualStyleBackColor = true;
-            this.buttonHeading1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonHeading1.Click += new System.EventHandler(this.buttonHeading1_Click);
             // 
             // buttonHeading2
             // 
@@ -559,19 +559,7 @@ namespace MakeReportWord
             this.buttonHeading2.TabIndex = 24;
             this.buttonHeading2.Text = "Добавить";
             this.buttonHeading2.UseVisualStyleBackColor = true;
-            this.buttonHeading2.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // buttonList
-            // 
-            this.buttonList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonList.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonList.Location = new System.Drawing.Point(329, 110);
-            this.buttonList.Name = "buttonList";
-            this.buttonList.Size = new System.Drawing.Size(157, 38);
-            this.buttonList.TabIndex = 25;
-            this.buttonList.Text = "Добавить";
-            this.buttonList.UseVisualStyleBackColor = true;
-            this.buttonList.Click += new System.EventHandler(this.button5_Click);
+            this.buttonHeading2.Click += new System.EventHandler(this.buttonHeading2_Click);
             // 
             // buttonPicture
             // 
@@ -583,7 +571,19 @@ namespace MakeReportWord
             this.buttonPicture.TabIndex = 26;
             this.buttonPicture.Text = "Добавить";
             this.buttonPicture.UseVisualStyleBackColor = true;
-            this.buttonPicture.Click += new System.EventHandler(this.button6_Click);
+            this.buttonPicture.Click += new System.EventHandler(this.buttonPicture_Click);
+            // 
+            // buttonList
+            // 
+            this.buttonList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonList.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonList.Location = new System.Drawing.Point(329, 108);
+            this.buttonList.Name = "buttonList";
+            this.buttonList.Size = new System.Drawing.Size(157, 38);
+            this.buttonList.TabIndex = 25;
+            this.buttonList.Text = "Добавить";
+            this.buttonList.UseVisualStyleBackColor = true;
+            this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
             // 
             // buttonUp
             // 
@@ -599,7 +599,7 @@ namespace MakeReportWord
             this.buttonUp.TabIndex = 15;
             this.buttonUp.Text = " ";
             this.buttonUp.UseVisualStyleBackColor = true;
-            this.buttonUp.Click += new System.EventHandler(this.button3_Click);
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
             // 
             // buttonDown
             // 
@@ -618,31 +618,31 @@ namespace MakeReportWord
             this.buttonDown.TabIndex = 14;
             this.buttonDown.Text = " ";
             this.buttonDown.UseVisualStyleBackColor = true;
-            this.buttonDown.Click += new System.EventHandler(this.button2_Click);
+            this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
             // 
             // menuStrip
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Scroll1,
-            this.Type1,
-            this.Save1,
-            this.Open1});
+            this.Scroll,
+            this.Type,
+            this.Save,
+            this.Open});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(994, 24);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip1";
             // 
-            // Scroll1
+            // Scroll
             // 
-            this.Scroll1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Scroll.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ReadScroll,
             this.CloseWindow,
-            this.ExitMenuItem});
-            this.Scroll1.Name = "Scroll1";
-            this.Scroll1.Size = new System.Drawing.Size(106, 20);
-            this.Scroll1.Text = "Свиток дракона";
+            this.Exit});
+            this.Scroll.Name = "Scroll";
+            this.Scroll.Size = new System.Drawing.Size(106, 20);
+            this.Scroll.Text = "Свиток дракона";
             // 
             // ReadScroll
             // 
@@ -658,85 +658,85 @@ namespace MakeReportWord
             this.CloseWindow.Text = "Разложить приложение на первоначальные элементы по завершении";
             this.CloseWindow.Click += new System.EventHandler(this.CloseWindow_Click);
             // 
-            // ExitMenuItem
+            // Exit
             // 
-            this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(465, 22);
-            this.ExitMenuItem.Text = "Выход";
-            this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(465, 22);
+            this.Exit.Text = "Выход";
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // Type1
+            // Type
             // 
-            this.Type1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Lab1,
-            this.Practice1,
-            this.Kurs1,
-            this.Ref1,
-            this.Diplom1,
-            this.VKR1,
-            this.RGR1});
-            this.Type1.Name = "Type1";
-            this.Type1.Size = new System.Drawing.Size(39, 20);
-            this.Type1.Text = "Тип";
+            this.Type.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Lab,
+            this.Practice,
+            this.Kurs,
+            this.Ref,
+            this.Diplom,
+            this.VKR,
+            this.RGR});
+            this.Type.Name = "Type";
+            this.Type.Size = new System.Drawing.Size(39, 20);
+            this.Type.Text = "Тип";
             // 
-            // Lab1
+            // Lab
             // 
-            this.Lab1.Checked = true;
-            this.Lab1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Lab1.Name = "Lab1";
-            this.Lab1.Size = new System.Drawing.Size(180, 22);
-            this.Lab1.Text = "Лабораторная";
-            this.Lab1.Click += new System.EventHandler(this.Lab1_Click);
+            this.Lab.Checked = true;
+            this.Lab.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Lab.Name = "Lab";
+            this.Lab.Size = new System.Drawing.Size(180, 22);
+            this.Lab.Text = "Лабораторная";
+            this.Lab.Click += new System.EventHandler(this.Lab_Click);
             // 
-            // Practice1
+            // Practice
             // 
-            this.Practice1.Name = "Practice1";
-            this.Practice1.Size = new System.Drawing.Size(180, 22);
-            this.Practice1.Text = "Практическая";
+            this.Practice.Name = "Practice";
+            this.Practice.Size = new System.Drawing.Size(180, 22);
+            this.Practice.Text = "Практическая";
             // 
-            // Kurs1
+            // Kurs
             // 
-            this.Kurs1.Name = "Kurs1";
-            this.Kurs1.Size = new System.Drawing.Size(180, 22);
-            this.Kurs1.Text = "Курсовая";
+            this.Kurs.Name = "Kurs";
+            this.Kurs.Size = new System.Drawing.Size(180, 22);
+            this.Kurs.Text = "Курсовая";
             // 
-            // Ref1
+            // Ref
             // 
-            this.Ref1.Name = "Ref1";
-            this.Ref1.Size = new System.Drawing.Size(180, 22);
-            this.Ref1.Text = "Реферат";
+            this.Ref.Name = "Ref";
+            this.Ref.Size = new System.Drawing.Size(180, 22);
+            this.Ref.Text = "Реферат";
             // 
-            // Diplom1
+            // Diplom
             // 
-            this.Diplom1.Name = "Diplom1";
-            this.Diplom1.Size = new System.Drawing.Size(180, 22);
-            this.Diplom1.Text = "Диплом";
+            this.Diplom.Name = "Diplom";
+            this.Diplom.Size = new System.Drawing.Size(180, 22);
+            this.Diplom.Text = "Диплом";
             // 
-            // VKR1
+            // VKR
             // 
-            this.VKR1.Name = "VKR1";
-            this.VKR1.Size = new System.Drawing.Size(180, 22);
-            this.VKR1.Text = "ВКР";
+            this.VKR.Name = "VKR";
+            this.VKR.Size = new System.Drawing.Size(180, 22);
+            this.VKR.Text = "ВКР";
             // 
-            // RGR1
+            // RGR
             // 
-            this.RGR1.Name = "RGR1";
-            this.RGR1.Size = new System.Drawing.Size(180, 22);
-            this.RGR1.Text = "РГР";
+            this.RGR.Name = "RGR";
+            this.RGR.Size = new System.Drawing.Size(180, 22);
+            this.RGR.Text = "РГР";
             // 
-            // Save1
+            // Save
             // 
-            this.Save1.Name = "Save1";
-            this.Save1.Size = new System.Drawing.Size(86, 20);
-            this.Save1.Text = "Сохранение";
-            this.Save1.Click += new System.EventHandler(this.Save1_Click);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(86, 20);
+            this.Save.Text = "Сохранение";
+            this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
-            // Open1
+            // Open
             // 
-            this.Open1.Name = "Open1";
-            this.Open1.Size = new System.Drawing.Size(73, 20);
-            this.Open1.Text = "Открытие";
-            this.Open1.Click += new System.EventHandler(this.Open1_Click);
+            this.Open.Name = "Open";
+            this.Open.Size = new System.Drawing.Size(73, 20);
+            this.Open.Text = "Открытие";
+            this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
             // openFileDialog1
             // 
@@ -756,7 +756,7 @@ namespace MakeReportWord
             this.MaximizeBox = false;
             this.Name = "CustomInterface";
             this.Text = "Сотворение документа из небытия";
-            this.Shown += new System.EventHandler(this.Form1_Shown);
+            this.Shown += new System.EventHandler(this.CustomInterface_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -791,18 +791,18 @@ namespace MakeReportWord
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem Scroll1;
+        private System.Windows.Forms.ToolStripMenuItem Scroll;
         private System.Windows.Forms.ToolStripMenuItem ReadScroll;
         private System.Windows.Forms.ToolStripMenuItem CloseWindow;
-        private System.Windows.Forms.ToolStripMenuItem Type1;
-        private System.Windows.Forms.ToolStripMenuItem Lab1;
-        private System.Windows.Forms.ToolStripMenuItem Practice1;
-        private System.Windows.Forms.ToolStripMenuItem Kurs1;
-        private System.Windows.Forms.ToolStripMenuItem Ref1;
-        private System.Windows.Forms.ToolStripMenuItem Diplom1;
-        private System.Windows.Forms.ToolStripMenuItem VKR1;
-        private System.Windows.Forms.ToolStripMenuItem RGR1;
-        private System.Windows.Forms.ToolStripMenuItem Save1;
+        private System.Windows.Forms.ToolStripMenuItem Type;
+        private System.Windows.Forms.ToolStripMenuItem Lab;
+        private System.Windows.Forms.ToolStripMenuItem Practice;
+        private System.Windows.Forms.ToolStripMenuItem Kurs;
+        private System.Windows.Forms.ToolStripMenuItem Ref;
+        private System.Windows.Forms.ToolStripMenuItem Diplom;
+        private System.Windows.Forms.ToolStripMenuItem VKR;
+        private System.Windows.Forms.ToolStripMenuItem RGR;
+        private System.Windows.Forms.ToolStripMenuItem Save;
         private System.Windows.Forms.RichTextBox richTextBox;
         private System.Windows.Forms.Button buttonHeading1;
         private System.Windows.Forms.Label heading2Label;
@@ -819,11 +819,11 @@ namespace MakeReportWord
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem ExitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Exit;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.ToolStripMenuItem Open1;
+        private System.Windows.Forms.ToolStripMenuItem Open;
         private System.Windows.Forms.Button buttonSpecial;
     }
 }

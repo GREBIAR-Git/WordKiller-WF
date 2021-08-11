@@ -30,7 +30,7 @@ namespace MakeReportWord
                     e.Graphics.FillRectangle(brush, e.CellBounds);
         }
 
-        private void Form1_Shown(object sender, EventArgs e)
+        private void CustomInterface_Shown(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(255, 50, 39, 62);
             facultyLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
@@ -65,85 +65,33 @@ namespace MakeReportWord
             showTop(sender, e);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonDown_Click(object sender, EventArgs e)
         {
             showBottom(sender, e);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonUp_Click(object sender, EventArgs e)
         {
             showTop(sender, e);
         }
 
         private void showBottom(object sender, EventArgs e)
         {
+            buttonUp.Visible = true;
             buttonDown.Visible = false;
             tableLayoutPanel1.Visible = false;
-            buttonUp.Visible = true;
             tableLayoutPanel3.Visible = true;
         }
 
         private void showTop(object sender, EventArgs e)
         {
-            tableLayoutPanel3.Visible = false;
             buttonUp.Visible = false;
-            tableLayoutPanel1.Visible = true;
             buttonDown.Visible = true;
+            tableLayoutPanel1.Visible = true;
+            tableLayoutPanel3.Visible = false;
         }
 
-        private void CloseWindow_Click(object sender, EventArgs e)
-        {
-            CloseWindow.Checked = !CloseWindow.Checked;
-        }
-
-        private async void ReadScroll_Click(object sender, EventArgs e)
-        {
-            MakeReport report = new MakeReport();
-            string faculty = facultyComboBox.Text;
-            string numberLab = numberLabTextBox.Text;
-            string theme = themeTextBox.Text;
-            string discipline = disciplineTextBox.Text;
-            string professor = professorTextBox.Text;
-            string year = yearTextBox.Text;
-            try
-            {
-                string text = richTextBox.Text;
-                UserInput userInput = new UserInput();
-                userInput.ComboBoxH1 = new string[heading1ComboBox.Items.Count];
-                for (int i = 0; i < heading1ComboBox.Items.Count; i++)
-                {
-                    userInput.ComboBoxH1[i] = heading1ComboBox.Items[i].ToString();
-                }
-                userInput.ComboBoxH2 = new string[heading2ComboBox.Items.Count];
-                for (int i = 0; i < heading2ComboBox.Items.Count; i++)
-                {
-                    userInput.ComboBoxH2[i] = heading2ComboBox.Items[i].ToString();
-                }
-                userInput.ComboBoxL = new string[listComboBox.Items.Count];
-                for (int i = 0; i < listComboBox.Items.Count; i++)
-                {
-                    userInput.ComboBoxL[i] = listComboBox.Items[i].ToString();
-                }
-                userInput.ComboBoxP = new string[pictureComboBox.Items.Count];
-                for (int i = 0; i < pictureComboBox.Items.Count; i++)
-                {
-                    userInput.ComboBoxP[i] = pictureComboBox.Items[i].ToString();
-                }
-                userInput.Text = this.text;
-                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, userInput));
-            }
-            catch
-            {
-                MessageBox.Show("Что-то пошло не так :(", "Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error,MessageBoxDefaultButton.Button1,MessageBoxOptions.DefaultDesktopOnly);
-            }
-
-            if (CloseWindow.Checked)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void button8_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             if (button1.Text == "К тексту")
             {
@@ -158,21 +106,10 @@ namespace MakeReportWord
                 tableLayoutPanel4.Visible = true;
                 button1.Text = "К тексту";
                 label2.Text = "нечто";
-                richTextBox.Text = "";
+                richTextBox.Text = string.Empty;
                 buttonSpecial.Visible = false;
             }
         }
-
-        private void Lab1_Click(object sender, EventArgs e)
-        {
-            Lab1.Checked = !Lab1.Checked;
-        }
-
-        private void ExitMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
 
         private void AddToComboBox(ComboBox comboBox, string element)
         {
@@ -205,7 +142,7 @@ namespace MakeReportWord
             else
             {
                 label2.Text = "нечто";
-                richTextBox.Text = "";
+                richTextBox.Text = string.Empty;
             }
         }
 
@@ -260,7 +197,7 @@ namespace MakeReportWord
             }
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void richTextBox_TextChanged(object sender, EventArgs e)
         {
             if (label2.Text != "нечто" && label2.Text != "текст")
             {
@@ -295,28 +232,95 @@ namespace MakeReportWord
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonHeading1_Click(object sender, EventArgs e)
         {
             AddToComboBox(heading1ComboBox, richTextBox.Text);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonHeading2_Click(object sender, EventArgs e)
         {
             AddToComboBox(heading2ComboBox, richTextBox.Text);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void buttonList_Click(object sender, EventArgs e)
         {
             AddToComboBox(listComboBox, richTextBox.Text);
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void buttonPicture_Click(object sender, EventArgs e)
         {
             AddToComboBox(pictureComboBox, richTextBox.Text);
             // picture
         }
 
-        private void Save1_Click(object sender, EventArgs e)
+        private void buttonSpecial_Click(object sender, EventArgs e)
+        {
+            richTextBox.Text += "☺";
+        }
+
+        private async void ReadScroll_Click(object sender, EventArgs e)
+        {
+            MakeReport report = new MakeReport();
+            string faculty = facultyComboBox.Text;
+            string numberLab = numberLabTextBox.Text;
+            string theme = themeTextBox.Text;
+            string discipline = disciplineTextBox.Text;
+            string professor = professorTextBox.Text;
+            string year = yearTextBox.Text;
+            try
+            {
+                string text = richTextBox.Text;
+                UserInput userInput = new UserInput();
+                userInput.ComboBoxH1 = new string[heading1ComboBox.Items.Count];
+                for (int i = 0; i < heading1ComboBox.Items.Count; i++)
+                {
+                    userInput.ComboBoxH1[i] = heading1ComboBox.Items[i].ToString();
+                }
+                userInput.ComboBoxH2 = new string[heading2ComboBox.Items.Count];
+                for (int i = 0; i < heading2ComboBox.Items.Count; i++)
+                {
+                    userInput.ComboBoxH2[i] = heading2ComboBox.Items[i].ToString();
+                }
+                userInput.ComboBoxL = new string[listComboBox.Items.Count];
+                for (int i = 0; i < listComboBox.Items.Count; i++)
+                {
+                    userInput.ComboBoxL[i] = listComboBox.Items[i].ToString();
+                }
+                userInput.ComboBoxP = new string[pictureComboBox.Items.Count];
+                for (int i = 0; i < pictureComboBox.Items.Count; i++)
+                {
+                    userInput.ComboBoxP[i] = pictureComboBox.Items[i].ToString();
+                }
+                userInput.Text = this.text;
+                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, userInput));
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так :(", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            }
+
+            if (CloseWindow.Checked)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void CloseWindow_Click(object sender, EventArgs e)
+        {
+            CloseWindow.Checked = !CloseWindow.Checked;
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Lab_Click(object sender, EventArgs e)
+        {
+            Lab.Checked = !Lab.Checked;
+        }
+
+        private void Save_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "|*.wordkiller;";
@@ -356,7 +360,7 @@ namespace MakeReportWord
             }
         }
 
-        private void Open1_Click(object sender, EventArgs e)
+        private void Open_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "|*.wordkiller;";
@@ -382,11 +386,6 @@ namespace MakeReportWord
                 }
                 reader.Close();
             }
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            richTextBox.Text += "☺";
         }
     }
 }
