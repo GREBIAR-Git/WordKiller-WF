@@ -31,40 +31,41 @@ namespace MakeReportWord
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomInterface));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.facultyLabel = new System.Windows.Forms.Label();
+            this.facultyComboBox = new System.Windows.Forms.ComboBox();
+            this.numberLabTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.numberLabLabel = new System.Windows.Forms.Label();
+            this.themeLabel = new System.Windows.Forms.Label();
+            this.themeTextBox = new System.Windows.Forms.TextBox();
+            this.disciplineLabel = new System.Windows.Forms.Label();
+            this.disciplineTextBox = new System.Windows.Forms.TextBox();
+            this.professorTextBox = new System.Windows.Forms.TextBox();
+            this.yearLabel = new System.Windows.Forms.Label();
+            this.yearTextBox = new System.Windows.Forms.TextBox();
+            this.professorLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.buttonSpecial = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.richTextBox = new System.Windows.Forms.RichTextBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.heading1Label = new System.Windows.Forms.Label();
+            this.heading2Label = new System.Windows.Forms.Label();
+            this.listLabel = new System.Windows.Forms.Label();
+            this.pictureLabel = new System.Windows.Forms.Label();
+            this.heading1ComboBox = new System.Windows.Forms.ComboBox();
+            this.heading2ComboBox = new System.Windows.Forms.ComboBox();
+            this.listComboBox = new System.Windows.Forms.ComboBox();
+            this.pictureComboBox = new System.Windows.Forms.ComboBox();
+            this.buttonHeading1 = new System.Windows.Forms.Button();
+            this.buttonHeading2 = new System.Windows.Forms.Button();
+            this.buttonList = new System.Windows.Forms.Button();
+            this.buttonPicture = new System.Windows.Forms.Button();
+            this.buttonUp = new System.Windows.Forms.Button();
+            this.buttonDown = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.Scroll1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ReadScroll = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseWindow = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,73 +82,71 @@ namespace MakeReportWord
             this.Open1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button7 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 375F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 764F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.maskedTextBox1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 6);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 509F));
+            this.tableLayoutPanel1.Controls.Add(this.facultyLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.facultyComboBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.numberLabTextBox, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.numberLabLabel, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.themeLabel, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.themeTextBox, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.disciplineLabel, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.disciplineTextBox, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.professorTextBox, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.yearLabel, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.yearTextBox, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.professorLabel, 0, 6);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(38, 23, 38, 23);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(25, 15, 25, 15);
             this.tableLayoutPanel1.RowCount = 9;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1214, 434);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(809, 282);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
             // 
-            // label1
+            // facultyLabel
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.facultyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(42, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(367, 50);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Кафедра:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.facultyLabel.AutoSize = true;
+            this.facultyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.facultyLabel.Location = new System.Drawing.Point(28, 15);
+            this.facultyLabel.Name = "facultyLabel";
+            this.facultyLabel.Size = new System.Drawing.Size(244, 38);
+            this.facultyLabel.TabIndex = 0;
+            this.facultyLabel.Text = "Кафедра:";
+            this.facultyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBox1
+            // facultyComboBox
             // 
-            this.comboBox1.DisplayMember = "1";
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.facultyComboBox.DisplayMember = "1";
+            this.facultyComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.facultyComboBox.FormattingEnabled = true;
+            this.facultyComboBox.Items.AddRange(new object[] {
             "программной инженерии",
             "прикладной математики и информатики",
             "информационных систем и цифровых технологий",
@@ -156,159 +155,148 @@ namespace MakeReportWord
             "информационной безопасности",
             "электрооборудования и энергосбережения",
             "технической физики"});
-            this.comboBox1.Location = new System.Drawing.Point(417, 28);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(752, 40);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.Text = "программной инженерии";
+            this.facultyComboBox.Location = new System.Drawing.Point(278, 18);
+            this.facultyComboBox.Name = "facultyComboBox";
+            this.facultyComboBox.Size = new System.Drawing.Size(503, 32);
+            this.facultyComboBox.TabIndex = 1;
+            this.facultyComboBox.Text = "программной инженерии";
             // 
-            // maskedTextBox1
+            // numberLabTextBox
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(417, 78);
-            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(752, 39);
-            this.maskedTextBox1.TabIndex = 3;
+            this.numberLabTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numberLabTextBox.Location = new System.Drawing.Point(278, 56);
+            this.numberLabTextBox.Name = "numberLabTextBox";
+            this.numberLabTextBox.Size = new System.Drawing.Size(503, 29);
+            this.numberLabTextBox.TabIndex = 3;
             // 
-            // label2
+            // numberLabLabel
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.numberLabLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(42, 73);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(367, 49);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Номер лабораторной:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.numberLabLabel.AutoSize = true;
+            this.numberLabLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numberLabLabel.Location = new System.Drawing.Point(28, 53);
+            this.numberLabLabel.Name = "numberLabLabel";
+            this.numberLabLabel.Size = new System.Drawing.Size(244, 35);
+            this.numberLabLabel.TabIndex = 2;
+            this.numberLabLabel.Text = "Номер лабораторной:";
+            this.numberLabLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
+            // themeLabel
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.themeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(42, 153);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(367, 49);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Тема: ";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.themeLabel.AutoSize = true;
+            this.themeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.themeLabel.Location = new System.Drawing.Point(28, 108);
+            this.themeLabel.Name = "themeLabel";
+            this.themeLabel.Size = new System.Drawing.Size(244, 35);
+            this.themeLabel.TabIndex = 4;
+            this.themeLabel.Text = "Тема: ";
+            this.themeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox1
+            // themeTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(417, 158);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox1.Size = new System.Drawing.Size(756, 39);
-            this.textBox1.TabIndex = 5;
+            this.themeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.themeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.themeTextBox.Location = new System.Drawing.Point(278, 111);
+            this.themeTextBox.Name = "themeTextBox";
+            this.themeTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.themeTextBox.Size = new System.Drawing.Size(503, 29);
+            this.themeTextBox.TabIndex = 5;
             // 
-            // label4
+            // disciplineLabel
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.disciplineLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(42, 202);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(367, 49);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Дисциплина:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.disciplineLabel.AutoSize = true;
+            this.disciplineLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.disciplineLabel.Location = new System.Drawing.Point(28, 143);
+            this.disciplineLabel.Name = "disciplineLabel";
+            this.disciplineLabel.Size = new System.Drawing.Size(244, 35);
+            this.disciplineLabel.TabIndex = 6;
+            this.disciplineLabel.Text = "Дисциплина:";
+            this.disciplineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox2
+            // disciplineTextBox
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(417, 207);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox2.Size = new System.Drawing.Size(756, 39);
-            this.textBox2.TabIndex = 7;
+            this.disciplineTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.disciplineTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.disciplineTextBox.Location = new System.Drawing.Point(278, 146);
+            this.disciplineTextBox.Name = "disciplineTextBox";
+            this.disciplineTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.disciplineTextBox.Size = new System.Drawing.Size(503, 29);
+            this.disciplineTextBox.TabIndex = 7;
             // 
-            // textBox3
+            // professorTextBox
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(417, 287);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(756, 39);
-            this.textBox3.TabIndex = 9;
+            this.professorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.professorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.professorTextBox.Location = new System.Drawing.Point(278, 201);
+            this.professorTextBox.Name = "professorTextBox";
+            this.professorTextBox.Size = new System.Drawing.Size(503, 29);
+            this.professorTextBox.TabIndex = 9;
             // 
-            // label6
+            // yearLabel
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.yearLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(42, 331);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(367, 49);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Год:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.yearLabel.AutoSize = true;
+            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.yearLabel.Location = new System.Drawing.Point(28, 233);
+            this.yearLabel.Name = "yearLabel";
+            this.yearLabel.Size = new System.Drawing.Size(244, 35);
+            this.yearLabel.TabIndex = 10;
+            this.yearLabel.Text = "Год:";
+            this.yearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox4
+            // yearTextBox
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.Location = new System.Drawing.Point(417, 336);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(756, 39);
-            this.textBox4.TabIndex = 11;
-            this.textBox4.Text = "202";
+            this.yearTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.yearTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.yearTextBox.Location = new System.Drawing.Point(278, 236);
+            this.yearTextBox.Name = "yearTextBox";
+            this.yearTextBox.Size = new System.Drawing.Size(503, 29);
+            this.yearTextBox.TabIndex = 11;
+            this.yearTextBox.Text = "202";
             // 
-            // label5
+            // professorLabel
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.professorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(42, 282);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(367, 49);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Преподаватель:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.professorLabel.AutoSize = true;
+            this.professorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.professorLabel.Location = new System.Drawing.Point(28, 198);
+            this.professorLabel.Name = "professorLabel";
+            this.professorLabel.Size = new System.Drawing.Size(244, 35);
+            this.professorLabel.TabIndex = 8;
+            this.professorLabel.Text = "Преподаватель:";
+            this.professorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1214F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 809F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.button3, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.button2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.buttonUp, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.buttonDown, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(18, 42);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 18, 18);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 27);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 12, 12);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1214, 1258);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(809, 816);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -320,79 +308,89 @@ namespace MakeReportWord
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.button7, 3, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label12, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label13, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.button8, 4, 1);
-            this.tableLayoutPanel3.Controls.Add(this.richTextBox1, 4, 2);
+            this.tableLayoutPanel3.Controls.Add(this.buttonSpecial, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label2, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.button1, 4, 1);
+            this.tableLayoutPanel3.Controls.Add(this.richTextBox, 4, 2);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 570);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 369);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(38, 23, 38, 23);
+            this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(25, 15, 25, 15);
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1204, 683);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(803, 444);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // label12
+            // buttonSpecial
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.buttonSpecial.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSpecial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSpecial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSpecial.Location = new System.Drawing.Point(478, 170);
+            this.buttonSpecial.Name = "buttonSpecial";
+            this.buttonSpecial.Size = new System.Drawing.Size(144, 39);
+            this.buttonSpecial.TabIndex = 31;
+            this.buttonSpecial.Text = "☺";
+            this.buttonSpecial.UseVisualStyleBackColor = true;
+            this.buttonSpecial.Visible = false;
+            this.buttonSpecial.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(42, 257);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(217, 70);
-            this.label12.TabIndex = 28;
-            this.label12.Text = "Отображается:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(28, 167);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 45);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Отображается:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // label13
+            // label2
             // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(267, 257);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(217, 70);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "нечто";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(178, 167);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 45);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "нечто";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // button8
+            // button1
             // 
-            this.button8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button8.Location = new System.Drawing.Point(942, 277);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 20, 4, 5);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(216, 45);
-            this.button8.TabIndex = 30;
-            this.button8.Text = "К тексту";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(628, 170);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 39);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "К тексту";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button8_Click);
             // 
-            // richTextBox1
+            // richTextBox
             // 
-            this.tableLayoutPanel3.SetColumnSpan(this.richTextBox1, 5);
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(42, 332);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox1.Size = new System.Drawing.Size(1120, 323);
-            this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.tableLayoutPanel3.SetColumnSpan(this.richTextBox, 5);
+            this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox.Location = new System.Drawing.Point(28, 215);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBox.Size = new System.Drawing.Size(747, 211);
+            this.richTextBox.TabIndex = 9;
+            this.richTextBox.Text = "";
+            this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // tableLayoutPanel4
             // 
@@ -402,245 +400,239 @@ namespace MakeReportWord
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label8, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label9, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label11, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.comboBox2, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.comboBox4, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.comboBox5, 2, 1);
-            this.tableLayoutPanel4.Controls.Add(this.comboBox3, 3, 1);
-            this.tableLayoutPanel4.Controls.Add(this.button1, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.button4, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.button5, 2, 2);
-            this.tableLayoutPanel4.Controls.Add(this.button6, 3, 2);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(150, 23);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(112, 0, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.heading1Label, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.heading2Label, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.listLabel, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.pictureLabel, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.heading1ComboBox, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.heading2ComboBox, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.listComboBox, 2, 1);
+            this.tableLayoutPanel4.Controls.Add(this.pictureComboBox, 3, 1);
+            this.tableLayoutPanel4.Controls.Add(this.buttonHeading1, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.buttonHeading2, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.buttonPicture, 3, 2);
+            this.tableLayoutPanel4.Controls.Add(this.buttonList, 2, 2);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(75, 15);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.37862F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.81069F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.81069F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(904, 234);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.6457F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00236F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.35194F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(653, 152);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // label7
+            // heading1Label
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.heading1Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(4, 0);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(218, 99);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Заголовок 1";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.heading1Label.AutoSize = true;
+            this.heading1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.heading1Label.Location = new System.Drawing.Point(3, 0);
+            this.heading1Label.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.heading1Label.Name = "heading1Label";
+            this.heading1Label.Size = new System.Drawing.Size(157, 67);
+            this.heading1Label.TabIndex = 15;
+            this.heading1Label.Text = "Заголовок 1";
+            this.heading1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // heading2Label
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.heading2Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(230, 0);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(217, 99);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Заголовок 2";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.heading2Label.AutoSize = true;
+            this.heading2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.heading2Label.Location = new System.Drawing.Point(166, 0);
+            this.heading2Label.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.heading2Label.Name = "heading2Label";
+            this.heading2Label.Size = new System.Drawing.Size(157, 67);
+            this.heading2Label.TabIndex = 16;
+            this.heading2Label.Text = "Заголовок 2";
+            this.heading2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // listLabel
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(455, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(217, 99);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Список";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.listLabel.AutoSize = true;
+            this.listLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listLabel.Location = new System.Drawing.Point(329, 0);
+            this.listLabel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.listLabel.Name = "listLabel";
+            this.listLabel.Size = new System.Drawing.Size(157, 67);
+            this.listLabel.TabIndex = 17;
+            this.listLabel.Text = "Список";
+            this.listLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label11
+            // pictureLabel
             // 
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(680, 0);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(216, 98);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Картинка";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pictureLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureLabel.AutoSize = true;
+            this.pictureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pictureLabel.Location = new System.Drawing.Point(492, 0);
+            this.pictureLabel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.pictureLabel.Name = "pictureLabel";
+            this.pictureLabel.Size = new System.Drawing.Size(158, 64);
+            this.pictureLabel.TabIndex = 18;
+            this.pictureLabel.Text = "Картинка";
+            this.pictureLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox2
+            // heading1ComboBox
             // 
-            this.comboBox2.DisplayMember = "1";
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.heading1ComboBox.DisplayMember = "1";
+            this.heading1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.heading1ComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.heading1ComboBox.FormattingEnabled = true;
+            this.heading1ComboBox.Items.AddRange(new object[] {
             "Заголовок1",
             "Заголовок2"});
-            this.comboBox2.Location = new System.Drawing.Point(4, 104);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(214, 40);
-            this.comboBox2.TabIndex = 20;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
-            this.comboBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
+            this.heading1ComboBox.Location = new System.Drawing.Point(3, 70);
+            this.heading1ComboBox.Name = "heading1ComboBox";
+            this.heading1ComboBox.Size = new System.Drawing.Size(157, 32);
+            this.heading1ComboBox.TabIndex = 20;
+            this.heading1ComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.heading1ComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
             // 
-            // comboBox4
+            // heading2ComboBox
             // 
-            this.comboBox4.DisplayMember = "1";
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(230, 104);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(214, 40);
-            this.comboBox4.TabIndex = 21;
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
-            this.comboBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
+            this.heading2ComboBox.DisplayMember = "1";
+            this.heading2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.heading2ComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.heading2ComboBox.FormattingEnabled = true;
+            this.heading2ComboBox.Location = new System.Drawing.Point(166, 70);
+            this.heading2ComboBox.Name = "heading2ComboBox";
+            this.heading2ComboBox.Size = new System.Drawing.Size(157, 32);
+            this.heading2ComboBox.TabIndex = 21;
+            this.heading2ComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.heading2ComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
             // 
-            // comboBox5
+            // listComboBox
             // 
-            this.comboBox5.DisplayMember = "1";
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(455, 104);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(214, 40);
-            this.comboBox5.TabIndex = 22;
-            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
-            this.comboBox5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
+            this.listComboBox.DisplayMember = "1";
+            this.listComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.listComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listComboBox.FormattingEnabled = true;
+            this.listComboBox.Location = new System.Drawing.Point(329, 70);
+            this.listComboBox.Name = "listComboBox";
+            this.listComboBox.Size = new System.Drawing.Size(157, 32);
+            this.listComboBox.TabIndex = 22;
+            this.listComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.listComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
             // 
-            // comboBox3
+            // pictureComboBox
             // 
-            this.comboBox3.DisplayMember = "1";
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(680, 104);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(214, 40);
-            this.comboBox3.TabIndex = 23;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
-            this.comboBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
+            this.pictureComboBox.DisplayMember = "1";
+            this.pictureComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.pictureComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pictureComboBox.FormattingEnabled = true;
+            this.pictureComboBox.Location = new System.Drawing.Point(492, 70);
+            this.pictureComboBox.Name = "pictureComboBox";
+            this.pictureComboBox.Size = new System.Drawing.Size(158, 32);
+            this.pictureComboBox.TabIndex = 23;
+            this.pictureComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.pictureComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
             // 
-            // button1
+            // buttonHeading1
             // 
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(4, 171);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(216, 58);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonHeading1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonHeading1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonHeading1.Location = new System.Drawing.Point(3, 108);
+            this.buttonHeading1.Name = "buttonHeading1";
+            this.buttonHeading1.Size = new System.Drawing.Size(157, 38);
+            this.buttonHeading1.TabIndex = 10;
+            this.buttonHeading1.Text = "Добавить";
+            this.buttonHeading1.UseVisualStyleBackColor = true;
+            this.buttonHeading1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button4
+            // buttonHeading2
             // 
-            this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(230, 171);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(216, 58);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "Добавить";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonHeading2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonHeading2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonHeading2.Location = new System.Drawing.Point(166, 108);
+            this.buttonHeading2.Name = "buttonHeading2";
+            this.buttonHeading2.Size = new System.Drawing.Size(157, 38);
+            this.buttonHeading2.TabIndex = 24;
+            this.buttonHeading2.Text = "Добавить";
+            this.buttonHeading2.UseVisualStyleBackColor = true;
+            this.buttonHeading2.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // buttonList
             // 
-            this.button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(455, 171);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(216, 58);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "Добавить";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.buttonList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonList.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonList.Location = new System.Drawing.Point(329, 110);
+            this.buttonList.Name = "buttonList";
+            this.buttonList.Size = new System.Drawing.Size(157, 38);
+            this.buttonList.TabIndex = 25;
+            this.buttonList.Text = "Добавить";
+            this.buttonList.UseVisualStyleBackColor = true;
+            this.buttonList.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // buttonPicture
             // 
-            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(680, 171);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(216, 58);
-            this.button6.TabIndex = 26;
-            this.button6.Text = "Добавить";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.buttonPicture.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonPicture.Location = new System.Drawing.Point(492, 108);
+            this.buttonPicture.Name = "buttonPicture";
+            this.buttonPicture.Size = new System.Drawing.Size(158, 38);
+            this.buttonPicture.TabIndex = 26;
+            this.buttonPicture.Text = "Добавить";
+            this.buttonPicture.UseVisualStyleBackColor = true;
+            this.buttonPicture.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button3
+            // buttonUp
             // 
-            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsUp;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(192, 515);
-            this.button3.Margin = new System.Windows.Forms.Padding(192, 28, 192, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(830, 45);
-            this.button3.TabIndex = 15;
-            this.button3.Text = " ";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonUp.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonUp.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsUp;
+            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonUp.Location = new System.Drawing.Point(128, 334);
+            this.buttonUp.Margin = new System.Windows.Forms.Padding(128, 18, 128, 3);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.Size = new System.Drawing.Size(553, 29);
+            this.buttonUp.TabIndex = 15;
+            this.buttonUp.Text = " ";
+            this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // buttonDown
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.buttonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsDown;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(192, 439);
-            this.button2.Margin = new System.Windows.Forms.Padding(192, 5, 192, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(830, 43);
-            this.button2.TabIndex = 14;
-            this.button2.Text = " ";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonDown.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonDown.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsDown;
+            this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonDown.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDown.Location = new System.Drawing.Point(128, 285);
+            this.buttonDown.Margin = new System.Windows.Forms.Padding(128, 3, 128, 3);
+            this.buttonDown.Name = "buttonDown";
+            this.buttonDown.Size = new System.Drawing.Size(553, 28);
+            this.buttonDown.TabIndex = 14;
+            this.buttonDown.Text = " ";
+            this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonDown.Click += new System.EventHandler(this.button2_Click);
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Scroll1,
             this.Type1,
             this.Save1,
             this.Open1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1491, 35);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(994, 24);
+            this.menuStrip.TabIndex = 3;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // Scroll1
             // 
@@ -649,27 +641,27 @@ namespace MakeReportWord
             this.CloseWindow,
             this.ExitMenuItem});
             this.Scroll1.Name = "Scroll1";
-            this.Scroll1.Size = new System.Drawing.Size(156, 29);
+            this.Scroll1.Size = new System.Drawing.Size(106, 20);
             this.Scroll1.Text = "Свиток дракона";
             // 
             // ReadScroll
             // 
             this.ReadScroll.Name = "ReadScroll";
-            this.ReadScroll.Size = new System.Drawing.Size(671, 30);
+            this.ReadScroll.Size = new System.Drawing.Size(465, 22);
             this.ReadScroll.Text = "Прочитать заклинание материализации";
             this.ReadScroll.Click += new System.EventHandler(this.ReadScroll_Click);
             // 
             // CloseWindow
             // 
             this.CloseWindow.Name = "CloseWindow";
-            this.CloseWindow.Size = new System.Drawing.Size(671, 30);
+            this.CloseWindow.Size = new System.Drawing.Size(465, 22);
             this.CloseWindow.Text = "Разложить приложение на первоначальные элементы по завершении";
             this.CloseWindow.Click += new System.EventHandler(this.CloseWindow_Click);
             // 
             // ExitMenuItem
             // 
             this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(671, 30);
+            this.ExitMenuItem.Size = new System.Drawing.Size(465, 22);
             this.ExitMenuItem.Text = "Выход";
             this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
             // 
@@ -684,7 +676,7 @@ namespace MakeReportWord
             this.VKR1,
             this.RGR1});
             this.Type1.Name = "Type1";
-            this.Type1.Size = new System.Drawing.Size(53, 29);
+            this.Type1.Size = new System.Drawing.Size(39, 20);
             this.Type1.Text = "Тип";
             // 
             // Lab1
@@ -692,57 +684,57 @@ namespace MakeReportWord
             this.Lab1.Checked = true;
             this.Lab1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Lab1.Name = "Lab1";
-            this.Lab1.Size = new System.Drawing.Size(215, 30);
+            this.Lab1.Size = new System.Drawing.Size(180, 22);
             this.Lab1.Text = "Лабораторная";
             this.Lab1.Click += new System.EventHandler(this.Lab1_Click);
             // 
             // Practice1
             // 
             this.Practice1.Name = "Practice1";
-            this.Practice1.Size = new System.Drawing.Size(215, 30);
+            this.Practice1.Size = new System.Drawing.Size(180, 22);
             this.Practice1.Text = "Практическая";
             // 
             // Kurs1
             // 
             this.Kurs1.Name = "Kurs1";
-            this.Kurs1.Size = new System.Drawing.Size(215, 30);
+            this.Kurs1.Size = new System.Drawing.Size(180, 22);
             this.Kurs1.Text = "Курсовая";
             // 
             // Ref1
             // 
             this.Ref1.Name = "Ref1";
-            this.Ref1.Size = new System.Drawing.Size(215, 30);
+            this.Ref1.Size = new System.Drawing.Size(180, 22);
             this.Ref1.Text = "Реферат";
             // 
             // Diplom1
             // 
             this.Diplom1.Name = "Diplom1";
-            this.Diplom1.Size = new System.Drawing.Size(215, 30);
+            this.Diplom1.Size = new System.Drawing.Size(180, 22);
             this.Diplom1.Text = "Диплом";
             // 
             // VKR1
             // 
             this.VKR1.Name = "VKR1";
-            this.VKR1.Size = new System.Drawing.Size(215, 30);
+            this.VKR1.Size = new System.Drawing.Size(180, 22);
             this.VKR1.Text = "ВКР";
             // 
             // RGR1
             // 
             this.RGR1.Name = "RGR1";
-            this.RGR1.Size = new System.Drawing.Size(215, 30);
+            this.RGR1.Size = new System.Drawing.Size(180, 22);
             this.RGR1.Text = "РГР";
             // 
             // Save1
             // 
             this.Save1.Name = "Save1";
-            this.Save1.Size = new System.Drawing.Size(122, 29);
+            this.Save1.Size = new System.Drawing.Size(86, 20);
             this.Save1.Text = "Сохранение";
             this.Save1.Click += new System.EventHandler(this.Save1_Click);
             // 
             // Open1
             // 
             this.Open1.Name = "Open1";
-            this.Open1.Size = new System.Drawing.Size(104, 29);
+            this.Open1.Size = new System.Drawing.Size(73, 20);
             this.Open1.Text = "Открытие";
             this.Open1.Click += new System.EventHandler(this.Open1_Click);
             // 
@@ -750,31 +742,17 @@ namespace MakeReportWord
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button7
-            // 
-            this.button7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(717, 277);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 20, 4, 5);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(216, 45);
-            this.button7.TabIndex = 31;
-            this.button7.Text = "☺";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
             // CustomInterface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1491, 1469);
-            this.Controls.Add(this.menuStrip1);
+            this.ClientSize = new System.Drawing.Size(994, 860);
+            this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.Name = "CustomInterface";
             this.Text = "Сотворение документа из небытия";
@@ -786,8 +764,8 @@ namespace MakeReportWord
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -796,23 +774,23 @@ namespace MakeReportWord
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label facultyLabel;
+        private System.Windows.Forms.ComboBox facultyComboBox;
+        private System.Windows.Forms.Label numberLabLabel;
+        private System.Windows.Forms.MaskedTextBox numberLabTextBox;
+        private System.Windows.Forms.Label themeLabel;
+        private System.Windows.Forms.TextBox themeTextBox;
+        private System.Windows.Forms.TextBox disciplineTextBox;
+        private System.Windows.Forms.Label disciplineLabel;
+        private System.Windows.Forms.TextBox professorTextBox;
+        private System.Windows.Forms.Label professorLabel;
+        private System.Windows.Forms.Label yearLabel;
+        private System.Windows.Forms.TextBox yearTextBox;
+        private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem Scroll1;
         private System.Windows.Forms.ToolStripMenuItem ReadScroll;
         private System.Windows.Forms.ToolStripMenuItem CloseWindow;
@@ -825,28 +803,28 @@ namespace MakeReportWord
         private System.Windows.Forms.ToolStripMenuItem VKR1;
         private System.Windows.Forms.ToolStripMenuItem RGR1;
         private System.Windows.Forms.ToolStripMenuItem Save1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox;
+        private System.Windows.Forms.Button buttonHeading1;
+        private System.Windows.Forms.Label heading2Label;
+        private System.Windows.Forms.Label heading1Label;
+        private System.Windows.Forms.Label listLabel;
+        private System.Windows.Forms.Label pictureLabel;
+        private System.Windows.Forms.ComboBox heading1ComboBox;
+        private System.Windows.Forms.ComboBox listComboBox;
+        private System.Windows.Forms.ComboBox heading2ComboBox;
+        private System.Windows.Forms.ComboBox pictureComboBox;
+        private System.Windows.Forms.Button buttonHeading2;
+        private System.Windows.Forms.Button buttonList;
+        private System.Windows.Forms.Button buttonPicture;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ToolStripMenuItem ExitMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem Open1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button buttonSpecial;
     }
 }
 

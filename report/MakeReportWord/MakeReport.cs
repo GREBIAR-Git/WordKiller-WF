@@ -16,6 +16,7 @@ namespace MakeReportWord
             app.Visible = true;
             doc = app.Documents.Add();
             word = null;
+
             string text = "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
                 "РОССИЙСКОЙ ФЕДЕРАЦИИ" + SkipLine(1) +
                 "ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ" + SkipLine(1) +
@@ -69,6 +70,7 @@ namespace MakeReportWord
             WriteTextWord(text);
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
             PageBreak();
+
             if(content.Text!=null)
             {
                 ProcessContent(content);

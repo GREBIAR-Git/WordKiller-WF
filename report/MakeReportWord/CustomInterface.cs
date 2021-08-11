@@ -33,35 +33,35 @@ namespace MakeReportWord
         private void Form1_Shown(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(255, 50, 39, 62);
-            label1.BackColor = Color.FromArgb(255, 253, 219, 124);
-            label2.BackColor = Color.FromArgb(255, 253, 219, 124);
-            label3.BackColor = Color.FromArgb(255, 208, 117, 252);
-            label4.BackColor = Color.FromArgb(255, 208, 117, 252);
-            label5.BackColor = Color.FromArgb(255, 84, 213, 245);
-            label6.BackColor = Color.FromArgb(255, 84, 213, 245);
-            label7.BackColor = Color.FromArgb(255, 253, 219, 124);
-            label8.BackColor = Color.FromArgb(255, 253, 219, 124);
-            label9.BackColor = Color.FromArgb(255, 208, 117, 252);
-            label11.BackColor = Color.FromArgb(255, 84, 213, 245);
-            label12.BackColor = Color.FromArgb(255, 50, 39, 62);
-            label13.BackColor = Color.FromArgb(255, 50, 39, 62);
+            facultyLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
+            numberLabLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
+            themeLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
+            disciplineLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
+            professorLabel.BackColor = Color.FromArgb(255, 84, 213, 245);
+            yearLabel.BackColor = Color.FromArgb(255, 84, 213, 245);
+            heading1Label.BackColor = Color.FromArgb(255, 253, 219, 124);
+            heading2Label.BackColor = Color.FromArgb(255, 253, 219, 124);
+            listLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
+            pictureLabel.BackColor = Color.FromArgb(255, 84, 213, 245);
+            label1.BackColor = Color.FromArgb(255, 50, 39, 62);
+            label2.BackColor = Color.FromArgb(255, 50, 39, 62);
+            buttonHeading1.BackColor = Color.FromArgb(255, 238, 230, 246);
+            buttonDown.BackColor = Color.FromArgb(255, 238, 230, 246);
+            buttonUp.BackColor = Color.FromArgb(255, 238, 230, 246);
+            buttonHeading2.BackColor = Color.FromArgb(255, 238, 230, 246);
+            buttonList.BackColor = Color.FromArgb(255, 238, 230, 246);
+            buttonPicture.BackColor = Color.FromArgb(255, 238, 230, 246);
             button1.BackColor = Color.FromArgb(255, 238, 230, 246);
-            button2.BackColor = Color.FromArgb(255, 238, 230, 246);
-            button3.BackColor = Color.FromArgb(255, 238, 230, 246);
-            button4.BackColor = Color.FromArgb(255, 238, 230, 246);
-            button5.BackColor = Color.FromArgb(255, 238, 230, 246);
-            button6.BackColor = Color.FromArgb(255, 238, 230, 246);
-            button8.BackColor = Color.FromArgb(255, 238, 230, 246);
-            comboBox2.BackColor = Color.FromArgb(255, 238, 230, 246);
-            comboBox3.BackColor = Color.FromArgb(255, 238, 230, 246);
-            comboBox4.BackColor = Color.FromArgb(255, 238, 230, 246);
-            comboBox5.BackColor = Color.FromArgb(255, 238, 230, 246);
+            heading1ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
+            pictureComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
+            heading2ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
+            listComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
             tableLayoutPanel1.BackColor = Color.FromArgb(255, 50, 39, 62);
             tableLayoutPanel2.BackColor = Color.FromArgb(255, 50, 39, 62);
             tableLayoutPanel3.BackColor = Color.FromArgb(255, 50, 39, 62);
-            label12.ForeColor = Color.FromArgb(255, 238, 230, 246);
-            label13.ForeColor = Color.FromArgb(255, 238, 230, 246);
-            label1.Focus();
+            label1.ForeColor = Color.FromArgb(255, 238, 230, 246);
+            label2.ForeColor = Color.FromArgb(255, 238, 230, 246);
+            facultyLabel.Focus();
             showTop(sender, e);
         }
 
@@ -77,18 +77,18 @@ namespace MakeReportWord
 
         private void showBottom(object sender, EventArgs e)
         {
-            button2.Visible = false;
+            buttonDown.Visible = false;
             tableLayoutPanel1.Visible = false;
-            button3.Visible = true;
+            buttonUp.Visible = true;
             tableLayoutPanel3.Visible = true;
         }
 
         private void showTop(object sender, EventArgs e)
         {
             tableLayoutPanel3.Visible = false;
-            button3.Visible = false;
+            buttonUp.Visible = false;
             tableLayoutPanel1.Visible = true;
-            button2.Visible = true;
+            buttonDown.Visible = true;
         }
 
         private void CloseWindow_Click(object sender, EventArgs e)
@@ -99,35 +99,35 @@ namespace MakeReportWord
         private async void ReadScroll_Click(object sender, EventArgs e)
         {
             MakeReport report = new MakeReport();
-            string faculty = comboBox1.Text;
-            string numberLab = maskedTextBox1.Text;
-            string theme = textBox1.Text;
-            string discipline = textBox2.Text;
-            string professor = textBox3.Text;
-            string year = textBox4.Text;
+            string faculty = facultyComboBox.Text;
+            string numberLab = numberLabTextBox.Text;
+            string theme = themeTextBox.Text;
+            string discipline = disciplineTextBox.Text;
+            string professor = professorTextBox.Text;
+            string year = yearTextBox.Text;
             try
             {
-                string text = richTextBox1.Text;
+                string text = richTextBox.Text;
                 UserInput userInput = new UserInput();
-                userInput.ComboBoxH1 = new string[comboBox2.Items.Count];
-                for (int i = 0; i < comboBox2.Items.Count; i++)
+                userInput.ComboBoxH1 = new string[heading1ComboBox.Items.Count];
+                for (int i = 0; i < heading1ComboBox.Items.Count; i++)
                 {
-                    userInput.ComboBoxH1[i] = comboBox2.Items[i].ToString();
+                    userInput.ComboBoxH1[i] = heading1ComboBox.Items[i].ToString();
                 }
-                userInput.ComboBoxH2 = new string[comboBox4.Items.Count];
-                for (int i = 0; i < comboBox4.Items.Count; i++)
+                userInput.ComboBoxH2 = new string[heading2ComboBox.Items.Count];
+                for (int i = 0; i < heading2ComboBox.Items.Count; i++)
                 {
-                    userInput.ComboBoxH2[i] = comboBox4.Items[i].ToString();
+                    userInput.ComboBoxH2[i] = heading2ComboBox.Items[i].ToString();
                 }
-                userInput.ComboBoxL = new string[comboBox5.Items.Count];
-                for (int i = 0; i < comboBox5.Items.Count; i++)
+                userInput.ComboBoxL = new string[listComboBox.Items.Count];
+                for (int i = 0; i < listComboBox.Items.Count; i++)
                 {
-                    userInput.ComboBoxL[i] = comboBox5.Items[i].ToString();
+                    userInput.ComboBoxL[i] = listComboBox.Items[i].ToString();
                 }
-                userInput.ComboBoxP = new string[comboBox3.Items.Count];
-                for (int i = 0; i < comboBox3.Items.Count; i++)
+                userInput.ComboBoxP = new string[pictureComboBox.Items.Count];
+                for (int i = 0; i < pictureComboBox.Items.Count; i++)
                 {
-                    userInput.ComboBoxP[i] = comboBox3.Items[i].ToString();
+                    userInput.ComboBoxP[i] = pictureComboBox.Items[i].ToString();
                 }
                 userInput.Text = this.text;
                 await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, userInput));
@@ -145,23 +145,21 @@ namespace MakeReportWord
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (button8.Text == "К тексту")
+            if (button1.Text == "К тексту")
             {
                 tableLayoutPanel4.Visible = false;
-                button8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-                button8.Text = "К подстановкам";
-                label13.Text = "текст";
-                richTextBox1.Text = text;
-                button7.Visible = true;
+                button1.Text = "К подстановкам";
+                label2.Text = "текст";
+                richTextBox.Text = text;
+                buttonSpecial.Visible = true;
             }
             else
             {
                 tableLayoutPanel4.Visible = true;
-                button8.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
-                button8.Text = "К тексту";
-                label13.Text = "нечто";
-                richTextBox1.Text = "";
-                button7.Visible = false;
+                button1.Text = "К тексту";
+                label2.Text = "нечто";
+                richTextBox.Text = "";
+                buttonSpecial.Visible = false;
             }
         }
 
@@ -201,20 +199,20 @@ namespace MakeReportWord
                     }
                 }
                 Label13StartText(sender);
-                label13.Text += (comboBox.Items.IndexOf(comboBox.SelectedItem) + 1).ToString();
-                richTextBox1.Text = comboBox.SelectedItem.ToString();
+                label2.Text += (comboBox.Items.IndexOf(comboBox.SelectedItem) + 1).ToString();
+                richTextBox.Text = comboBox.SelectedItem.ToString();
             }
             else
             {
-                label13.Text = "нечто";
-                richTextBox1.Text = "";
+                label2.Text = "нечто";
+                richTextBox.Text = "";
             }
         }
 
         private void Label13StartText(object sender)
         {
             Control senderControl = (Control)sender;
-            label13.Text = tableLayoutPanel4.Controls[tableLayoutPanel4.Controls.IndexOf(senderControl) - 4].Text + ": ";
+            label2.Text = tableLayoutPanel4.Controls[tableLayoutPanel4.Controls.IndexOf(senderControl) - 4].Text + ": ";
         }
 
         private void ComboBox_MouseDown(object sender, MouseEventArgs e)
@@ -234,24 +232,24 @@ namespace MakeReportWord
                 {
                     if (comboBox.SelectedIndex > 0)
                     {
-                        int cursorSave = richTextBox1.SelectionStart;
+                        int cursorSave = richTextBox.SelectionStart;
                         string save = comboBox.Items[comboBox.SelectedIndex].ToString();
                         comboBox.Items[comboBox.SelectedIndex] = comboBox.Items[comboBox.SelectedIndex - 1];
                         comboBox.Items[comboBox.SelectedIndex - 1] = save;
                         comboBox.SelectedIndex--;
-                        richTextBox1.SelectionStart = cursorSave;
+                        richTextBox.SelectionStart = cursorSave;
                     }
                 }
                 else if (Control.ModifierKeys == Keys.Control)
                 {
                     if (comboBox.SelectedIndex < comboBox.Items.Count - 1)
                     {
-                        int cursorSave = richTextBox1.SelectionStart;
+                        int cursorSave = richTextBox.SelectionStart;
                         string save = comboBox.Items[comboBox.SelectedIndex].ToString();
                         comboBox.Items[comboBox.SelectedIndex] = comboBox.Items[comboBox.SelectedIndex + 1];
                         comboBox.Items[comboBox.SelectedIndex + 1] = save;
                         comboBox.SelectedIndex++;
-                        richTextBox1.SelectionStart = cursorSave;
+                        richTextBox.SelectionStart = cursorSave;
                     }
                 }
                 else if (Control.ModifierKeys == Keys.Alt)
@@ -264,57 +262,57 @@ namespace MakeReportWord
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            if (label13.Text != "нечто" && label13.Text != "текст")
+            if (label2.Text != "нечто" && label2.Text != "текст")
             {
                 ComboBox comboBox = new ComboBox();
                 comboBox.Visible = false;
-                if (label13.Text.StartsWith("Заголовок 1"))
+                if (label2.Text.StartsWith("Заголовок 1"))
                 {
-                    comboBox = comboBox2;
+                    comboBox = heading1ComboBox;
                 }
-                else if (label13.Text.StartsWith("Заголовок 2"))
+                else if (label2.Text.StartsWith("Заголовок 2"))
                 {
-                    comboBox = comboBox4;
+                    comboBox = heading2ComboBox;
                 }
-                else if (label13.Text.StartsWith("Список"))
+                else if (label2.Text.StartsWith("Список"))
                 {
-                    comboBox = comboBox5;
+                    comboBox = listComboBox;
                 }
-                else if (label13.Text.StartsWith("Картинка"))
+                else if (label2.Text.StartsWith("Картинка"))
                 {
-                    comboBox = comboBox3;
+                    comboBox = pictureComboBox;
                 }
                 if (comboBox.Visible == true)
                 {
-                    int cursorSave = richTextBox1.SelectionStart;
-                    comboBox.Items[comboBox.SelectedIndex] = richTextBox1.Text;
-                    richTextBox1.SelectionStart = cursorSave;
+                    int cursorSave = richTextBox.SelectionStart;
+                    comboBox.Items[comboBox.SelectedIndex] = richTextBox.Text;
+                    richTextBox.SelectionStart = cursorSave;
                 }
             }
-            if (label13.Text == "текст")
+            if (label2.Text == "текст")
             {
-                text = richTextBox1.Text;
+                text = richTextBox.Text;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddToComboBox(comboBox2, richTextBox1.Text);
+            AddToComboBox(heading1ComboBox, richTextBox.Text);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AddToComboBox(comboBox4, richTextBox1.Text);
+            AddToComboBox(heading2ComboBox, richTextBox.Text);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            AddToComboBox(comboBox5, richTextBox1.Text);
+            AddToComboBox(listComboBox, richTextBox.Text);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            AddToComboBox(comboBox3, richTextBox1.Text);
+            AddToComboBox(pictureComboBox, richTextBox.Text);
             // picture
         }
 
@@ -327,28 +325,28 @@ namespace MakeReportWord
                 FileStream fileStream = File.Open(saveFileDialog.FileName, FileMode.Create);
                 StreamWriter output = new StreamWriter(fileStream);
 
-                output.WriteLine("comboBox1==" + comboBox1.SelectedItem.ToString());
-                output.WriteLine("maskedTextBox1==" + maskedTextBox1.Text);
-                output.WriteLine("textBox1==" + textBox1.Text);
-                output.WriteLine("textBox2==" + textBox2.Text);
-                output.WriteLine("textBox3==" + textBox3.Text);
-                output.WriteLine("textBox4==" + textBox4.Text);
+                output.WriteLine("comboBox1==" + facultyComboBox.SelectedItem.ToString());
+                output.WriteLine("maskedTextBox1==" + numberLabTextBox.Text);
+                output.WriteLine("textBox1==" + themeTextBox.Text);
+                output.WriteLine("textBox2==" + disciplineTextBox.Text);
+                output.WriteLine("textBox3==" + professorTextBox.Text);
+                output.WriteLine("textBox4==" + yearTextBox.Text);
 
-                for (int i = 0; i < comboBox2.Items.Count; i++)
+                for (int i = 0; i < heading1ComboBox.Items.Count; i++)
                 {
-                    output.WriteLine("comboBox2.Items[i]==" + comboBox2.Items[i].ToString());
+                    output.WriteLine("comboBox2.Items[i]==" + heading1ComboBox.Items[i].ToString());
                 }
-                for (int i = 0; i < comboBox4.Items.Count; i++)
+                for (int i = 0; i < heading2ComboBox.Items.Count; i++)
                 {
-                    output.WriteLine("comboBox4.Items[i]==" + comboBox4.Items[i].ToString());
+                    output.WriteLine("comboBox4.Items[i]==" + heading2ComboBox.Items[i].ToString());
                 }
-                for (int i = 0; i < comboBox5.Items.Count; i++)
+                for (int i = 0; i < listComboBox.Items.Count; i++)
                 {
-                    output.WriteLine("comboBox5.Items[i]==" + comboBox5.Items[i].ToString());
+                    output.WriteLine("comboBox5.Items[i]==" + listComboBox.Items[i].ToString());
                 }
-                for (int i = 0; i < comboBox3.Items.Count; i++)
+                for (int i = 0; i < pictureComboBox.Items.Count; i++)
                 {
-                    output.WriteLine("comboBox3.Items[i]==" + comboBox3.Items[i].ToString());
+                    output.WriteLine("comboBox3.Items[i]==" + pictureComboBox.Items[i].ToString());
                 }
                 output.WriteLine("###textstart");
                 output.WriteLine(text);
@@ -388,7 +386,7 @@ namespace MakeReportWord
 
         private void button7_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text += "☺";
+            richTextBox.Text += "☺";
         }
     }
 }
