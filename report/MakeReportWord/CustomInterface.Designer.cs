@@ -30,7 +30,7 @@ namespace MakeReportWord
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomInterface));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.titlepagePanel = new System.Windows.Forms.TableLayoutPanel();
             this.facultyLabel = new System.Windows.Forms.Label();
             this.facultyComboBox = new System.Windows.Forms.ComboBox();
             this.numberLabTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -43,14 +43,14 @@ namespace MakeReportWord
             this.yearLabel = new System.Windows.Forms.Label();
             this.yearTextBox = new System.Windows.Forms.TextBox();
             this.professorLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.MainPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.DownPanel = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSpecial = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.elementPanel = new System.Windows.Forms.TableLayoutPanel();
             this.heading1Label = new System.Windows.Forms.Label();
             this.heading2Label = new System.Windows.Forms.Label();
             this.listLabel = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@ namespace MakeReportWord
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.Scroll = new System.Windows.Forms.ToolStripMenuItem();
+            this.Scroll1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ReadScroll = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.Exit = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,50 +82,50 @@ namespace MakeReportWord
             this.Open = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
+            this.titlepagePanel.SuspendLayout();
+            this.MainPanel.SuspendLayout();
+            this.DownPanel.SuspendLayout();
+            this.elementPanel.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // titlepagePanel
             // 
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 509F));
-            this.tableLayoutPanel1.Controls.Add(this.facultyLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.facultyComboBox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.numberLabTextBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numberLabLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.themeLabel, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.themeTextBox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.disciplineLabel, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.disciplineTextBox, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.professorTextBox, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.yearLabel, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.yearTextBox, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.professorLabel, 0, 6);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(25, 15, 25, 15);
-            this.tableLayoutPanel1.RowCount = 9;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(809, 282);
-            this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
+            this.titlepagePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.titlepagePanel.ColumnCount = 2;
+            this.titlepagePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.titlepagePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 509F));
+            this.titlepagePanel.Controls.Add(this.facultyLabel, 0, 0);
+            this.titlepagePanel.Controls.Add(this.facultyComboBox, 1, 0);
+            this.titlepagePanel.Controls.Add(this.numberLabTextBox, 1, 1);
+            this.titlepagePanel.Controls.Add(this.numberLabLabel, 0, 1);
+            this.titlepagePanel.Controls.Add(this.themeLabel, 0, 3);
+            this.titlepagePanel.Controls.Add(this.themeTextBox, 1, 3);
+            this.titlepagePanel.Controls.Add(this.disciplineLabel, 0, 4);
+            this.titlepagePanel.Controls.Add(this.disciplineTextBox, 1, 4);
+            this.titlepagePanel.Controls.Add(this.professorTextBox, 1, 6);
+            this.titlepagePanel.Controls.Add(this.yearLabel, 0, 7);
+            this.titlepagePanel.Controls.Add(this.yearTextBox, 1, 7);
+            this.titlepagePanel.Controls.Add(this.professorLabel, 0, 6);
+            this.titlepagePanel.Location = new System.Drawing.Point(0, 0);
+            this.titlepagePanel.Margin = new System.Windows.Forms.Padding(0);
+            this.titlepagePanel.Name = "titlepagePanel";
+            this.titlepagePanel.Padding = new System.Windows.Forms.Padding(25, 15, 25, 15);
+            this.titlepagePanel.RowCount = 9;
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.titlepagePanel.Size = new System.Drawing.Size(809, 282);
+            this.titlepagePanel.TabIndex = 0;
+            this.titlepagePanel.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.titlepagePanel_CellPaint);
             // 
             // facultyLabel
             // 
@@ -278,52 +278,52 @@ namespace MakeReportWord
             this.professorLabel.Text = "Преподаватель:";
             this.professorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tableLayoutPanel2
+            // MainPanel
             // 
-            this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 809F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.buttonUp, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.buttonDown, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 27);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 12, 12);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 4;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(809, 816);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.MainPanel.AutoSize = true;
+            this.MainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MainPanel.ColumnCount = 1;
+            this.MainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 809F));
+            this.MainPanel.Controls.Add(this.DownPanel, 0, 3);
+            this.MainPanel.Controls.Add(this.buttonUp, 0, 2);
+            this.MainPanel.Controls.Add(this.buttonDown, 0, 1);
+            this.MainPanel.Controls.Add(this.titlepagePanel, 0, 0);
+            this.MainPanel.Location = new System.Drawing.Point(12, 27);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(3, 3, 12, 12);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.RowCount = 4;
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.MainPanel.Size = new System.Drawing.Size(809, 816);
+            this.MainPanel.TabIndex = 1;
             // 
-            // tableLayoutPanel3
+            // DownPanel
             // 
-            this.tableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel3.ColumnCount = 5;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.buttonSpecial, 3, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label2, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.button1, 4, 1);
-            this.tableLayoutPanel3.Controls.Add(this.richTextBox, 4, 2);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 369);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(25, 15, 25, 15);
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(803, 444);
-            this.tableLayoutPanel3.TabIndex = 2;
+            this.DownPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DownPanel.ColumnCount = 5;
+            this.DownPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.DownPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.DownPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.DownPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.DownPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.DownPanel.Controls.Add(this.buttonSpecial, 3, 1);
+            this.DownPanel.Controls.Add(this.label1, 0, 1);
+            this.DownPanel.Controls.Add(this.label2, 1, 1);
+            this.DownPanel.Controls.Add(this.button1, 4, 1);
+            this.DownPanel.Controls.Add(this.richTextBox, 4, 2);
+            this.DownPanel.Controls.Add(this.elementPanel, 0, 0);
+            this.DownPanel.Location = new System.Drawing.Point(3, 369);
+            this.DownPanel.Name = "DownPanel";
+            this.DownPanel.Padding = new System.Windows.Forms.Padding(25, 15, 25, 15);
+            this.DownPanel.RowCount = 3;
+            this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.DownPanel.Size = new System.Drawing.Size(803, 444);
+            this.DownPanel.TabIndex = 2;
             // 
             // buttonSpecial
             // 
@@ -382,8 +382,9 @@ namespace MakeReportWord
             // 
             // richTextBox
             // 
-            this.tableLayoutPanel3.SetColumnSpan(this.richTextBox, 5);
+            this.DownPanel.SetColumnSpan(this.richTextBox, 5);
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox.Location = new System.Drawing.Point(28, 215);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
@@ -392,35 +393,35 @@ namespace MakeReportWord
             this.richTextBox.Text = "";
             this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
             // 
-            // tableLayoutPanel4
+            // elementPanel
             // 
-            this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel3.SetColumnSpan(this.tableLayoutPanel4, 5);
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00001F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Controls.Add(this.heading1Label, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.heading2Label, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.listLabel, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.pictureLabel, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.heading1ComboBox, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.heading2ComboBox, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.listComboBox, 2, 1);
-            this.tableLayoutPanel4.Controls.Add(this.pictureComboBox, 3, 1);
-            this.tableLayoutPanel4.Controls.Add(this.buttonHeading1, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.buttonHeading2, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.buttonPicture, 3, 2);
-            this.tableLayoutPanel4.Controls.Add(this.buttonList, 2, 2);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(55, 15);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(30, 0, 30, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 3;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(693, 152);
-            this.tableLayoutPanel4.TabIndex = 0;
+            this.elementPanel.ColumnCount = 4;
+            this.DownPanel.SetColumnSpan(this.elementPanel, 5);
+            this.elementPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00001F));
+            this.elementPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.elementPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.elementPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.elementPanel.Controls.Add(this.heading1Label, 0, 0);
+            this.elementPanel.Controls.Add(this.heading2Label, 1, 0);
+            this.elementPanel.Controls.Add(this.listLabel, 2, 0);
+            this.elementPanel.Controls.Add(this.pictureLabel, 3, 0);
+            this.elementPanel.Controls.Add(this.heading1ComboBox, 0, 1);
+            this.elementPanel.Controls.Add(this.heading2ComboBox, 1, 1);
+            this.elementPanel.Controls.Add(this.listComboBox, 2, 1);
+            this.elementPanel.Controls.Add(this.pictureComboBox, 3, 1);
+            this.elementPanel.Controls.Add(this.buttonHeading1, 0, 2);
+            this.elementPanel.Controls.Add(this.buttonHeading2, 1, 2);
+            this.elementPanel.Controls.Add(this.buttonPicture, 3, 2);
+            this.elementPanel.Controls.Add(this.buttonList, 2, 2);
+            this.elementPanel.Location = new System.Drawing.Point(55, 15);
+            this.elementPanel.Margin = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.elementPanel.Name = "elementPanel";
+            this.elementPanel.RowCount = 3;
+            this.elementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46F));
+            this.elementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.elementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29F));
+            this.elementPanel.Size = new System.Drawing.Size(693, 152);
+            this.elementPanel.TabIndex = 0;
             // 
             // heading1Label
             // 
@@ -489,9 +490,6 @@ namespace MakeReportWord
             this.heading1ComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.heading1ComboBox.FormattingEnabled = true;
             this.heading1ComboBox.ItemHeight = 24;
-            this.heading1ComboBox.Items.AddRange(new object[] {
-            "Заголовок1",
-            "Заголовок2"});
             this.heading1ComboBox.Location = new System.Drawing.Point(3, 72);
             this.heading1ComboBox.Name = "heading1ComboBox";
             this.heading1ComboBox.Size = new System.Drawing.Size(167, 32);
@@ -628,25 +626,25 @@ namespace MakeReportWord
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Scroll,
+            this.Scroll1,
             this.Type,
             this.Save,
             this.Open});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(994, 24);
+            this.menuStrip.Size = new System.Drawing.Size(953, 24);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip1";
             // 
-            // Scroll
+            // Scroll1
             // 
-            this.Scroll.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Scroll1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ReadScroll,
             this.CloseWindow,
             this.Exit});
-            this.Scroll.Name = "Scroll";
-            this.Scroll.Size = new System.Drawing.Size(106, 20);
-            this.Scroll.Text = "Свиток дракона";
+            this.Scroll1.Name = "Scroll1";
+            this.Scroll1.Size = new System.Drawing.Size(106, 20);
+            this.Scroll1.Text = "Свиток дракона";
             // 
             // ReadScroll
             // 
@@ -752,22 +750,22 @@ namespace MakeReportWord
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(994, 860);
+            this.ClientSize = new System.Drawing.Size(953, 936);
             this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.MainPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.Name = "CustomInterface";
             this.Text = "Сотворение документа из небытия";
             this.Shown += new System.EventHandler(this.CustomInterface_Shown);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
+            this.titlepagePanel.ResumeLayout(false);
+            this.titlepagePanel.PerformLayout();
+            this.MainPanel.ResumeLayout(false);
+            this.DownPanel.ResumeLayout(false);
+            this.DownPanel.PerformLayout();
+            this.elementPanel.ResumeLayout(false);
+            this.elementPanel.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -777,7 +775,7 @@ namespace MakeReportWord
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel titlepagePanel;
         private System.Windows.Forms.Label facultyLabel;
         private System.Windows.Forms.ComboBox facultyComboBox;
         private System.Windows.Forms.Label numberLabLabel;
@@ -791,11 +789,11 @@ namespace MakeReportWord
         private System.Windows.Forms.Label yearLabel;
         private System.Windows.Forms.TextBox yearTextBox;
         private System.Windows.Forms.Button buttonDown;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel MainPanel;
         private System.Windows.Forms.Button buttonUp;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel DownPanel;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem Scroll;
+        private System.Windows.Forms.ToolStripMenuItem Scroll1;
         private System.Windows.Forms.ToolStripMenuItem ReadScroll;
         private System.Windows.Forms.ToolStripMenuItem CloseWindow;
         private System.Windows.Forms.ToolStripMenuItem Type;
@@ -824,7 +822,7 @@ namespace MakeReportWord
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem Exit;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel elementPanel;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem Open;

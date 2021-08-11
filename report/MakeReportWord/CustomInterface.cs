@@ -17,7 +17,7 @@ namespace MakeReportWord
             InitializeComponent();
         }
 
-        private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        private void titlepagePanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             if (e.Row == 0 || e.Row == 1)
                 using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 253, 219, 124)))
@@ -56,9 +56,9 @@ namespace MakeReportWord
             pictureComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
             heading2ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
             listComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
-            tableLayoutPanel1.BackColor = Color.FromArgb(255, 50, 39, 62);
-            tableLayoutPanel2.BackColor = Color.FromArgb(255, 50, 39, 62);
-            tableLayoutPanel3.BackColor = Color.FromArgb(255, 50, 39, 62);
+            titlepagePanel.BackColor = Color.FromArgb(255, 50, 39, 62);
+            MainPanel.BackColor = Color.FromArgb(255, 50, 39, 62);
+            DownPanel.BackColor = Color.FromArgb(255, 50, 39, 62);
             label1.ForeColor = Color.FromArgb(255, 238, 230, 246);
             label2.ForeColor = Color.FromArgb(255, 238, 230, 246);
             facultyLabel.Focus();
@@ -79,23 +79,23 @@ namespace MakeReportWord
         {
             buttonUp.Visible = true;
             buttonDown.Visible = false;
-            tableLayoutPanel1.Visible = false;
-            tableLayoutPanel3.Visible = true;
+            titlepagePanel.Visible = false;
+            DownPanel.Visible = true;
         }
 
         private void showTop(object sender, EventArgs e)
         {
             buttonUp.Visible = false;
             buttonDown.Visible = true;
-            tableLayoutPanel1.Visible = true;
-            tableLayoutPanel3.Visible = false;
+            titlepagePanel.Visible = true;
+            DownPanel.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (button1.Text == "К тексту")
             {
-                tableLayoutPanel4.Visible = false;
+                elementPanel.Visible = false;
                 button1.Text = "К подстановкам";
                 label2.Text = "текст";
                 richTextBox.Text = text;
@@ -103,7 +103,7 @@ namespace MakeReportWord
             }
             else
             {
-                tableLayoutPanel4.Visible = true;
+                elementPanel.Visible = true;
                 button1.Text = "К тексту";
                 label2.Text = "нечто";
                 richTextBox.Text = string.Empty;
@@ -129,13 +129,13 @@ namespace MakeReportWord
                 for (int i = 4; i < 8; i++)
                 {
                     ComboBox comboBoxToDeselect;
-                    if (i != tableLayoutPanel4.Controls.IndexOf(comboBox))
+                    if (i != elementPanel.Controls.IndexOf(comboBox))
                     {
-                        comboBoxToDeselect = (ComboBox)(tableLayoutPanel4.Controls[i]);
+                        comboBoxToDeselect = (ComboBox)(elementPanel.Controls[i]);
                         comboBoxToDeselect.SelectedIndex = -1;
                     }
                 }
-                Label13StartText(sender);
+                LStartText(sender);
                 label2.Text += (comboBox.Items.IndexOf(comboBox.SelectedItem) + 1).ToString();
                 richTextBox.Text = comboBox.SelectedItem.ToString();
             }
@@ -146,10 +146,10 @@ namespace MakeReportWord
             }
         }
 
-        private void Label13StartText(object sender)
+        private void LStartText(object sender)
         {
             Control senderControl = (Control)sender;
-            label2.Text = tableLayoutPanel4.Controls[tableLayoutPanel4.Controls.IndexOf(senderControl) - 4].Text + ": ";
+            label2.Text = elementPanel.Controls[elementPanel.Controls.IndexOf(senderControl) - 4].Text + ": ";
         }
 
         private void ComboBox_MouseDown(object sender, MouseEventArgs e)
@@ -161,7 +161,7 @@ namespace MakeReportWord
                 {
                     for (int i = 4; i < 8; i++)
                     {
-                        comboBox = (ComboBox)(tableLayoutPanel4.Controls[i]);
+                        comboBox = (ComboBox)(elementPanel.Controls[i]);
                         comboBox.SelectedIndex = -1;
                     }
                 }
