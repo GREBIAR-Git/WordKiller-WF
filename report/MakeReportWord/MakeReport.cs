@@ -8,6 +8,7 @@ namespace MakeReportWord
         Document doc;
         Range word;
         bool pgBreak = true;
+        char special = '☺';
         public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year, string content)
         {
             Application app = new Application();
@@ -67,7 +68,7 @@ namespace MakeReportWord
             WriteTextWord(text);
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
             PageBreak();
-
+            ProcessContent(content);
             //Тут обратка строки //
             /*
             DefaultText("Привет1");
@@ -78,6 +79,68 @@ namespace MakeReportWord
             Heading1("заголовок 4");
             */
         }
+
+        void ProcessContent(string content)
+        {
+            CustomInterface customInterface = new CustomInterface();
+            int heading1 = 1;
+            int heading2 = 1;
+            int heading2all = 1;
+            string def = string.Empty;
+            for (int i = 0; i<content.Length;i++)
+            {
+                if(content[i]==special)
+                {
+                    if(def!=string.Empty)
+                    {
+                        DefaultText(def);
+                        def = string.Empty;
+                    }
+                    if (content[i+1] == 'h')
+                    {
+                        if (content[i + 2] == '1')
+                        {
+                            i += 2;
+                            string text = heading1.ToString() + " " + customInterface.ProcessSpecial(heading1,"h1");
+                            Heading1(text);
+                            heading1++;
+                            heading2 = 1;
+                        }
+                        else if (content[i + 2] == '2')
+                        {
+                            i += 2;
+                            string text = heading1.ToString() + "." + heading2 + " " + customInterface.ProcessSpecial(heading2all,"h2");
+                            Heading2(text);
+                            heading2all++;
+                            heading2++;
+                        }
+                    }
+                    else if (content[i + 1] == 'l')
+                    {
+                        i += 1;
+                        string text = customInterface.ProcessSpecial(i,"l");
+                        //listiq(text);
+                    }
+                    else if (content[i + 1] == 'p')
+                    {
+                        i += 1;
+                        string text = customInterface.ProcessSpecial(i,"p");
+                        СaptionForPicture(text);
+                    }
+                }
+                else
+                {
+                    def += content[i];
+                }
+            }
+            if (def != string.Empty)
+            {
+                DefaultText(def);
+                def = string.Empty;
+            }
+        }
+
+        
 
         void WriteTextWord(string text)
         {

@@ -107,7 +107,8 @@ namespace MakeReportWord
             string year = textBox4.Text;
             try
             {
-                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, "Содержание"));
+                string text = richTextBox1.Text;
+                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, "Текст1☺h1Текст2☺h1Текст3"));
             }
             catch
             {
@@ -334,6 +335,28 @@ namespace MakeReportWord
                 }
                 reader.Close();
             }
+        }
+
+        public string ProcessSpecial(int i,string special)
+        {
+            string text = string.Empty;
+            if(special=="h1")
+            {
+                text=comboBox2.Items[i-1].ToString();
+            }
+            else if (special == "h2")
+            {
+                text=comboBox4.Items[i-1].ToString();
+            }
+            else if (special == "l")
+            {
+                text=comboBox5.Items[i-1].ToString();
+            }
+            else if (special == "p")
+            {
+                text=comboBox3.Items[i-1].ToString();
+            }
+            return text;
         }
     }
 }
