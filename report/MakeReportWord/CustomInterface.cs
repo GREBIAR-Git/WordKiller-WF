@@ -43,15 +43,15 @@ namespace MakeReportWord
             heading2Label.BackColor = Color.FromArgb(255, 253, 219, 124);
             listLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
             pictureLabel.BackColor = Color.FromArgb(255, 84, 213, 245);
-            label1.BackColor = Color.FromArgb(255, 50, 39, 62);
-            label2.BackColor = Color.FromArgb(255, 50, 39, 62);
+            displayedLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
+            elementLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
             buttonHeading1.BackColor = Color.FromArgb(255, 238, 230, 246);
             buttonDown.BackColor = Color.FromArgb(255, 238, 230, 246);
             buttonUp.BackColor = Color.FromArgb(255, 238, 230, 246);
             buttonHeading2.BackColor = Color.FromArgb(255, 238, 230, 246);
             buttonList.BackColor = Color.FromArgb(255, 238, 230, 246);
             buttonPicture.BackColor = Color.FromArgb(255, 238, 230, 246);
-            button1.BackColor = Color.FromArgb(255, 238, 230, 246);
+            buttonText.BackColor = Color.FromArgb(255, 238, 230, 246);
             heading1ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
             pictureComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
             heading2ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
@@ -59,8 +59,8 @@ namespace MakeReportWord
             titlepagePanel.BackColor = Color.FromArgb(255, 50, 39, 62);
             MainPanel.BackColor = Color.FromArgb(255, 50, 39, 62);
             DownPanel.BackColor = Color.FromArgb(255, 50, 39, 62);
-            label1.ForeColor = Color.FromArgb(255, 238, 230, 246);
-            label2.ForeColor = Color.FromArgb(255, 238, 230, 246);
+            displayedLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
+            elementLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
             facultyLabel.Focus();
             showTop(sender, e);
         }
@@ -91,21 +91,21 @@ namespace MakeReportWord
             DownPanel.Visible = false;
         }
 
-        void button1_Click(object sender, EventArgs e)
+        void buttonText_Click(object sender, EventArgs e)
         {
-            if (button1.Text == "К тексту")
+            if (buttonText.Text == "К тексту")
             {
                 elementPanel.Visible = false;
-                button1.Text = "К подстановкам";
-                label2.Text = "текст";
+                buttonText.Text = "К подстановкам";
+                elementLabel.Text = "текст";
                 richTextBox.Text = text;
                 buttonSpecial.Visible = true;
             }
             else
             {
                 elementPanel.Visible = true;
-                button1.Text = "К тексту";
-                label2.Text = "нечто";
+                buttonText.Text = "К тексту";
+                elementLabel.Text = "нечто";
                 richTextBox.Text = string.Empty;
                 buttonSpecial.Visible = false;
             }
@@ -136,12 +136,12 @@ namespace MakeReportWord
                     }
                 }
                 LStartText(sender);
-                label2.Text += (comboBox.Items.IndexOf(comboBox.SelectedItem) + 1).ToString();
+                elementLabel.Text += (comboBox.Items.IndexOf(comboBox.SelectedItem) + 1).ToString();
                 richTextBox.Text = comboBox.SelectedItem.ToString();
             }
             else
             {
-                label2.Text = "нечто";
+                elementLabel.Text = "нечто";
                 richTextBox.Text = string.Empty;
             }
         }
@@ -149,7 +149,7 @@ namespace MakeReportWord
         void LStartText(object sender)
         {
             Control senderControl = (Control)sender;
-            label2.Text = elementPanel.Controls[elementPanel.Controls.IndexOf(senderControl) - 4].Text + ": ";
+            elementLabel.Text = elementPanel.Controls[elementPanel.Controls.IndexOf(senderControl) - 4].Text + ": ";
         }
 
         void ComboBox_MouseDown(object sender, MouseEventArgs e)
@@ -199,23 +199,23 @@ namespace MakeReportWord
 
         void richTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (label2.Text != "нечто" && label2.Text != "текст")
+            if (elementLabel.Text != "нечто" && elementLabel.Text != "текст")
             {
                 ComboBox comboBox = new ComboBox();
                 comboBox.Visible = false;
-                if (label2.Text.StartsWith("Заголовок 1"))
+                if (elementLabel.Text.StartsWith("Заголовок 1"))
                 {
                     comboBox = heading1ComboBox;
                 }
-                else if (label2.Text.StartsWith("Заголовок 2"))
+                else if (elementLabel.Text.StartsWith("Заголовок 2"))
                 {
                     comboBox = heading2ComboBox;
                 }
-                else if (label2.Text.StartsWith("Список"))
+                else if (elementLabel.Text.StartsWith("Список"))
                 {
                     comboBox = listComboBox;
                 }
-                else if (label2.Text.StartsWith("Картинка"))
+                else if (elementLabel.Text.StartsWith("Картинка"))
                 {
                     comboBox = pictureComboBox;
                 }
@@ -226,7 +226,7 @@ namespace MakeReportWord
                     richTextBox.SelectionStart = cursorSave;
                 }
             }
-            if (label2.Text == "текст")
+            if (elementLabel.Text == "текст")
             {
                 text = richTextBox.Text;
             }
@@ -255,7 +255,10 @@ namespace MakeReportWord
 
         void buttonSpecial_Click(object sender, EventArgs e)
         {
-            richTextBox.Text += "☺";
+            int cursorSave = richTextBox.SelectionStart;
+            richTextBox.Text=richTextBox.Text.Insert(richTextBox.SelectionStart, "☺");
+            richTextBox.Focus();
+            richTextBox.SelectionStart = cursorSave+1;
         }
 
         async void ReadScroll_Click(object sender, EventArgs e)
