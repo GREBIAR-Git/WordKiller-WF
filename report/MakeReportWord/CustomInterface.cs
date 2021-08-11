@@ -301,11 +301,33 @@ namespace MakeReportWord
             {
                 FileStream fileStream = File.Open(saveFileDialog.FileName, FileMode.Create);
                 StreamWriter output = new StreamWriter(fileStream);
-                output.WriteLine("вот так вот");
 
                 output.WriteLine("comboBox1==" + comboBox1.SelectedItem.ToString());
-                output.WriteLine("comboBox1==" + comboBox1.SelectedItem.ToString());
+                output.WriteLine("maskedTextBox1==" + maskedTextBox1.Text);
+                output.WriteLine("textBox1==" + textBox1.Text);
+                output.WriteLine("textBox2==" + textBox2.Text);
+                output.WriteLine("textBox3==" + textBox3.Text);
+                output.WriteLine("textBox4==" + textBox4.Text);
 
+                for (int i = 0; i < comboBox2.Items.Count; i++)
+                {
+                    output.WriteLine("comboBox2.Items[i]==" + comboBox2.Items[i].ToString());
+                }
+                for (int i = 0; i < comboBox4.Items.Count; i++)
+                {
+                    output.WriteLine("comboBox4.Items[i]==" + comboBox4.Items[i].ToString());
+                }
+                for (int i = 0; i < comboBox5.Items.Count; i++)
+                {
+                    output.WriteLine("comboBox5.Items[i]==" + comboBox5.Items[i].ToString());
+                }
+                for (int i = 0; i < comboBox3.Items.Count; i++)
+                {
+                    output.WriteLine("comboBox3.Items[i]==" + comboBox3.Items[i].ToString());
+                }
+                output.WriteLine("###textstart");
+                output.WriteLine(text);
+                output.WriteLine("###textend");
 
                 output.Close();
             }
@@ -322,11 +344,14 @@ namespace MakeReportWord
                 try
                 {
                     string data = reader.ReadToEnd();
-                    string[] lines = data.Split('\n');
-                    for (int i = 0; i < lines.Length; i++)
+                    for (int i = 1; i < data.Length; i++)
                     {
-                        lines[i] = lines[i].Remove('\r');
+                        if (data[i - 1] == '\r')
+                        {
+                            data = data.Remove(i, 1);
+                        }
                     }
+                    string[] lines = data.Split('\r');
                 }
                 catch
                 {
