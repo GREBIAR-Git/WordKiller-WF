@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -110,28 +109,28 @@ namespace MakeReportWord
             {
                 string text = richTextBox1.Text;
                 UserInput userInput = new UserInput();
-                userInput.comboBox22 = new string[comboBox2.Items.Count];
+                userInput.ComboBoxH1 = new string[comboBox2.Items.Count];
                 for (int i = 0; i < comboBox2.Items.Count; i++)
                 {
-                    userInput.comboBox22[i] = comboBox2.Items[i].ToString();
+                    userInput.ComboBoxH1[i] = comboBox2.Items[i].ToString();
                 }
-                userInput.comboBox44 = new string[comboBox4.Items.Count];
-                for (int i = 0; i < comboBox2.Items.Count; i++)
+                userInput.ComboBoxH2 = new string[comboBox4.Items.Count];
+                for (int i = 0; i < comboBox4.Items.Count; i++)
                 {
-                    userInput.comboBox22[i] = comboBox2.Items[i].ToString();
+                    userInput.ComboBoxH2[i] = comboBox4.Items[i].ToString();
                 }
-                userInput.comboBox55 = new string[comboBox5.Items.Count];
-                for (int i = 0; i < comboBox2.Items.Count; i++)
+                userInput.ComboBoxL = new string[comboBox5.Items.Count];
+                for (int i = 0; i < comboBox5.Items.Count; i++)
                 {
-                    userInput.comboBox22[i] = comboBox2.Items[i].ToString();
+                    userInput.ComboBoxL[i] = comboBox5.Items[i].ToString();
                 }
-                userInput.comboBox33 = new string[comboBox3.Items.Count];
-                for (int i = 0; i < comboBox2.Items.Count; i++)
+                userInput.ComboBoxP = new string[comboBox3.Items.Count];
+                for (int i = 0; i < comboBox3.Items.Count; i++)
                 {
-                    userInput.comboBox22[i] = comboBox2.Items[i].ToString();
+                    userInput.ComboBoxP[i] = comboBox3.Items[i].ToString();
                 }
-                userInput.text22 = this.text;
-                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, "Текст1\n☺h1\nТекст2\n☺h1\nТекст3\n☺h1\ntest\n", userInput));
+                userInput.Text = this.text;
+                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, userInput));
             }
             catch
             {
@@ -153,6 +152,7 @@ namespace MakeReportWord
                 button8.Text = "К подстановкам";
                 label13.Text = "текст";
                 richTextBox1.Text = text;
+                button7.Visible = true;
             }
             else
             {
@@ -161,6 +161,7 @@ namespace MakeReportWord
                 button8.Text = "К тексту";
                 label13.Text = "нечто";
                 richTextBox1.Text = "";
+                button7.Visible = false;
             }
         }
 
@@ -384,10 +385,10 @@ namespace MakeReportWord
                 reader.Close();
             }
         }
-    }
-    class UserInput
-    {
-        public string[] comboBox22, comboBox44, comboBox55, comboBox33;
-        public string text22;
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text += "☺";
+        }
     }
 }

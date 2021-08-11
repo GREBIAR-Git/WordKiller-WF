@@ -1,7 +1,5 @@
 ﻿using System;
 using Microsoft.Office.Interop.Word;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace MakeReportWord
 {
@@ -12,9 +10,8 @@ namespace MakeReportWord
         Range word;
         bool pgBreak = true;
         char special = '☺';
-        public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year, string content, UserInput userInput)
+        public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year, UserInput content)
         {
-
             Application app = new Application();
             app.Visible = true;
             doc = app.Documents.Add();
@@ -72,93 +69,62 @@ namespace MakeReportWord
             WriteTextWord(text);
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
             PageBreak();
-            ProcessContent(content, userInput);
-            //Тут обратка строки //
-            /*
-            DefaultText("Привет1");
-            Heading1("заголовок 1");
-            Heading1("заголовок 2");
-            Heading1("заголовок 3");
-            DefaultText("Привет2");
-            Heading1("заголовок 4");
-            */
+            if(content.Text!=null)
+            {
+                ProcessContent(content);
+            }
         }
 
-
-        
-        public string ProcessSpecial(int i, string special, UserInput userInput)
+        void ProcessContent(UserInput content)
         {
-            string text = string.Empty;
-            if (special == "h1")
-            {
-                text = userInput.comboBox22[i - 1];
-            }
-            else if (special == "h2")
-            {
-                text = userInput.comboBox44[i - 1];
-            }
-            else if (special == "l")
-            {
-                text = userInput.comboBox55[i - 1];
-            }
-            else if (special == "p")
-            {
-                text = userInput.comboBox33[i - 1];
-            }
-            return text;
-        }
-
-        void ProcessContent(string content, UserInput userInput)
-        {
-            CustomInterface customInterface = new CustomInterface();
             int heading1 = 1;
             int heading2 = 1;
             int heading2all = 1;
             string def = string.Empty;
-            for (int i = 0; i<content.Length;i++)
+            for (int i = 0; i<content.Text.Length;i++)
             {
-                if(content[i]==special)
+                if(content.Text[i]==special)
                 {
                     if(def!=string.Empty)
                     {
                         DefaultText(def);
                         def = string.Empty;
                     }
-                    if (content[i+1] == 'h')
+                    if (content.Text[i+1] == 'h')
                     {
-                        if (content[i + 2] == '1')
+                        if (content.Text[i + 2] == '1')
                         {
                             i += 2;
-                            string text = heading1.ToString() + " " + ProcessSpecial(heading1,"h1", userInput);
+                            string text = heading1.ToString() + " " + ProcessSpecial(heading1,"h1", content);
                             Heading1(text);
                             heading1++;
                             heading2 = 1;
                         }
-                        else if (content[i + 2] == '2')
+                        else if (content.Text[i + 2] == '2')
                         {
                             i += 2;
-                            string text = heading1.ToString() + "." + heading2 + " " + ProcessSpecial(heading2all,"h2", userInput);
+                            string text = (heading1-1).ToString() + "." + heading2.ToString() + " " + ProcessSpecial(heading2all,"h2", content);
                             Heading2(text);
                             heading2all++;
                             heading2++;
                         }
                     }
-                    else if (content[i + 1] == 'l')
+                    else if (content.Text[i + 1] == 'l')
                     {
                         i += 1;
-                        string text = ProcessSpecial(i,"l", userInput);
+                        string text = ProcessSpecial(i,"l", content);
                         //listiq(text);
                     }
-                    else if (content[i + 1] == 'p')
+                    else if (content.Text[i + 1] == 'p')
                     {
                         i += 1;
-                        string text = ProcessSpecial(i,"p", userInput);
+                        string text = ProcessSpecial(i,"p", content);
                         СaptionForPicture(text);
                     }
                 }
                 else
                 {
-                    def += content[i];
+                    def += content.Text[i];
                 }
             }
             if (def != string.Empty)
@@ -168,7 +134,27 @@ namespace MakeReportWord
             }
         }
 
-        
+        public string ProcessSpecial(int i, string special, UserInput content)
+        {
+            string text = string.Empty;
+            if (special == "h1")
+            {
+                text = content.ComboBoxH1[i - 1];
+            }
+            else if (special == "h2")
+            {
+                text = content.ComboBoxH2[i - 1];
+            }
+            else if (special == "l")
+            {
+                text = content.ComboBoxL[i - 1];
+            }
+            else if (special == "p")
+            {
+                text = content.ComboBoxP[i - 1];
+            }
+            return text;
+        }
 
         void WriteTextWord(string text)
         {

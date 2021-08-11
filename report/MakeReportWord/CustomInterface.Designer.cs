@@ -81,6 +81,7 @@ namespace MakeReportWord
             this.Open1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button7 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -319,6 +320,7 @@ namespace MakeReportWord
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.Controls.Add(this.button7, 3, 1);
             this.tableLayoutPanel3.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label13, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.button8, 4, 1);
@@ -748,6 +750,19 @@ namespace MakeReportWord
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // button7
+            // 
+            this.button7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button7.Location = new System.Drawing.Point(717, 277);
+            this.button7.Margin = new System.Windows.Forms.Padding(4, 20, 4, 5);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(216, 45);
+            this.button7.TabIndex = 31;
+            this.button7.Text = "☺";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // CustomInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -831,6 +846,7 @@ namespace MakeReportWord
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem Open1;
+        private System.Windows.Forms.Button button7;
     }
 }
 
