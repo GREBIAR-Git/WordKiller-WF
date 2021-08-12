@@ -63,10 +63,10 @@ namespace MakeReportWord
             this.buttonPicture = new System.Windows.Forms.Button();
             this.buttonList = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonSpecialP = new System.Windows.Forms.Button();
             this.buttonSpecialL = new System.Windows.Forms.Button();
             this.buttonSpecialH2 = new System.Windows.Forms.Button();
             this.buttonSpecialH1 = new System.Windows.Forms.Button();
-            this.buttonSpecialP = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.Scroll1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -303,7 +303,7 @@ namespace MakeReportWord
             this.MainPanel.Controls.Add(this.buttonUp, 0, 2);
             this.MainPanel.Controls.Add(this.buttonDown, 0, 1);
             this.MainPanel.Controls.Add(this.titlepagePanel, 0, 0);
-            this.MainPanel.Location = new System.Drawing.Point(18, 42);
+            this.MainPanel.Location = new System.Drawing.Point(13, 40);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(4, 5, 18, 18);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.RowCount = 4;
@@ -311,6 +311,7 @@ namespace MakeReportWord
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.MainPanel.Size = new System.Drawing.Size(1214, 1258);
             this.MainPanel.TabIndex = 1;
             // 
@@ -376,7 +377,7 @@ namespace MakeReportWord
             // 
             this.buttonText.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonText.Location = new System.Drawing.Point(942, 262);
             this.buttonText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonText.Name = "buttonText";
@@ -437,7 +438,7 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.heading1Label.AutoSize = true;
-            this.heading1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.heading1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.heading1Label.Location = new System.Drawing.Point(4, 0);
             this.heading1Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 5);
             this.heading1Label.Name = "heading1Label";
@@ -452,7 +453,7 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.heading2Label.AutoSize = true;
-            this.heading2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.heading2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.heading2Label.Location = new System.Drawing.Point(263, 0);
             this.heading2Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 5);
             this.heading2Label.Name = "heading2Label";
@@ -467,7 +468,7 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listLabel.AutoSize = true;
-            this.listLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listLabel.Location = new System.Drawing.Point(522, 0);
             this.listLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 5);
             this.listLabel.Name = "listLabel";
@@ -482,7 +483,7 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureLabel.AutoSize = true;
-            this.pictureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pictureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pictureLabel.Location = new System.Drawing.Point(781, 0);
             this.pictureLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 5);
             this.pictureLabel.Name = "pictureLabel";
@@ -624,6 +625,20 @@ namespace MakeReportWord
             this.tableLayoutPanel1.Size = new System.Drawing.Size(450, 81);
             this.tableLayoutPanel1.TabIndex = 30;
             // 
+            // buttonSpecialP
+            // 
+            this.buttonSpecialP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSpecialP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSpecialP.Location = new System.Drawing.Point(340, 5);
+            this.buttonSpecialP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonSpecialP.Name = "buttonSpecialP";
+            this.buttonSpecialP.Size = new System.Drawing.Size(104, 71);
+            this.buttonSpecialP.TabIndex = 16;
+            this.buttonSpecialP.Text = "P";
+            this.buttonSpecialP.UseVisualStyleBackColor = true;
+            this.buttonSpecialP.Visible = false;
+            this.buttonSpecialP.Click += new System.EventHandler(this.buttonSpecial_Click);
+            // 
             // buttonSpecialL
             // 
             this.buttonSpecialL.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -665,20 +680,6 @@ namespace MakeReportWord
             this.buttonSpecialH1.UseVisualStyleBackColor = true;
             this.buttonSpecialH1.Visible = false;
             this.buttonSpecialH1.Click += new System.EventHandler(this.buttonSpecial_Click);
-            // 
-            // buttonSpecialP
-            // 
-            this.buttonSpecialP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonSpecialP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecialP.Location = new System.Drawing.Point(340, 5);
-            this.buttonSpecialP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonSpecialP.Name = "buttonSpecialP";
-            this.buttonSpecialP.Size = new System.Drawing.Size(104, 71);
-            this.buttonSpecialP.TabIndex = 16;
-            this.buttonSpecialP.Text = "P";
-            this.buttonSpecialP.UseVisualStyleBackColor = true;
-            this.buttonSpecialP.Visible = false;
-            this.buttonSpecialP.Click += new System.EventHandler(this.buttonSpecial_Click);
             // 
             // buttonUp
             // 
@@ -765,45 +766,51 @@ namespace MakeReportWord
             this.Lab.Checked = true;
             this.Lab.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Lab.Name = "Lab";
-            this.Lab.Size = new System.Drawing.Size(215, 30);
+            this.Lab.Size = new System.Drawing.Size(252, 30);
             this.Lab.Text = "Лабораторная";
-            this.Lab.Click += new System.EventHandler(this.Lab_Click);
+            this.Lab.Click += new System.EventHandler(this.work_Click);
             // 
             // Practice
             // 
             this.Practice.Name = "Practice";
-            this.Practice.Size = new System.Drawing.Size(215, 30);
+            this.Practice.Size = new System.Drawing.Size(252, 30);
             this.Practice.Text = "Практическая";
+            this.Practice.Click += new System.EventHandler(this.work_Click);
             // 
             // Kurs
             // 
             this.Kurs.Name = "Kurs";
-            this.Kurs.Size = new System.Drawing.Size(215, 30);
+            this.Kurs.Size = new System.Drawing.Size(252, 30);
             this.Kurs.Text = "Курсовая";
+            this.Kurs.Click += new System.EventHandler(this.work_Click);
             // 
             // Ref
             // 
             this.Ref.Name = "Ref";
-            this.Ref.Size = new System.Drawing.Size(215, 30);
+            this.Ref.Size = new System.Drawing.Size(252, 30);
             this.Ref.Text = "Реферат";
+            this.Ref.Click += new System.EventHandler(this.work_Click);
             // 
             // Diplom
             // 
             this.Diplom.Name = "Diplom";
-            this.Diplom.Size = new System.Drawing.Size(215, 30);
+            this.Diplom.Size = new System.Drawing.Size(252, 30);
             this.Diplom.Text = "Диплом";
+            this.Diplom.Click += new System.EventHandler(this.work_Click);
             // 
             // VKR
             // 
             this.VKR.Name = "VKR";
-            this.VKR.Size = new System.Drawing.Size(215, 30);
+            this.VKR.Size = new System.Drawing.Size(252, 30);
             this.VKR.Text = "ВКР";
+            this.VKR.Click += new System.EventHandler(this.work_Click);
             // 
             // RGR
             // 
             this.RGR.Name = "RGR";
-            this.RGR.Size = new System.Drawing.Size(215, 30);
+            this.RGR.Size = new System.Drawing.Size(252, 30);
             this.RGR.Text = "РГР";
+            this.RGR.Click += new System.EventHandler(this.work_Click);
             // 
             // Save
             // 

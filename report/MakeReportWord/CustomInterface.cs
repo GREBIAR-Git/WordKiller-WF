@@ -15,6 +15,34 @@ namespace MakeReportWord
         public CustomInterface()
         {
             InitializeComponent();
+            if (Lab.Checked)
+            {
+                this.Text = "Сотворение лабораторной работы из небытия";
+            }
+            else if(Practice.Checked)
+            {
+                this.Text = "Сотворение практической работы из небытия";
+            }
+            else if (Kurs.Checked)
+            {
+                this.Text = "Сотворение курсовой работы из небытия";
+            }
+            else if (Ref.Checked)
+            {
+                this.Text = "Сотворение реферата из небытия";
+            }
+            else if (Diplom.Checked)
+            {
+                this.Text = "Сотворение дипломной работы из небытия";
+            }
+            else if (VKR.Checked)
+            {
+                this.Text = "Сотворение ВКР из небытия";
+            }
+            else if (RGR.Checked)
+            {
+                this.Text = "Сотворение РГР из небытия";
+            }
         }
 
         void titlepagePanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
@@ -318,11 +346,6 @@ namespace MakeReportWord
             Application.Exit();
         }
 
-        void Lab_Click(object sender, EventArgs e)
-        {
-            Lab.Checked = !Lab.Checked;
-        }
-
         void Save_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -389,6 +412,52 @@ namespace MakeReportWord
                 }
                 reader.Close();
             }
+        }
+
+        void work_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem toolStripMenuItem = (ToolStripMenuItem)sender;
+            if(toolStripMenuItem.Checked)
+            {
+                return;
+            }
+            
+            if (toolStripMenuItem.Text == "Лабораторная")
+            {
+                this.Text = "Сотворение лабораторной работы из небытия";
+            }
+            else if (toolStripMenuItem.Text == "Практическая")
+            {
+                this.Text = "Сотворение практической работы из небытия";
+            }
+            else if (toolStripMenuItem.Text == "Курсовая")
+            {
+                this.Text = "Сотворение курсовой работы из небытия";
+            }
+            else if (toolStripMenuItem.Text == "Реферат")
+            {
+                this.Text = "Сотворение реферата из небытия";
+            }
+            else if (toolStripMenuItem.Text == "Диплом")
+            {
+                this.Text = "Сотворение дипломной работы из небытия";
+            }
+            else if (toolStripMenuItem.Text == "ВКР")
+            {
+                this.Text = "Сотворение ВКР из небытия";
+            }
+            else if (toolStripMenuItem.Text == "РГР")
+            {
+                this.Text = "Сотворение РГР из небытия";
+            }
+            Lab.Checked = false;
+            Practice.Checked = false;
+            Kurs.Checked = false;
+            Ref.Checked = false;
+            Diplom.Checked = false;
+            VKR.Checked = false;
+            RGR.Checked = false;
+            toolStripMenuItem.Checked = true;
         }
     }
 }
