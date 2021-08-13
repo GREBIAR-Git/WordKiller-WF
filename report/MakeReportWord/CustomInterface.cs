@@ -11,6 +11,8 @@ namespace MakeReportWord
     public partial class CustomInterface : Form
     {
         string text;
+        int menuLeftIndex;
+        int maxMenuColumns = 5;
 
         public CustomInterface()
         {
@@ -91,6 +93,11 @@ namespace MakeReportWord
             elementLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
             facultyLabel.Focus();
             showTop(sender, e);
+            if (maxMenuColumns > elementPanel.ColumnStyles.Count - 2)
+            {
+                maxMenuColumns = elementPanel.ColumnStyles.Count - 2;
+            }
+            menuLeftIndex = 1;
         }
 
         void buttonDown_Click(object sender, EventArgs e)
@@ -109,6 +116,7 @@ namespace MakeReportWord
             buttonDown.Visible = false;
             titlepagePanel.Visible = false;
             DownPanel.Visible = true;
+            refreshMenu();
         }
 
         void showTop(object sender, EventArgs e)
@@ -537,6 +545,56 @@ namespace MakeReportWord
         private void pictureBox_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonForward_Click(object sender, EventArgs e)
+        {
+            if (menuLeftIndex != maxMenuColumns + 1 - 4)
+            {
+                menuLeftIndex++;
+            }
+            refreshMenu();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            if (menuLeftIndex != 1)
+            {
+                menuLeftIndex--;
+            }
+            refreshMenu();
+        }
+
+        private void refreshMenu()
+        {
+            elementPanel.SuspendLayout();
+            for (int i = 0; i < elementPanel.ColumnStyles.Count - 1; i++)
+            {
+                elementPanel.ColumnStyles[i].Width = 0;
+            }
+            elementPanel.ColumnStyles[0].Width = 6;
+            elementPanel.ColumnStyles[elementPanel.ColumnStyles.Count - 1].Width = 6;
+            for (int i = menuLeftIndex; i < menuLeftIndex + 4; i++)
+            {
+                elementPanel.ColumnStyles[i].Width = 22;
+            }
+            if (menuLeftIndex == 1)
+            {
+                buttonBack.Enabled = false;
+            }
+            else
+            {
+                buttonBack.Enabled = true;
+            }
+            if (menuLeftIndex == maxMenuColumns + 1 - 4)
+            {
+                buttonForward.Enabled = false;
+            }
+            else
+            {
+                buttonForward.Enabled = true;
+            }
+            elementPanel.ResumeLayout();
         }
     }
 }
