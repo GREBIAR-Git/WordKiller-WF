@@ -93,11 +93,11 @@ namespace MakeReportWord
             elementLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
             facultyLabel.Focus();
             showTop(sender, e);
-            if (maxMenuColumns > elementPanel.ColumnStyles.Count - 2)
+            menuLeftIndex = 1;
+            if (maxMenuColumns > elementPanel.ColumnStyles.Count - 2 || maxMenuColumns < menuLeftIndex + 4 - 1)
             {
                 maxMenuColumns = elementPanel.ColumnStyles.Count - 2;
             }
-            menuLeftIndex = 1;
         }
 
         void buttonDown_Click(object sender, EventArgs e)
