@@ -125,23 +125,29 @@ namespace MakeReportWord
             {
                 elementPanel.Visible = false;
                 buttonText.Text = "К подстановкам";
-                elementLabel.Text = "текст";
-                richTextBox.Text = text;
+                pictureBox.Visible = false;
+                textPicturePanel.ColumnStyles[1].Width = 0;
+                textPicturePanel.ColumnStyles[0].Width = 100;
                 buttonSpecialH1.Visible = true;
                 buttonSpecialH2.Visible = true;
                 buttonSpecialL.Visible = true;
                 buttonSpecialP.Visible = true;
+                richTextBox.Text = text;
+                elementLabel.Text = "текст";
             }
             else
             {
-                elementPanel.Visible = true;
-                buttonText.Text = "К тексту";
-                elementLabel.Text = "нечто";
-                richTextBox.Text = string.Empty;
                 buttonSpecialH1.Visible = false;
                 buttonSpecialH2.Visible = false;
                 buttonSpecialL.Visible = false;
                 buttonSpecialP.Visible = false;
+                elementLabel.Text = "нечто";
+                richTextBox.Text = string.Empty;
+                elementPanel.Visible = true;
+                buttonText.Text = "К тексту";
+                textPicturePanel.ColumnStyles[0].Width = 60;
+                textPicturePanel.ColumnStyles[1].Width = 40;
+                pictureBox.Visible = true;
             }
         }
 
@@ -355,28 +361,28 @@ namespace MakeReportWord
                 FileStream fileStream = File.Open(saveFileDialog.FileName, FileMode.Create);
                 StreamWriter output = new StreamWriter(fileStream);
 
-                output.WriteLine("comboBox1==" + facultyComboBox.SelectedItem.ToString());
-                output.WriteLine("maskedTextBox1==" + numberLabTextBox.Text);
-                output.WriteLine("textBox1==" + themeTextBox.Text);
-                output.WriteLine("textBox2==" + disciplineTextBox.Text);
-                output.WriteLine("textBox3==" + professorTextBox.Text);
-                output.WriteLine("textBox4==" + yearTextBox.Text);
+                output.WriteLine("facultyComboBox=" + facultyComboBox.SelectedItem.ToString());
+                output.WriteLine("numberLabTextBox.Text=" + numberLabTextBox.Text);
+                output.WriteLine("themeTextBox.Text=" + themeTextBox.Text);
+                output.WriteLine("disciplineTextBox.Text=" + disciplineTextBox.Text);
+                output.WriteLine("professorTextBox.Text=" + professorTextBox.Text);
+                output.WriteLine("yearTextBox.Text=" + yearTextBox.Text);
 
                 for (int i = 0; i < heading1ComboBox.Items.Count; i++)
                 {
-                    output.WriteLine("comboBox2.Items[i]==" + heading1ComboBox.Items[i].ToString());
+                    output.WriteLine("heading1ComboBox.Items[" + i+"]=" + heading1ComboBox.Items[i].ToString());
                 }
                 for (int i = 0; i < heading2ComboBox.Items.Count; i++)
                 {
-                    output.WriteLine("comboBox4.Items[i]==" + heading2ComboBox.Items[i].ToString());
+                    output.WriteLine("heading2ComboBox.Items[" + i + "]=" + heading2ComboBox.Items[i].ToString());
                 }
                 for (int i = 0; i < listComboBox.Items.Count; i++)
                 {
-                    output.WriteLine("comboBox5.Items[i]==" + listComboBox.Items[i].ToString());
+                    output.WriteLine("listComboBox.Items[" + i + "]=" + listComboBox.Items[i].ToString());
                 }
                 for (int i = 0; i < pictureComboBox.Items.Count; i++)
                 {
-                    output.WriteLine("comboBox3.Items[i]==" + pictureComboBox.Items[i].ToString());
+                    output.WriteLine("pictureComboBox.Items[" + i + "]=" + pictureComboBox.Items[i].ToString());
                 }
                 output.WriteLine("###textstart");
                 output.WriteLine(text);
@@ -405,6 +411,74 @@ namespace MakeReportWord
                         }
                     }
                     string[] lines = data.Split('\r');
+
+                    bool readingText = false;
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        if (lines[i].StartsWith("###textstart"))
+                        {
+                            readingText = true;
+                        }
+                        else if (readingText)
+                        {
+                            if (lines[i].StartsWith("###textend"))
+                            {
+                                readingText = false;
+                            }
+                            else
+                            {
+                                text += lines[i] + "\n";
+                            }
+                        }
+                        else
+                        {
+                            string[] variable_value = lines[i].Split('=');
+                            if (variable_value.Length == 2)
+                            {
+                                if (variable_value[0].StartsWith("facultyComboBox"))
+                                {
+                                    facultyComboBox.SelectedItem=variable_value[1];
+                                }
+                                else if (variable_value[0].StartsWith("numberLabTextBox.Text"))
+                                {
+                                    numberLabTextBox.Text = variable_value[1];
+                                }
+                                else if (variable_value[0].StartsWith("themeTextBox.Text"))
+                                {
+                                    themeTextBox.Text = variable_value[1];
+                                }
+                                else if (variable_value[0].StartsWith("disciplineTextBox.Text"))
+                                {
+                                    disciplineTextBox.Text = variable_value[1];
+                                }
+                                else if (variable_value[0].StartsWith("professorTextBox.Text"))
+                                {
+                                    professorTextBox.Text = variable_value[1];
+                                }
+                                else if (variable_value[0].StartsWith("yearTextBox.Text"))
+                                {
+                                    yearTextBox.Text = variable_value[1];
+                                }
+                                else if (variable_value[0].StartsWith("heading1ComboBox"))
+                                {
+                                    heading1ComboBox.Items.Add(variable_value[1]);
+                                }
+                                else if (variable_value[0].StartsWith("heading2ComboBox"))
+                                {
+                                    heading2ComboBox.Items.Add(variable_value[1]);
+                                }
+                                else if (variable_value[0].StartsWith("listComboBox"))
+                                {
+                                    listComboBox.Items.Add(variable_value[1]);
+                                }
+                                else if (variable_value[0].StartsWith("pictureComboBox"))
+                                {
+                                    pictureComboBox.Items.Add(variable_value[1]);
+                                }
+                            }
+                        }
+                    }
+                    
                 }
                 catch
                 {
@@ -458,6 +532,11 @@ namespace MakeReportWord
             VKR.Checked = false;
             RGR.Checked = false;
             toolStripMenuItem.Checked = true;
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
