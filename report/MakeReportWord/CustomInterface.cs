@@ -574,25 +574,26 @@ namespace MakeReportWord
             }
             elementPanel.ColumnStyles[0].Width = 6;
             elementPanel.ColumnStyles[elementPanel.ColumnStyles.Count - 1].Width = 6;
+
             for (int i = menuLeftIndex; i < menuLeftIndex + 4; i++)
             {
                 elementPanel.ColumnStyles[i].Width = 22;
             }
             if (menuLeftIndex == 1)
             {
-                buttonBack.Enabled = false;
+                buttonBack.Visible = false;
             }
             else
             {
-                buttonBack.Enabled = true;
+                buttonBack.Visible = true;
             }
             if (menuLeftIndex == maxMenuColumns + 1 - 4)
             {
-                buttonForward.Enabled = false;
+                buttonForward.Visible = false;
             }
             else
             {
-                buttonForward.Enabled = true;
+                buttonForward.Visible = true;
             }
             elementPanel.ResumeLayout();
         }
