@@ -537,11 +537,6 @@ namespace MakeReportWord
             toolStripMenuItem.Checked = true;
         }
 
-        private void pictureBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonForward_Click(object sender, EventArgs e)
         {
             if (menuLeftIndex != elementPanel.ColumnStyles.Count - 2 + 1 - 4)
@@ -592,6 +587,47 @@ namespace MakeReportWord
                 buttonForward.Visible = true;
             }
             elementPanel.ResumeLayout();
+        }
+
+        private void DragNDropPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.All;
+        }
+
+        private void DragNDropPanel_DragDrop(object sender, DragEventArgs e)
+        {
+            var data = e.Data.GetData(DataFormats.FileDrop);
+            if (data != null)
+            {
+                var fileNames = data as string[];
+                if (fileNames.Length > 0)
+                {
+                    pictureBox.BackgroundImage = Image.FromFile(fileNames[0]);
+                }
+            }
+        }
+
+        private void CustomInterface_DragEnter(object sender, DragEventArgs e)
+        {
+            pictureBox.BackgroundImage = Properties.Resources.pictureCode;
+        }
+
+        private void CustomInterface_DragLeave(object sender, EventArgs e)
+        {
+            pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
+        }
+
+        private void DragNDropPanel_DragOver(object sender, DragEventArgs e)
+        {
+            Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
+            if (controlRelatedCoords.X < 148)
+            {
+                pictureBox.BackgroundImage = Properties.Resources.pictureCodePICTURE;
+            }
+            else
+            {
+                pictureBox.BackgroundImage = Properties.Resources.pictureCodeCODE;
+            }
         }
     }
 }

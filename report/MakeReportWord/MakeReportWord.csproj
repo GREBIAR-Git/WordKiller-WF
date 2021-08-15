@@ -91,6 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="256x256.ico" />
+    <None Include="Resources\pictureCodePICTURE.png" />
+    <None Include="Resources\pictureCodeCODE.png" />
+    <None Include="Resources\pictureCode.png" />
     <None Include="Resources\arrowsUp.png" />
     <None Include="Resources\arrowsDown.png" />
     <None Include="Resources\buttonForward.png" />
