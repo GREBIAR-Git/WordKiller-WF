@@ -12,7 +12,6 @@ namespace MakeReportWord
     {
         string text;
         int menuLeftIndex;
-        int maxMenuColumns = 5;
 
         public CustomInterface()
         {
@@ -94,10 +93,6 @@ namespace MakeReportWord
             facultyLabel.Focus();
             showTop(sender, e);
             menuLeftIndex = 1;
-            if (maxMenuColumns > elementPanel.ColumnStyles.Count - 2 || maxMenuColumns < menuLeftIndex + 4 - 1)
-            {
-                maxMenuColumns = elementPanel.ColumnStyles.Count - 2;
-            }
         }
 
         void buttonDown_Click(object sender, EventArgs e)
@@ -549,7 +544,7 @@ namespace MakeReportWord
 
         private void buttonForward_Click(object sender, EventArgs e)
         {
-            if (menuLeftIndex != maxMenuColumns + 1 - 4)
+            if (menuLeftIndex != elementPanel.ColumnStyles.Count - 2 + 1 - 4)
             {
                 menuLeftIndex++;
             }
@@ -570,6 +565,7 @@ namespace MakeReportWord
             elementPanel.SuspendLayout();
             for (int i = 0; i < elementPanel.ColumnStyles.Count - 1; i++)
             {
+                elementPanel.ColumnStyles[i].SizeType = SizeType.Percent;
                 elementPanel.ColumnStyles[i].Width = 0;
             }
             elementPanel.ColumnStyles[0].Width = 6;
@@ -587,7 +583,7 @@ namespace MakeReportWord
             {
                 buttonBack.Visible = true;
             }
-            if (menuLeftIndex == maxMenuColumns + 1 - 4)
+            if (menuLeftIndex == elementPanel.ColumnStyles.Count - 2 + 1 - 4)
             {
                 buttonForward.Visible = false;
             }
