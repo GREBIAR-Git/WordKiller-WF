@@ -62,7 +62,7 @@ namespace MakeReportWord
         void CustomInterface_Shown(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(255, 50, 39, 62);
-            facultyLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
+            facultyLabel.BackgroundImage = Properties.Resources.exortBackground;
             numberLabLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
             themeLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
             disciplineLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
@@ -537,22 +537,39 @@ namespace MakeReportWord
             toolStripMenuItem.Checked = true;
         }
 
-        private void buttonForward_Click(object sender, EventArgs e)
+        private void hideMenuButtons()
         {
-            if (menuLeftIndex != elementPanel.ColumnStyles.Count - 2 + 1 - 4)
+            for (int i = 0; i < elementPanel.Controls.Count; i++)
             {
-                menuLeftIndex++;
+                elementPanel.Controls[i].Visible = true;
             }
-            refreshMenu();
+            for (int i = 0; i < elementPanel.Controls.Count; i++)
+            {
+                if (elementPanel.Controls[i].Width == 1)
+                {
+                    elementPanel.Controls[i].Visible = false;
+                }
+            }
         }
 
-        private void buttonBack_Click(object sender, EventArgs e)
+        private void refreshMenuArrows()
         {
-            if (menuLeftIndex != 1)
+            if (menuLeftIndex == 1)
             {
-                menuLeftIndex--;
+                buttonBack.Visible = false;
             }
-            refreshMenu();
+            else
+            {
+                buttonBack.Visible = true;
+            }
+            if (menuLeftIndex == elementPanel.ColumnStyles.Count - 2 + 1 - 4)
+            {
+                buttonForward.Visible = false;
+            }
+            else
+            {
+                buttonForward.Visible = true;
+            }
         }
 
         private void refreshMenu()
@@ -570,23 +587,9 @@ namespace MakeReportWord
             {
                 elementPanel.ColumnStyles[i].Width = 22;
             }
-            if (menuLeftIndex == 1)
-            {
-                buttonBack.Visible = false;
-            }
-            else
-            {
-                buttonBack.Visible = true;
-            }
-            if (menuLeftIndex == elementPanel.ColumnStyles.Count - 2 + 1 - 4)
-            {
-                buttonForward.Visible = false;
-            }
-            else
-            {
-                buttonForward.Visible = true;
-            }
             elementPanel.ResumeLayout();
+            hideMenuButtons();
+            refreshMenuArrows();
         }
 
         private void DragNDropPanel_DragEnter(object sender, DragEventArgs e)
@@ -628,6 +631,68 @@ namespace MakeReportWord
             {
                 pictureBox.BackgroundImage = Properties.Resources.pictureCodeCODE;
             }
+        }
+
+        private void buttonForward_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                buttonForward.BackgroundImage = Properties.Resources.buttonForwardPressedNEW;
+                if (menuLeftIndex != elementPanel.ColumnStyles.Count - 2 + 1 - 4)
+                {
+                    menuLeftIndex++;
+                }
+                refreshMenu();
+            }
+        }
+
+        private void buttonBack_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                buttonBack.BackgroundImage = Properties.Resources.buttonBackPressedNEW;
+                if (menuLeftIndex != 1)
+                {
+                    menuLeftIndex--;
+                }
+                refreshMenu();
+            }
+        }
+
+        private void buttonForward_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                buttonForward.BackgroundImage = Properties.Resources.buttonForwardSelectedNEW;
+            }
+        }
+
+        private void buttonBack_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                buttonBack.BackgroundImage = Properties.Resources.buttonBackSelected;
+            }
+        }
+
+        private void buttonForward_MouseEnter(object sender, EventArgs e)
+        {
+            buttonForward.BackgroundImage = Properties.Resources.buttonForwardSelectedNEW;
+        }
+
+        private void buttonForward_MouseLeave(object sender, EventArgs e)
+        {
+            buttonForward.BackgroundImage = Properties.Resources.buttonForwardNormalNEW;
+        }
+
+        private void buttonBack_MouseEnter(object sender, EventArgs e)
+        {
+            buttonBack.BackgroundImage = Properties.Resources.buttonBackSelected;
+        }
+
+        private void buttonBack_MouseLeave(object sender, EventArgs e)
+        {
+            buttonBack.BackgroundImage = Properties.Resources.buttonBackNormalNEW;
         }
     }
 }

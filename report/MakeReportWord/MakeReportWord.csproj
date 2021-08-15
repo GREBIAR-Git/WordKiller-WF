@@ -60,6 +60,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserInput.cs" />
     <EmbeddedResource Include="CustomInterface.resx">
       <DependentUpon>CustomInterface.cs</DependentUpon>
@@ -75,11 +80,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -91,6 +91,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="256x256.ico" />
+    <None Include="Resources\buttonForwardSelectedNEW.png" />
+    <None Include="Resources\buttonForwardPressedNEW.png" />
+    <None Include="Resources\buttonBackPressedNEW.png" />
+    <None Include="Resources\buttonForwardNormalNEW.png" />
+    <None Include="Resources\buttonBackNormalNEW.png" />
+    <None Include="Resources\wexBackground.png" />
+    <None Include="Resources\quasBackground.png" />
+    <None Include="Resources\exortBackground.png" />
+    <None Include="Resources\buttonBackSelected.png" />
     <None Include="Resources\pictureCodePICTURE.png" />
     <None Include="Resources\pictureCodeCODE.png" />
     <None Include="Resources\pictureCode.png" />
