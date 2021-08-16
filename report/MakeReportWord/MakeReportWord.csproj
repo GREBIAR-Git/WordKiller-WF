@@ -75,7 +75,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,20 +89,31 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="256x256.ico" />
+    <None Include="Resources\arrowsUp.png" />
     <None Include="Resources\arrowsUpSelected.png" />
     <None Include="Resources\arrowsUpPressed.png" />
+    <None Include="Resources\arrowsDown.png" />
+    <None Include="Resources\arrowsDownSelected.png" />
+    <None Include="Resources\arrowsDownPressed.png" />
+    <None Include="Resources\arrowsUp.png" />
+    <None Include="Resources\arrowsUpSelected.png" />
+    <None Include="Resources\arrowsUpPressed.png" />
+    <None Include="Resources\arrowsDown.png" />
     <None Include="Resources\arrowsDownSelected.png" />
     <None Include="Resources\arrowsDownPressed.png" />
     <None Include="Resources\wexBackground.png" />
     <None Include="Resources\quasBackground.png" />
     <None Include="Resources\exortBackground.png" />
     <None Include="Resources\pictureCode.png" />
-    <None Include="Resources\arrowsUp.png" />
-    <None Include="Resources\arrowsDown.png" />
+    <None Include="Resources\pictureCode_Code.png" />
+    <None Include="Resources\pictureCode_Picture.png" />
+    <None Include="Resources\DragNDrop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
