@@ -92,6 +92,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="256x256.ico" />
+    <None Include="Resources\AddSelected.png" />
+    <None Include="Resources\AddPressed.png" />
+    <None Include="Resources\AddNormal.png" />
     <None Include="Resources\wexSelected.png" />
     <None Include="Resources\wexPressed.png" />
     <None Include="Resources\wexNormal.png" />
