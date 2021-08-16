@@ -66,6 +66,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="StringArraySearcher.cs" />
     <Compile Include="UserInput.cs" />
     <EmbeddedResource Include="CustomInterface.resx">
       <DependentUpon>CustomInterface.cs</DependentUpon>

@@ -237,34 +237,12 @@ namespace MakeReportWord
             {
                 ComboBox comboBox = new ComboBox();
                 comboBox.Visible = false;
-                if (elementLabel.Text.StartsWith("Заголовок 1"))
-                {
-                    comboBox = heading1ComboBox;
-                }
-                else if (elementLabel.Text.StartsWith("Заголовок 2"))
-                {
-                    comboBox = heading2ComboBox;
-                }
-                else if (elementLabel.Text.StartsWith("Список"))
-                {
-                    comboBox = listComboBox;
-                }
-                else if (elementLabel.Text.StartsWith("Картинка"))
-                {
-                    comboBox = pictureComboBox;
-                }
-                else if (elementLabel.Text.StartsWith("Таблица"))
-                {
-                    comboBox = tableComboBox;
-                }
-                else if (elementLabel.Text.StartsWith("Код"))
-                {
-                    comboBox = codeComboBox;
-                }
+                int index = StringArraySearcher.IndexOf(elementLabel.Text.Split(':')[0], menuLabels);
+                comboBox = (ComboBox)(elementPanel.Controls[index + 1 + (elementPanel.ColumnCount - 2)]);
                 if (comboBox.Visible == true)
                 {
                     int cursorSave = richTextBox.SelectionStart;
-                    comboBox.SelectedItem = richTextBox.Text;
+                    comboBox.Items[comboBox.SelectedIndex] = richTextBox.Text;
                     richTextBox.SelectionStart = cursorSave;
                 }
             }
