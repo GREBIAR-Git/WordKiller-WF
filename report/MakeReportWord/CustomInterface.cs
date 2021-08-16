@@ -62,7 +62,7 @@ namespace MakeReportWord
         void CustomInterface_Shown(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(255, 50, 39, 62);
-            facultyLabel.BackgroundImage = Properties.Resources.exortBackground;
+            facultyLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
             numberLabLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
             themeLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
             disciplineLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
@@ -889,7 +889,7 @@ namespace MakeReportWord
                 menuPBarray[menuPBindex].BackgroundImageLayout = ImageLayout.Stretch;
                 if (menuPBindex < amount / 3)
                 {
-                    menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.exortNormal;
+                    menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.exort;
                     menuPBarray[menuPBindex].MouseDown += menuExort_MouseDown;
                     menuPBarray[menuPBindex].MouseUp += menuExort_MouseUp;
                     menuPBarray[menuPBindex].MouseEnter += menuExort_MouseEnter;
@@ -897,7 +897,7 @@ namespace MakeReportWord
                 }
                 else if (menuPBindex < 2 * amount / 3)
                 {
-                    menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.wexNormal;
+                    menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.wex;
                     menuPBarray[menuPBindex].MouseDown += menuWex_MouseDown;
                     menuPBarray[menuPBindex].MouseUp += menuWex_MouseUp;
                     menuPBarray[menuPBindex].MouseEnter += menuWex_MouseEnter;
@@ -905,7 +905,7 @@ namespace MakeReportWord
                 }
                 else
                 {
-                    menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.quasNormal;
+                    menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.quas;
                     menuPBarray[menuPBindex].MouseDown += menuQuas_MouseDown;
                     menuPBarray[menuPBindex].MouseUp += menuQuas_MouseUp;
                     menuPBarray[menuPBindex].MouseEnter += menuQuas_MouseEnter;
@@ -1001,19 +1001,19 @@ namespace MakeReportWord
         private void menuExort_MouseLeave(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
-            element.BackgroundImage = Properties.Resources.exortNormal;
+            element.BackgroundImage = Properties.Resources.exort;
         }
 
         private void menuWex_MouseLeave(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
-            element.BackgroundImage = Properties.Resources.wexNormal;
+            element.BackgroundImage = Properties.Resources.wex;
         }
 
         private void menuQuas_MouseLeave(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
-            element.BackgroundImage = Properties.Resources.quasNormal;
+            element.BackgroundImage = Properties.Resources.quas;
         }
 
         void menuAddPB_MouseDown(object sender, MouseEventArgs e)

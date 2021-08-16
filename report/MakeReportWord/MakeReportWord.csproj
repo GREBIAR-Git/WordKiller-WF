@@ -105,10 +105,10 @@
     <None Include="Resources\wexnormal.png" />
     <None Include="Resources\quasselected.png" />
     <None Include="Resources\quaspressed.png" />
-    <None Include="Resources\quasnormal.png" />
+    <None Include="Resources\quas.png" />
     <None Include="Resources\exortselected.png" />
     <None Include="Resources\exortpressed.png" />
-    <None Include="Resources\exortnormal.png" />
+    <None Include="Resources\exort.png" />
     <None Include="Resources\arrowsUp.png" />
     <None Include="Resources\arrowsUpSelected.png" />
     <None Include="Resources\arrowsUpPressed.png" />
@@ -121,9 +121,7 @@
     <None Include="Resources\arrowsRight.png" />
     <None Include="Resources\arrowsRightSelected.png" />
     <None Include="Resources\arrowsRightPressed.png" />
-    <None Include="Resources\wexBackground.png" />
     <None Include="Resources\quasBackground.png" />
-    <None Include="Resources\exortBackground.png" />
     <None Include="Resources\pictureCode.png" />
     <None Include="Resources\pictureCode_Code.png" />
     <None Include="Resources\pictureCode_Picture.png" />
