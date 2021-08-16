@@ -586,11 +586,11 @@ namespace MakeReportWord
             Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
             if (controlRelatedCoords.X < 148)
             {
-                pictureBox.BackgroundImage = Properties.Resources.pictureCodePICTURE;
+                pictureBox.BackgroundImage = Properties.Resources.pictureCode_Picture;
             }
             else
             {
-                pictureBox.BackgroundImage = Properties.Resources.pictureCodeCODE;
+                pictureBox.BackgroundImage = Properties.Resources.pictureCode_Code;
             }
         }
 
@@ -598,7 +598,7 @@ namespace MakeReportWord
         {
             if (e.Button == MouseButtons.Left)
             {
-                buttonForward.BackgroundImage = Properties.Resources.buttonForwardPressedNEW;
+                buttonForward.BackgroundImage = Properties.Resources.arrowsRightPressed;
             }
         }
 
@@ -606,7 +606,7 @@ namespace MakeReportWord
         {
             if (e.Button == MouseButtons.Left)
             {
-                buttonBack.BackgroundImage = Properties.Resources.buttonBackPressedNEW;
+                buttonBack.BackgroundImage = Properties.Resources.arrowsLeftPressed;
             }
         }
 
@@ -614,7 +614,7 @@ namespace MakeReportWord
         {
             if (e.Button == MouseButtons.Left)
             {
-                buttonForward.BackgroundImage = Properties.Resources.buttonForwardSelectedNEW;
+                buttonForward.BackgroundImage = Properties.Resources.arrowsRightSelected;
                 if (menuLeftIndex != elementPanel.ColumnStyles.Count - 2 + 1 - 4)
                 {
                     menuLeftIndex++;
@@ -627,7 +627,7 @@ namespace MakeReportWord
         {
             if (e.Button == MouseButtons.Left)
             {
-                buttonBack.BackgroundImage = Properties.Resources.buttonBackSelected;
+                buttonBack.BackgroundImage = Properties.Resources.arrowsLeftSelected;
                 if (menuLeftIndex != 1)
                 {
                     menuLeftIndex--;
@@ -638,22 +638,22 @@ namespace MakeReportWord
 
         private void buttonForward_MouseEnter(object sender, EventArgs e)
         {
-            buttonForward.BackgroundImage = Properties.Resources.buttonForwardSelectedNEW;
+            buttonForward.BackgroundImage = Properties.Resources.arrowsRightSelected;
         }
 
         private void buttonForward_MouseLeave(object sender, EventArgs e)
         {
-            buttonForward.BackgroundImage = Properties.Resources.buttonForwardNormalNEW;
+            buttonForward.BackgroundImage = Properties.Resources.arrowsRight;
         }
 
         private void buttonBack_MouseEnter(object sender, EventArgs e)
         {
-            buttonBack.BackgroundImage = Properties.Resources.buttonBackSelected;
+            buttonBack.BackgroundImage = Properties.Resources.arrowsLeftSelected;
         }
 
         private void buttonBack_MouseLeave(object sender, EventArgs e)
         {
-            buttonBack.BackgroundImage = Properties.Resources.buttonBackNormalNEW;
+            buttonBack.BackgroundImage = Properties.Resources.arrowsLeft;
         }
 
         private void buttonUp_MouseDown(object sender, MouseEventArgs e)
@@ -671,7 +671,7 @@ namespace MakeReportWord
 
         private void buttonUp_MouseLeave(object sender, EventArgs e)
         {
-            buttonUp.BackgroundImage = Properties.Resources.arrowsUpNEW;
+            buttonUp.BackgroundImage = Properties.Resources.arrowsUp;
         }
 
         private void buttonUp_MouseUp(object sender, MouseEventArgs e)
@@ -701,7 +701,7 @@ namespace MakeReportWord
 
         private void buttonDown_MouseLeave(object sender, EventArgs e)
         {
-            buttonDown.BackgroundImage = Properties.Resources.arrowsDownNEW;
+            buttonDown.BackgroundImage = Properties.Resources.arrowsDown;
         }
 
         private void buttonDown_MouseUp(object sender, MouseEventArgs e)

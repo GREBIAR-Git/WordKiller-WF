@@ -686,7 +686,7 @@ namespace MakeReportWord
             // 
             // buttonForward
             // 
-            this.buttonForward.BackgroundImage = global::MakeReportWord.Properties.Resources.buttonForwardNormalNEW;
+            this.buttonForward.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsRight;
             this.buttonForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonForward.Location = new System.Drawing.Point(960, 5);
@@ -703,7 +703,7 @@ namespace MakeReportWord
             // 
             // buttonBack
             // 
-            this.buttonBack.BackgroundImage = global::MakeReportWord.Properties.Resources.buttonBackNormalNEW;
+            this.buttonBack.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsLeft;
             this.buttonBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonBack.Location = new System.Drawing.Point(4, 5);
@@ -885,7 +885,7 @@ namespace MakeReportWord
             // buttonUp
             // 
             this.buttonUp.BackColor = System.Drawing.Color.Transparent;
-            this.buttonUp.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsUpNEW;
+            this.buttonUp.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsUp;
             this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonUp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -904,7 +904,7 @@ namespace MakeReportWord
             // buttonDown
             // 
             this.buttonDown.BackColor = System.Drawing.Color.Transparent;
-            this.buttonDown.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsDownNEW;
+            this.buttonDown.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsDown;
             this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
