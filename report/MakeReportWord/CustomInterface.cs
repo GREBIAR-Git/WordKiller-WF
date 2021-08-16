@@ -4,15 +4,14 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace MakeReportWord
 {
-    
     public partial class CustomInterface : Form
     {
         string text;
         int menuLeftIndex;
         ToolStripMenuItem DownPanelMI;
+
         public CustomInterface()
         {
             InitializeComponent();
@@ -498,7 +497,7 @@ namespace MakeReportWord
             toolStripMenuItem.Checked = true;
         }
 
-        private void hideMenuButtons()
+        void hideMenuButtons()
         {
             for (int i = 0; i < elementPanel.Controls.Count; i++)
             {
@@ -513,7 +512,7 @@ namespace MakeReportWord
             }
         }
 
-        private void refreshMenuArrows()
+        void refreshMenuArrows()
         {
             if (menuLeftIndex == 1)
             {
@@ -523,7 +522,7 @@ namespace MakeReportWord
             {
                 buttonBack.Visible = true;
             }
-            if (menuLeftIndex == elementPanel.ColumnStyles.Count - 2 + 1 - 4)
+            if (menuLeftIndex == elementPanel.ColumnStyles.Count - 1 - 4)
             {
                 buttonForward.Visible = false;
             }
@@ -533,7 +532,7 @@ namespace MakeReportWord
             }
         }
 
-        private void refreshMenu()
+        void refreshMenu()
         {
             elementPanel.SuspendLayout();
             for (int i = 0; i < elementPanel.ColumnStyles.Count - 1; i++)
@@ -553,12 +552,12 @@ namespace MakeReportWord
             refreshMenuArrows();
         }
 
-        private void DragNDropPanel_DragEnter(object sender, DragEventArgs e)
+        void DragNDropPanel_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.All;
         }
 
-        private void DragNDropPanel_DragDrop(object sender, DragEventArgs e)
+        void DragNDropPanel_DragDrop(object sender, DragEventArgs e)
         {
             var data = e.Data.GetData(DataFormats.FileDrop);
             if (data != null)
@@ -571,17 +570,17 @@ namespace MakeReportWord
             }
         }
 
-        private void CustomInterface_DragEnter(object sender, DragEventArgs e)
+        void CustomInterface_DragEnter(object sender, DragEventArgs e)
         {
             pictureBox.BackgroundImage = Properties.Resources.pictureCode;
         }
 
-        private void CustomInterface_DragLeave(object sender, EventArgs e)
+        void CustomInterface_DragLeave(object sender, EventArgs e)
         {
             pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
         }
 
-        private void DragNDropPanel_DragOver(object sender, DragEventArgs e)
+        void DragNDropPanel_DragOver(object sender, DragEventArgs e)
         {
             Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
             if (controlRelatedCoords.X < 148)
@@ -594,7 +593,7 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonForward_MouseDown(object sender, MouseEventArgs e)
+        void buttonForward_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -602,7 +601,7 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonBack_MouseDown(object sender, MouseEventArgs e)
+        void buttonBack_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -610,7 +609,7 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonForward_MouseUp(object sender, MouseEventArgs e)
+        void buttonForward_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -623,7 +622,7 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonBack_MouseUp(object sender, MouseEventArgs e)
+        void buttonBack_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -636,27 +635,27 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonForward_MouseEnter(object sender, EventArgs e)
+        void buttonForward_MouseEnter(object sender, EventArgs e)
         {
             buttonForward.BackgroundImage = Properties.Resources.arrowsRightSelected;
         }
 
-        private void buttonForward_MouseLeave(object sender, EventArgs e)
+        void buttonForward_MouseLeave(object sender, EventArgs e)
         {
             buttonForward.BackgroundImage = Properties.Resources.arrowsRight;
         }
 
-        private void buttonBack_MouseEnter(object sender, EventArgs e)
+        void buttonBack_MouseEnter(object sender, EventArgs e)
         {
             buttonBack.BackgroundImage = Properties.Resources.arrowsLeftSelected;
         }
 
-        private void buttonBack_MouseLeave(object sender, EventArgs e)
+        void buttonBack_MouseLeave(object sender, EventArgs e)
         {
             buttonBack.BackgroundImage = Properties.Resources.arrowsLeft;
         }
 
-        private void buttonUp_MouseDown(object sender, MouseEventArgs e)
+        void buttonUp_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -664,17 +663,17 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonUp_MouseEnter(object sender, EventArgs e)
+        void buttonUp_MouseEnter(object sender, EventArgs e)
         {
             buttonUp.BackgroundImage = Properties.Resources.arrowsUpSelected;
         }
 
-        private void buttonUp_MouseLeave(object sender, EventArgs e)
+        void buttonUp_MouseLeave(object sender, EventArgs e)
         {
             buttonUp.BackgroundImage = Properties.Resources.arrowsUp;
         }
 
-        private void buttonUp_MouseUp(object sender, MouseEventArgs e)
+        void buttonUp_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -686,7 +685,7 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonDown_MouseDown(object sender, MouseEventArgs e)
+        void buttonDown_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -694,17 +693,17 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonDown_MouseEnter(object sender, EventArgs e)
+        void buttonDown_MouseEnter(object sender, EventArgs e)
         {
             buttonDown.BackgroundImage = Properties.Resources.arrowsDownSelected;
         }
 
-        private void buttonDown_MouseLeave(object sender, EventArgs e)
+        void buttonDown_MouseLeave(object sender, EventArgs e)
         {
             buttonDown.BackgroundImage = Properties.Resources.arrowsDown;
         }
 
-        private void buttonDown_MouseUp(object sender, MouseEventArgs e)
+        void buttonDown_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -716,7 +715,7 @@ namespace MakeReportWord
             }
         }
 
-        private void View_MenuItem_Click(object sender, EventArgs e)
+        void View_MenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem ClickMenuItem = (ToolStripMenuItem)sender;
             if (TitlePageMenuItem.Checked)
