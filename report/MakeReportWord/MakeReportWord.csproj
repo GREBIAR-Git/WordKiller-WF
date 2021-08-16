@@ -91,6 +91,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="256x256.ico" />
+    <None Include="Resources\arrowsUpSelected.png" />
+    <None Include="Resources\arrowsUpPressed.png" />
+    <None Include="Resources\arrowsUpNEW.png" />
+    <None Include="Resources\arrowsDownSelected.png" />
+    <None Include="Resources\arrowsDownPressed.png" />
+    <None Include="Resources\arrowsDownNEW.png" />
     <None Include="Resources\buttonForwardSelectedNEW.png" />
     <None Include="Resources\buttonForwardPressedNEW.png" />
     <None Include="Resources\buttonBackPressedNEW.png" />

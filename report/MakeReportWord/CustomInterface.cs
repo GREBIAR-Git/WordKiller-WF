@@ -75,8 +75,6 @@ namespace MakeReportWord
             displayedLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
             elementLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
             buttonHeading1.BackColor = Color.FromArgb(255, 238, 230, 246);
-            buttonDown.BackColor = Color.FromArgb(255, 238, 230, 246);
-            buttonUp.BackColor = Color.FromArgb(255, 238, 230, 246);
             buttonHeading2.BackColor = Color.FromArgb(255, 238, 230, 246);
             buttonList.BackColor = Color.FromArgb(255, 238, 230, 246);
             buttonPicture.BackColor = Color.FromArgb(255, 238, 230, 246);
@@ -93,16 +91,6 @@ namespace MakeReportWord
             facultyLabel.Focus();
             showTop(sender, e);
             menuLeftIndex = 1;
-        }
-
-        void buttonDown_Click(object sender, EventArgs e)
-        {
-            showBottom(sender, e);
-        }
-
-        void buttonUp_Click(object sender, EventArgs e)
-        {
-            showTop(sender, e);
         }
 
         void showBottom(object sender, EventArgs e)
@@ -638,11 +626,6 @@ namespace MakeReportWord
             if (e.Button == MouseButtons.Left)
             {
                 buttonForward.BackgroundImage = Properties.Resources.buttonForwardPressedNEW;
-                if (menuLeftIndex != elementPanel.ColumnStyles.Count - 2 + 1 - 4)
-                {
-                    menuLeftIndex++;
-                }
-                refreshMenu();
             }
         }
 
@@ -651,11 +634,6 @@ namespace MakeReportWord
             if (e.Button == MouseButtons.Left)
             {
                 buttonBack.BackgroundImage = Properties.Resources.buttonBackPressedNEW;
-                if (menuLeftIndex != 1)
-                {
-                    menuLeftIndex--;
-                }
-                refreshMenu();
             }
         }
 
@@ -664,6 +642,11 @@ namespace MakeReportWord
             if (e.Button == MouseButtons.Left)
             {
                 buttonForward.BackgroundImage = Properties.Resources.buttonForwardSelectedNEW;
+                if (menuLeftIndex != elementPanel.ColumnStyles.Count - 2 + 1 - 4)
+                {
+                    menuLeftIndex++;
+                }
+                refreshMenu();
             }
         }
 
@@ -672,6 +655,11 @@ namespace MakeReportWord
             if (e.Button == MouseButtons.Left)
             {
                 buttonBack.BackgroundImage = Properties.Resources.buttonBackSelected;
+                if (menuLeftIndex != 1)
+                {
+                    menuLeftIndex--;
+                }
+                refreshMenu();
             }
         }
 
@@ -693,6 +681,61 @@ namespace MakeReportWord
         private void buttonBack_MouseLeave(object sender, EventArgs e)
         {
             buttonBack.BackgroundImage = Properties.Resources.buttonBackNormalNEW;
+        }
+
+        private void buttonUp_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                buttonUp.BackgroundImage = Properties.Resources.arrowsUpPressed;
+            }
+            
+        }
+
+        private void buttonUp_MouseEnter(object sender, EventArgs e)
+        {
+            buttonUp.BackgroundImage = Properties.Resources.arrowsUpSelected;
+        }
+
+        private void buttonUp_MouseLeave(object sender, EventArgs e)
+        {
+            buttonUp.BackgroundImage = Properties.Resources.arrowsUpNEW;
+        }
+
+        private void buttonUp_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                buttonUp.BackgroundImage = Properties.Resources.arrowsUpSelected;
+                showTop(sender, e);
+            }
+        }
+
+        private void buttonDown_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                buttonDown.BackgroundImage = Properties.Resources.arrowsDownPressed;
+            }
+        }
+
+        private void buttonDown_MouseEnter(object sender, EventArgs e)
+        {
+            buttonDown.BackgroundImage = Properties.Resources.arrowsDownSelected;
+        }
+
+        private void buttonDown_MouseLeave(object sender, EventArgs e)
+        {
+            buttonDown.BackgroundImage = Properties.Resources.arrowsDownNEW;
+        }
+
+        private void buttonDown_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                buttonDown.BackgroundImage = Properties.Resources.arrowsDownSelected;
+                showBottom(sender, e);
+            }
         }
     }
 }
