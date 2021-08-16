@@ -780,7 +780,7 @@ namespace MakeReportWord
             int index = elementPanel.Controls.IndexOf(controlPB);
             Font fnt = globalFont.GetFont();
             
-            if (MouseIsOverControl(pb))
+            if (MouseIsOverControl(pb) && Control.MouseButtons != MouseButtons.Left)
             {
                 fnt = new Font(fnt.Name, 16);
             }

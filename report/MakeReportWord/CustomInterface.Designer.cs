@@ -480,7 +480,6 @@ namespace MakeReportWord
             // 
             // tableLabel
             // 
-            this.tableLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tableLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tableLabel.Location = new System.Drawing.Point(444, 3);
@@ -493,7 +492,7 @@ namespace MakeReportWord
             // 
             // codeLabel
             // 
-            this.codeLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.codeLabel.BackColor = System.Drawing.SystemColors.Control;
             this.codeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.codeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.codeLabel.Location = new System.Drawing.Point(542, 3);
