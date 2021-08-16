@@ -93,26 +93,14 @@
     <Content Include="256x256.ico" />
     <None Include="Resources\arrowsUpSelected.png" />
     <None Include="Resources\arrowsUpPressed.png" />
-    <None Include="Resources\arrowsUpNEW.png" />
     <None Include="Resources\arrowsDownSelected.png" />
     <None Include="Resources\arrowsDownPressed.png" />
-    <None Include="Resources\arrowsDownNEW.png" />
-    <None Include="Resources\buttonForwardSelectedNEW.png" />
-    <None Include="Resources\buttonForwardPressedNEW.png" />
-    <None Include="Resources\buttonBackPressedNEW.png" />
-    <None Include="Resources\buttonForwardNormalNEW.png" />
-    <None Include="Resources\buttonBackNormalNEW.png" />
     <None Include="Resources\wexBackground.png" />
     <None Include="Resources\quasBackground.png" />
     <None Include="Resources\exortBackground.png" />
-    <None Include="Resources\buttonBackSelected.png" />
-    <None Include="Resources\pictureCodePICTURE.png" />
-    <None Include="Resources\pictureCodeCODE.png" />
     <None Include="Resources\pictureCode.png" />
     <None Include="Resources\arrowsUp.png" />
     <None Include="Resources\arrowsDown.png" />
-    <None Include="Resources\buttonForward.png" />
-    <None Include="Resources\buttonBack.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
