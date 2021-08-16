@@ -753,12 +753,10 @@ namespace MakeReportWord
             {
                 elementPanel.Visible = false;
                 pictureBox.Visible = false;
-                DownPanelMI = SubstitutionMenuItem;
             }
             else if (MenuItem == TextMenuItem)
             {
                 tableLayoutPanel1.Visible = false;
-                DownPanelMI = TextMenuItem;
             }
         }
 
@@ -782,6 +780,7 @@ namespace MakeReportWord
                 buttonText.Text = "К тексту";
                 textPicturePanel.ColumnStyles[0].Width = 60;
                 textPicturePanel.ColumnStyles[1].Width = 40;
+                DownPanelMI = SubstitutionMenuItem;
             }
             else if (MenuItem == TextMenuItem)
             {
@@ -793,6 +792,7 @@ namespace MakeReportWord
                 elementLabel.Text = "текст";
                 textPicturePanel.ColumnStyles[1].Width = 0;
                 textPicturePanel.ColumnStyles[0].Width = 100;
+                DownPanelMI = TextMenuItem;
             }
         }
     }
