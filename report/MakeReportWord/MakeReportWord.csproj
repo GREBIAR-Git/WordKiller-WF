@@ -51,6 +51,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="globalFont.cs" />
     <Compile Include="MakeReport.cs" />
     <Compile Include="CustomInterface.cs">
       <SubType>Form</SubType>
@@ -91,6 +92,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="256x256.ico" />
+    <None Include="Resources\wexSelected.png" />
+    <None Include="Resources\wexPressed.png" />
+    <None Include="Resources\wexNormal.png" />
+    <None Include="Resources\quasSelected.png" />
+    <None Include="Resources\quasPressed.png" />
+    <None Include="Resources\quasNormal.png" />
+    <None Include="Resources\exortSelected.png" />
+    <None Include="Resources\exortPressed.png" />
+    <None Include="Resources\exortNormal.png" />
     <None Include="Resources\arrowsUpSelected.png" />
     <None Include="Resources\arrowsUpPressed.png" />
     <None Include="Resources\arrowsUpNEW.png" />

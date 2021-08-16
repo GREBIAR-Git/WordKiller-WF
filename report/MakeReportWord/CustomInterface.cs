@@ -12,6 +12,7 @@ namespace MakeReportWord
     {
         string text;
         int menuLeftIndex;
+        string[] menuLabels;
 
         public CustomInterface()
         {
@@ -88,6 +89,7 @@ namespace MakeReportWord
             DownPanel.BackColor = Color.FromArgb(255, 50, 39, 62);
             displayedLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
             elementLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
+            replaceMenuLabels();
             facultyLabel.Focus();
             showTop(sender, e);
             menuLeftIndex = 1;
@@ -147,7 +149,7 @@ namespace MakeReportWord
             if (!comboBox.Items.Contains(element))
             {
                 comboBox.Items.Add(element);
-                comboBox.SelectedIndex = comboBox.Items.IndexOf(element);
+                comboBox.SelectedItem = element;
             }
         }
 
@@ -157,7 +159,7 @@ namespace MakeReportWord
             
             if (comboBox.SelectedIndex != -1)
             {
-                for (int i = 4; i < 8; i++)
+                for (int i = elementPanel.ColumnCount - 1; i < elementPanel.ColumnCount * 2 - 1 - 3; i++)
                 {
                     ComboBox comboBoxToDeselect;
                     if (i != elementPanel.Controls.IndexOf(comboBox))
@@ -180,7 +182,8 @@ namespace MakeReportWord
         void LStartText(object sender)
         {
             Control senderControl = (Control)sender;
-            elementLabel.Text = elementPanel.Controls[elementPanel.Controls.IndexOf(senderControl) - 4].Text + ": ";
+            int i = elementPanel.Controls.IndexOf(senderControl) - 1 - (elementPanel.ColumnCount - 2);
+            elementLabel.Text = menuLabels[i] + ": ";
         }
 
         void ComboBox_MouseDown(object sender, MouseEventArgs e)
@@ -190,7 +193,7 @@ namespace MakeReportWord
             {
                 if (Control.ModifierKeys != Keys.Shift && Control.ModifierKeys != Keys.Control && Control.ModifierKeys != Keys.Alt)
                 {
-                    for (int i = 4; i < 8; i++)
+                    for (int i = elementPanel.ColumnCount - 1; i < elementPanel.ColumnCount - 1 - 3; i++)
                     {
                         comboBox = (ComboBox)(elementPanel.Controls[i]);
                         comboBox.SelectedIndex = -1;
@@ -250,10 +253,18 @@ namespace MakeReportWord
                 {
                     comboBox = pictureComboBox;
                 }
+                else if (elementLabel.Text.StartsWith("Таблица"))
+                {
+                    comboBox = tableComboBox;
+                }
+                else if (elementLabel.Text.StartsWith("Код"))
+                {
+                    comboBox = codeComboBox;
+                }
                 if (comboBox.Visible == true)
                 {
                     int cursorSave = richTextBox.SelectionStart;
-                    comboBox.Items[comboBox.SelectedIndex] = richTextBox.Text;
+                    comboBox.SelectedItem = richTextBox.Text;
                     richTextBox.SelectionStart = cursorSave;
                 }
             }
@@ -736,6 +747,193 @@ namespace MakeReportWord
                 buttonDown.BackgroundImage = Properties.Resources.arrowsDownSelected;
                 showBottom(sender, e);
             }
+        }
+
+        private void replaceMenuLabels()
+        {
+            globalFont.SetFont(heading1Label.Font, heading1Label.Font.Style);
+            PictureBox[] menuPBarray = GetMenuLabelReplacement(elementPanel.ColumnCount - 2);
+            Control[] controlsSave = new Control[elementPanel.Controls.Count];
+            for (int i = 0; i < elementPanel.Controls.Count; i++)
+            {
+                controlsSave[i] = elementPanel.Controls[i];
+            }
+            elementPanel.Controls.Clear();
+            elementPanel.Controls.Add(controlsSave[0]);
+            menuLabels = new string[menuPBarray.Length];
+            for (int i = 0; i < menuPBarray.Length; i++)
+            {
+                elementPanel.Controls.Add(menuPBarray[i], i+1, 0);
+                menuLabels[i] = controlsSave[i + 1].Text;
+            }
+            for (int i = elementPanel.ColumnCount-1; i < controlsSave.Length; i++)
+            {
+                elementPanel.Controls.Add(controlsSave[i]);
+            }
+        }
+        private bool MouseIsOverControl(PictureBox pb) => pb.ClientRectangle.Contains(pb.PointToClient(Cursor.Position));
+
+        private void menuPB_Paint(object sender, PaintEventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            Control controlPB = (Control)sender;
+            int index = elementPanel.Controls.IndexOf(controlPB);
+            Font fnt = globalFont.GetFont();
+            
+            if (MouseIsOverControl(pb))
+            {
+                fnt = new Font(fnt.Name, 16);
+            }
+            else
+            {
+                fnt = new Font(fnt.Name, 14);
+            }
+            using (fnt)
+            {
+                SizeF stringSize = e.Graphics.MeasureString(menuLabels[index-1], fnt);
+                e.Graphics.DrawString(menuLabels[index - 1], fnt, Brushes.Black, new Point((int)(pb.Width / 2 - stringSize.Width / 2), (int)(pb.Height / 2 - stringSize.Height / 2)));
+            }
+        }
+
+        private PictureBox[] GetMenuLabelReplacement(int amount)
+        {
+            PictureBox[] menuPBarray = new PictureBox[amount];
+            for (int menuPBindex = 0; menuPBindex < amount; menuPBindex++)
+            {
+                menuPBarray[menuPBindex] = new PictureBox();
+                menuPBarray[menuPBindex].Dock = DockStyle.Fill;
+                menuPBarray[menuPBindex].Location = new System.Drawing.Point(52 + menuPBindex * 98, 3);
+                menuPBarray[menuPBindex].Margin = new System.Windows.Forms.Padding(3);
+                menuPBarray[menuPBindex].Size = new System.Drawing.Size(92, 63);
+                menuPBarray[menuPBindex].TabIndex = 15 + menuPBindex;
+                menuPBarray[menuPBindex].BackgroundImageLayout = ImageLayout.Stretch;
+                if (menuPBindex < amount / 3)
+                {
+                    menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.exortNormal;
+                    menuPBarray[menuPBindex].MouseDown += menuExort_MouseDown;
+                    menuPBarray[menuPBindex].MouseUp += menuExort_MouseUp;
+                    menuPBarray[menuPBindex].MouseEnter += menuExort_MouseEnter;
+                    menuPBarray[menuPBindex].MouseLeave += menuExort_MouseLeave;
+                }
+                else if (menuPBindex < 2 * amount / 3)
+                {
+                    menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.wexNormal;
+                    menuPBarray[menuPBindex].MouseDown += menuWex_MouseDown;
+                    menuPBarray[menuPBindex].MouseUp += menuWex_MouseUp;
+                    menuPBarray[menuPBindex].MouseEnter += menuWex_MouseEnter;
+                    menuPBarray[menuPBindex].MouseLeave += menuWex_MouseLeave;
+                }
+                else
+                {
+                    menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.quasNormal;
+                    menuPBarray[menuPBindex].MouseDown += menuQuas_MouseDown;
+                    menuPBarray[menuPBindex].MouseUp += menuQuas_MouseUp;
+                    menuPBarray[menuPBindex].MouseEnter += menuQuas_MouseEnter;
+                    menuPBarray[menuPBindex].MouseLeave += menuQuas_MouseLeave;
+                }
+                menuPBarray[menuPBindex].Paint += menuPB_Paint;
+            }
+            return menuPBarray;
+        }
+
+        private void buttonTable_Click(object sender, EventArgs e)
+        {
+            AddToComboBox(tableComboBox, richTextBox.Text);
+        }
+
+        private void buttonCode_Click(object sender, EventArgs e)
+        {
+            AddToComboBox(codeComboBox, richTextBox.Text);
+        }
+
+        private void menuExort_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                PictureBox element = (PictureBox)sender;
+                element.BackgroundImage = Properties.Resources.exortPressed;
+            }
+        }
+
+        private void menuWex_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                PictureBox element = (PictureBox)sender;
+                element.BackgroundImage = Properties.Resources.wexPressed;
+            }
+        }
+
+        private void menuQuas_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                PictureBox element = (PictureBox)sender;
+                element.BackgroundImage = Properties.Resources.quasPressed;
+            }
+        }
+
+        private void menuExort_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                PictureBox element = (PictureBox)sender;
+                element.BackgroundImage = Properties.Resources.exortSelected;
+            }
+        }
+
+        private void menuWex_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                PictureBox element = (PictureBox)sender;
+                element.BackgroundImage = Properties.Resources.wexSelected;
+            }
+        }
+
+        private void menuQuas_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                PictureBox element = (PictureBox)sender;
+                element.BackgroundImage = Properties.Resources.quasSelected;
+            }
+        }
+
+        private void menuExort_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox element = (PictureBox)sender;
+            element.BackgroundImage = Properties.Resources.exortSelected;
+        }
+
+        private void menuWex_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox element = (PictureBox)sender;
+            element.BackgroundImage = Properties.Resources.wexSelected;
+        }
+
+        private void menuQuas_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox element = (PictureBox)sender;
+            element.BackgroundImage = Properties.Resources.quasSelected;
+        }
+
+        private void menuExort_MouseLeave(object sender, EventArgs e)
+        {
+            PictureBox element = (PictureBox)sender;
+            element.BackgroundImage = Properties.Resources.exortNormal;
+        }
+
+        private void menuWex_MouseLeave(object sender, EventArgs e)
+        {
+            PictureBox element = (PictureBox)sender;
+            element.BackgroundImage = Properties.Resources.wexNormal;
+        }
+
+        private void menuQuas_MouseLeave(object sender, EventArgs e)
+        {
+            PictureBox element = (PictureBox)sender;
+            element.BackgroundImage = Properties.Resources.quasNormal;
         }
     }
 }

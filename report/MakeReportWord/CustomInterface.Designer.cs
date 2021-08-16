@@ -49,24 +49,24 @@ namespace MakeReportWord
             this.elementLabel = new System.Windows.Forms.Label();
             this.buttonText = new System.Windows.Forms.Button();
             this.elementPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonCode = new System.Windows.Forms.Button();
-            this.buttonTable = new System.Windows.Forms.Button();
-            this.codeComboBox = new System.Windows.Forms.ComboBox();
-            this.tableComboBox = new System.Windows.Forms.ComboBox();
-            this.pictureLabel = new System.Windows.Forms.Label();
-            this.pictureComboBox = new System.Windows.Forms.ComboBox();
-            this.buttonPicture = new System.Windows.Forms.Button();
-            this.listLabel = new System.Windows.Forms.Label();
-            this.listComboBox = new System.Windows.Forms.ComboBox();
-            this.buttonList = new System.Windows.Forms.Button();
-            this.heading2Label = new System.Windows.Forms.Label();
-            this.heading2ComboBox = new System.Windows.Forms.ComboBox();
-            this.buttonHeading2 = new System.Windows.Forms.Button();
             this.heading1Label = new System.Windows.Forms.Label();
-            this.heading1ComboBox = new System.Windows.Forms.ComboBox();
-            this.buttonHeading1 = new System.Windows.Forms.Button();
+            this.heading2Label = new System.Windows.Forms.Label();
+            this.listLabel = new System.Windows.Forms.Label();
+            this.pictureLabel = new System.Windows.Forms.Label();
             this.tableLabel = new System.Windows.Forms.Label();
             this.codeLabel = new System.Windows.Forms.Label();
+            this.heading1ComboBox = new System.Windows.Forms.ComboBox();
+            this.heading2ComboBox = new System.Windows.Forms.ComboBox();
+            this.listComboBox = new System.Windows.Forms.ComboBox();
+            this.pictureComboBox = new System.Windows.Forms.ComboBox();
+            this.tableComboBox = new System.Windows.Forms.ComboBox();
+            this.codeComboBox = new System.Windows.Forms.ComboBox();
+            this.buttonHeading1 = new System.Windows.Forms.Button();
+            this.buttonHeading2 = new System.Windows.Forms.Button();
+            this.buttonList = new System.Windows.Forms.Button();
+            this.buttonPicture = new System.Windows.Forms.Button();
+            this.buttonTable = new System.Windows.Forms.Button();
+            this.buttonCode = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSpecialP = new System.Windows.Forms.Button();
             this.buttonSpecialL = new System.Windows.Forms.Button();
@@ -90,8 +90,8 @@ namespace MakeReportWord
             this.VKR = new System.Windows.Forms.ToolStripMenuItem();
             this.RGR = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.buttonForward = new System.Windows.Forms.PictureBox();
             this.buttonBack = new System.Windows.Forms.PictureBox();
+            this.buttonForward = new System.Windows.Forms.PictureBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.buttonUp = new System.Windows.Forms.PictureBox();
             this.buttonDown = new System.Windows.Forms.PictureBox();
@@ -103,8 +103,8 @@ namespace MakeReportWord
             this.textPicturePanel.SuspendLayout();
             this.DragNDropPanel.SuspendLayout();
             this.menuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonForward)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonForward)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonDown)).BeginInit();
@@ -399,26 +399,26 @@ namespace MakeReportWord
             this.elementPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.elementPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.elementPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
-            this.elementPanel.Controls.Add(this.buttonCode, 6, 2);
-            this.elementPanel.Controls.Add(this.buttonTable, 5, 2);
-            this.elementPanel.Controls.Add(this.codeComboBox, 6, 1);
-            this.elementPanel.Controls.Add(this.tableComboBox, 5, 1);
-            this.elementPanel.Controls.Add(this.pictureLabel, 4, 0);
-            this.elementPanel.Controls.Add(this.pictureComboBox, 4, 1);
-            this.elementPanel.Controls.Add(this.buttonPicture, 4, 2);
-            this.elementPanel.Controls.Add(this.listLabel, 3, 0);
-            this.elementPanel.Controls.Add(this.listComboBox, 3, 1);
-            this.elementPanel.Controls.Add(this.buttonList, 3, 2);
-            this.elementPanel.Controls.Add(this.heading2Label, 2, 0);
-            this.elementPanel.Controls.Add(this.heading2ComboBox, 2, 1);
-            this.elementPanel.Controls.Add(this.buttonHeading2, 2, 2);
-            this.elementPanel.Controls.Add(this.heading1Label, 1, 0);
-            this.elementPanel.Controls.Add(this.heading1ComboBox, 1, 1);
-            this.elementPanel.Controls.Add(this.buttonHeading1, 1, 2);
-            this.elementPanel.Controls.Add(this.buttonForward, 7, 0);
             this.elementPanel.Controls.Add(this.buttonBack, 0, 0);
+            this.elementPanel.Controls.Add(this.heading1Label, 1, 0);
+            this.elementPanel.Controls.Add(this.heading2Label, 2, 0);
+            this.elementPanel.Controls.Add(this.listLabel, 3, 0);
+            this.elementPanel.Controls.Add(this.pictureLabel, 4, 0);
             this.elementPanel.Controls.Add(this.tableLabel, 5, 0);
             this.elementPanel.Controls.Add(this.codeLabel, 6, 0);
+            this.elementPanel.Controls.Add(this.heading1ComboBox, 1, 1);
+            this.elementPanel.Controls.Add(this.heading2ComboBox, 2, 1);
+            this.elementPanel.Controls.Add(this.listComboBox, 3, 1);
+            this.elementPanel.Controls.Add(this.pictureComboBox, 4, 1);
+            this.elementPanel.Controls.Add(this.tableComboBox, 5, 1);
+            this.elementPanel.Controls.Add(this.codeComboBox, 6, 1);
+            this.elementPanel.Controls.Add(this.buttonHeading1, 1, 2);
+            this.elementPanel.Controls.Add(this.buttonHeading2, 2, 2);
+            this.elementPanel.Controls.Add(this.buttonList, 3, 2);
+            this.elementPanel.Controls.Add(this.buttonPicture, 4, 2);
+            this.elementPanel.Controls.Add(this.buttonTable, 5, 2);
+            this.elementPanel.Controls.Add(this.buttonCode, 6, 2);
+            this.elementPanel.Controls.Add(this.buttonForward, 7, 0);
             this.elementPanel.Location = new System.Drawing.Point(55, 15);
             this.elementPanel.Margin = new System.Windows.Forms.Padding(30, 0, 30, 0);
             this.elementPanel.Name = "elementPanel";
@@ -430,148 +430,21 @@ namespace MakeReportWord
             this.elementPanel.Size = new System.Drawing.Size(691, 152);
             this.elementPanel.TabIndex = 0;
             // 
-            // buttonCode
+            // heading1Label
             // 
-            this.buttonCode.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCode.Location = new System.Drawing.Point(542, 110);
-            this.buttonCode.Name = "buttonCode";
-            this.buttonCode.Size = new System.Drawing.Size(92, 39);
-            this.buttonCode.TabIndex = 26;
-            this.buttonCode.Text = "Добавить";
-            this.buttonCode.UseVisualStyleBackColor = true;
-            // 
-            // buttonTable
-            // 
-            this.buttonTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonTable.Location = new System.Drawing.Point(444, 110);
-            this.buttonTable.Name = "buttonTable";
-            this.buttonTable.Size = new System.Drawing.Size(92, 39);
-            this.buttonTable.TabIndex = 25;
-            this.buttonTable.Text = "Добавить";
-            this.buttonTable.UseVisualStyleBackColor = true;
-            // 
-            // codeComboBox
-            // 
-            this.codeComboBox.DisplayMember = "1";
-            this.codeComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.codeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.codeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.codeComboBox.FormattingEnabled = true;
-            this.codeComboBox.ItemHeight = 24;
-            this.codeComboBox.Location = new System.Drawing.Point(542, 72);
-            this.codeComboBox.Name = "codeComboBox";
-            this.codeComboBox.Size = new System.Drawing.Size(92, 32);
-            this.codeComboBox.TabIndex = 24;
-            // 
-            // tableComboBox
-            // 
-            this.tableComboBox.DisplayMember = "1";
-            this.tableComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tableComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tableComboBox.FormattingEnabled = true;
-            this.tableComboBox.ItemHeight = 24;
-            this.tableComboBox.Location = new System.Drawing.Point(444, 72);
-            this.tableComboBox.Name = "tableComboBox";
-            this.tableComboBox.Size = new System.Drawing.Size(92, 32);
-            this.tableComboBox.TabIndex = 23;
-            // 
-            // pictureLabel
-            // 
-            this.pictureLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureLabel.AutoSize = true;
-            this.pictureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pictureLabel.Location = new System.Drawing.Point(346, 3);
-            this.pictureLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.pictureLabel.Name = "pictureLabel";
-            this.pictureLabel.Size = new System.Drawing.Size(92, 63);
-            this.pictureLabel.TabIndex = 18;
-            this.pictureLabel.Text = "Картинка";
-            this.pictureLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureComboBox
-            // 
-            this.pictureComboBox.DisplayMember = "1";
-            this.pictureComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.pictureComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pictureComboBox.FormattingEnabled = true;
-            this.pictureComboBox.ItemHeight = 24;
-            this.pictureComboBox.Location = new System.Drawing.Point(346, 72);
-            this.pictureComboBox.Name = "pictureComboBox";
-            this.pictureComboBox.Size = new System.Drawing.Size(92, 32);
-            this.pictureComboBox.TabIndex = 14;
-            this.pictureComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
-            this.pictureComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
-            // 
-            // buttonPicture
-            // 
-            this.buttonPicture.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonPicture.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonPicture.Location = new System.Drawing.Point(346, 110);
-            this.buttonPicture.Name = "buttonPicture";
-            this.buttonPicture.Size = new System.Drawing.Size(92, 39);
-            this.buttonPicture.TabIndex = 15;
-            this.buttonPicture.Text = "Добавить";
-            this.buttonPicture.UseVisualStyleBackColor = true;
-            this.buttonPicture.Click += new System.EventHandler(this.buttonPicture_Click);
-            // 
-            // listLabel
-            // 
-            this.listLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listLabel.AutoSize = true;
-            this.listLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listLabel.Location = new System.Drawing.Point(248, 3);
-            this.listLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.listLabel.Name = "listLabel";
-            this.listLabel.Size = new System.Drawing.Size(92, 63);
-            this.listLabel.TabIndex = 17;
-            this.listLabel.Text = "Список";
-            this.listLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // listComboBox
-            // 
-            this.listComboBox.DisplayMember = "1";
-            this.listComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.listComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listComboBox.FormattingEnabled = true;
-            this.listComboBox.ItemHeight = 24;
-            this.listComboBox.Location = new System.Drawing.Point(248, 72);
-            this.listComboBox.Name = "listComboBox";
-            this.listComboBox.Size = new System.Drawing.Size(92, 32);
-            this.listComboBox.TabIndex = 12;
-            this.listComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
-            this.listComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
-            // 
-            // buttonList
-            // 
-            this.buttonList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonList.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonList.Location = new System.Drawing.Point(248, 110);
-            this.buttonList.Name = "buttonList";
-            this.buttonList.Size = new System.Drawing.Size(92, 39);
-            this.buttonList.TabIndex = 13;
-            this.buttonList.Text = "Добавить";
-            this.buttonList.UseVisualStyleBackColor = true;
-            this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
+            this.heading1Label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.heading1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.heading1Label.Location = new System.Drawing.Point(52, 3);
+            this.heading1Label.Margin = new System.Windows.Forms.Padding(3);
+            this.heading1Label.Name = "heading1Label";
+            this.heading1Label.Size = new System.Drawing.Size(92, 63);
+            this.heading1Label.TabIndex = 15;
+            this.heading1Label.Text = "Заголовок 1";
+            this.heading1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // heading2Label
             // 
-            this.heading2Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.heading2Label.AutoSize = true;
+            this.heading2Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.heading2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.heading2Label.Location = new System.Drawing.Point(150, 3);
             this.heading2Label.Margin = new System.Windows.Forms.Padding(3);
@@ -581,48 +454,55 @@ namespace MakeReportWord
             this.heading2Label.Text = "Заголовок 2";
             this.heading2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // heading2ComboBox
+            // listLabel
             // 
-            this.heading2ComboBox.DisplayMember = "1";
-            this.heading2ComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.heading2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.heading2ComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.heading2ComboBox.FormattingEnabled = true;
-            this.heading2ComboBox.ItemHeight = 24;
-            this.heading2ComboBox.Location = new System.Drawing.Point(150, 72);
-            this.heading2ComboBox.Name = "heading2ComboBox";
-            this.heading2ComboBox.Size = new System.Drawing.Size(92, 32);
-            this.heading2ComboBox.TabIndex = 10;
-            this.heading2ComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
-            this.heading2ComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
+            this.listLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listLabel.Location = new System.Drawing.Point(248, 3);
+            this.listLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.listLabel.Name = "listLabel";
+            this.listLabel.Size = new System.Drawing.Size(92, 63);
+            this.listLabel.TabIndex = 17;
+            this.listLabel.Text = "Список";
+            this.listLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // buttonHeading2
+            // pictureLabel
             // 
-            this.buttonHeading2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonHeading2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonHeading2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonHeading2.Location = new System.Drawing.Point(150, 110);
-            this.buttonHeading2.Name = "buttonHeading2";
-            this.buttonHeading2.Size = new System.Drawing.Size(92, 39);
-            this.buttonHeading2.TabIndex = 11;
-            this.buttonHeading2.Text = "Добавить";
-            this.buttonHeading2.UseVisualStyleBackColor = true;
-            this.buttonHeading2.Click += new System.EventHandler(this.buttonHeading2_Click);
+            this.pictureLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pictureLabel.Location = new System.Drawing.Point(346, 3);
+            this.pictureLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.pictureLabel.Name = "pictureLabel";
+            this.pictureLabel.Size = new System.Drawing.Size(92, 63);
+            this.pictureLabel.TabIndex = 18;
+            this.pictureLabel.Text = "Картинка";
+            this.pictureLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // heading1Label
+            // tableLabel
             // 
-            this.heading1Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.heading1Label.AutoSize = true;
-            this.heading1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.heading1Label.Location = new System.Drawing.Point(52, 3);
-            this.heading1Label.Margin = new System.Windows.Forms.Padding(3);
-            this.heading1Label.Name = "heading1Label";
-            this.heading1Label.Size = new System.Drawing.Size(92, 63);
-            this.heading1Label.TabIndex = 15;
-            this.heading1Label.Text = "Заголовок 1";
-            this.heading1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tableLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tableLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tableLabel.Location = new System.Drawing.Point(444, 3);
+            this.tableLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.tableLabel.Name = "tableLabel";
+            this.tableLabel.Size = new System.Drawing.Size(92, 63);
+            this.tableLabel.TabIndex = 21;
+            this.tableLabel.Text = "Таблица";
+            this.tableLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // codeLabel
+            // 
+            this.codeLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.codeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.codeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.codeLabel.Location = new System.Drawing.Point(542, 3);
+            this.codeLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.codeLabel.Name = "codeLabel";
+            this.codeLabel.Size = new System.Drawing.Size(92, 63);
+            this.codeLabel.TabIndex = 22;
+            this.codeLabel.Text = "Код";
+            this.codeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // heading1ComboBox
             // 
@@ -639,6 +519,81 @@ namespace MakeReportWord
             this.heading1ComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             this.heading1ComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
             // 
+            // heading2ComboBox
+            // 
+            this.heading2ComboBox.DisplayMember = "1";
+            this.heading2ComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.heading2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.heading2ComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.heading2ComboBox.FormattingEnabled = true;
+            this.heading2ComboBox.ItemHeight = 24;
+            this.heading2ComboBox.Location = new System.Drawing.Point(150, 72);
+            this.heading2ComboBox.Name = "heading2ComboBox";
+            this.heading2ComboBox.Size = new System.Drawing.Size(92, 32);
+            this.heading2ComboBox.TabIndex = 10;
+            this.heading2ComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.heading2ComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
+            // 
+            // listComboBox
+            // 
+            this.listComboBox.DisplayMember = "1";
+            this.listComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.listComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listComboBox.FormattingEnabled = true;
+            this.listComboBox.ItemHeight = 24;
+            this.listComboBox.Location = new System.Drawing.Point(248, 72);
+            this.listComboBox.Name = "listComboBox";
+            this.listComboBox.Size = new System.Drawing.Size(92, 32);
+            this.listComboBox.TabIndex = 12;
+            this.listComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.listComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
+            // 
+            // pictureComboBox
+            // 
+            this.pictureComboBox.DisplayMember = "1";
+            this.pictureComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.pictureComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pictureComboBox.FormattingEnabled = true;
+            this.pictureComboBox.ItemHeight = 24;
+            this.pictureComboBox.Location = new System.Drawing.Point(346, 72);
+            this.pictureComboBox.Name = "pictureComboBox";
+            this.pictureComboBox.Size = new System.Drawing.Size(92, 32);
+            this.pictureComboBox.TabIndex = 14;
+            this.pictureComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.pictureComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
+            // 
+            // tableComboBox
+            // 
+            this.tableComboBox.DisplayMember = "1";
+            this.tableComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tableComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tableComboBox.FormattingEnabled = true;
+            this.tableComboBox.ItemHeight = 24;
+            this.tableComboBox.Location = new System.Drawing.Point(444, 72);
+            this.tableComboBox.Name = "tableComboBox";
+            this.tableComboBox.Size = new System.Drawing.Size(92, 32);
+            this.tableComboBox.TabIndex = 23;
+            this.tableComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.tableComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
+            // 
+            // codeComboBox
+            // 
+            this.codeComboBox.DisplayMember = "1";
+            this.codeComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.codeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.codeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.codeComboBox.FormattingEnabled = true;
+            this.codeComboBox.ItemHeight = 24;
+            this.codeComboBox.Location = new System.Drawing.Point(542, 72);
+            this.codeComboBox.Name = "codeComboBox";
+            this.codeComboBox.Size = new System.Drawing.Size(92, 32);
+            this.codeComboBox.TabIndex = 24;
+            this.codeComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.codeComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
+            // 
             // buttonHeading1
             // 
             this.buttonHeading1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -652,37 +607,70 @@ namespace MakeReportWord
             this.buttonHeading1.UseVisualStyleBackColor = true;
             this.buttonHeading1.Click += new System.EventHandler(this.buttonHeading1_Click);
             // 
-            // tableLabel
+            // buttonHeading2
             // 
-            this.tableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLabel.AutoSize = true;
-            this.tableLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tableLabel.Location = new System.Drawing.Point(444, 3);
-            this.tableLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.tableLabel.Name = "tableLabel";
-            this.tableLabel.Size = new System.Drawing.Size(92, 63);
-            this.tableLabel.TabIndex = 21;
-            this.tableLabel.Text = "Таблица";
-            this.tableLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonHeading2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonHeading2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonHeading2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonHeading2.Location = new System.Drawing.Point(150, 110);
+            this.buttonHeading2.Name = "buttonHeading2";
+            this.buttonHeading2.Size = new System.Drawing.Size(92, 39);
+            this.buttonHeading2.TabIndex = 11;
+            this.buttonHeading2.Text = "Добавить";
+            this.buttonHeading2.UseVisualStyleBackColor = true;
+            this.buttonHeading2.Click += new System.EventHandler(this.buttonHeading2_Click);
             // 
-            // codeLabel
+            // buttonList
             // 
-            this.codeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.codeLabel.AutoSize = true;
-            this.codeLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.codeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.codeLabel.Location = new System.Drawing.Point(542, 3);
-            this.codeLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.codeLabel.Name = "codeLabel";
-            this.codeLabel.Size = new System.Drawing.Size(92, 63);
-            this.codeLabel.TabIndex = 22;
-            this.codeLabel.Text = "Код";
-            this.codeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonList.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonList.Location = new System.Drawing.Point(248, 110);
+            this.buttonList.Name = "buttonList";
+            this.buttonList.Size = new System.Drawing.Size(92, 39);
+            this.buttonList.TabIndex = 13;
+            this.buttonList.Text = "Добавить";
+            this.buttonList.UseVisualStyleBackColor = true;
+            this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
+            // 
+            // buttonPicture
+            // 
+            this.buttonPicture.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonPicture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonPicture.Location = new System.Drawing.Point(346, 110);
+            this.buttonPicture.Name = "buttonPicture";
+            this.buttonPicture.Size = new System.Drawing.Size(92, 39);
+            this.buttonPicture.TabIndex = 15;
+            this.buttonPicture.Text = "Добавить";
+            this.buttonPicture.UseVisualStyleBackColor = true;
+            this.buttonPicture.Click += new System.EventHandler(this.buttonPicture_Click);
+            // 
+            // buttonTable
+            // 
+            this.buttonTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonTable.Location = new System.Drawing.Point(444, 110);
+            this.buttonTable.Name = "buttonTable";
+            this.buttonTable.Size = new System.Drawing.Size(92, 39);
+            this.buttonTable.TabIndex = 25;
+            this.buttonTable.Text = "Добавить";
+            this.buttonTable.UseVisualStyleBackColor = true;
+            this.buttonTable.Click += new System.EventHandler(this.buttonTable_Click);
+            // 
+            // buttonCode
+            // 
+            this.buttonCode.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonCode.Location = new System.Drawing.Point(542, 110);
+            this.buttonCode.Name = "buttonCode";
+            this.buttonCode.Size = new System.Drawing.Size(92, 39);
+            this.buttonCode.TabIndex = 26;
+            this.buttonCode.Text = "Добавить";
+            this.buttonCode.UseVisualStyleBackColor = true;
+            this.buttonCode.Click += new System.EventHandler(this.buttonCode_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -924,22 +912,6 @@ namespace MakeReportWord
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip1";
             // 
-            // buttonForward
-            // 
-            this.buttonForward.BackgroundImage = global::MakeReportWord.Properties.Resources.buttonForwardNormalNEW;
-            this.buttonForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonForward.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonForward.Location = new System.Drawing.Point(640, 3);
-            this.buttonForward.Name = "buttonForward";
-            this.elementPanel.SetRowSpan(this.buttonForward, 3);
-            this.buttonForward.Size = new System.Drawing.Size(48, 146);
-            this.buttonForward.TabIndex = 19;
-            this.buttonForward.TabStop = false;
-            this.buttonForward.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonForward_MouseDown);
-            this.buttonForward.MouseEnter += new System.EventHandler(this.buttonForward_MouseEnter);
-            this.buttonForward.MouseLeave += new System.EventHandler(this.buttonForward_MouseLeave);
-            this.buttonForward.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonForward_MouseUp);
-            // 
             // buttonBack
             // 
             this.buttonBack.BackgroundImage = global::MakeReportWord.Properties.Resources.buttonBackNormalNEW;
@@ -955,6 +927,22 @@ namespace MakeReportWord
             this.buttonBack.MouseEnter += new System.EventHandler(this.buttonBack_MouseEnter);
             this.buttonBack.MouseLeave += new System.EventHandler(this.buttonBack_MouseLeave);
             this.buttonBack.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonBack_MouseUp);
+            // 
+            // buttonForward
+            // 
+            this.buttonForward.BackgroundImage = global::MakeReportWord.Properties.Resources.buttonForwardNormalNEW;
+            this.buttonForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonForward.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonForward.Location = new System.Drawing.Point(640, 3);
+            this.buttonForward.Name = "buttonForward";
+            this.elementPanel.SetRowSpan(this.buttonForward, 3);
+            this.buttonForward.Size = new System.Drawing.Size(48, 146);
+            this.buttonForward.TabIndex = 19;
+            this.buttonForward.TabStop = false;
+            this.buttonForward.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonForward_MouseDown);
+            this.buttonForward.MouseEnter += new System.EventHandler(this.buttonForward_MouseEnter);
+            this.buttonForward.MouseLeave += new System.EventHandler(this.buttonForward_MouseLeave);
+            this.buttonForward.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonForward_MouseUp);
             // 
             // pictureBox
             // 
@@ -1030,14 +1018,13 @@ namespace MakeReportWord
             this.DownPanel.ResumeLayout(false);
             this.DownPanel.PerformLayout();
             this.elementPanel.ResumeLayout(false);
-            this.elementPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.textPicturePanel.ResumeLayout(false);
             this.DragNDropPanel.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonForward)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonForward)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonDown)).EndInit();
