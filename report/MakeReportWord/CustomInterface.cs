@@ -12,7 +12,7 @@ namespace MakeReportWord
     {
         string text;
         int menuLeftIndex;
-
+        ToolStripMenuItem DownPanelMI;
         public CustomInterface()
         {
             InitializeComponent();
@@ -89,56 +89,29 @@ namespace MakeReportWord
             displayedLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
             elementLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
             facultyLabel.Focus();
-            showTop(sender, e);
             menuLeftIndex = 1;
-        }
-
-        void showBottom(object sender, EventArgs e)
-        {
-            buttonUp.Visible = true;
-            buttonDown.Visible = false;
-            titlepagePanel.Visible = false;
-            DownPanel.Visible = true;
-            refreshMenu();
-        }
-
-        void showTop(object sender, EventArgs e)
-        {
-            buttonUp.Visible = false;
-            buttonDown.Visible = true;
-            titlepagePanel.Visible = true;
-            DownPanel.Visible = false;
+            DownPanelMI = SubstitutionMenuItem;
+            HiddenElements(SubstitutionMenuItem);
+            ShowElements(TitlePageMenuItem);
         }
 
         void buttonText_Click(object sender, EventArgs e)
         {
             if (buttonText.Text == "К тексту")
             {
-                elementPanel.Visible = false;
-                buttonText.Text = "К подстановкам";
-                pictureBox.Visible = false;
-                textPicturePanel.ColumnStyles[1].Width = 0;
-                textPicturePanel.ColumnStyles[0].Width = 100;
-                buttonSpecialH1.Visible = true;
-                buttonSpecialH2.Visible = true;
-                buttonSpecialL.Visible = true;
-                buttonSpecialP.Visible = true;
-                richTextBox.Text = text;
-                elementLabel.Text = "текст";
+                HiddenElements(SubstitutionMenuItem);
+                ShowElements(TextMenuItem);
+                DownPanelMI = TextMenuItem;
+                TextMenuItem.Checked = true;
+                SubstitutionMenuItem.Checked = false;
             }
             else
             {
-                buttonSpecialH1.Visible = false;
-                buttonSpecialH2.Visible = false;
-                buttonSpecialL.Visible = false;
-                buttonSpecialP.Visible = false;
-                elementLabel.Text = "нечто";
-                richTextBox.Text = string.Empty;
-                elementPanel.Visible = true;
-                buttonText.Text = "К тексту";
-                textPicturePanel.ColumnStyles[0].Width = 60;
-                textPicturePanel.ColumnStyles[1].Width = 40;
-                pictureBox.Visible = true;
+                HiddenElements(TextMenuItem);
+                ShowElements(SubstitutionMenuItem);
+                DownPanelMI = SubstitutionMenuItem;
+                SubstitutionMenuItem.Checked = true;
+                TextMenuItem.Checked = false;
             }
         }
 
@@ -689,7 +662,6 @@ namespace MakeReportWord
             {
                 buttonUp.BackgroundImage = Properties.Resources.arrowsUpPressed;
             }
-            
         }
 
         private void buttonUp_MouseEnter(object sender, EventArgs e)
@@ -707,7 +679,10 @@ namespace MakeReportWord
             if (e.Button == MouseButtons.Left)
             {
                 buttonUp.BackgroundImage = Properties.Resources.arrowsUpSelected;
-                showTop(sender, e);
+                HiddenElements(DownPanelMI);
+                ShowElements(TitlePageMenuItem);
+                TitlePageMenuItem.Checked = true;
+                DownPanelMI.Checked = false;
             }
         }
 
@@ -734,8 +709,93 @@ namespace MakeReportWord
             if (e.Button == MouseButtons.Left)
             {
                 buttonDown.BackgroundImage = Properties.Resources.arrowsDownSelected;
-                showBottom(sender, e);
+                HiddenElements(TitlePageMenuItem);
+                ShowElements(DownPanelMI);
+                TitlePageMenuItem.Checked = false;
+                DownPanelMI.Checked = true;
+            }
+        }
+
+        private void View_MenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem ClickMenuItem = (ToolStripMenuItem)sender;
+            if (TitlePageMenuItem.Checked)
+            {
+                TitlePageMenuItem.Checked = false;
+                ClickMenuItem.Checked = true;
+                HiddenElements(TitlePageMenuItem);
+                ShowElements(ClickMenuItem);
+            }
+            else if (SubstitutionMenuItem.Checked)
+            {
+                SubstitutionMenuItem.Checked = false;
+                ClickMenuItem.Checked = true;
+                HiddenElements(SubstitutionMenuItem);
+                ShowElements(ClickMenuItem);
+            }
+            else if (TextMenuItem.Checked)
+            {
+                TextMenuItem.Checked = false;
+                ClickMenuItem.Checked = true;
+                HiddenElements(TextMenuItem);
+                ShowElements(ClickMenuItem);
+            }
+        }
+
+        void HiddenElements(ToolStripMenuItem MenuItem)
+        {
+            if (MenuItem == TitlePageMenuItem)
+            {
+                buttonDown.Visible = false;
+                titlepagePanel.Visible = false;
+                refreshMenu();
+            }
+            else if (MenuItem == SubstitutionMenuItem)
+            {
+                elementPanel.Visible = false;
+                pictureBox.Visible = false;
+                DownPanelMI = SubstitutionMenuItem;
+            }
+            else if (MenuItem == TextMenuItem)
+            {
+                tableLayoutPanel1.Visible = false;
+                DownPanelMI = TextMenuItem;
+            }
+        }
+
+        void ShowElements(ToolStripMenuItem MenuItem)
+        {
+            if (MenuItem == TitlePageMenuItem)
+            {
+                buttonDown.Visible = true;
+                titlepagePanel.Visible = true;
+                DownPanel.Visible = false;
+                buttonUp.Visible = false;
+            }
+            else if (MenuItem == SubstitutionMenuItem)
+            {
+                buttonUp.Visible = true;
+                DownPanel.Visible = true;
+                pictureBox.Visible = true;
+                elementPanel.Visible = true;
+                elementLabel.Text = "нечто";
+                richTextBox.Text = string.Empty;
+                buttonText.Text = "К тексту";
+                textPicturePanel.ColumnStyles[0].Width = 60;
+                textPicturePanel.ColumnStyles[1].Width = 40;
+            }
+            else if (MenuItem == TextMenuItem)
+            {
+                buttonUp.Visible = true;
+                DownPanel.Visible = true;
+                tableLayoutPanel1.Visible = true;
+                buttonText.Text = "К подстановкам";
+                richTextBox.Text = text;
+                elementLabel.Text = "текст";
+                textPicturePanel.ColumnStyles[1].Width = 0;
+                textPicturePanel.ColumnStyles[0].Width = 100;
             }
         }
     }
 }
+
