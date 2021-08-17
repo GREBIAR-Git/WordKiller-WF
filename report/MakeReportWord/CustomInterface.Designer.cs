@@ -49,6 +49,7 @@ namespace MakeReportWord
             this.elementLabel = new System.Windows.Forms.Label();
             this.buttonText = new System.Windows.Forms.Button();
             this.elementPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonBack = new System.Windows.Forms.PictureBox();
             this.heading1Label = new System.Windows.Forms.Label();
             this.heading2Label = new System.Windows.Forms.Label();
             this.listLabel = new System.Windows.Forms.Label();
@@ -67,6 +68,7 @@ namespace MakeReportWord
             this.buttonPicture = new System.Windows.Forms.Button();
             this.buttonTable = new System.Windows.Forms.Button();
             this.buttonCode = new System.Windows.Forms.Button();
+            this.buttonForward = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSpecialP = new System.Windows.Forms.Button();
             this.buttonSpecialL = new System.Windows.Forms.Button();
@@ -75,6 +77,9 @@ namespace MakeReportWord
             this.textPicturePanel = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.DragNDropPanel = new System.Windows.Forms.Panel();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.buttonUp = new System.Windows.Forms.PictureBox();
+            this.buttonDown = new System.Windows.Forms.PictureBox();
             this.Scroll1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ReadScroll = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseWindow = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,24 +99,19 @@ namespace MakeReportWord
             this.TitlePageMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SubstitutionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonBack = new System.Windows.Forms.PictureBox();
-            this.buttonForward = new System.Windows.Forms.PictureBox();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.buttonUp = new System.Windows.Forms.PictureBox();
-            this.buttonDown = new System.Windows.Forms.PictureBox();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
             this.elementPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonForward)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.textPicturePanel.SuspendLayout();
             this.DragNDropPanel.SuspendLayout();
-            this.menuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonForward)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonDown)).BeginInit();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // titlepagePanel
@@ -172,13 +172,12 @@ namespace MakeReportWord
             this.facultyComboBox.FormattingEnabled = true;
             this.facultyComboBox.Items.AddRange(new object[] {
             "программной инженерии",
-            "прикладной математики и информатики",
             "информационных систем и цифровых технологий",
             "приборостроения, метрологии и сертификации",
-            "электроники, радиотехники и систем связи",
             "информационной безопасности",
-            "электрооборудования и энергосбережения",
-            "технической физики"});
+            "технической физики и математики",
+            "электроники, радиотехники и систем связи",
+            "электрооборудования и энергосбережения"});
             this.facultyComboBox.Location = new System.Drawing.Point(417, 28);
             this.facultyComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.facultyComboBox.Name = "facultyComboBox";
@@ -450,6 +449,23 @@ namespace MakeReportWord
             this.elementPanel.Size = new System.Drawing.Size(1036, 234);
             this.elementPanel.TabIndex = 0;
             // 
+            // buttonBack
+            // 
+            this.buttonBack.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsLeft;
+            this.buttonBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonBack.Location = new System.Drawing.Point(4, 5);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonBack.Name = "buttonBack";
+            this.elementPanel.SetRowSpan(this.buttonBack, 3);
+            this.buttonBack.Size = new System.Drawing.Size(66, 224);
+            this.buttonBack.TabIndex = 20;
+            this.buttonBack.TabStop = false;
+            this.buttonBack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonBack_MouseDown);
+            this.buttonBack.MouseEnter += new System.EventHandler(this.buttonBack_MouseEnter);
+            this.buttonBack.MouseLeave += new System.EventHandler(this.buttonBack_MouseLeave);
+            this.buttonBack.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonBack_MouseUp);
+            // 
             // heading1Label
             // 
             this.heading1Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -720,6 +736,23 @@ namespace MakeReportWord
             this.buttonCode.Text = "Добавить";
             this.buttonCode.UseVisualStyleBackColor = true;
             // 
+            // buttonForward
+            // 
+            this.buttonForward.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsRight;
+            this.buttonForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonForward.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonForward.Location = new System.Drawing.Point(960, 5);
+            this.buttonForward.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonForward.Name = "buttonForward";
+            this.elementPanel.SetRowSpan(this.buttonForward, 3);
+            this.buttonForward.Size = new System.Drawing.Size(72, 224);
+            this.buttonForward.TabIndex = 19;
+            this.buttonForward.TabStop = false;
+            this.buttonForward.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonForward_MouseDown);
+            this.buttonForward.MouseEnter += new System.EventHandler(this.buttonForward_MouseEnter);
+            this.buttonForward.MouseLeave += new System.EventHandler(this.buttonForward_MouseLeave);
+            this.buttonForward.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonForward_MouseUp);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
@@ -838,6 +871,57 @@ namespace MakeReportWord
             this.DragNDropPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragDrop);
             this.DragNDropPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragEnter);
             this.DragNDropPanel.DragOver += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragOver);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.Color.Maroon;
+            this.pictureBox.BackgroundImage = global::MakeReportWord.Properties.Resources.DragNDrop;
+            this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(448, 312);
+            this.pictureBox.TabIndex = 32;
+            this.pictureBox.TabStop = false;
+            // 
+            // buttonUp
+            // 
+            this.buttonUp.BackColor = System.Drawing.Color.Transparent;
+            this.buttonUp.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsUp;
+            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonUp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonUp.Location = new System.Drawing.Point(192, 515);
+            this.buttonUp.Margin = new System.Windows.Forms.Padding(192, 28, 192, 5);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.Size = new System.Drawing.Size(830, 45);
+            this.buttonUp.TabIndex = 7;
+            this.buttonUp.TabStop = false;
+            this.buttonUp.Text = " ";
+            this.buttonUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonUp_MouseDown);
+            this.buttonUp.MouseEnter += new System.EventHandler(this.buttonUp_MouseEnter);
+            this.buttonUp.MouseLeave += new System.EventHandler(this.buttonUp_MouseLeave);
+            this.buttonUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonUp_MouseUp);
+            // 
+            // buttonDown
+            // 
+            this.buttonDown.BackColor = System.Drawing.Color.Transparent;
+            this.buttonDown.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsDown;
+            this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDown.Location = new System.Drawing.Point(192, 439);
+            this.buttonDown.Margin = new System.Windows.Forms.Padding(192, 5, 192, 5);
+            this.buttonDown.Name = "buttonDown";
+            this.buttonDown.Size = new System.Drawing.Size(830, 43);
+            this.buttonDown.TabIndex = 7;
+            this.buttonDown.TabStop = false;
+            this.buttonDown.Text = " ";
+            this.buttonDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonDown_MouseDown);
+            this.buttonDown.MouseEnter += new System.EventHandler(this.buttonDown_MouseEnter);
+            this.buttonDown.MouseLeave += new System.EventHandler(this.buttonDown_MouseLeave);
+            this.buttonDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonDown_MouseUp);
             // 
             // Scroll1
             // 
@@ -998,91 +1082,6 @@ namespace MakeReportWord
             this.TextMenuItem.Text = "Текст";
             this.TextMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
-            // buttonBack
-            // 
-            this.buttonBack.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsLeft;
-            this.buttonBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonBack.Location = new System.Drawing.Point(4, 5);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonBack.Name = "buttonBack";
-            this.elementPanel.SetRowSpan(this.buttonBack, 3);
-            this.buttonBack.Size = new System.Drawing.Size(66, 224);
-            this.buttonBack.TabIndex = 20;
-            this.buttonBack.TabStop = false;
-            this.buttonBack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonBack_MouseDown);
-            this.buttonBack.MouseEnter += new System.EventHandler(this.buttonBack_MouseEnter);
-            this.buttonBack.MouseLeave += new System.EventHandler(this.buttonBack_MouseLeave);
-            this.buttonBack.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonBack_MouseUp);
-            // 
-            // buttonForward
-            // 
-            this.buttonForward.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsRight;
-            this.buttonForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonForward.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonForward.Location = new System.Drawing.Point(960, 5);
-            this.buttonForward.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonForward.Name = "buttonForward";
-            this.elementPanel.SetRowSpan(this.buttonForward, 3);
-            this.buttonForward.Size = new System.Drawing.Size(72, 224);
-            this.buttonForward.TabIndex = 19;
-            this.buttonForward.TabStop = false;
-            this.buttonForward.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonForward_MouseDown);
-            this.buttonForward.MouseEnter += new System.EventHandler(this.buttonForward_MouseEnter);
-            this.buttonForward.MouseLeave += new System.EventHandler(this.buttonForward_MouseLeave);
-            this.buttonForward.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonForward_MouseUp);
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.BackColor = System.Drawing.Color.Maroon;
-            this.pictureBox.BackgroundImage = global::MakeReportWord.Properties.Resources.DragNDrop;
-            this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(448, 312);
-            this.pictureBox.TabIndex = 32;
-            this.pictureBox.TabStop = false;
-            // 
-            // buttonUp
-            // 
-            this.buttonUp.BackColor = System.Drawing.Color.Transparent;
-            this.buttonUp.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsUp;
-            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonUp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonUp.Location = new System.Drawing.Point(192, 515);
-            this.buttonUp.Margin = new System.Windows.Forms.Padding(192, 28, 192, 5);
-            this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(830, 45);
-            this.buttonUp.TabIndex = 7;
-            this.buttonUp.TabStop = false;
-            this.buttonUp.Text = " ";
-            this.buttonUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonUp_MouseDown);
-            this.buttonUp.MouseEnter += new System.EventHandler(this.buttonUp_MouseEnter);
-            this.buttonUp.MouseLeave += new System.EventHandler(this.buttonUp_MouseLeave);
-            this.buttonUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonUp_MouseUp);
-            // 
-            // buttonDown
-            // 
-            this.buttonDown.BackColor = System.Drawing.Color.Transparent;
-            this.buttonDown.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsDown;
-            this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDown.Location = new System.Drawing.Point(192, 439);
-            this.buttonDown.Margin = new System.Windows.Forms.Padding(192, 5, 192, 5);
-            this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(830, 43);
-            this.buttonDown.TabIndex = 7;
-            this.buttonDown.TabStop = false;
-            this.buttonDown.Text = " ";
-            this.buttonDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonDown_MouseDown);
-            this.buttonDown.MouseEnter += new System.EventHandler(this.buttonDown_MouseEnter);
-            this.buttonDown.MouseLeave += new System.EventHandler(this.buttonDown_MouseLeave);
-            this.buttonDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonDown_MouseUp);
-            // 
             // CustomInterface
             // 
             this.AllowDrop = true;
@@ -1109,16 +1108,16 @@ namespace MakeReportWord
             this.DownPanel.PerformLayout();
             this.elementPanel.ResumeLayout(false);
             this.elementPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonForward)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.textPicturePanel.ResumeLayout(false);
             this.DragNDropPanel.ResumeLayout(false);
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonForward)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonDown)).EndInit();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
