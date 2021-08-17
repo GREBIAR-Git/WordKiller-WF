@@ -192,7 +192,7 @@ namespace MakeReportWord
             this.numberLabTextBox.Location = new System.Drawing.Point(417, 78);
             this.numberLabTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numberLabTextBox.Name = "numberLabTextBox";
-            this.numberLabTextBox.Size = new System.Drawing.Size(752, 39);
+            this.numberLabTextBox.Size = new System.Drawing.Size(756, 39);
             this.numberLabTextBox.TabIndex = 2;
             // 
             // numberLabLabel

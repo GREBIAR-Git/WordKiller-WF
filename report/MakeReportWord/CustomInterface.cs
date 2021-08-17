@@ -554,7 +554,20 @@ namespace MakeReportWord
                 var fileNames = data as string[];
                 if (fileNames.Length > 0)
                 {
-                    pictureBox.BackgroundImage = Image.FromFile(fileNames[0]);
+                    Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
+                    if (controlRelatedCoords.X < 148)
+                    {
+                        pictureBox.BackgroundImage = Image.FromFile(fileNames[0]);
+                    }
+                    else
+                    {
+                        Graphics g = pictureBox.CreateGraphics();
+                        g.DrawImage(Properties.Resources.Code, 0, 0, pictureBox.Width, pictureBox.Height);
+                        richTextBox.Text = fileNames[0];
+                        string nameFile = fileNames[0].Split('\\')[fileNames[0].Split('\\').Length-1];
+                        g.DrawString(nameFile, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.Black), new Point(20, pictureBox.Height/2+30));
+                        
+                    }
                 }
             }
         }
