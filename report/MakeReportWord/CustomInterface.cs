@@ -193,7 +193,7 @@ namespace MakeReportWord
             {
                 if (Control.ModifierKeys != Keys.Shift && Control.ModifierKeys != Keys.Control && Control.ModifierKeys != Keys.Alt)
                 {
-                    for (int i = elementPanel.ColumnCount - 1; i < elementPanel.ColumnCount - 1 - 3; i++)
+                    for (int i = elementPanel.ColumnCount - 1; i < 2 * elementPanel.ColumnCount - 1 - 2; i++)
                     {
                         comboBox = (ComboBox)(elementPanel.Controls[i]);
                         comboBox.SelectedIndex = -1;
@@ -250,31 +250,6 @@ namespace MakeReportWord
             {
                 text = richTextBox.Text;
             }
-        }
-
-        
-
-
-
-        void buttonHeading1_Click(object sender, EventArgs e)
-        {
-            AddToComboBox(heading1ComboBox, richTextBox.Text);
-        }
-
-        void buttonHeading2_Click(object sender, EventArgs e)
-        {
-            AddToComboBox(heading2ComboBox, richTextBox.Text);
-        }
-
-        void buttonList_Click(object sender, EventArgs e)
-        {
-            AddToComboBox(listComboBox, richTextBox.Text);
-        }
-
-        void buttonPicture_Click(object sender, EventArgs e)
-        {
-            AddToComboBox(pictureComboBox, richTextBox.Text);
-            // picture
         }
 
         void buttonSpecial_Click(object sender, EventArgs e)
