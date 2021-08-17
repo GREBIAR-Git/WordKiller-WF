@@ -565,7 +565,8 @@ namespace MakeReportWord
                         g.DrawImage(Properties.Resources.Code, 0, 0, pictureBox.Width, pictureBox.Height);
                         richTextBox.Text = fileNames[0];
                         string nameFile = fileNames[0].Split('\\')[fileNames[0].Split('\\').Length-1];
-                        g.DrawString(nameFile, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.Black), new Point(20, pictureBox.Height/2+30));
+                        SizeF stringSize = g.MeasureString(nameFile,new Font("Microsoft Sans Serif", 14) );
+                        g.DrawString(nameFile, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height/2+30));
                         
                     }
                 }
@@ -744,7 +745,6 @@ namespace MakeReportWord
             {
                 buttonUp.BackgroundImage = Properties.Resources.arrowsUpPressed;
             }
-
         }
 
         private void buttonUp_MouseEnter(object sender, EventArgs e)
