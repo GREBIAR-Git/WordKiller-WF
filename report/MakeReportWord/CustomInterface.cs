@@ -337,6 +337,14 @@ namespace MakeReportWord
                 {
                     output.WriteLine("pictureComboBox.Items[" + i + "]=" + pictureComboBox.Items[i].ToString());
                 }
+                for (int i = 0; i < tableComboBox.Items.Count; i++)
+                {
+                    output.WriteLine("tableComboBox.Items[" + i + "]=" + tableComboBox.Items[i].ToString());
+                }
+                for (int i = 0; i < codeComboBox.Items.Count; i++)
+                {
+                    output.WriteLine("codeComboBox.Items[" + i + "]=" + codeComboBox.Items[i].ToString());
+                }
                 output.WriteLine("###textstart");
                 output.WriteLine(text);
                 output.WriteLine("###textend");
@@ -344,6 +352,8 @@ namespace MakeReportWord
                 output.Close();
             }
         }
+
+
 
         void Open_Click(object sender, EventArgs e)
         {
@@ -428,10 +438,17 @@ namespace MakeReportWord
                                 {
                                     pictureComboBox.Items.Add(variable_value[1]);
                                 }
+                                else if (variable_value[0].StartsWith("tableComboBox"))
+                                {
+                                    tableComboBox.Items.Add(variable_value[1]);
+                                }
+                                else if (variable_value[0].StartsWith("codeComboBox"))
+                                {
+                                    codeComboBox.Items.Add(variable_value[1]);
+                                }
                             }
                         }
                     }
-                    
                 }
                 catch
                 {
