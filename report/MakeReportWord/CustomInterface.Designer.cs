@@ -884,6 +884,7 @@ namespace MakeReportWord
             this.pictureBox.Size = new System.Drawing.Size(448, 312);
             this.pictureBox.TabIndex = 32;
             this.pictureBox.TabStop = false;
+            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
             // 
             // buttonUp
             // 

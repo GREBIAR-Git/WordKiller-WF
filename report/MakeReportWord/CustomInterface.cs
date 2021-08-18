@@ -12,6 +12,7 @@ namespace MakeReportWord
         int menuLeftIndex;
         string[] menuLabels;
         ToolStripMenuItem DownPanelMI;
+        string[] fileNames;
 
         public CustomInterface()
         {
@@ -165,7 +166,7 @@ namespace MakeReportWord
             {
                 if (Control.ModifierKeys != Keys.Shift && Control.ModifierKeys != Keys.Control && Control.ModifierKeys != Keys.Alt)
                 {
-                    for (int i = 4; i < 8; i++)
+                    for (int i = elementPanel.ColumnCount-1;i<2*elementPanel.ColumnCount-1-2;i++)
                     {
                         comboBox = (ComboBox)(elementPanel.Controls[i]);
                         comboBox.SelectedIndex = -1;
@@ -551,36 +552,21 @@ namespace MakeReportWord
             var data = e.Data.GetData(DataFormats.FileDrop);
             if (data != null)
             {
-                var fileNames = data as string[];
+                fileNames = data as string[];
                 if (fileNames.Length > 0)
                 {
                     Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
                     if (controlRelatedCoords.X < 148)
                     {
                         pictureBox.BackgroundImage = Image.FromFile(fileNames[0]);
+                        fileNames = null;
                     }
                     else
                     {
-                        Graphics g = pictureBox.CreateGraphics();
-                        g.DrawImage(Properties.Resources.Code, 0, 0, pictureBox.Width, pictureBox.Height);
-                        richTextBox.Text = fileNames[0];
-                        string nameFile = fileNames[0].Split('\\')[fileNames[0].Split('\\').Length-1];
-                        SizeF stringSize = g.MeasureString(nameFile,new Font("Microsoft Sans Serif", 14) );
-                        g.DrawString(nameFile, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height/2+30));
-                        
+                        pictureBox.Refresh();
                     }
                 }
             }
-        }
-
-        void CustomInterface_DragEnter(object sender, DragEventArgs e)
-        {
-            pictureBox.BackgroundImage = Properties.Resources.pictureCode;
-        }
-
-        void CustomInterface_DragLeave(object sender, EventArgs e)
-        {
-            pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
         }
 
         void DragNDropPanel_DragOver(object sender, DragEventArgs e)
@@ -594,6 +580,17 @@ namespace MakeReportWord
             {
                 pictureBox.BackgroundImage = Properties.Resources.pictureCode_Code;
             }
+        }
+
+        void CustomInterface_DragEnter(object sender, DragEventArgs e)
+        {
+            fileNames = null;
+            pictureBox.BackgroundImage = Properties.Resources.pictureCode;
+        }
+
+        void CustomInterface_DragLeave(object sender, EventArgs e)
+        {
+            pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
         }
 
         void View_MenuItem_Click(object sender, EventArgs e)
@@ -1059,6 +1056,19 @@ namespace MakeReportWord
         {
             PictureBox element = (PictureBox)sender;
             element.BackgroundImage = Properties.Resources.AddNormal;
+        }
+
+        private void pictureBox_Paint(object sender, PaintEventArgs e)
+        {
+            if (fileNames!=null && fileNames.Length > 0)
+            {
+                e.Graphics.DrawImage(Properties.Resources.Code, 0, 0, pictureBox.Width, pictureBox.Height);
+                richTextBox.Text = fileNames[0];
+                string nameFile = fileNames[0].Split('\\')[fileNames[0].Split('\\').Length - 1];
+                SizeF stringSize = e.Graphics.MeasureString(nameFile, new Font("Microsoft Sans Serif", 14));
+                e.Graphics.DrawString(nameFile, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 + 30));
+
+            }
         }
     }
 }
