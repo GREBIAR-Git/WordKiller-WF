@@ -223,6 +223,7 @@ namespace MakeReportWord
             {
                 text = richTextBox.Text;
             }
+           // if
         }
 
         void buttonHeading1_Click(object sender, EventArgs e)
@@ -352,8 +353,6 @@ namespace MakeReportWord
                 output.Close();
             }
         }
-
-
 
         void Open_Click(object sender, EventArgs e)
         {
@@ -575,6 +574,7 @@ namespace MakeReportWord
                     Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
                     if (controlRelatedCoords.X < 148)
                     {
+                        richTextBox.Text = "☺p☺\n\n☺Содержимое☺\n";
                         pictureBox.BackgroundImage = Image.FromFile(fileNames[0]);
                         fileNames = null;
                     }
@@ -830,6 +830,7 @@ namespace MakeReportWord
             {
                 elementPanel.Controls.Add(menuPBarray[i], i + 1, 0);
                 menuLabels[i] = controlsSave[i + 1].Text;
+                elementPanel.Controls[i + 1].Name = menuLabels[i];
             }
             for (int i = 0; i < elementPanel.ColumnCount - 2; i++)
             {
@@ -841,6 +842,7 @@ namespace MakeReportWord
             }
             elementPanel.Controls.Add(controlsSave[controlsSave.Length - 1]);
         }
+
         private bool MouseIsOverControl(PictureBox pb) => pb.ClientRectangle.Contains(pb.PointToClient(Cursor.Position));
 
         private void menuPB_Paint(object sender, PaintEventArgs e)
@@ -986,6 +988,7 @@ namespace MakeReportWord
             {
                 PictureBox element = (PictureBox)sender;
                 element.BackgroundImage = Properties.Resources.exortSelected;
+                createTemplate(sender);
             }
         }
 
@@ -995,6 +998,7 @@ namespace MakeReportWord
             {
                 PictureBox element = (PictureBox)sender;
                 element.BackgroundImage = Properties.Resources.wexSelected;
+                createTemplate(sender);
             }
         }
 
@@ -1004,6 +1008,7 @@ namespace MakeReportWord
             {
                 PictureBox element = (PictureBox)sender;
                 element.BackgroundImage = Properties.Resources.quasSelected;
+                createTemplate(sender);
             }
         }
 
@@ -1043,6 +1048,35 @@ namespace MakeReportWord
             element.BackgroundImage = Properties.Resources.quas;
         }
 
+        void createTemplate(object sender)
+        {
+            Control control = (Control)sender;
+            if(control.Name == "Заголовок 1")
+            {
+                richTextBox.Text = "☺h1☺\n\n☺Содержимое☺\n";
+            }
+            else if(control.Name == "Заголовок 2")
+            {
+                richTextBox.Text = "☺h2☺\n\n☺Содержимое☺\n";
+            }
+            else if (control.Name == "Список")
+            {
+                richTextBox.Text = "☺l☺\n\n☺Содержимое☺\n";
+            }
+            else if (control.Name == "Картинка")
+            {
+                richTextBox.Text = "☺p☺\n\n☺Содержимое☺\n";
+            }
+            else if (control.Name == "Таблица")
+            {
+                richTextBox.Text = "☺t☺\n\n☺Содержимое☺\n";
+            }
+            else if (control.Name == "Код")
+            {
+                richTextBox.Text = "☺c☺\n\n☺Содержимое☺\n";
+            }
+        }
+
         void menuAddPB_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -1069,22 +1103,22 @@ namespace MakeReportWord
             PictureBox element = (PictureBox)sender;
             element.BackgroundImage = Properties.Resources.AddSelected;
         }
+
         void menuAddPB_MouseLeave(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
             element.BackgroundImage = Properties.Resources.AddNormal;
         }
 
-        private void pictureBox_Paint(object sender, PaintEventArgs e)
+        void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             if (fileNames!=null && fileNames.Length > 0)
             {
                 e.Graphics.DrawImage(Properties.Resources.Code, 0, 0, pictureBox.Width, pictureBox.Height);
-                richTextBox.Text = fileNames[0];
+                richTextBox.Text = "☺c☺\n\n☺Содержимое☺\n"+ fileNames[0];
                 string nameFile = fileNames[0].Split('\\')[fileNames[0].Split('\\').Length - 1];
                 SizeF stringSize = e.Graphics.MeasureString(nameFile, new Font("Microsoft Sans Serif", 14));
                 e.Graphics.DrawString(nameFile, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 + 30));
-
             }
         }
     }
