@@ -99,7 +99,7 @@ namespace MakeReportWord
 
         void buttonText_Click(object sender, EventArgs e)
         {
-            if (buttonText.Text == "К тексту")
+            if (elementLabel.Text != "текст")
             {
                 HiddenElements(SubstitutionMenuItem);
                 ShowElements(TextMenuItem);
@@ -813,11 +813,52 @@ namespace MakeReportWord
             }
         }
 
+        private void buttonText_Paint(object sender, PaintEventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            int fontSize = 10;
+            if (MouseIsOverControl(pb) && Control.MouseButtons != MouseButtons.Left)
+            {
+                fontSize = 12;
+            }
+            using (Font fnt = new Font(globalFont.GetFont().Name, fontSize))
+            {
+                string str;
+                if (elementLabel.Text == "текст")
+                {
+                    str = "К подстановкам";
+                }
+                else
+                {
+                    str = "К тексту";
+                }
+                SizeF stringSize = e.Graphics.MeasureString(str, fnt);
+                e.Graphics.DrawString(str, fnt, Brushes.Black, new Point((int)(pb.Width / 2 - stringSize.Width / 2), (int)(pb.Height / 2 - stringSize.Height / 2)));
+            }
+        }
+
         private void replaceMenu()
         {
             globalFont.SetFont(heading1Label.Font, heading1Label.Font.Style);
             PictureBox[] menuPBarray = GetMenuLabelReplacement(elementPanel.ColumnCount - 2);
             PictureBox[] menuAddPBarray = GetMenuButtonReplacement(elementPanel.ColumnCount - 2);
+            Control[] downPanelSave = new Control[DownPanel.Controls.Count];
+            for (int i = 0; i < DownPanel.Controls.Count; i++)
+            {
+                downPanelSave[i] = DownPanel.Controls[i];
+            }
+            DownPanel.Controls.Clear();
+            for (int i= 0; i < downPanelSave.Length; i++)
+            {
+                if (downPanelSave[i].Name == "buttonText")
+                {
+                    DownPanel.Controls.Add(GetMenuTextBtnReplacement(), 4, 1);
+                }
+                else
+                {
+                    DownPanel.Controls.Add(downPanelSave[i]);
+                }
+            }
             Control[] controlsSave = new Control[elementPanel.Controls.Count];
             for (int i = 0; i < elementPanel.Controls.Count; i++)
             {
@@ -898,11 +939,12 @@ namespace MakeReportWord
                 //menuPBarray[menuPBindex].TabIndex = 15 + menuPBindex;
                 menuPBarray[menuPBindex].BackgroundImageLayout = ImageLayout.Stretch;
                 menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.AddNormal;
-                menuPBarray[menuPBindex].MouseDown += menuAddPB_MouseDown;
-                menuPBarray[menuPBindex].MouseUp += menuAddPB_MouseUp;
-                menuPBarray[menuPBindex].MouseEnter += menuAddPB_MouseEnter;
-                menuPBarray[menuPBindex].MouseLeave += menuAddPB_MouseLeave;
+                menuPBarray[menuPBindex].MouseDown += menuButtonPB_MouseDown;
+                menuPBarray[menuPBindex].MouseUp += menuButtonPB_MouseUp;
+                menuPBarray[menuPBindex].MouseEnter += menuButtonPB_MouseEnter;
+                menuPBarray[menuPBindex].MouseLeave += menuButtonPB_MouseLeave;
                 menuPBarray[menuPBindex].Paint += menuPBadd_Paint;
+                menuPBarray[menuPBindex].Name = "Добавить";
             }
             return menuPBarray;
         }
@@ -943,6 +985,23 @@ namespace MakeReportWord
                 menuPBarray[menuPBindex].Paint += menuPB_Paint;
             }
             return menuPBarray;
+        }
+
+        private PictureBox GetMenuTextBtnReplacement()
+        {
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Dock = DockStyle.Fill;
+            pictureBox.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox.Name = "КнопкаТекст";
+            pictureBox.BackgroundImage = Properties.Resources.AddNormal;
+            pictureBox.MouseDown += menuButtonPB_MouseDown;
+            pictureBox.MouseUp += menuButtonPB_MouseUp;
+            pictureBox.MouseEnter += menuButtonPB_MouseEnter;
+            pictureBox.MouseLeave += menuButtonPB_MouseLeave;
+            pictureBox.Paint += buttonText_Paint;
+
+
+            return pictureBox;
         }
 
         private void buttonTable_Click(object sender, EventArgs e)
@@ -1077,7 +1136,7 @@ namespace MakeReportWord
             }
         }
 
-        void menuAddPB_MouseDown(object sender, MouseEventArgs e)
+        void menuButtonPB_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -1086,25 +1145,31 @@ namespace MakeReportWord
             }
         }
 
-        void menuAddPB_MouseUp(object sender, MouseEventArgs e)
+        void menuButtonPB_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 PictureBox element = (PictureBox)sender;
-                PictureBox control = (PictureBox)sender;
                 element.BackgroundImage = Properties.Resources.AddSelected;
-                ComboBox comboBox = (ComboBox)(elementPanel.Controls[elementPanel.Controls.IndexOf(control) - (elementPanel.ColumnCount - 2)]);
-                AddToComboBox(comboBox, richTextBox.Text);
+                if (element.Name == "Добавить")
+                {
+                    ComboBox comboBox = (ComboBox)(elementPanel.Controls[elementPanel.Controls.IndexOf(element) - (elementPanel.ColumnCount - 2)]);
+                    AddToComboBox(comboBox, richTextBox.Text);
+                }
+                else if (element.Name == "КнопкаТекст")
+                {
+                    buttonText_Click(sender, e);
+                }
             }
         }
 
-        void menuAddPB_MouseEnter(object sender, EventArgs e)
+        void menuButtonPB_MouseEnter(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
             element.BackgroundImage = Properties.Resources.AddSelected;
         }
 
-        void menuAddPB_MouseLeave(object sender, EventArgs e)
+        void menuButtonPB_MouseLeave(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
             element.BackgroundImage = Properties.Resources.AddNormal;
