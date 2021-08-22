@@ -272,6 +272,8 @@ namespace MakeReportWord
                 userInput.ComboBoxH2 = DataComboBox(heading2ComboBox);
                 userInput.ComboBoxL = DataComboBox(listComboBox);
                 userInput.ComboBoxP = DataComboBox(pictureComboBox);
+                userInput.ComboBoxT = DataComboBox(tableComboBox);
+                userInput.ComboBoxC = DataComboBox(codeComboBox);
                 userInput.Text = richTextBox.Text;
                 await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, userInput));
             }

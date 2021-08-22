@@ -2,7 +2,7 @@
 {
     class UserInput
     {
-        string[] comboBoxH1, comboBoxH2, comboBoxL, comboBoxP;
+        string[] comboBoxH1, comboBoxH2, comboBoxL, comboBoxP, comboBoxT, comboBoxC;
         string text;
         public string Text
         {
@@ -28,6 +28,16 @@
         {
             get { return comboBoxP; }
             set { comboBoxP = value; }
+        }
+        public string[] ComboBoxT
+        {
+            get { return comboBoxT; }
+            set { comboBoxT = value; }
+        }
+        public string[] ComboBoxC
+        {
+            get { return comboBoxC; }
+            set { comboBoxC = value; }
         }
     }
 }

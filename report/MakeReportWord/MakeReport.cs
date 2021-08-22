@@ -115,13 +115,25 @@ namespace MakeReportWord
                     {
                         i += 1;
                         string text = ProcessSpecial(i,"l", content);
-                        //listiq(text);
+                        List(text);
                     }
                     else if (content.Text[i + 1] == 'p')
                     {
                         i += 1;
                         string text = ProcessSpecial(i,"p", content);
                         СaptionForPicture(text);
+                    }
+                    else if (content.Text[i + 1] == 't')
+                    {
+                        i += 1;
+                        string text = ProcessSpecial(i, "t", content);
+                        Table(text);
+                    }
+                    else if (content.Text[i + 1] == 'c')
+                    {
+                        i += 1;
+                        string text = ProcessSpecial(i, "c", content);
+                        Code(text);
                     }
                 }
                 else
@@ -154,6 +166,14 @@ namespace MakeReportWord
             else if (special == "p")
             {
                 text = content.ComboBoxP[i - 1];
+            }
+            else if (special == "t")
+            {
+                text = content.ComboBoxT[i - 1];
+            }
+            else if (special == "c")
+            {
+                text = content.ComboBoxT[i - 1];
             }
             return text;
         }
@@ -232,6 +252,11 @@ namespace MakeReportWord
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
         }
 
+        void List(string text)
+        {
+
+        }
+
         void Picture()
         {
             word.Paragraphs.Space15();
@@ -252,6 +277,16 @@ namespace MakeReportWord
             word.Paragraphs.SpaceAfter= 8;
             word.Paragraphs.Space15();
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+        }
+
+        void Table(string text)
+        {
+
+        }
+
+        void Code(string text)
+        {
+
         }
 
         void PageMargin(float top, float bottom, float left, float right)
