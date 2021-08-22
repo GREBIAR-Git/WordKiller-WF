@@ -274,7 +274,14 @@ namespace MakeReportWord
                 userInput.ComboBoxP = DataComboBox(pictureComboBox);
                 userInput.ComboBoxT = DataComboBox(tableComboBox);
                 userInput.ComboBoxC = DataComboBox(codeComboBox);
-                userInput.Text = richTextBox.Text;
+                if(DownPanelMI == TextMenuItem)
+                {
+                    userInput.Text = richTextBox.Text;
+                }
+                else
+                {
+                    userInput.Text = text;
+                }
                 await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, userInput));
             }
             catch
@@ -1226,8 +1233,8 @@ namespace MakeReportWord
             if (fileNames!=null && fileNames.Length > 0)
             {
                 e.Graphics.DrawImage(Properties.Resources.Code, 0, 0, pictureBox.Width, pictureBox.Height);
-                richTextBox.Text = "☺c☺\n\n☺Содержимое☺\n"+ fileNames[0];
                 string nameFile = fileNames[0].Split('\\')[fileNames[0].Split('\\').Length - 1];
+                richTextBox.Text = "☺c☺\n"+ nameFile + "\n☺Содержимое☺\n"+ fileNames[0];
                 SizeF stringSize = e.Graphics.MeasureString(nameFile, new Font("Microsoft Sans Serif", 14));
                 e.Graphics.DrawString(nameFile, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 + 30));
             }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Office.Interop.Word;
 
 namespace MakeReportWord
@@ -79,9 +80,13 @@ namespace MakeReportWord
 
         void ProcessContent(UserInput content)
         {
-            int heading1 = 1;
-            int heading2 = 1;
-            int heading2all = 1;
+            int h1 = 1;
+            int h2 = 1;
+            int h2all = 1;
+            int l = 1;
+            int p = 1;
+            int t = 1;
+            int c = 1;
             string def = string.Empty;
             for (int i = 0; i<content.Text.Length;i++)
             {
@@ -97,43 +102,47 @@ namespace MakeReportWord
                         if (content.Text[i + 2] == '1')
                         {
                             i += 2;
-                            string text = heading1.ToString() + " " + ProcessSpecial(heading1,"h1", content);
+                            string text = h1.ToString() + " " + ProcessSpecial(h1,"h1", content);
                             Heading1(text);
-                            heading1++;
-                            heading2 = 1;
+                            h1++;
+                            h2 = 1;
                         }
                         else if (content.Text[i + 2] == '2')
                         {
                             i += 2;
-                            string text = (heading1-1).ToString() + "." + heading2.ToString() + " " + ProcessSpecial(heading2all,"h2", content);
+                            string text = (h1-1).ToString() + "." + h2.ToString() + " " + ProcessSpecial(h2all,"h2", content);
                             Heading2(text);
-                            heading2all++;
-                            heading2++;
+                            h2all++;
+                            h2++;
                         }
                     }
                     else if (content.Text[i + 1] == 'l')
                     {
                         i += 1;
-                        string text = ProcessSpecial(i,"l", content);
+                        string text = ProcessSpecial(l, "l", content);
                         List(text);
+                        l++;
                     }
                     else if (content.Text[i + 1] == 'p')
                     {
                         i += 1;
-                        string text = ProcessSpecial(i,"p", content);
+                        string text = ProcessSpecial(p, "p", content);
                         СaptionForPicture(text);
+                        p++;
                     }
                     else if (content.Text[i + 1] == 't')
                     {
                         i += 1;
-                        string text = ProcessSpecial(i, "t", content);
+                        string text = ProcessSpecial(t, "t", content);
                         Table(text);
+                        t++;
                     }
                     else if (content.Text[i + 1] == 'c')
                     {
                         i += 1;
-                        string text = ProcessSpecial(i, "c", content);
+                        string text = ProcessSpecial(c, "c", content);
                         Code(text);
+                        c++;
                     }
                 }
                 else
@@ -173,7 +182,7 @@ namespace MakeReportWord
             }
             else if (special == "c")
             {
-                text = content.ComboBoxT[i - 1];
+                text = content.ComboBoxC[i - 1];
             }
             return text;
         }
@@ -286,7 +295,18 @@ namespace MakeReportWord
 
         void Code(string text)
         {
-
+            FileStream file = new FileStream(text, FileMode.Open);
+            StreamReader reader = new StreamReader(file);
+            string data = reader.ReadToEnd();
+            Heading1(text.Split('\\')[text.Split('\\').Length - 1]);
+            WriteTextWord(data);
+            word.Paragraphs.FirstLineIndent = CentimetersToPoints(0f);
+            word.Font.AllCaps = 0;
+            word.Font.Size = 12;
+            word.Font.Bold = 0;
+            word.Font.ColorIndex = 0;
+            word.Paragraphs.Space1();
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
         }
 
         void PageMargin(float top, float bottom, float left, float right)
