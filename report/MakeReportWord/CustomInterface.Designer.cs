@@ -39,7 +39,6 @@ namespace MakeReportWord
             this.themeTextBox = new System.Windows.Forms.TextBox();
             this.disciplineLabel = new System.Windows.Forms.Label();
             this.disciplineTextBox = new System.Windows.Forms.TextBox();
-            this.professorTextBox = new System.Windows.Forms.TextBox();
             this.yearLabel = new System.Windows.Forms.Label();
             this.yearTextBox = new System.Windows.Forms.TextBox();
             this.professorLabel = new System.Windows.Forms.Label();
@@ -101,6 +100,7 @@ namespace MakeReportWord
             this.TitlePageMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SubstitutionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.professorComboBox = new System.Windows.Forms.ComboBox();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -130,10 +130,10 @@ namespace MakeReportWord
             this.titlepagePanel.Controls.Add(this.themeTextBox, 1, 3);
             this.titlepagePanel.Controls.Add(this.disciplineLabel, 0, 4);
             this.titlepagePanel.Controls.Add(this.disciplineTextBox, 1, 4);
-            this.titlepagePanel.Controls.Add(this.professorTextBox, 1, 6);
             this.titlepagePanel.Controls.Add(this.yearLabel, 0, 7);
             this.titlepagePanel.Controls.Add(this.yearTextBox, 1, 7);
             this.titlepagePanel.Controls.Add(this.professorLabel, 0, 6);
+            this.titlepagePanel.Controls.Add(this.professorComboBox, 1, 6);
             this.titlepagePanel.Location = new System.Drawing.Point(0, 0);
             this.titlepagePanel.Margin = new System.Windows.Forms.Padding(0);
             this.titlepagePanel.Name = "titlepagePanel";
@@ -184,6 +184,7 @@ namespace MakeReportWord
             this.facultyComboBox.Size = new System.Drawing.Size(503, 32);
             this.facultyComboBox.TabIndex = 1;
             this.facultyComboBox.Text = "программной инженерии";
+            this.facultyComboBox.SelectedIndexChanged += new System.EventHandler(this.facultyComboBox_SelectedIndexChanged);
             // 
             // numberLabTextBox
             // 
@@ -255,15 +256,6 @@ namespace MakeReportWord
             this.disciplineTextBox.Size = new System.Drawing.Size(503, 29);
             this.disciplineTextBox.TabIndex = 4;
             // 
-            // professorTextBox
-            // 
-            this.professorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.professorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.professorTextBox.Location = new System.Drawing.Point(278, 201);
-            this.professorTextBox.Name = "professorTextBox";
-            this.professorTextBox.Size = new System.Drawing.Size(503, 29);
-            this.professorTextBox.TabIndex = 5;
-            // 
             // yearLabel
             // 
             this.yearLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -271,7 +263,7 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Right)));
             this.yearLabel.AutoSize = true;
             this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearLabel.Location = new System.Drawing.Point(28, 233);
+            this.yearLabel.Location = new System.Drawing.Point(28, 236);
             this.yearLabel.Name = "yearLabel";
             this.yearLabel.Size = new System.Drawing.Size(244, 35);
             this.yearLabel.TabIndex = 10;
@@ -282,7 +274,7 @@ namespace MakeReportWord
             // 
             this.yearTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.yearTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearTextBox.Location = new System.Drawing.Point(278, 236);
+            this.yearTextBox.Location = new System.Drawing.Point(278, 239);
             this.yearTextBox.Name = "yearTextBox";
             this.yearTextBox.Size = new System.Drawing.Size(503, 29);
             this.yearTextBox.TabIndex = 6;
@@ -297,7 +289,7 @@ namespace MakeReportWord
             this.professorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.professorLabel.Location = new System.Drawing.Point(28, 198);
             this.professorLabel.Name = "professorLabel";
-            this.professorLabel.Size = new System.Drawing.Size(244, 35);
+            this.professorLabel.Size = new System.Drawing.Size(244, 38);
             this.professorLabel.TabIndex = 8;
             this.professorLabel.Text = "Преподаватель:";
             this.professorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -459,7 +451,7 @@ namespace MakeReportWord
             this.heading1Label.AutoSize = true;
             this.heading1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.heading1Label.Location = new System.Drawing.Point(52, 3);
-            this.heading1Label.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.heading1Label.Margin = new System.Windows.Forms.Padding(3);
             this.heading1Label.Name = "heading1Label";
             this.heading1Label.Size = new System.Drawing.Size(92, 63);
             this.heading1Label.TabIndex = 15;
@@ -474,7 +466,7 @@ namespace MakeReportWord
             this.heading2Label.AutoSize = true;
             this.heading2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.heading2Label.Location = new System.Drawing.Point(150, 3);
-            this.heading2Label.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.heading2Label.Margin = new System.Windows.Forms.Padding(3);
             this.heading2Label.Name = "heading2Label";
             this.heading2Label.Size = new System.Drawing.Size(92, 63);
             this.heading2Label.TabIndex = 16;
@@ -489,7 +481,7 @@ namespace MakeReportWord
             this.listLabel.AutoSize = true;
             this.listLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listLabel.Location = new System.Drawing.Point(248, 3);
-            this.listLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.listLabel.Margin = new System.Windows.Forms.Padding(3);
             this.listLabel.Name = "listLabel";
             this.listLabel.Size = new System.Drawing.Size(92, 63);
             this.listLabel.TabIndex = 17;
@@ -504,7 +496,7 @@ namespace MakeReportWord
             this.pictureLabel.AutoSize = true;
             this.pictureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pictureLabel.Location = new System.Drawing.Point(346, 3);
-            this.pictureLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.pictureLabel.Margin = new System.Windows.Forms.Padding(3);
             this.pictureLabel.Name = "pictureLabel";
             this.pictureLabel.Size = new System.Drawing.Size(92, 63);
             this.pictureLabel.TabIndex = 18;
@@ -520,7 +512,7 @@ namespace MakeReportWord
             this.tableLabel.BackColor = System.Drawing.SystemColors.Control;
             this.tableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tableLabel.Location = new System.Drawing.Point(444, 3);
-            this.tableLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tableLabel.Margin = new System.Windows.Forms.Padding(3);
             this.tableLabel.Name = "tableLabel";
             this.tableLabel.Size = new System.Drawing.Size(92, 63);
             this.tableLabel.TabIndex = 21;
@@ -536,7 +528,7 @@ namespace MakeReportWord
             this.codeLabel.BackColor = System.Drawing.SystemColors.Control;
             this.codeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.codeLabel.Location = new System.Drawing.Point(542, 3);
-            this.codeLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.codeLabel.Margin = new System.Windows.Forms.Padding(3);
             this.codeLabel.Name = "codeLabel";
             this.codeLabel.Size = new System.Drawing.Size(92, 63);
             this.codeLabel.TabIndex = 22;
@@ -1093,6 +1085,39 @@ namespace MakeReportWord
             this.TextMenuItem.Text = "Текст";
             this.TextMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
+            // professorComboBox
+            // 
+            this.professorComboBox.DisplayMember = "1";
+            this.professorComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.professorComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.professorComboBox.FormattingEnabled = true;
+            this.professorComboBox.Items.AddRange(new object[] {
+            "Амелина О.В.",
+            "Артёмов А.В.",
+            "Валухов В.А.",
+            "Волков В.Н.",
+            "Гордиенко А.П.",
+            "Демидов А.В.",
+            "Захарова О.В.",
+            "Константинов И.С.",
+            "Конюхова О.В.",
+            "Кравцова Э.А.",
+            "Лукьянов П.В.",
+            "Преснецова В.Ю.",
+            "Раков В.И.",
+            "Рыженков Д.В.",
+            "Санников Д.П.",
+            "Селихов А.В.",
+            "Стычук А.А.",
+            "Ужаринский А.Ю.",
+            "Фролов А.И.",
+            "Чижов А.В.",
+            "Шатеев Р.В."});
+            this.professorComboBox.Location = new System.Drawing.Point(278, 201);
+            this.professorComboBox.Name = "professorComboBox";
+            this.professorComboBox.Size = new System.Drawing.Size(503, 32);
+            this.professorComboBox.TabIndex = 11;
+            // 
             // CustomInterface
             // 
             this.AllowDrop = true;
@@ -1144,7 +1169,6 @@ namespace MakeReportWord
         private System.Windows.Forms.TextBox themeTextBox;
         private System.Windows.Forms.TextBox disciplineTextBox;
         private System.Windows.Forms.Label disciplineLabel;
-        private System.Windows.Forms.TextBox professorTextBox;
         private System.Windows.Forms.Label professorLabel;
         private System.Windows.Forms.Label yearLabel;
         private System.Windows.Forms.TextBox yearTextBox;
@@ -1206,6 +1230,7 @@ namespace MakeReportWord
         private System.Windows.Forms.ToolStripMenuItem TextMenuItem;
         private System.Windows.Forms.Button buttonSpecialT;
         private System.Windows.Forms.Button buttonSpecialC;
+        private System.Windows.Forms.ComboBox professorComboBox;
     }
 }
 

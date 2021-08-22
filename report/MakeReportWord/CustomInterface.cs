@@ -263,7 +263,7 @@ namespace MakeReportWord
             string numberLab = numberLabTextBox.Text;
             string theme = themeTextBox.Text;
             string discipline = disciplineTextBox.Text;
-            string professor = professorTextBox.Text;
+            string professor = professorComboBox.Text;
             string year = yearTextBox.Text;
             try
             {
@@ -319,7 +319,7 @@ namespace MakeReportWord
                 output.WriteLine("numberLabTextBox.Text=" + numberLabTextBox.Text);
                 output.WriteLine("themeTextBox.Text=" + themeTextBox.Text);
                 output.WriteLine("disciplineTextBox.Text=" + disciplineTextBox.Text);
-                output.WriteLine("professorTextBox.Text=" + professorTextBox.Text);
+                output.WriteLine("professorTextBox.Text=" + professorComboBox.Text);
                 output.WriteLine("yearTextBox.Text=" + yearTextBox.Text);
 
                 for (int i = 0; i < heading1ComboBox.Items.Count; i++)
@@ -415,7 +415,7 @@ namespace MakeReportWord
                                 }
                                 else if (variable_value[0].StartsWith("professorTextBox.Text"))
                                 {
-                                    professorTextBox.Text = variable_value[1];
+                                    professorComboBox.Text = variable_value[1];
                                 }
                                 else if (variable_value[0].StartsWith("yearTextBox.Text"))
                                 {
@@ -1228,6 +1228,44 @@ namespace MakeReportWord
                 string nameFile = fileNames[0].Split('\\')[fileNames[0].Split('\\').Length - 1];
                 SizeF stringSize = e.Graphics.MeasureString(nameFile, new Font("Microsoft Sans Serif", 14));
                 e.Graphics.DrawString(nameFile, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 + 30));
+            }
+        }
+
+        private void facultyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = string.Empty;
+            professorComboBox.Items.Clear();
+            if (facultyComboBox.SelectedIndex == 0)
+            {
+                str = "Амелина О.В.!Артёмов А.В.!Валухов В.А.!Волков В.Н.!Гордиенко А.П.!Демидов А.В.!Захарова О.В.!Константинов И.С.!Конюхова О.В.!Кравцова Э.А.!Лукьянов П.В.!Преснецова В.Ю.!Раков В.И.!Рыженков Д.В.!Санников Д.П.!Селихов А.В.!Стычук А.А.!Ужаринский А.Ю.!Фролов А.И.!Чижов А.В.!Шатеев Р.В.";
+            }
+            else if (facultyComboBox.SelectedIndex == 1)
+            {
+                str = "Амелина О.В.!Артёмов А.В.!Батищев А.В.!Биктимиров М.Р.!Волков В.Н.!Демидов А.В.!Загородних Н.А.!Закалкина Е.В.!Корнаева Е.П.!Коськин А.В.!Кравцова Э.А.!Красуля О.А.!Ларина Л.Ю.!Лунёв Р.А.!Лыськов О.Э.!Машкова А.Л.!Митин А.А.!Новиков С.В.!Олькина Е.В.!Преснецова В.Ю.!Рыженков Д.В.!Савина О.А.!Сезонов Д.С.!Соков О.А.!Строев С.П.!Стычук А.А.!Терентьев С.В.!Федоров Г.Д.!Фроленкова Л.Ю.!Фролова В.А.";
+            }
+            else if (facultyComboBox.SelectedIndex == 2)
+            {
+                str = "Бондарева Л.А.!Дунаев А.В.!Жидков А.В.!Жильцов М.П.!Козлова Л.Д.!Крутикова В.Ю.!Маковик И.Н.!Марков В.В.!Незнанов А.И.!Подмастерьев К.В.!Потапова Е.В.!Секаева Ж.А.!Селихов А.В.!Семёнов В.В.!Сковпень В.Н.!Углова Н.В.!Яковенко М.В.";
+            }
+            else if (facultyComboBox.SelectedIndex == 3)
+            {
+                str = "Ерёменко В.Т.!Мишин Д.С.!Пеньков Н.Г.!Савва Ю.Б.!Фисенко В.Е.!Фисун А.П.";
+            }
+            else if (facultyComboBox.SelectedIndex == 4)
+            {
+                str = "Батуров Д.П.!Бурлакова Е.А.!Гордон В.А.!Кирсанова О.В.!Матюхин С.И.!Потураева Т.В.!Ромашин С.Н.!Семёнова Г.А.!Фроленкова Л.Ю.!Шоркин В.С.!Якушина С.И.";
+            }
+            else if (facultyComboBox.SelectedIndex == 5)
+            {
+                str = "Аксёнов К.В.!Багров В.В.!Батенков А.А.!Варгашкин В.Я.!Воронина О.А.!Донцов В.М.!Игнатов Ю.В.!Косчинский С.Л.!Лобанова В.А.!Лобода О.А.!Майоров М.В.!Мишин В.В.!Моисеев П.П.!Муравьёв А.А.!Плащенков Д.А.!Рязанцев П.Н.!Селихов А.В.!Сковпень В.Н.!Суздальцев А.И.!Тарарака А.В.!Тугарев А.С.!Тютякин А.В.!Филина А.В.!Шишкин А.А.";
+            }
+            else if (facultyComboBox.SelectedIndex == 6)
+            {
+                str = "Качанов А.Н.!Комаристый А.С.!Коренков Д.А.!Королева Т.Г.!Петров Г.Н.!Токарев А.М.!Филина А.В.!Харитонова Л.Г.!Чернышов В.А.";
+            }
+            foreach (string s in str.Split('!'))
+            {
+                professorComboBox.Items.Add(s);
             }
         }
     }
