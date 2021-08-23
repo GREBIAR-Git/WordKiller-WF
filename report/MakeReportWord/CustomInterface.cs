@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -88,7 +87,7 @@ namespace MakeReportWord
 
             if (comboBox.SelectedIndex != -1)
             {
-                for (int i = elementPanel.ColumnCount - 1; i < elementPanel.ColumnCount * 2 - 1 - 3; i++)
+                for (int i = elementPanel.ColumnCount - 1; i < elementPanel.ColumnCount * 2 - 4; i++)
                 {
                     ComboBox comboBoxToDeselect;
                     if (i != elementPanel.Controls.IndexOf(comboBox))
