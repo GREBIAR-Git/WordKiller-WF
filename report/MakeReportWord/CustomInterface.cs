@@ -210,7 +210,6 @@ namespace MakeReportWord
             {
                 text = richTextBox.Text;
             }
-           // if
         }
 
         void buttonHeading1_Click(object sender, EventArgs e)
@@ -317,36 +316,26 @@ namespace MakeReportWord
                 output.WriteLine("disciplineTextBox.Text=" + disciplineTextBox.Text);
                 output.WriteLine("professorTextBox.Text=" + professorComboBox.Text);
                 output.WriteLine("yearTextBox.Text=" + yearTextBox.Text);
+                SaveCombobox(output, heading1ComboBox);
+                SaveCombobox(output, heading2ComboBox);
+                SaveCombobox(output, listComboBox);
+                SaveCombobox(output, pictureComboBox);
+                SaveCombobox(output, tableComboBox);
+                SaveCombobox(output, codeComboBox);
 
-                for (int i = 0; i < heading1ComboBox.Items.Count; i++)
-                {
-                    output.WriteLine("heading1ComboBox.Items[" + i+"]=" + heading1ComboBox.Items[i].ToString());
-                }
-                for (int i = 0; i < heading2ComboBox.Items.Count; i++)
-                {
-                    output.WriteLine("heading2ComboBox.Items[" + i + "]=" + heading2ComboBox.Items[i].ToString());
-                }
-                for (int i = 0; i < listComboBox.Items.Count; i++)
-                {
-                    output.WriteLine("listComboBox.Items[" + i + "]=" + listComboBox.Items[i].ToString());
-                }
-                for (int i = 0; i < pictureComboBox.Items.Count; i++)
-                {
-                    output.WriteLine("pictureComboBox.Items[" + i + "]=" + pictureComboBox.Items[i].ToString());
-                }
-                for (int i = 0; i < tableComboBox.Items.Count; i++)
-                {
-                    output.WriteLine("tableComboBox.Items[" + i + "]=" + tableComboBox.Items[i].ToString());
-                }
-                for (int i = 0; i < codeComboBox.Items.Count; i++)
-                {
-                    output.WriteLine("codeComboBox.Items[" + i + "]=" + codeComboBox.Items[i].ToString());
-                }
                 output.WriteLine("###textstart");
                 output.WriteLine(text);
                 output.WriteLine("###textend");
 
                 output.Close();
+            }
+        }
+
+        void SaveCombobox(StreamWriter output, ComboBox comboBox)
+        {
+            for (int i = 0; i < comboBox.Items.Count; i++)
+            {
+                output.WriteLine(comboBox.Name + ".Items[" + i + "]=" + comboBox.Items[i].ToString());
             }
         }
 
