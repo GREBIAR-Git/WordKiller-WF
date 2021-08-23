@@ -21,7 +21,7 @@ namespace MakeReportWord
             {
                 this.Text = "Сотворение лабораторной работы из небытия";
             }
-            else if(Practice.Checked)
+            else if (Practice.Checked)
             {
                 this.Text = "Сотворение практической работы из небытия";
             }
@@ -45,19 +45,6 @@ namespace MakeReportWord
             {
                 this.Text = "Сотворение РГР из небытия";
             }
-        }
-
-        void titlepagePanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
-        {
-            if (e.Row == 0 || e.Row == 1)
-                using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 253, 219, 124)))
-                    e.Graphics.FillRectangle(brush, e.CellBounds);
-            else if (e.Row == 3 || e.Row == 4)
-                using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 208, 117, 252)))
-                    e.Graphics.FillRectangle(brush, e.CellBounds);
-            else if (e.Row == 6 || e.Row == 7)
-                using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 84, 213, 245)))
-                    e.Graphics.FillRectangle(brush, e.CellBounds);
         }
 
         void CustomInterface_Shown(object sender, EventArgs e)
@@ -700,7 +687,7 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonForward_MouseDown(object sender, MouseEventArgs e)
+        void buttonForward_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -716,7 +703,7 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonForward_MouseUp(object sender, MouseEventArgs e)
+        void buttonForward_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -729,7 +716,7 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonBack_MouseUp(object sender, MouseEventArgs e)
+        void buttonBack_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -742,27 +729,27 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonForward_MouseEnter(object sender, EventArgs e)
+        void buttonForward_MouseEnter(object sender, EventArgs e)
         {
             buttonForward.BackgroundImage = Properties.Resources.arrowsRightSelected;
         }
 
-        private void buttonForward_MouseLeave(object sender, EventArgs e)
+        void buttonForward_MouseLeave(object sender, EventArgs e)
         {
             buttonForward.BackgroundImage = Properties.Resources.arrowsRight;
         }
 
-        private void buttonBack_MouseEnter(object sender, EventArgs e)
+        void buttonBack_MouseEnter(object sender, EventArgs e)
         {
             buttonBack.BackgroundImage = Properties.Resources.arrowsLeftSelected;
         }
 
-        private void buttonBack_MouseLeave(object sender, EventArgs e)
+        void buttonBack_MouseLeave(object sender, EventArgs e)
         {
             buttonBack.BackgroundImage = Properties.Resources.arrowsLeft;
         }
 
-        private void buttonUp_MouseDown(object sender, MouseEventArgs e)
+        void buttonUp_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -770,17 +757,17 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonUp_MouseEnter(object sender, EventArgs e)
+        void buttonUp_MouseEnter(object sender, EventArgs e)
         {
             buttonUp.BackgroundImage = Properties.Resources.arrowsUpSelected;
         }
 
-        private void buttonUp_MouseLeave(object sender, EventArgs e)
+        void buttonUp_MouseLeave(object sender, EventArgs e)
         {
             buttonUp.BackgroundImage = Properties.Resources.arrowsUp;
         }
 
-        private void buttonUp_MouseUp(object sender, MouseEventArgs e)
+        void buttonUp_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -792,7 +779,7 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonDown_MouseDown(object sender, MouseEventArgs e)
+        void buttonDown_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -800,17 +787,17 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonDown_MouseEnter(object sender, EventArgs e)
+        void buttonDown_MouseEnter(object sender, EventArgs e)
         {
             buttonDown.BackgroundImage = Properties.Resources.arrowsDownSelected;
         }
 
-        private void buttonDown_MouseLeave(object sender, EventArgs e)
+        void buttonDown_MouseLeave(object sender, EventArgs e)
         {
             buttonDown.BackgroundImage = Properties.Resources.arrowsDown;
         }
 
-        private void buttonDown_MouseUp(object sender, MouseEventArgs e)
+        void buttonDown_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -822,31 +809,7 @@ namespace MakeReportWord
             }
         }
 
-        private void buttonText_Paint(object sender, PaintEventArgs e)
-        {
-            PictureBox pb = (PictureBox)sender;
-            int fontSize = 10;
-            if (MouseIsOverControl(pb) && Control.MouseButtons != MouseButtons.Left)
-            {
-                fontSize = 12;
-            }
-            using (Font fnt = new Font(globalFont.GetFont().Name, fontSize))
-            {
-                string str;
-                if (elementLabel.Text == "текст")
-                {
-                    str = "К подстановкам";
-                }
-                else
-                {
-                    str = "К тексту";
-                }
-                SizeF stringSize = e.Graphics.MeasureString(str, fnt);
-                e.Graphics.DrawString(str, fnt, Brushes.Black, new Point((int)(pb.Width / 2 - stringSize.Width / 2), (int)(pb.Height / 2 - stringSize.Height / 2)));
-            }
-        }
-
-        private void replaceMenuSpecial()
+        void replaceMenuSpecial()
         {
             tableLayoutPanel1.Controls.Clear();
             tableLayoutPanel1.Controls.Add(GetMenuButtonReplacement(1, "H1")[0]);
@@ -857,7 +820,7 @@ namespace MakeReportWord
             tableLayoutPanel1.Controls.Add(GetMenuButtonReplacement(1, "C")[0]);
         }
 
-        private void replaceMenu()
+        void replaceMenu()
         {
             globalFont.SetFont(heading1Label.Font, heading1Label.Font.Style);
             PictureBox[] menuPBarray = GetMenuLabelReplacement(elementPanel.ColumnCount - 2);
@@ -905,60 +868,9 @@ namespace MakeReportWord
             elementPanel.Controls.Add(controlsSave[controlsSave.Length - 1]);
         }
 
-        private bool MouseIsOverControl(PictureBox pb) => pb.ClientRectangle.Contains(pb.PointToClient(Cursor.Position));
+        bool MouseIsOverControl(PictureBox pb) => pb.ClientRectangle.Contains(pb.PointToClient(Cursor.Position));
 
-        private void menuPB_Paint(object sender, PaintEventArgs e)
-        {
-            PictureBox pb = (PictureBox)sender;
-            Control controlPB = (Control)sender;
-            int index = elementPanel.Controls.IndexOf(controlPB);
-            Font fnt = globalFont.GetFont();
-
-            if (MouseIsOverControl(pb) && Control.MouseButtons != MouseButtons.Left)
-            {
-                fnt = new Font(fnt.Name, 16);
-            }
-            else
-            {
-                fnt = new Font(fnt.Name, 14);
-            }
-            using (fnt)
-            {
-                SizeF stringSize = e.Graphics.MeasureString(menuLabels[index - 1], fnt);
-                e.Graphics.DrawString(menuLabels[index - 1], fnt, Brushes.Black, new Point((int)(pb.Width / 2 - stringSize.Width / 2), (int)(pb.Height / 2 - stringSize.Height / 2)));
-            }
-        }
-
-        private void menuPBbtn_Paint(object sender, PaintEventArgs e)
-        {
-            PictureBox pb = (PictureBox)sender;
-            string str = pb.Name;
-            Font fnt = globalFont.GetFont();
-            int size; int selected = 2;
-            if (pb.Name == "Добавить")
-            {
-                size = 14;
-            }
-            else
-            {
-                size = 10;
-            }
-            if (MouseIsOverControl(pb) && Control.MouseButtons != MouseButtons.Left)
-            {
-                fnt = new Font(fnt.Name, size + selected);
-            }
-            else
-            {
-                fnt = new Font(fnt.Name, size);
-            }
-            using (fnt)
-            {
-                SizeF stringSize = e.Graphics.MeasureString(str, fnt);
-                e.Graphics.DrawString(str, fnt, Brushes.Black, new Point((int)(pb.Width / 2 - stringSize.Width / 2), (int)(pb.Height / 2 - stringSize.Height / 2)));
-            }
-        }
-
-        private PictureBox[] GetMenuButtonReplacement(int amount, string name)
+        PictureBox[] GetMenuButtonReplacement(int amount, string name)
         {
             PictureBox[] menuPBarray = new PictureBox[amount];
             for (int menuPBindex = 0; menuPBindex < amount; menuPBindex++)
@@ -978,7 +890,7 @@ namespace MakeReportWord
             return menuPBarray;
         }
 
-        private PictureBox[] GetMenuLabelReplacement(int amount)
+        PictureBox[] GetMenuLabelReplacement(int amount)
         {
             PictureBox[] menuPBarray = new PictureBox[amount];
             for (int menuPBindex = 0; menuPBindex < amount; menuPBindex++)
@@ -1016,7 +928,7 @@ namespace MakeReportWord
             return menuPBarray;
         }
 
-        private PictureBox GetMenuTextBtnReplacement()
+        PictureBox GetMenuTextBtnReplacement()
         {
             PictureBox pictureBox = new PictureBox();
             pictureBox.Dock = DockStyle.Fill;
@@ -1033,17 +945,17 @@ namespace MakeReportWord
             return pictureBox;
         }
 
-        private void buttonTable_Click(object sender, EventArgs e)
+        void buttonTable_Click(object sender, EventArgs e)
         {
             AddToComboBox(tableComboBox, richTextBox.Text);
         }
 
-        private void buttonCode_Click(object sender, EventArgs e)
+        void buttonCode_Click(object sender, EventArgs e)
         {
             AddToComboBox(codeComboBox, richTextBox.Text);
         }
 
-        private void menuExort_MouseDown(object sender, MouseEventArgs e)
+        void menuExort_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -1052,7 +964,7 @@ namespace MakeReportWord
             }
         }
 
-        private void menuWex_MouseDown(object sender, MouseEventArgs e)
+        void menuWex_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -1061,7 +973,7 @@ namespace MakeReportWord
             }
         }
 
-        private void menuQuas_MouseDown(object sender, MouseEventArgs e)
+        void menuQuas_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -1070,7 +982,7 @@ namespace MakeReportWord
             }
         }
 
-        private void menuExort_MouseUp(object sender, MouseEventArgs e)
+        void menuExort_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -1080,7 +992,7 @@ namespace MakeReportWord
             }
         }
 
-        private void menuWex_MouseUp(object sender, MouseEventArgs e)
+        void menuWex_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -1090,7 +1002,7 @@ namespace MakeReportWord
             }
         }
 
-        private void menuQuas_MouseUp(object sender, MouseEventArgs e)
+        void menuQuas_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -1100,37 +1012,37 @@ namespace MakeReportWord
             }
         }
 
-        private void menuExort_MouseEnter(object sender, EventArgs e)
+        void menuExort_MouseEnter(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
             element.BackgroundImage = Properties.Resources.exortSelected;
         }
 
-        private void menuWex_MouseEnter(object sender, EventArgs e)
+        void menuWex_MouseEnter(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
             element.BackgroundImage = Properties.Resources.wexSelected;
         }
 
-        private void menuQuas_MouseEnter(object sender, EventArgs e)
+        void menuQuas_MouseEnter(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
             element.BackgroundImage = Properties.Resources.quasSelected;
         }
 
-        private void menuExort_MouseLeave(object sender, EventArgs e)
+        void menuExort_MouseLeave(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
             element.BackgroundImage = Properties.Resources.exort;
         }
 
-        private void menuWex_MouseLeave(object sender, EventArgs e)
+        void menuWex_MouseLeave(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
             element.BackgroundImage = Properties.Resources.wex;
         }
 
-        private void menuQuas_MouseLeave(object sender, EventArgs e)
+        void menuQuas_MouseLeave(object sender, EventArgs e)
         {
             PictureBox element = (PictureBox)sender;
             element.BackgroundImage = Properties.Resources.quas;
@@ -1228,19 +1140,7 @@ namespace MakeReportWord
             element.BackgroundImage = Properties.Resources.BtnNormal;
         }
 
-        void pictureBox_Paint(object sender, PaintEventArgs e)
-        {
-            if (fileNames!=null && fileNames.Length > 0)
-            {
-                e.Graphics.DrawImage(Properties.Resources.Code, 0, 0, pictureBox.Width, pictureBox.Height);
-                string nameFile = fileNames[0].Split('\\')[fileNames[0].Split('\\').Length - 1];
-                richTextBox.Text = "☺c☺\n"+ nameFile + "\n☺Содержимое☺\n"+ fileNames[0];
-                SizeF stringSize = e.Graphics.MeasureString(nameFile, new Font("Microsoft Sans Serif", 14));
-                e.Graphics.DrawString(nameFile, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 + 30));
-            }
-        }
-
-        private void facultyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        void facultyComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string str = string.Empty;
             professorComboBox.Items.Clear();

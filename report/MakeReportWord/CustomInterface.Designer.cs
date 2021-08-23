@@ -339,7 +339,7 @@ namespace MakeReportWord
             this.professorComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.professorComboBox.Name = "professorComboBox";
             this.professorComboBox.Size = new System.Drawing.Size(756, 40);
-            this.professorComboBox.TabIndex = 11;
+            this.professorComboBox.TabIndex = 5;
             // 
             // MainPanel
             // 
@@ -662,7 +662,7 @@ namespace MakeReportWord
             this.tableComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableComboBox.Name = "tableComboBox";
             this.tableComboBox.Size = new System.Drawing.Size(139, 40);
-            this.tableComboBox.TabIndex = 23;
+            this.tableComboBox.TabIndex = 16;
             this.tableComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             this.tableComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
             // 
