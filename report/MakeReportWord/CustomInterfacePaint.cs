@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace MakeReportWord
 {
-    public partial class CustomInterface : Form
+    public partial class CustomInterface
     {
         void titlepagePanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
