@@ -54,6 +54,9 @@
     <Compile Include="CustomInterfaceDecoration.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CustomInterfaceFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CustomInterfacePaint.cs">
       <SubType>Form</SubType>
     </Compile>
