@@ -45,37 +45,6 @@ namespace MakeReportWord
             {
                 this.Text = "Сотворение РГР из небытия";
             }
-        }
-
-        void CustomInterface_Shown(object sender, EventArgs e)
-        {
-            this.BackColor = Color.FromArgb(255, 50, 39, 62);
-            facultyLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
-            numberLabLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
-            themeLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
-            disciplineLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
-            professorLabel.BackColor = Color.FromArgb(255, 84, 213, 245);
-            yearLabel.BackColor = Color.FromArgb(255, 84, 213, 245);
-            heading1Label.BackColor = Color.FromArgb(255, 253, 219, 124);
-            heading2Label.BackColor = Color.FromArgb(255, 253, 219, 124);
-            listLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
-            pictureLabel.BackColor = Color.FromArgb(255, 84, 213, 245);
-            displayedLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
-            elementLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
-            buttonHeading1.BackColor = Color.FromArgb(255, 238, 230, 246);
-            buttonHeading2.BackColor = Color.FromArgb(255, 238, 230, 246);
-            buttonList.BackColor = Color.FromArgb(255, 238, 230, 246);
-            buttonPicture.BackColor = Color.FromArgb(255, 238, 230, 246);
-            buttonText.BackColor = Color.FromArgb(255, 238, 230, 246);
-            heading1ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
-            pictureComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
-            heading2ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
-            listComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
-            titlepagePanel.BackColor = Color.FromArgb(255, 50, 39, 62);
-            MainPanel.BackColor = Color.FromArgb(255, 50, 39, 62);
-            DownPanel.BackColor = Color.FromArgb(255, 50, 39, 62);
-            displayedLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
-            elementLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
             replaceMenu();
             facultyLabel.Focus();
             menuLeftIndex = 1;
@@ -676,28 +645,12 @@ namespace MakeReportWord
             }
         }
 
-        void buttonForward_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                buttonForward.BackgroundImage = Properties.Resources.arrowsRightPressed;
-            }
-        }
-
-        private void buttonBack_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                buttonBack.BackgroundImage = Properties.Resources.arrowsLeftPressed;
-            }
-        }
-
         void buttonForward_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 buttonForward.BackgroundImage = Properties.Resources.arrowsRightSelected;
-                if (menuLeftIndex != elementPanel.ColumnStyles.Count - 2 + 1 - 4)
+                if (menuLeftIndex != elementPanel.ColumnStyles.Count - 1 - 4)
                 {
                     menuLeftIndex++;
                 }
@@ -718,44 +671,6 @@ namespace MakeReportWord
             }
         }
 
-        void buttonForward_MouseEnter(object sender, EventArgs e)
-        {
-            buttonForward.BackgroundImage = Properties.Resources.arrowsRightSelected;
-        }
-
-        void buttonForward_MouseLeave(object sender, EventArgs e)
-        {
-            buttonForward.BackgroundImage = Properties.Resources.arrowsRight;
-        }
-
-        void buttonBack_MouseEnter(object sender, EventArgs e)
-        {
-            buttonBack.BackgroundImage = Properties.Resources.arrowsLeftSelected;
-        }
-
-        void buttonBack_MouseLeave(object sender, EventArgs e)
-        {
-            buttonBack.BackgroundImage = Properties.Resources.arrowsLeft;
-        }
-
-        void buttonUp_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                buttonUp.BackgroundImage = Properties.Resources.arrowsUpPressed;
-            }
-        }
-
-        void buttonUp_MouseEnter(object sender, EventArgs e)
-        {
-            buttonUp.BackgroundImage = Properties.Resources.arrowsUpSelected;
-        }
-
-        void buttonUp_MouseLeave(object sender, EventArgs e)
-        {
-            buttonUp.BackgroundImage = Properties.Resources.arrowsUp;
-        }
-
         void buttonUp_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -766,24 +681,6 @@ namespace MakeReportWord
                 TitlePageMenuItem.Checked = true;
                 DownPanelMI.Checked = false;
             }
-        }
-
-        void buttonDown_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                buttonDown.BackgroundImage = Properties.Resources.arrowsDownPressed;
-            }
-        }
-
-        void buttonDown_MouseEnter(object sender, EventArgs e)
-        {
-            buttonDown.BackgroundImage = Properties.Resources.arrowsDownSelected;
-        }
-
-        void buttonDown_MouseLeave(object sender, EventArgs e)
-        {
-            buttonDown.BackgroundImage = Properties.Resources.arrowsDown;
         }
 
         void buttonDown_MouseUp(object sender, MouseEventArgs e)
@@ -868,7 +765,7 @@ namespace MakeReportWord
                 menuPBarray[menuPBindex].Dock = DockStyle.Fill;
                 //menuPBarray[menuPBindex].TabIndex = 15 + menuPBindex;
                 menuPBarray[menuPBindex].BackgroundImageLayout = ImageLayout.Stretch;
-                menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.BtnNormal;
+                menuPBarray[menuPBindex].BackgroundImage = Properties.Resources.Btn;
                 menuPBarray[menuPBindex].MouseDown += menuButtonPB_MouseDown;
                 menuPBarray[menuPBindex].MouseUp += menuButtonPB_MouseUp;
                 menuPBarray[menuPBindex].MouseEnter += menuButtonPB_MouseEnter;
@@ -886,7 +783,7 @@ namespace MakeReportWord
             {
                 menuPBarray[menuPBindex] = new PictureBox();
                 menuPBarray[menuPBindex].Dock = DockStyle.Fill;
-               //menuPBarray[menuPBindex].TabIndex = 15 + menuPBindex;
+                //menuPBarray[menuPBindex].TabIndex = 15 + menuPBindex;
                 menuPBarray[menuPBindex].BackgroundImageLayout = ImageLayout.Stretch;
                 if (menuPBindex < amount / 3)
                 {
@@ -923,13 +820,12 @@ namespace MakeReportWord
             pictureBox.Dock = DockStyle.Fill;
             pictureBox.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox.Name = "КнопкаТекст";
-            pictureBox.BackgroundImage = Properties.Resources.BtnNormal;
+            pictureBox.BackgroundImage = Properties.Resources.Btn;
             pictureBox.MouseDown += menuButtonPB_MouseDown;
             pictureBox.MouseUp += menuButtonPB_MouseUp;
             pictureBox.MouseEnter += menuButtonPB_MouseEnter;
             pictureBox.MouseLeave += menuButtonPB_MouseLeave;
             pictureBox.Paint += buttonText_Paint;
-
 
             return pictureBox;
         }
@@ -942,33 +838,6 @@ namespace MakeReportWord
         void buttonCode_Click(object sender, EventArgs e)
         {
             AddToComboBox(codeComboBox, richTextBox.Text);
-        }
-
-        void menuExort_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                PictureBox element = (PictureBox)sender;
-                element.BackgroundImage = Properties.Resources.exortPressed;
-            }
-        }
-
-        void menuWex_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                PictureBox element = (PictureBox)sender;
-                element.BackgroundImage = Properties.Resources.wexPressed;
-            }
-        }
-
-        void menuQuas_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                PictureBox element = (PictureBox)sender;
-                element.BackgroundImage = Properties.Resources.quasPressed;
-            }
         }
 
         void menuExort_MouseUp(object sender, MouseEventArgs e)
@@ -1001,42 +870,6 @@ namespace MakeReportWord
             }
         }
 
-        void menuExort_MouseEnter(object sender, EventArgs e)
-        {
-            PictureBox element = (PictureBox)sender;
-            element.BackgroundImage = Properties.Resources.exortSelected;
-        }
-
-        void menuWex_MouseEnter(object sender, EventArgs e)
-        {
-            PictureBox element = (PictureBox)sender;
-            element.BackgroundImage = Properties.Resources.wexSelected;
-        }
-
-        void menuQuas_MouseEnter(object sender, EventArgs e)
-        {
-            PictureBox element = (PictureBox)sender;
-            element.BackgroundImage = Properties.Resources.quasSelected;
-        }
-
-        void menuExort_MouseLeave(object sender, EventArgs e)
-        {
-            PictureBox element = (PictureBox)sender;
-            element.BackgroundImage = Properties.Resources.exort;
-        }
-
-        void menuWex_MouseLeave(object sender, EventArgs e)
-        {
-            PictureBox element = (PictureBox)sender;
-            element.BackgroundImage = Properties.Resources.wex;
-        }
-
-        void menuQuas_MouseLeave(object sender, EventArgs e)
-        {
-            PictureBox element = (PictureBox)sender;
-            element.BackgroundImage = Properties.Resources.quas;
-        }
-
         void createTemplate(object sender)
         {
             Control control = (Control)sender;
@@ -1063,15 +896,6 @@ namespace MakeReportWord
             else if (control.Name == "Код")
             {
                 richTextBox.Text = "☺c☺\n\n☺Содержимое☺\n";
-            }
-        }
-
-        void menuButtonPB_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                PictureBox element = (PictureBox)sender;
-                element.BackgroundImage = Properties.Resources.BtnPressed;
             }
         }
 
@@ -1115,18 +939,6 @@ namespace MakeReportWord
                     buttonSpecial_Click(sender, e);
                 }
             }
-        }
-
-        void menuButtonPB_MouseEnter(object sender, EventArgs e)
-        {
-            PictureBox element = (PictureBox)sender;
-            element.BackgroundImage = Properties.Resources.BtnSelected;
-        }
-
-        void menuButtonPB_MouseLeave(object sender, EventArgs e)
-        {
-            PictureBox element = (PictureBox)sender;
-            element.BackgroundImage = Properties.Resources.BtnNormal;
         }
 
         void facultyComboBox_SelectedIndexChanged(object sender, EventArgs e)
