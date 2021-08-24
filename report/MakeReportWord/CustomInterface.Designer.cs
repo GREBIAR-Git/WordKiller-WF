@@ -1129,21 +1129,21 @@ namespace MakeReportWord
             this.TitlePageMenuItem.Checked = true;
             this.TitlePageMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitlePageMenuItem.Name = "TitlePageMenuItem";
-            this.TitlePageMenuItem.Size = new System.Drawing.Size(203, 30);
+            this.TitlePageMenuItem.Size = new System.Drawing.Size(252, 30);
             this.TitlePageMenuItem.Text = "Титульник";
             this.TitlePageMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // SubstitutionMenuItem
             // 
             this.SubstitutionMenuItem.Name = "SubstitutionMenuItem";
-            this.SubstitutionMenuItem.Size = new System.Drawing.Size(203, 30);
+            this.SubstitutionMenuItem.Size = new System.Drawing.Size(252, 30);
             this.SubstitutionMenuItem.Text = "Подстановка";
             this.SubstitutionMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // TextMenuItem
             // 
             this.TextMenuItem.Name = "TextMenuItem";
-            this.TextMenuItem.Size = new System.Drawing.Size(203, 30);
+            this.TextMenuItem.Size = new System.Drawing.Size(252, 30);
             this.TextMenuItem.Text = "Текст";
             this.TextMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
