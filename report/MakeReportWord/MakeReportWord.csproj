@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="256x256.ico" />
+    <None Include="Resources\H1.png" />
     <None Include="Resources\Code.png" />
     <None Include="Resources\addselected.png" />
     <None Include="Resources\addpressed.png" />

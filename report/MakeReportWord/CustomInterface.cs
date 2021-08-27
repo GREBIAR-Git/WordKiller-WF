@@ -85,6 +85,10 @@ namespace MakeReportWord
                 text = richTextBox.Text;
             }
             UpdateTypeButton();
+            if (DownPanelMI == SubstitutionMenuItem)
+            {
+                pictureBox.Refresh();
+            }
         }
 
         void UpdateTypeButton()
@@ -103,7 +107,7 @@ namespace MakeReportWord
 
         void CountTypeText(int countCreatedElements, string str)
         {
-            if (countCreatedElements <= (richTextBox.Text.Length - richTextBox.Text.Replace(("☺" + str), "").Length) / (str.Length+1))
+            if (countCreatedElements <= (richTextBox.Text.Length - richTextBox.Text.Replace(("☺" + str), "").Length) / (str.Length + 1))
             {
                 tableTypeInserts.Controls[str.ToUpper()].Visible = false;
             }
@@ -148,7 +152,7 @@ namespace MakeReportWord
         {
             PictureBox button = (PictureBox)sender;
             int cursorSave = richTextBox.SelectionStart;
-            if(richTextBox.Text.Length>0 && richTextBox.Text[cursorSave-1] == '☺')
+            if (richTextBox.Text.Length > 0 && richTextBox.Text[cursorSave - 1] == '☺')
             {
                 richTextBox.Text = richTextBox.Text.Insert(richTextBox.SelectionStart, button.Name.ToLower());
                 richTextBox.Focus();
@@ -254,7 +258,7 @@ namespace MakeReportWord
                 {
                     buttonText_Click(sender, e);
                 }
-                else if (element.Name == "H1"|| element.Name == "H2"|| element.Name == "L"|| element.Name == "P"|| element.Name == "T"|| element.Name == "C")
+                else if (element.Name == "H1" || element.Name == "H2" || element.Name == "L" || element.Name == "P" || element.Name == "T" || element.Name == "C")
                 {
                     buttonSpecial_Click(sender, e);
                 }
@@ -310,10 +314,10 @@ namespace MakeReportWord
             {
                 if (Control.ModifierKeys != Keys.Shift && Control.ModifierKeys != Keys.Control && Control.ModifierKeys != Keys.Alt)
                 {
-                    for (int i = elementPanel.ColumnCount-1;i<2*elementPanel.ColumnCount-1-2;i++)
+                    for (int i = elementPanel.ColumnCount - 1; i < 2 * elementPanel.ColumnCount - 1 - 2; i++)
                     {
                         comboBox = (ComboBox)(elementPanel.Controls[i]);
-                        
+
                         comboBox.SelectedIndex = -1;
                     }
                 }
@@ -368,7 +372,7 @@ namespace MakeReportWord
                 userInput.ComboBoxP = DataComboBox(pictureComboBox);
                 userInput.ComboBoxT = DataComboBox(tableComboBox);
                 userInput.ComboBoxC = DataComboBox(codeComboBox);
-                if(TextMenuItem.Checked)
+                if (TextMenuItem.Checked)
                 {
                     userInput.Text = richTextBox.Text;
                 }
@@ -412,11 +416,11 @@ namespace MakeReportWord
         void work_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem toolStripMenuItem = (ToolStripMenuItem)sender;
-            if(toolStripMenuItem.Checked)
+            if (toolStripMenuItem.Checked)
             {
                 return;
             }
-            
+
             if (toolStripMenuItem.Text == "Лабораторная")
             {
                 this.Text = "Сотворение лабораторной работы из небытия";
@@ -588,27 +592,39 @@ namespace MakeReportWord
 
         void DragNDropPanel_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = DragDropEffects.All;
+            string str = TypeRichBox();
+            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+            {
+                e.Effect = DragDropEffects.All;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
         }
 
         void DragNDropPanel_DragDrop(object sender, DragEventArgs e)
         {
-            var data = e.Data.GetData(DataFormats.FileDrop);
-            if (data != null)
+            string str = TypeRichBox();
+            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
             {
-                fileNames = data as string[];
-                if (fileNames.Length > 0)
+                var data = e.Data.GetData(DataFormats.FileDrop);
+                if (data != null)
                 {
-                    Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
-                    if (controlRelatedCoords.X < 148)
+                    fileNames = data as string[];
+                    if (fileNames.Length > 0)
                     {
-                        richTextBox.Text = "☺p☺\n\n☺Содержимое☺\n";
-                        pictureBox.BackgroundImage = Image.FromFile(fileNames[0]);
-                        fileNames = null;
-                    }
-                    else
-                    {
-                        pictureBox.Refresh();
+                        Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
+                        if (controlRelatedCoords.X < 148)
+                        {
+                            richTextBox.Text = "☺p☺\n\n☺Содержимое☺\n";
+                            pictureBox.BackgroundImage = Image.FromFile(fileNames[0]);
+                            fileNames = null;
+                        }
+                        else
+                        {
+                            pictureBox.Refresh();
+                        }
                     }
                 }
             }
@@ -616,26 +632,53 @@ namespace MakeReportWord
 
         void DragNDropPanel_DragOver(object sender, DragEventArgs e)
         {
-            Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
-            if (controlRelatedCoords.X < 148)
+            string str = TypeRichBox();
+            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
             {
-                pictureBox.BackgroundImage = Properties.Resources.pictureCode_Picture;
-            }
-            else
-            {
-                pictureBox.BackgroundImage = Properties.Resources.pictureCode_Code;
+                Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
+                if (controlRelatedCoords.X < 148)
+                {
+                    pictureBox.BackgroundImage = Properties.Resources.pictureCode_Picture;
+                }
+                else
+                {
+                    pictureBox.BackgroundImage = Properties.Resources.pictureCode_Code;
+                }
             }
         }
 
         void CustomInterface_DragEnter(object sender, DragEventArgs e)
         {
-            fileNames = null;
-            pictureBox.BackgroundImage = Properties.Resources.pictureCode;
+            string str = TypeRichBox();
+            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+            {
+                fileNames = null;
+                richTextBox.Text = string.Empty;
+                pictureBox.BackgroundImage = Properties.Resources.pictureCode;
+            }
         }
 
         void CustomInterface_DragLeave(object sender, EventArgs e)
         {
-            pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
+            string str = TypeRichBox();
+            if (str != "☺h1☺" || str != "☺h2☺" || str != "☺l☺" || str != "☺t☺")
+            {
+                pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
+            }
+        }
+
+        string TypeRichBox()
+        {
+            string str = string.Empty;
+            foreach (char ch in richTextBox.Text)
+            {
+                if (ch == '\n')
+                {
+                    break;
+                }
+                str += ch;
+            }
+            return str;
         }
 
         void replaceMenuSpecial()
