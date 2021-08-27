@@ -69,7 +69,7 @@ namespace MakeReportWord
             this.buttonTable = new System.Windows.Forms.Button();
             this.buttonCode = new System.Windows.Forms.Button();
             this.buttonForward = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableTypeInserts = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSpecialP = new System.Windows.Forms.Button();
             this.buttonSpecialL = new System.Windows.Forms.Button();
             this.buttonSpecialH2 = new System.Windows.Forms.Button();
@@ -107,7 +107,7 @@ namespace MakeReportWord
             this.elementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonForward)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableTypeInserts.SuspendLayout();
             this.textPicturePanel.SuspendLayout();
             this.DragNDropPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -376,7 +376,7 @@ namespace MakeReportWord
             this.DownPanel.Controls.Add(this.elementLabel, 1, 1);
             this.DownPanel.Controls.Add(this.buttonText, 4, 1);
             this.DownPanel.Controls.Add(this.elementPanel, 0, 0);
-            this.DownPanel.Controls.Add(this.tableLayoutPanel1, 2, 1);
+            this.DownPanel.Controls.Add(this.tableTypeInserts, 2, 1);
             this.DownPanel.Controls.Add(this.textPicturePanel, 0, 2);
             this.DownPanel.Location = new System.Drawing.Point(4, 570);
             this.DownPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -781,31 +781,31 @@ namespace MakeReportWord
             this.buttonForward.MouseLeave += new System.EventHandler(this.buttonForward_MouseLeave);
             this.buttonForward.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonForward_MouseUp);
             // 
-            // tableLayoutPanel1
+            // tableTypeInserts
             // 
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.DownPanel.SetColumnSpan(this.tableLayoutPanel1, 2);
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Controls.Add(this.buttonSpecialP, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonSpecialL, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonSpecialH2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonSpecialH1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonSpecialT, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonSpecialC, 5, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(491, 257);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 0, 2, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(445, 46);
-            this.tableLayoutPanel1.TabIndex = 30;
-            this.tableLayoutPanel1.Visible = false;
+            this.tableTypeInserts.ColumnCount = 6;
+            this.DownPanel.SetColumnSpan(this.tableTypeInserts, 2);
+            this.tableTypeInserts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableTypeInserts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableTypeInserts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableTypeInserts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableTypeInserts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableTypeInserts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableTypeInserts.Controls.Add(this.buttonSpecialP, 3, 0);
+            this.tableTypeInserts.Controls.Add(this.buttonSpecialL, 2, 0);
+            this.tableTypeInserts.Controls.Add(this.buttonSpecialH2, 1, 0);
+            this.tableTypeInserts.Controls.Add(this.buttonSpecialH1, 0, 0);
+            this.tableTypeInserts.Controls.Add(this.buttonSpecialT, 4, 0);
+            this.tableTypeInserts.Controls.Add(this.buttonSpecialC, 5, 0);
+            this.tableTypeInserts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableTypeInserts.Location = new System.Drawing.Point(491, 257);
+            this.tableTypeInserts.Margin = new System.Windows.Forms.Padding(3, 0, 2, 0);
+            this.tableTypeInserts.Name = "tableTypeInserts";
+            this.tableTypeInserts.RowCount = 1;
+            this.tableTypeInserts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableTypeInserts.Size = new System.Drawing.Size(445, 46);
+            this.tableTypeInserts.TabIndex = 30;
+            this.tableTypeInserts.Visible = false;
             // 
             // buttonSpecialP
             // 
@@ -1129,21 +1129,21 @@ namespace MakeReportWord
             this.TitlePageMenuItem.Checked = true;
             this.TitlePageMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitlePageMenuItem.Name = "TitlePageMenuItem";
-            this.TitlePageMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.TitlePageMenuItem.Size = new System.Drawing.Size(203, 30);
             this.TitlePageMenuItem.Text = "Титульник";
             this.TitlePageMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // SubstitutionMenuItem
             // 
             this.SubstitutionMenuItem.Name = "SubstitutionMenuItem";
-            this.SubstitutionMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.SubstitutionMenuItem.Size = new System.Drawing.Size(203, 30);
             this.SubstitutionMenuItem.Text = "Подстановка";
             this.SubstitutionMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // TextMenuItem
             // 
             this.TextMenuItem.Name = "TextMenuItem";
-            this.TextMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.TextMenuItem.Size = new System.Drawing.Size(203, 30);
             this.TextMenuItem.Text = "Текст";
             this.TextMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
@@ -1175,7 +1175,7 @@ namespace MakeReportWord
             this.elementPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonForward)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableTypeInserts.ResumeLayout(false);
             this.textPicturePanel.ResumeLayout(false);
             this.DragNDropPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
@@ -1235,7 +1235,7 @@ namespace MakeReportWord
         private System.Windows.Forms.ToolStripMenuItem RGR;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.Button buttonText;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableTypeInserts;
         private System.Windows.Forms.Button buttonSpecialP;
         private System.Windows.Forms.Button buttonSpecialL;
         private System.Windows.Forms.Button buttonSpecialH2;

@@ -12,6 +12,7 @@ namespace MakeReportWord
         string[] menuLabels;
         ToolStripMenuItem DownPanelMI;
         string[] fileNames;
+        CreatedElements createdElements;
 
         public CustomInterface()
         {
@@ -49,6 +50,7 @@ namespace MakeReportWord
             menuLeftIndex = 1;
             HiddenElements(SubstitutionMenuItem);
             ShowElements(TitlePageMenuItem);
+            createdElements = new CreatedElements();
         }
 
         void buttonText_Click(object sender, EventArgs e)
@@ -81,6 +83,33 @@ namespace MakeReportWord
             if (elementLabel.Text == "текст")
             {
                 text = richTextBox.Text;
+            }
+            UpdateTypeButton();
+        }
+
+        void UpdateTypeButton()
+        {
+            if (DownPanelMI == TextMenuItem && createdElements.sum() > 0)
+            {
+                tableTypeInserts.Visible = true;
+                CountTypeText(createdElements.H1, "h1");
+                CountTypeText(createdElements.H2, "h2");
+                CountTypeText(createdElements.L, "l");
+                CountTypeText(createdElements.P, "p");
+                CountTypeText(createdElements.T, "t");
+                CountTypeText(createdElements.C, "c");
+            }
+        }
+
+        void CountTypeText(int countCreatedElements, string str)
+        {
+            if (countCreatedElements <= (richTextBox.Text.Length - richTextBox.Text.Replace(("☺" + str), "").Length) / (str.Length+1))
+            {
+                tableTypeInserts.Controls[str.ToUpper()].Visible = false;
+            }
+            else
+            {
+                tableTypeInserts.Controls[str.ToUpper()].Visible = true;
             }
         }
 
@@ -119,9 +148,18 @@ namespace MakeReportWord
         {
             PictureBox button = (PictureBox)sender;
             int cursorSave = richTextBox.SelectionStart;
-            richTextBox.Text = richTextBox.Text.Insert(richTextBox.SelectionStart, "☺" + button.Name.ToLower());
-            richTextBox.Focus();
-            richTextBox.SelectionStart = cursorSave + button.Name.Length + 1;
+            if(richTextBox.Text.Length>0 && richTextBox.Text[cursorSave-1] == '☺')
+            {
+                richTextBox.Text = richTextBox.Text.Insert(richTextBox.SelectionStart, button.Name.ToLower());
+                richTextBox.Focus();
+                richTextBox.SelectionStart = cursorSave + button.Name.Length;
+            }
+            else
+            {
+                richTextBox.Text = richTextBox.Text.Insert(richTextBox.SelectionStart, "☺" + button.Name.ToLower());
+                richTextBox.Focus();
+                richTextBox.SelectionStart = cursorSave + button.Name.Length + 1;
+            }
         }
 
         void buttonForward_MouseUp(object sender, MouseEventArgs e)
@@ -210,32 +248,13 @@ namespace MakeReportWord
                 {
                     ComboBox comboBox = (ComboBox)(elementPanel.Controls[elementPanel.Controls.IndexOf(element) - (elementPanel.ColumnCount - 2)]);
                     AddToComboBox(comboBox, richTextBox.Text);
+                    createdElements.Add(comboBox.Name);
                 }
                 else if (element.Name == "КнопкаТекст")
                 {
                     buttonText_Click(sender, e);
                 }
-                else if (element.Name == "H1")
-                {
-                    buttonSpecial_Click(sender, e);
-                }
-                else if (element.Name == "H2")
-                {
-                    buttonSpecial_Click(sender, e);
-                }
-                else if (element.Name == "L")
-                {
-                    buttonSpecial_Click(sender, e);
-                }
-                else if (element.Name == "P")
-                {
-                    buttonSpecial_Click(sender, e);
-                }
-                else if (element.Name == "T")
-                {
-                    buttonSpecial_Click(sender, e);
-                }
-                else if (element.Name == "C")
+                else if (element.Name == "H1"|| element.Name == "H2"|| element.Name == "L"|| element.Name == "P"|| element.Name == "T"|| element.Name == "C")
                 {
                     buttonSpecial_Click(sender, e);
                 }
@@ -294,6 +313,7 @@ namespace MakeReportWord
                     for (int i = elementPanel.ColumnCount-1;i<2*elementPanel.ColumnCount-1-2;i++)
                     {
                         comboBox = (ComboBox)(elementPanel.Controls[i]);
+                        
                         comboBox.SelectedIndex = -1;
                     }
                 }
@@ -325,6 +345,7 @@ namespace MakeReportWord
                 {
                     comboBox.Items.RemoveAt(comboBox.SelectedIndex);
                     ComboBox_SelectedIndexChanged(sender, e);
+                    createdElements.Del(comboBox.Name);
                 }
             }
         }
@@ -470,7 +491,7 @@ namespace MakeReportWord
             }
             else if (MenuItem == TextMenuItem)
             {
-                tableLayoutPanel1.Visible = false;
+                tableTypeInserts.Visible = false;
                 DownPanelMI = TextMenuItem;
             }
             MenuItem.Checked = false;
@@ -492,23 +513,23 @@ namespace MakeReportWord
                 pictureBox.Visible = true;
                 elementPanel.Visible = true;
                 elementLabel.Text = "нечто";
-                richTextBox.Text = string.Empty;
                 buttonText.Text = "К тексту";
                 textPicturePanel.ColumnStyles[0].Width = 60;
                 textPicturePanel.ColumnStyles[1].Width = 40;
                 DownPanelMI = SubstitutionMenuItem;
+                richTextBox.Text = string.Empty;
             }
             else if (MenuItem == TextMenuItem)
             {
                 buttonUp.Visible = true;
                 DownPanel.Visible = true;
-                tableLayoutPanel1.Visible = true;
                 buttonText.Text = "К подстановкам";
                 richTextBox.Text = text;
                 elementLabel.Text = "текст";
                 textPicturePanel.ColumnStyles[1].Width = 0;
                 textPicturePanel.ColumnStyles[0].Width = 100;
                 DownPanelMI = TextMenuItem;
+                UpdateTypeButton();
             }
             MenuItem.Checked = true;
         }
@@ -619,13 +640,13 @@ namespace MakeReportWord
 
         void replaceMenuSpecial()
         {
-            tableLayoutPanel1.Controls.Clear();
-            tableLayoutPanel1.Controls.Add(GetMenuButtonReplacement(1, "H1")[0]);
-            tableLayoutPanel1.Controls.Add(GetMenuButtonReplacement(1, "H2")[0]);
-            tableLayoutPanel1.Controls.Add(GetMenuButtonReplacement(1, "L")[0]);
-            tableLayoutPanel1.Controls.Add(GetMenuButtonReplacement(1, "P")[0]);
-            tableLayoutPanel1.Controls.Add(GetMenuButtonReplacement(1, "T")[0]);
-            tableLayoutPanel1.Controls.Add(GetMenuButtonReplacement(1, "C")[0]);
+            tableTypeInserts.Controls.Clear();
+            tableTypeInserts.Controls.Add(GetMenuButtonReplacement(1, "H1")[0]);
+            tableTypeInserts.Controls.Add(GetMenuButtonReplacement(1, "H2")[0]);
+            tableTypeInserts.Controls.Add(GetMenuButtonReplacement(1, "L")[0]);
+            tableTypeInserts.Controls.Add(GetMenuButtonReplacement(1, "P")[0]);
+            tableTypeInserts.Controls.Add(GetMenuButtonReplacement(1, "T")[0]);
+            tableTypeInserts.Controls.Add(GetMenuButtonReplacement(1, "C")[0]);
         }
 
         void replaceMenu()
