@@ -162,27 +162,27 @@ namespace MakeReportWord
             string text = string.Empty;
             if (special == "h1")
             {
-                text = content.ComboBoxH1[i - 1];
+                text = content.ComboBoxH1[i - 1][1];
             }
             else if (special == "h2")
             {
-                text = content.ComboBoxH2[i - 1];
+                text = content.ComboBoxH2[i - 1][1];
             }
             else if (special == "l")
             {
-                text = content.ComboBoxL[i - 1];
+                text = content.ComboBoxL[i - 1][1];
             }
             else if (special == "p")
             {
-                text = content.ComboBoxP[i - 1];
+                text = content.ComboBoxP[i - 1][1];
             }
             else if (special == "t")
             {
-                text = content.ComboBoxT[i - 1];
+                text = content.ComboBoxT[i - 1][1];
             }
             else if (special == "c")
             {
-                text = content.ComboBoxC[i - 1];
+                text = content.ComboBoxC[i - 1][1];
             }
             return text;
         }

@@ -1,43 +1,55 @@
-﻿namespace MakeReportWord
+﻿using System.Collections.Generic;
+
+namespace MakeReportWord
 {
     class UserInput
     {
-        string[] comboBoxH1, comboBoxH2, comboBoxL, comboBoxP, comboBoxT, comboBoxC;
+        List<string[]> comboBoxH1, comboBoxH2, comboBoxL, comboBoxP, comboBoxT, comboBoxC;
         string text;
         public string Text
         {
             get{return text;}
             set{text = value;}
         }
-        public string[] ComboBoxH1
+        public List<string[]> ComboBoxH1
         {
             get { return comboBoxH1; }
             set { comboBoxH1 = value; }
         }
-        public string[] ComboBoxH2
+        public List<string[]> ComboBoxH2
         {
             get { return comboBoxH2; }
             set { comboBoxH2 = value; }
         }
-        public string[] ComboBoxL
+        public List<string[]> ComboBoxL
         {
             get { return comboBoxL; }
             set { comboBoxL = value; }
         }
-        public string[] ComboBoxP
+        public List<string[]> ComboBoxP
         {
             get { return comboBoxP; }
             set { comboBoxP = value; }
         }
-        public string[] ComboBoxT
+        public List<string[]> ComboBoxT
         {
             get { return comboBoxT; }
             set { comboBoxT = value; }
         }
-        public string[] ComboBoxC
+        public List<string[]> ComboBoxC
         {
             get { return comboBoxC; }
             set { comboBoxC = value; }
+        }
+
+        public UserInput()
+        {
+            comboBoxH1 = new List<string[]>();
+            comboBoxH2 = new List<string[]>();
+            comboBoxL = new List<string[]>();
+            comboBoxP = new List<string[]>();
+            comboBoxT = new List<string[]>();
+            comboBoxC = new List<string[]>();
         }
     }
 }
