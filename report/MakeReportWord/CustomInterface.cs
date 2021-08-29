@@ -84,37 +84,37 @@ namespace MakeReportWord
                         {
                             dataComboBox.ComboBoxH1[comboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                             dataComboBox.ComboBoxH1[comboBox.SelectedIndex][1] = SplitMainText();
-                            richTextBox.Text = "☺h1☺\n" + dataComboBox.ComboBoxH1[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxH1[comboBox.SelectedIndex][1];
+                            richTextBox.Text = "☺h1☺\n" + dataComboBox.ComboBoxH1[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxH1[comboBox.SelectedIndex][1];
                         }
                         else if (str == "☺h2☺")
                         {
                             dataComboBox.ComboBoxH2[comboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                             dataComboBox.ComboBoxH2[comboBox.SelectedIndex][1] = SplitMainText();
-                            richTextBox.Text = "☺h2☺\n" + dataComboBox.ComboBoxH2[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxH2[comboBox.SelectedIndex][1];
+                            richTextBox.Text = "☺h2☺\n" + dataComboBox.ComboBoxH2[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxH2[comboBox.SelectedIndex][1];
                         }
                         else if (str == "☺l☺")
                         {
                             dataComboBox.ComboBoxL[comboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                             dataComboBox.ComboBoxL[comboBox.SelectedIndex][1] = SplitMainText();
-                            richTextBox.Text = "☺hl☺\n" + dataComboBox.ComboBoxL[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxL[comboBox.SelectedIndex][1];
+                            richTextBox.Text = "☺hl☺\n" + dataComboBox.ComboBoxL[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxL[comboBox.SelectedIndex][1];
                         }
                         else if (str == "☺p☺")
                         {
                             dataComboBox.ComboBoxP[comboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                             dataComboBox.ComboBoxP[comboBox.SelectedIndex][1] = SplitMainText();
-                            richTextBox.Text = "☺p☺\n" + dataComboBox.ComboBoxP[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxP[comboBox.SelectedIndex][1];
+                            richTextBox.Text = "☺p☺\n" + dataComboBox.ComboBoxP[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxP[comboBox.SelectedIndex][1];
                         }
                         else if (str == "☺t☺")
                         {
                             dataComboBox.ComboBoxT[comboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                             dataComboBox.ComboBoxT[comboBox.SelectedIndex][1] = SplitMainText();
-                            richTextBox.Text = "☺t☺\n" + dataComboBox.ComboBoxT[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxT[comboBox.SelectedIndex][1];
+                            richTextBox.Text = "☺t☺\n" + dataComboBox.ComboBoxT[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxT[comboBox.SelectedIndex][1];
                         }
                         else if (str == "☺c☺")
                         {
                             dataComboBox.ComboBoxC[comboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                             dataComboBox.ComboBoxC[comboBox.SelectedIndex][1] = SplitMainText();
-                            richTextBox.Text = "☺c☺\n" + dataComboBox.ComboBoxC[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxC[comboBox.SelectedIndex][1];
+                            richTextBox.Text = "☺c☺\n" + dataComboBox.ComboBoxC[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxC[comboBox.SelectedIndex][1];
                         }
                         richTextBox.SelectionStart = cursorSave;
                     }
@@ -344,27 +344,27 @@ namespace MakeReportWord
 
                 if (comboBox == heading1ComboBox)
                 {
-                    richTextBox.Text = "☺h1☺\n" + dataComboBox.ComboBoxH1[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxH1[comboBox.SelectedIndex][1];
+                    richTextBox.Text = "☺h1☺\n" + dataComboBox.ComboBoxH1[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxH1[comboBox.SelectedIndex][1];
                 }
                 else if (comboBox == heading2ComboBox)
                 {
-                    richTextBox.Text = "☺h2☺\n" + dataComboBox.ComboBoxH2[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxH2[comboBox.SelectedIndex][1];
+                    richTextBox.Text = "☺h2☺\n" + dataComboBox.ComboBoxH2[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxH2[comboBox.SelectedIndex][1];
                 }
                 else if (comboBox == listComboBox)
                 {
-                    richTextBox.Text = "☺l☺\n" + dataComboBox.ComboBoxL[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxL[comboBox.SelectedIndex][1];
+                    richTextBox.Text = "☺l☺\n" + dataComboBox.ComboBoxL[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxL[comboBox.SelectedIndex][1];
                 }
                 else if (comboBox == pictureComboBox)
                 {
-                    richTextBox.Text = "☺p☺\n" + dataComboBox.ComboBoxP[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxP[comboBox.SelectedIndex][1];
+                    richTextBox.Text = "☺p☺\n" + dataComboBox.ComboBoxP[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxP[comboBox.SelectedIndex][1];
                 }
                 else if (comboBox == tableComboBox)
                 {
-                    richTextBox.Text = "☺t☺\n" + dataComboBox.ComboBoxP[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxT[comboBox.SelectedIndex][1];
+                    richTextBox.Text = "☺t☺\n" + dataComboBox.ComboBoxP[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxT[comboBox.SelectedIndex][1];
                 }
                 else if (comboBox == codeComboBox)
                 {
-                    richTextBox.Text = "☺c☺\n" + dataComboBox.ComboBoxC[comboBox.SelectedIndex][0] + "\n☺Содержание☺\n" + dataComboBox.ComboBoxC[comboBox.SelectedIndex][1];
+                    richTextBox.Text = "☺c☺\n" + dataComboBox.ComboBoxC[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxC[comboBox.SelectedIndex][1];
                 }
             }
             else
@@ -556,6 +556,28 @@ namespace MakeReportWord
             }
         }
 
+        void HideSpecials()
+        {
+            tableTypeInserts.Visible = false;
+        }
+
+        void ShowSpecials()
+        {
+            tableTypeInserts.Visible = true;
+        }
+
+        void HideAddButton()
+        {
+            tableLayoutPanel1.Controls.Find("Добавить", true)[0].Visible = false;
+            tableLayoutPanel1.ColumnStyles[1].Width = 0;
+        }
+
+        void ShowAddButton()
+        {
+            tableLayoutPanel1.ColumnStyles[1].Width = 151;
+            tableLayoutPanel1.Controls.Find("Добавить", true)[0].Visible = true;
+        }
+
         void HiddenElements(ToolStripMenuItem MenuItem)
         {
             if (MenuItem == TitlePageMenuItem)
@@ -568,11 +590,12 @@ namespace MakeReportWord
             {
                 elementPanel.Visible = false;
                 pictureBox.Visible = false;
+                HideAddButton();
                 DownPanelMI = SubstitutionMenuItem;
             }
             else if (MenuItem == TextMenuItem)
             {
-                tableTypeInserts.Visible = false;
+                HideSpecials();
                 DownPanelMI = TextMenuItem;
             }
             MenuItem.Checked = false;
@@ -598,6 +621,7 @@ namespace MakeReportWord
                 textPicturePanel.ColumnStyles[0].Width = 60;
                 textPicturePanel.ColumnStyles[1].Width = 40;
                 DownPanelMI = SubstitutionMenuItem;
+                ShowAddButton();
                 richTextBox.Text = string.Empty;
             }
             else if (MenuItem == TextMenuItem)
@@ -610,6 +634,7 @@ namespace MakeReportWord
                 textPicturePanel.ColumnStyles[1].Width = 0;
                 textPicturePanel.ColumnStyles[0].Width = 100;
                 DownPanelMI = TextMenuItem;
+                ShowSpecials();
                 UpdateTypeButton();
             }
             MenuItem.Checked = true;
@@ -769,28 +794,36 @@ namespace MakeReportWord
             tableTypeInserts.Controls.Add(GetMenuButtonReplacement(1, "C")[0]);
         }
 
+        void replaceMenuRow()
+        {
+            Control[] menuPanelSave = new Control[tableLayoutPanel1.Controls.Count];
+            for (int i = 0; i < tableLayoutPanel1.Controls.Count; i++)
+            {
+                menuPanelSave[i] = tableLayoutPanel1.Controls[i];
+            }
+            tableLayoutPanel1.Controls.Clear();
+            for (int i = 0; i < menuPanelSave.Length; i++)
+            {
+                if (menuPanelSave[i].Name == "buttonText")
+                {
+                    tableLayoutPanel1.Controls.Add(GetMenuTextBtnReplacement(), 2, 0);
+                }
+                else if (menuPanelSave[i].Name == "ButtonAdd")
+                {
+                    tableLayoutPanel1.Controls.Add(GetMenuButtonReplacement(1, "Добавить")[0], 1, 0);
+                }
+                else
+                {
+                    tableLayoutPanel1.Controls.Add(menuPanelSave[i]);
+                }
+            }
+        }
+
         void replaceMenu()
         {
             globalFont.SetFont(heading1Label.Font, heading1Label.Font.Style);
             PictureBox[] menuPBarray = GetMenuLabelReplacement(elementPanel.ColumnCount - 2);
-            PictureBox[] menuAddPBarray = GetMenuButtonReplacement(elementPanel.ColumnCount - 2, "Добавить");
-            Control[] downPanelSave = new Control[DownPanel.Controls.Count];
-            for (int i = 0; i < DownPanel.Controls.Count; i++)
-            {
-                downPanelSave[i] = DownPanel.Controls[i];
-            }
-            DownPanel.Controls.Clear();
-            for (int i= 0; i < downPanelSave.Length; i++)
-            {
-                if (downPanelSave[i].Name == "buttonText")
-                {
-                    DownPanel.Controls.Add(GetMenuTextBtnReplacement(), 4, 1);
-                }
-                else
-                {
-                    DownPanel.Controls.Add(downPanelSave[i]);
-                }
-            }
+            replaceMenuRow();
             replaceMenuSpecial();
             Control[] controlsSave = new Control[elementPanel.Controls.Count];
             for (int i = 0; i < elementPanel.Controls.Count; i++)
@@ -809,10 +842,6 @@ namespace MakeReportWord
             for (int i = 0; i < elementPanel.ColumnCount - 2; i++)
             {
                 elementPanel.Controls.Add(controlsSave[elementPanel.ColumnCount - 1 + i]);
-            }
-            for (int i = 0; i < menuAddPBarray.Length; i++)
-            {
-                elementPanel.Controls.Add(menuAddPBarray[i], i + 1, 2);
             }
             elementPanel.Controls.Add(controlsSave[controlsSave.Length - 1]);
         }

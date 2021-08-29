@@ -21,10 +21,6 @@ namespace MakeReportWord
             pictureLabel.BackColor = Color.FromArgb(255, 84, 213, 245);
             displayedLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
             elementLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
-            buttonHeading1.BackColor = Color.FromArgb(255, 238, 230, 246);
-            buttonHeading2.BackColor = Color.FromArgb(255, 238, 230, 246);
-            buttonList.BackColor = Color.FromArgb(255, 238, 230, 246);
-            buttonPicture.BackColor = Color.FromArgb(255, 238, 230, 246);
             buttonText.BackColor = Color.FromArgb(255, 238, 230, 246);
             heading1ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
             pictureComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);

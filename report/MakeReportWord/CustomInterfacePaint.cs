@@ -69,15 +69,7 @@ namespace MakeReportWord
             PictureBox pb = (PictureBox)sender;
             string str = pb.Name;
             Font fnt = globalFont.GetFont();
-            int size; int selected = 2;
-            if (pb.Name == "Добавить")
-            {
-                size = 14;
-            }
-            else
-            {
-                size = 10;
-            }
+            int size = 10; int selected = 2;
             if (MouseIsOverControl(pb) && Control.MouseButtons != MouseButtons.Left)
             {
                 fnt = new Font(fnt.Name, size + selected);
