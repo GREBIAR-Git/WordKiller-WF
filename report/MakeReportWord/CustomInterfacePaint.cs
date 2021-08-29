@@ -98,19 +98,19 @@ namespace MakeReportWord
             string str = TypeRichBox();
             if (str == "☺h1☺")
             {
-                e.Graphics.DrawImage(Properties.Resources.H1, 0, 0, pictureBox.Width, pictureBox.Height);
+                e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
                 SizeF stringSize = e.Graphics.MeasureString("Заголовок".ToUpper(), new Font("Microsoft Sans Serif", 20));
                 e.Graphics.DrawString("Заголовок".ToUpper(), new Font("Microsoft Sans Serif", 20), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 - 20));
             }
             else if (str == "☺h2☺")
             {
-                e.Graphics.DrawImage(Properties.Resources.H1, 0, 0, pictureBox.Width, pictureBox.Height);
+                e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
                 SizeF stringSize = e.Graphics.MeasureString("Заголовок", new Font("Microsoft Sans Serif", 20));
                 e.Graphics.DrawString("Заголовок", new Font("Microsoft Sans Serif", 20), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 - 20));
             }
             else if (str == "☺l☺")
             {
-                e.Graphics.DrawImage(Properties.Resources.H1, 0, 0, pictureBox.Width, pictureBox.Height);
+                e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
                 SizeF stringSize = e.Graphics.MeasureString("Список", new Font("Microsoft Sans Serif", 20));
                 e.Graphics.DrawString("Список", new Font("Microsoft Sans Serif", 20), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 - 20));
             }
@@ -120,7 +120,7 @@ namespace MakeReportWord
             }
             else if (str == "☺t☺")
             {
-                e.Graphics.DrawImage(Properties.Resources.H1, 0, 0, pictureBox.Width, pictureBox.Height);
+                e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
                 SizeF stringSize = e.Graphics.MeasureString("Таблица", new Font("Microsoft Sans Serif", 20));
                 e.Graphics.DrawString("Таблица", new Font("Microsoft Sans Serif", 20), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 - 20));
             }

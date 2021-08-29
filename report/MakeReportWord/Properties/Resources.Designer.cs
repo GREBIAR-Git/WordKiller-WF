@@ -263,16 +263,6 @@ namespace MakeReportWord.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap H1 {
-            get {
-                object obj = ResourceManager.GetObject("H1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap pictureCode {
             get {
                 object obj = ResourceManager.GetObject("pictureCode", resourceCulture);
@@ -326,6 +316,16 @@ namespace MakeReportWord.Properties {
         internal static System.Drawing.Bitmap quasSelected {
             get {
                 object obj = ResourceManager.GetObject("quasSelected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Red {
+            get {
+                object obj = ResourceManager.GetObject("Red", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

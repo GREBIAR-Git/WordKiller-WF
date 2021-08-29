@@ -10,8 +10,8 @@ namespace MakeReportWord
         string text;
         int menuLeftIndex;
         string[] menuLabels;
-        ToolStripMenuItem DownPanelMI;
         string[] fileNames;
+        ToolStripMenuItem DownPanelMI;
         CreatedElements createdElements;
         UserInput dataComboBox;
 

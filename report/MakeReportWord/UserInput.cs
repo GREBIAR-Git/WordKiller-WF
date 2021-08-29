@@ -41,7 +41,6 @@ namespace MakeReportWord
             get { return comboBoxC; }
             set { comboBoxC = value; }
         }
-
         public UserInput()
         {
             comboBoxH1 = new List<string[]>();
