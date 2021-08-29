@@ -694,7 +694,6 @@ namespace MakeReportWord
             this.buttonHeading1.TabIndex = 9;
             this.buttonHeading1.Text = "Добавить";
             this.buttonHeading1.UseVisualStyleBackColor = true;
-            this.buttonHeading1.Click += new System.EventHandler(this.buttonHeading1_Click);
             // 
             // buttonHeading2
             // 
@@ -708,7 +707,6 @@ namespace MakeReportWord
             this.buttonHeading2.TabIndex = 11;
             this.buttonHeading2.Text = "Добавить";
             this.buttonHeading2.UseVisualStyleBackColor = true;
-            this.buttonHeading2.Click += new System.EventHandler(this.buttonHeading2_Click);
             // 
             // buttonList
             // 
@@ -722,7 +720,6 @@ namespace MakeReportWord
             this.buttonList.TabIndex = 13;
             this.buttonList.Text = "Добавить";
             this.buttonList.UseVisualStyleBackColor = true;
-            this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
             // 
             // buttonPicture
             // 
@@ -736,7 +733,6 @@ namespace MakeReportWord
             this.buttonPicture.TabIndex = 15;
             this.buttonPicture.Text = "Добавить";
             this.buttonPicture.UseVisualStyleBackColor = true;
-            this.buttonPicture.Click += new System.EventHandler(this.buttonPicture_Click);
             // 
             // buttonTable
             // 
