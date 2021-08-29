@@ -12,7 +12,6 @@ namespace MakeReportWord
         string[] menuLabels;
         string[] fileNames;
         ToolStripMenuItem DownPanelMI;
-        CreatedElements createdElements;
         UserInput dataComboBox;
 
         public CustomInterface()
@@ -51,7 +50,6 @@ namespace MakeReportWord
             menuLeftIndex = 1;
             HiddenElements(SubstitutionMenuItem);
             ShowElements(TitlePageMenuItem);
-            createdElements = new CreatedElements();
             dataComboBox = new UserInput();
         }
 
@@ -131,15 +129,15 @@ namespace MakeReportWord
 
         void UpdateTypeButton()
         {
-            if (createdElements.sum() > 0)
+            if (dataComboBox.Sum()>0)
             {
                 tableTypeInserts.Visible = true;
-                CountTypeText(createdElements.H1, "h1");
-                CountTypeText(createdElements.H2, "h2");
-                CountTypeText(createdElements.L, "l");
-                CountTypeText(createdElements.P, "p");
-                CountTypeText(createdElements.T, "t");
-                CountTypeText(createdElements.C, "c");
+                CountTypeText(dataComboBox.ComboBoxH1.Count, "h1");
+                CountTypeText(dataComboBox.ComboBoxH2.Count, "h2");
+                CountTypeText(dataComboBox.ComboBoxL.Count, "l");
+                CountTypeText(dataComboBox.ComboBoxP.Count, "p");
+                CountTypeText(dataComboBox.ComboBoxT.Count, "t");
+                CountTypeText(dataComboBox.ComboBoxC.Count, "c");
             }
         }
 
@@ -159,7 +157,7 @@ namespace MakeReportWord
         {
             PictureBox button = (PictureBox)sender;
             int cursorSave = richTextBox.SelectionStart;
-            if (richTextBox.Text.Length > 0 && richTextBox.Text[cursorSave - 1] == '☺')
+            if (richTextBox.Text.Length > 0 && cursorSave>0 && richTextBox.Text[cursorSave - 1] == '☺')
             {
                 richTextBox.Text = richTextBox.Text.Insert(richTextBox.SelectionStart, button.Name.ToLower());
                 richTextBox.Focus();
@@ -262,44 +260,32 @@ namespace MakeReportWord
                     if (str == "☺h1☺")
                     {
                         string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText()};
-                        dataComboBox.ComboBoxH1.Add(strData);
-                        AddToComboBox(heading1ComboBox);
-                        createdElements.Add(heading1ComboBox.Name);
+                        AddToComboBox(heading1ComboBox, dataComboBox.ComboBoxH1, strData);
                     }
                     else if (str == "☺h2☺")
                     {
                         string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText()};
-                        dataComboBox.ComboBoxH2.Add(strData);
-                        AddToComboBox(heading2ComboBox);
-                        createdElements.Add(heading2ComboBox.Name);
+                        AddToComboBox(heading2ComboBox, dataComboBox.ComboBoxH2, strData);
                     }
                     else if (str == "☺l☺")
                     {
                         string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText()};
-                        dataComboBox.ComboBoxL.Add(strData);
-                        AddToComboBox(listComboBox);
-                        createdElements.Add(listComboBox.Name);
+                        AddToComboBox(listComboBox, dataComboBox.ComboBoxL, strData);
                     }
                     else if (str == "☺p☺")
                     {
                         string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText()};
-                        dataComboBox.ComboBoxP.Add(strData);
-                        AddToComboBox(pictureComboBox);
-                        createdElements.Add(pictureComboBox.Name);
+                        AddToComboBox(pictureComboBox, dataComboBox.ComboBoxP, strData);
                     }
                     else if (str == "☺t☺")
                     {
                         string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText()};
-                        dataComboBox.ComboBoxT.Add(strData);
-                        AddToComboBox(tableComboBox);
-                        createdElements.Add(tableComboBox.Name);
+                        AddToComboBox(tableComboBox, dataComboBox.ComboBoxT, strData);
                     }
                     else if (str == "☺c☺")
                     {
                         string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText()};
-                        dataComboBox.ComboBoxC.Add(strData);
-                        AddToComboBox(codeComboBox);
-                        createdElements.Add(codeComboBox.Name);
+                        AddToComboBox(codeComboBox, dataComboBox.ComboBoxC, strData);
                     }
                 }
                 else if (element.Name == "КнопкаТекст")
@@ -328,11 +314,12 @@ namespace MakeReportWord
             return mainText;
         }
 
-        void AddToComboBox(ComboBox comboBox)
+        void AddToComboBox(ComboBox comboBox, System.Collections.Generic.List<string[]> saveComboBox, string[] strData)
         {
             string str = richTextBox.Text.Split('\n')[1];
             if (!comboBox.Items.Contains(str))
             {
+                saveComboBox.Add(strData);
                 comboBox.Items.Add(str);
                 comboBox.SelectedIndex = comboBox.Items.IndexOf(str);
             }
@@ -459,7 +446,6 @@ namespace MakeReportWord
                     }
                     comboBox.Items.RemoveAt(comboBox.SelectedIndex);
                     ComboBox_SelectedIndexChanged(sender, e);
-                    createdElements.Del(comboBox.Name);
                 }
             }
         }

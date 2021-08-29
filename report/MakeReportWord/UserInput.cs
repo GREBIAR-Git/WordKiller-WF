@@ -41,6 +41,10 @@ namespace MakeReportWord
             get { return comboBoxC; }
             set { comboBoxC = value; }
         }
+        public int Sum()
+        {
+            return comboBoxH1.Count + comboBoxH2.Count + comboBoxL.Count + comboBoxP.Count + comboBoxT.Count + comboBoxC.Count;
+        }
         public UserInput()
         {
             comboBoxH1 = new List<string[]>();

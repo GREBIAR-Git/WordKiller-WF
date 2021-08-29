@@ -51,7 +51,6 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreatedElements.cs" />
     <Compile Include="CustomInterfaceDecoration.cs">
       <SubType>Form</SubType>
     </Compile>
