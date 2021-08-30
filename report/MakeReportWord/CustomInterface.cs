@@ -131,7 +131,7 @@ namespace MakeReportWord
         {
             if (dataComboBox.Sum()>0)
             {
-                tableTypeInserts.Visible = true;
+                ShowSpecials();
                 CountTypeText(dataComboBox.ComboBoxH1.Count, "h1");
                 CountTypeText(dataComboBox.ComboBoxH2.Count, "h2");
                 CountTypeText(dataComboBox.ComboBoxL.Count, "l");
@@ -634,7 +634,6 @@ namespace MakeReportWord
                 textPicturePanel.ColumnStyles[1].Width = 0;
                 textPicturePanel.ColumnStyles[0].Width = 100;
                 DownPanelMI = TextMenuItem;
-                ShowSpecials();
                 UpdateTypeButton();
             }
             MenuItem.Checked = true;
