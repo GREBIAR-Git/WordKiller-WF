@@ -681,7 +681,7 @@ namespace MakeReportWord
             {
                 buttonBack.Visible = true;
             }
-            if (menuLeftIndex == elementPanel.ColumnStyles.Count - 1 - 4)
+            if (menuLeftIndex == elementPanel.ColumnStyles.Count - 5)
             {
                 buttonForward.Visible = false;
             }

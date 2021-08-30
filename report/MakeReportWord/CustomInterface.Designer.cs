@@ -689,6 +689,7 @@ namespace MakeReportWord
             // 
             // richTextBox
             // 
+            this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox.Location = new System.Drawing.Point(4, 5);
@@ -705,10 +706,10 @@ namespace MakeReportWord
             this.DragNDropPanel.AllowDrop = true;
             this.DragNDropPanel.Controls.Add(this.pictureBox);
             this.DragNDropPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DragNDropPanel.Location = new System.Drawing.Point(672, 0);
-            this.DragNDropPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.DragNDropPanel.Location = new System.Drawing.Point(672, 3);
+            this.DragNDropPanel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 5);
             this.DragNDropPanel.Name = "DragNDropPanel";
-            this.DragNDropPanel.Size = new System.Drawing.Size(448, 428);
+            this.DragNDropPanel.Size = new System.Drawing.Size(448, 420);
             this.DragNDropPanel.TabIndex = 19;
             this.DragNDropPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragDrop);
             this.DragNDropPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragEnter);
@@ -721,9 +722,9 @@ namespace MakeReportWord
             this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 2, 5);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(448, 428);
+            this.pictureBox.Size = new System.Drawing.Size(448, 420);
             this.pictureBox.TabIndex = 32;
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
