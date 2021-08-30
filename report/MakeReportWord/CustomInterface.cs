@@ -621,6 +621,7 @@ namespace MakeReportWord
                 DownPanelMI = SubstitutionMenuItem;
                 ShowAddButton();
                 richTextBox.Text = string.Empty;
+                richTextBox.Focus();
             }
             else if (MenuItem == TextMenuItem)
             {
@@ -633,6 +634,7 @@ namespace MakeReportWord
                 textPicturePanel.ColumnStyles[0].Width = 100;
                 DownPanelMI = TextMenuItem;
                 UpdateTypeButton();
+                richTextBox.Focus();
             }
             MenuItem.Checked = true;
         }
