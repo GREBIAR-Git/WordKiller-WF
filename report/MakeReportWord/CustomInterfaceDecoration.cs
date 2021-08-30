@@ -31,6 +31,8 @@ namespace MakeReportWord
             DownPanel.BackColor = Color.FromArgb(255, 50, 39, 62);
             displayedLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
             elementLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
+            HiddenElements(SubstitutionMenuItem);
+            ShowElements(TitlePageMenuItem);
         }
 
         //buttonDownStart

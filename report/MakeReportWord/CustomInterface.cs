@@ -46,10 +46,7 @@ namespace MakeReportWord
                 this.Text = "Сотворение РГР из небытия";
             }
             replaceMenu();
-            facultyLabel.Focus();
             menuLeftIndex = 1;
-            HiddenElements(SubstitutionMenuItem);
-            ShowElements(TitlePageMenuItem);
             dataComboBox = new UserInput();
         }
 
@@ -609,6 +606,7 @@ namespace MakeReportWord
                 titlepagePanel.Visible = true;
                 DownPanel.Visible = false;
                 buttonUp.Visible = false;
+                facultyLabel.Focus();
             }
             else if (MenuItem == SubstitutionMenuItem)
             {
