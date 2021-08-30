@@ -9,7 +9,7 @@ namespace MakeReportWord
     {
         Document doc;
         Range word;
-        bool pgBreak = true;
+        bool pgBreak = false;
         char special = '☺';
         public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year, UserInput content)
         {
