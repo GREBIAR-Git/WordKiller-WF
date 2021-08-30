@@ -22,10 +22,10 @@ namespace MakeReportWord
             displayedLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
             elementLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
             buttonText.BackColor = Color.FromArgb(255, 238, 230, 246);
-            heading1ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
-            pictureComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
-            heading2ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
-            listComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
+            h1ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
+            pComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
+            h2ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
+            lComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
             titlepagePanel.BackColor = Color.FromArgb(255, 50, 39, 62);
             MainPanel.BackColor = Color.FromArgb(255, 50, 39, 62);
             DownPanel.BackColor = Color.FromArgb(255, 50, 39, 62);

@@ -75,27 +75,27 @@ namespace MakeReportWord
                                 }
                                 else if (variable_value[0].StartsWith("heading1ComboBox"))
                                 {
-                                    heading1ComboBox.Items.Add(variable_value[1]);
+                                    h1ComboBox.Items.Add(variable_value[1]);
                                 }
                                 else if (variable_value[0].StartsWith("heading2ComboBox"))
                                 {
-                                    heading2ComboBox.Items.Add(variable_value[1]);
+                                    h2ComboBox.Items.Add(variable_value[1]);
                                 }
                                 else if (variable_value[0].StartsWith("listComboBox"))
                                 {
-                                    listComboBox.Items.Add(variable_value[1]);
+                                    lComboBox.Items.Add(variable_value[1]);
                                 }
                                 else if (variable_value[0].StartsWith("pictureComboBox"))
                                 {
-                                    pictureComboBox.Items.Add(variable_value[1]);
+                                    pComboBox.Items.Add(variable_value[1]);
                                 }
                                 else if (variable_value[0].StartsWith("tableComboBox"))
                                 {
-                                    tableComboBox.Items.Add(variable_value[1]);
+                                    tComboBox.Items.Add(variable_value[1]);
                                 }
                                 else if (variable_value[0].StartsWith("codeComboBox"))
                                 {
-                                    codeComboBox.Items.Add(variable_value[1]);
+                                    cComboBox.Items.Add(variable_value[1]);
                                 }
                             }
                         }
@@ -124,12 +124,12 @@ namespace MakeReportWord
                 output.WriteLine("disciplineTextBox.Text=" + disciplineTextBox.Text);
                 output.WriteLine("professorTextBox.Text=" + professorComboBox.Text);
                 output.WriteLine("yearTextBox.Text=" + yearTextBox.Text);
-                SaveCombobox(output, heading1ComboBox);
-                SaveCombobox(output, heading2ComboBox);
-                SaveCombobox(output, listComboBox);
-                SaveCombobox(output, pictureComboBox);
-                SaveCombobox(output, tableComboBox);
-                SaveCombobox(output, codeComboBox);
+                SaveCombobox(output, h1ComboBox);
+                SaveCombobox(output, h2ComboBox);
+                SaveCombobox(output, lComboBox);
+                SaveCombobox(output, pComboBox);
+                SaveCombobox(output, tComboBox);
+                SaveCombobox(output, cComboBox);
 
                 output.WriteLine("###textstart");
                 output.WriteLine(text);
