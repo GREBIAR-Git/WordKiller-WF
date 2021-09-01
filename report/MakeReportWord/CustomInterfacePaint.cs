@@ -106,21 +106,25 @@ namespace MakeReportWord
                 SizeF stringSize = e.Graphics.MeasureString("Список", new Font("Microsoft Sans Serif", 20));
                 e.Graphics.DrawString("Список", new Font("Microsoft Sans Serif", 20), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 - 20));
             }
-            else if (str == "☺p☺")
-            {
-
-            }
             else if (str == "☺t☺")
             {
                 e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
                 SizeF stringSize = e.Graphics.MeasureString("Таблица", new Font("Microsoft Sans Serif", 20));
                 e.Graphics.DrawString("Таблица", new Font("Microsoft Sans Serif", 20), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 - 20));
             }
+            else if (str == "☺p☺")
+            {
+                if(fileNames == null)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.Code, 0, 0, pictureBox.Width, pictureBox.Height);
+                    SizeF stringSize = e.Graphics.MeasureString("Не указан", new Font("Microsoft Sans Serif", 14));
+                    e.Graphics.DrawString("Не указан", new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 + 30));
+                }
+            }
             else if (fileNames != null && fileNames.Length > 0)
             {
                 e.Graphics.DrawImage(Properties.Resources.Code, 0, 0, pictureBox.Width, pictureBox.Height);
                 string nameFile = fileNames[0].Split('\\')[fileNames[0].Split('\\').Length - 1];
-                richTextBox.Text = "☺c☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames[0];
                 SizeF stringSize = e.Graphics.MeasureString(nameFile, new Font("Microsoft Sans Serif", 14));
                 e.Graphics.DrawString(nameFile, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 + 30));
             }

@@ -95,6 +95,16 @@ namespace MakeReportWord
                         dataComboBox.ComboBoxP[pComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                         dataComboBox.ComboBoxP[pComboBox.SelectedIndex][1] = SplitMainText();
                         pComboBox.Items[pComboBox.SelectedIndex] = dataComboBox.ComboBoxP[pComboBox.SelectedIndex][0];
+                        if (!File.Exists(SplitMainText()))
+                        {
+                            fileNames = null;
+                            pictureBox.Refresh();
+                        }
+                        else
+                        {
+                            fileNames = new string[1] { SplitMainText() };
+                            pictureBox.BackgroundImage = Image.FromFile(SplitMainText());
+                        }
                     }
                     else if (tComboBox.SelectedIndex != -1)
                     {
@@ -107,11 +117,19 @@ namespace MakeReportWord
                         dataComboBox.ComboBoxC[cComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                         dataComboBox.ComboBoxC[cComboBox.SelectedIndex][1] = SplitMainText();
                         cComboBox.Items[cComboBox.SelectedIndex] = dataComboBox.ComboBoxC[cComboBox.SelectedIndex][0];
+                        if (!File.Exists(SplitMainText()))
+                        {
+                            fileNames = null;
+                            pictureBox.Refresh();
+                        }
+                        else
+                        {
+                            fileNames = new string[1] { SplitMainText() };
+                        }
                     }
                     richTextBox.SelectionStart = cursorSave;
                 }
                 pictureBox.Refresh();
-
             }
             else if (DownPanelMI == TextMenuItem)
             {
@@ -323,7 +341,10 @@ namespace MakeReportWord
                 }
                 else if (str == "☺p☺")
                 {
-                    // ???
+                    if (File.Exists(SplitMainText()))
+                    {
+                        return true;
+                    }
                 }
                 else if (str == "☺t☺")
                 {
@@ -750,15 +771,17 @@ namespace MakeReportWord
                     fileNames = data as string[];
                     if (fileNames.Length > 0)
                     {
+                        string nameFile = fileNames[0].Split('\\')[fileNames[0].Split('\\').Length - 1];
                         Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
                         if (controlRelatedCoords.X < 148)
                         {
-                            richTextBox.Text = "☺p☺\n\n☺Содержимое☺\n";
+                            richTextBox.Text = "☺p☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames[0];
                             pictureBox.BackgroundImage = Image.FromFile(fileNames[0]);
                             fileNames = null;
                         }
                         else
                         {
+                            richTextBox.Text = "☺c☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames[0];
                             pictureBox.Refresh();
                         }
                     }
