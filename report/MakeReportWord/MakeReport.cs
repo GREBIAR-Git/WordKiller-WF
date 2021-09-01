@@ -298,7 +298,7 @@ namespace MakeReportWord
             FileStream file = new FileStream(text, FileMode.Open);
             StreamReader reader = new StreamReader(file);
             string data = reader.ReadToEnd();
-            Heading1(text.Split('\\')[text.Split('\\').Length - 1]);
+            Heading1(text.Split('\\')[text.Split('\\').Length - 1] + SkipLine(1));
             WriteTextWord(data);
             word.Paragraphs.FirstLineIndent = CentimetersToPoints(0f);
             word.Font.AllCaps = 0;

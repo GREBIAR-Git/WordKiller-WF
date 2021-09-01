@@ -651,11 +651,11 @@ namespace MakeReportWord
                 buttonUp.Visible = true;
                 DownPanel.Visible = true;
                 buttonText.Text = "К подстановкам";
-                richTextBox.Text = text;
                 elementLabel.Text = "текст";
                 textPicturePanel.ColumnStyles[1].Width = 0;
                 textPicturePanel.ColumnStyles[0].Width = 100;
                 DownPanelMI = TextMenuItem;
+                richTextBox.Text = text;
                 UpdateTypeButton();
                 richTextBox.Focus();
             }
