@@ -68,57 +68,51 @@ namespace MakeReportWord
         {
             if (DownPanelMI == SubstitutionMenuItem)
             {
-                if (elementLabel.Text != "нечто" && richTextBox.Text.Length != 0)
+                if (elementLabel.Text != "нечто" && ComboBoxSelected())
                 {
-                    TextBoxAddSkipLine(richTextBox.SelectionStart);
                     int cursorSave = richTextBox.SelectionStart;
                     if (h1ComboBox.SelectedIndex!=-1)
                     {
                         dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                         dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
-                        richTextBox.Text = "☺h1☺\n" + dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][1];
                         h1ComboBox. Items[h1ComboBox.SelectedIndex] = dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][0];
                     }
                     else if (h2ComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxH2[h2ComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                         dataComboBox.ComboBoxH2[h2ComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
-                        richTextBox.Text = "☺h2☺\n" + dataComboBox.ComboBoxH2[h2ComboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxH2[h2ComboBox.SelectedIndex][1];
                         h2ComboBox.Items[h2ComboBox.SelectedIndex] = dataComboBox.ComboBoxH2[h2ComboBox.SelectedIndex][0];
                     }
                     else if (lComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxL[lComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                         dataComboBox.ComboBoxL[lComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
-                        richTextBox.Text = "☺hl☺\n" + dataComboBox.ComboBoxL[lComboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxL[lComboBox.SelectedIndex][1];
                         lComboBox.Items[lComboBox.SelectedIndex] = dataComboBox.ComboBoxL[lComboBox.SelectedIndex][0];
                     }
                     else if (pComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxP[pComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                         dataComboBox.ComboBoxP[pComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
-                        richTextBox.Text = "☺p☺\n" + dataComboBox.ComboBoxP[pComboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxP[pComboBox.SelectedIndex][1];
                         pComboBox.Items[pComboBox.SelectedIndex] = dataComboBox.ComboBoxP[pComboBox.SelectedIndex][0];
                     }
                     else if (tComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxT[tComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                         dataComboBox.ComboBoxT[tComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
-                        richTextBox.Text = "☺t☺\n" + dataComboBox.ComboBoxT[tComboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxT[tComboBox.SelectedIndex][1];
                         tComboBox.Items[tComboBox.SelectedIndex] = dataComboBox.ComboBoxT[tComboBox.SelectedIndex][0];
                     }
                     else if (cComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxC[cComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                         dataComboBox.ComboBoxC[cComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
-                        richTextBox.Text = "☺c☺\n" + dataComboBox.ComboBoxC[cComboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxC[cComboBox.SelectedIndex][1];
                         cComboBox.Items[cComboBox.SelectedIndex] = dataComboBox.ComboBoxC[cComboBox.SelectedIndex][0];
                     }
                     richTextBox.SelectionStart = cursorSave;
                 }
                 pictureBox.Refresh();
+
             }
-            if (DownPanelMI == TextMenuItem)
+            else if (DownPanelMI == TextMenuItem)
             {
                 text = richTextBox.Text;
                 UpdateTypeButton();
@@ -251,9 +245,8 @@ namespace MakeReportWord
             {
                 PictureBox element = (PictureBox)sender;
                 element.BackgroundImage = Properties.Resources.BtnSelected;
-                if (element.Name == "Добавить")
+                if (element.Name == "Добавить" && ValidAddInput())
                 {
-                    TextBoxAddSkipLine(richTextBox.SelectionStart);
                     string str = richTextBox.Text.Split('\n')[0];
                     // соединить 
                     if (str == "☺h1☺")
@@ -314,18 +307,36 @@ namespace MakeReportWord
             return mainText;
         }
 
-        void TextBoxAddSkipLine(int cursorSave)
+        bool ValidAddInput()
         {
-            if (cursorSave < richTextBox.Text.Length && richTextBox.Text[cursorSave] == '☺' && cursorSave != 0)
+            string str = richTextBox.Text.Split('\n')[0];
+            if (richTextBox.Text.Split('\n').Length >= 3 && richTextBox.Text.Split('\n')[2] == "☺Содержимое☺")
             {
-                richTextBox.Text = richTextBox.Text.Insert(cursorSave, "\n");
-                richTextBox.SelectionStart = cursorSave;
+                if (str == "☺h1☺" || str == "☺h2☺")
+                {
+                    if (richTextBox.Text.Split('\n').Length >= 4)
+                    {
+                        return true;
+                    }
+                }
+                else if (str == "☺l☺")
+                {
+                    // ???
+                }
+                else if (str == "☺p☺")
+                {
+                    // ???
+                }
+                else if (str == "☺t☺")
+                {
+                    // ???
+                }
+                else if (str == "☺c☺")
+                {
+                    // ???
+                }
             }
-            else if (cursorSave - 1 >= 0 && richTextBox.Text[cursorSave - 1] == '☺')
-            {
-                richTextBox.Text = richTextBox.Text.Insert(cursorSave, "\n");
-                richTextBox.SelectionStart = cursorSave;
-            }
+            return false;
         }
 
         void AddToComboBox(ComboBox comboBox, System.Collections.Generic.List<string[]> saveComboBox, string[] strData)
@@ -1018,6 +1029,35 @@ namespace MakeReportWord
             {
                 professorComboBox.Items.Add(s);
             }
+        }
+
+        private void richTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(DownPanelMI == SubstitutionMenuItem)
+            {
+                int line = richTextBox.GetLineFromCharIndex(richTextBox.SelectionStart);
+                if (ComboBoxSelected())
+                {
+                    bool last = richTextBox.Text.Split('\n')[1].Length - 1 + richTextBox.Text.Split('\n')[0].Length == richTextBox.SelectionStart - 2;
+                    bool start2 = richTextBox.Text.Split('\n')[0].Length == richTextBox.SelectionStart - 1;
+                    bool start4 = richTextBox.Text.Split('\n')[0].Length + richTextBox.Text.Split('\n')[1].Length + richTextBox.Text.Split('\n')[2].Length == richTextBox.SelectionStart - 3;
+                    if (e.KeyCode == Keys.Enter && (line >= 0 && line <= 2) ||
+                        (e.KeyCode == Keys.Back && (line == 0 || line == 2 || start2 || start4)) ||
+                        (e.KeyCode == Keys.Delete && (line == 0 || line == 2 || last)) ||
+                        (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V && line < 3)
+                        )
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+        bool ComboBoxSelected()
+        {
+            if (h1ComboBox.SelectedIndex != -1 || h2ComboBox.SelectedIndex != -1 || lComboBox.SelectedIndex != -1 || pComboBox.SelectedIndex != -1 || tComboBox.SelectedIndex != -1 || cComboBox.SelectedIndex != -1)
+                return true;
+            return false;
         }
     }
 }

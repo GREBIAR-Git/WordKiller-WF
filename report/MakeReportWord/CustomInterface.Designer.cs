@@ -377,11 +377,11 @@ namespace MakeReportWord
             this.DownPanel.Location = new System.Drawing.Point(4, 570);
             this.DownPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DownPanel.Name = "DownPanel";
-            this.DownPanel.Padding = new System.Windows.Forms.Padding(38, 23, 38, 23);
+            this.DownPanel.Padding = new System.Windows.Forms.Padding(38, 23, 38, 10);
             this.DownPanel.RowCount = 3;
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.DownPanel.Size = new System.Drawing.Size(1204, 683);
             this.DownPanel.TabIndex = 2;
             // 
@@ -679,12 +679,12 @@ namespace MakeReportWord
             this.textPicturePanel.Controls.Add(this.DragNDropPanel, 1, 0);
             this.textPicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textPicturePanel.Location = new System.Drawing.Point(42, 244);
-            this.textPicturePanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textPicturePanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 0);
             this.textPicturePanel.Name = "textPicturePanel";
             this.textPicturePanel.RowCount = 1;
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 428F));
-            this.textPicturePanel.Size = new System.Drawing.Size(1120, 428);
+            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 429F));
+            this.textPicturePanel.Size = new System.Drawing.Size(1120, 429);
             this.textPicturePanel.TabIndex = 32;
             // 
             // richTextBox
@@ -696,10 +696,11 @@ namespace MakeReportWord
             this.richTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox.Size = new System.Drawing.Size(664, 418);
+            this.richTextBox.Size = new System.Drawing.Size(664, 419);
             this.richTextBox.TabIndex = 18;
             this.richTextBox.Text = "";
             this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
+            this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox_KeyDown);
             // 
             // DragNDropPanel
             // 
@@ -709,7 +710,7 @@ namespace MakeReportWord
             this.DragNDropPanel.Location = new System.Drawing.Point(672, 5);
             this.DragNDropPanel.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.DragNDropPanel.Name = "DragNDropPanel";
-            this.DragNDropPanel.Size = new System.Drawing.Size(448, 418);
+            this.DragNDropPanel.Size = new System.Drawing.Size(448, 419);
             this.DragNDropPanel.TabIndex = 19;
             this.DragNDropPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragDrop);
             this.DragNDropPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragEnter);
@@ -724,7 +725,7 @@ namespace MakeReportWord
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 6, 2, 5);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(448, 418);
+            this.pictureBox.Size = new System.Drawing.Size(448, 419);
             this.pictureBox.TabIndex = 32;
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
@@ -1089,7 +1090,7 @@ namespace MakeReportWord
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1430, 1062);
+            this.ClientSize = new System.Drawing.Size(1430, 1366);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.MainPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
