@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -74,37 +75,37 @@ namespace MakeReportWord
                     if (h1ComboBox.SelectedIndex!=-1)
                     {
                         dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
-                        dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
+                        dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][1] = SplitMainText();
                         h1ComboBox. Items[h1ComboBox.SelectedIndex] = dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][0];
                     }
                     else if (h2ComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxH2[h2ComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
-                        dataComboBox.ComboBoxH2[h2ComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
+                        dataComboBox.ComboBoxH2[h2ComboBox.SelectedIndex][1] = SplitMainText();
                         h2ComboBox.Items[h2ComboBox.SelectedIndex] = dataComboBox.ComboBoxH2[h2ComboBox.SelectedIndex][0];
                     }
                     else if (lComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxL[lComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
-                        dataComboBox.ComboBoxL[lComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
+                        dataComboBox.ComboBoxL[lComboBox.SelectedIndex][1] = SplitMainText();
                         lComboBox.Items[lComboBox.SelectedIndex] = dataComboBox.ComboBoxL[lComboBox.SelectedIndex][0];
                     }
                     else if (pComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxP[pComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
-                        dataComboBox.ComboBoxP[pComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
+                        dataComboBox.ComboBoxP[pComboBox.SelectedIndex][1] = SplitMainText();
                         pComboBox.Items[pComboBox.SelectedIndex] = dataComboBox.ComboBoxP[pComboBox.SelectedIndex][0];
                     }
                     else if (tComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxT[tComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
-                        dataComboBox.ComboBoxT[tComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
+                        dataComboBox.ComboBoxT[tComboBox.SelectedIndex][1] = SplitMainText();
                         tComboBox.Items[tComboBox.SelectedIndex] = dataComboBox.ComboBoxT[tComboBox.SelectedIndex][0];
                     }
                     else if (cComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxC[cComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
-                        dataComboBox.ComboBoxC[cComboBox.SelectedIndex][1] = SplitMainText(cursorSave);
+                        dataComboBox.ComboBoxC[cComboBox.SelectedIndex][1] = SplitMainText();
                         cComboBox.Items[cComboBox.SelectedIndex] = dataComboBox.ComboBoxC[cComboBox.SelectedIndex][0];
                     }
                     richTextBox.SelectionStart = cursorSave;
@@ -251,32 +252,32 @@ namespace MakeReportWord
                     // соединить 
                     if (str == "☺h1☺")
                     {
-                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText(richTextBox.SelectionStart) };
+                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
                         AddToComboBox(h1ComboBox, dataComboBox.ComboBoxH1, strData);
                     }
                     else if (str == "☺h2☺")
                     {
-                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText(richTextBox.SelectionStart) };
+                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
                         AddToComboBox(h2ComboBox, dataComboBox.ComboBoxH2, strData);
                     }
                     else if (str == "☺l☺")
                     {
-                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText(richTextBox.SelectionStart) };
+                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
                         AddToComboBox(lComboBox, dataComboBox.ComboBoxL, strData);
                     }
                     else if (str == "☺p☺")
                     {
-                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText(richTextBox.SelectionStart) };
+                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
                         AddToComboBox(pComboBox, dataComboBox.ComboBoxP, strData);
                     }
                     else if (str == "☺t☺")
                     {
-                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText(richTextBox.SelectionStart) };
+                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
                         AddToComboBox(tComboBox, dataComboBox.ComboBoxT, strData);
                     }
                     else if (str == "☺c☺")
                     {
-                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText(richTextBox.SelectionStart) };
+                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
                         AddToComboBox(cComboBox, dataComboBox.ComboBoxC, strData);
                     }
                 }
@@ -291,7 +292,7 @@ namespace MakeReportWord
             }
         }
 
-        string SplitMainText(int cursorSave)
+        string SplitMainText()
         {
             string[] str = richTextBox.Text.Split('\n');
             string mainText = string.Empty;
@@ -310,14 +311,11 @@ namespace MakeReportWord
         bool ValidAddInput()
         {
             string str = richTextBox.Text.Split('\n')[0];
-            if (richTextBox.Text.Split('\n').Length >= 3 && richTextBox.Text.Split('\n')[2] == "☺Содержимое☺")
+            if (richTextBox.Text.Split('\n').Length >= 4 && richTextBox.Text.Split('\n')[2] == "☺Содержимое☺")
             {
                 if (str == "☺h1☺" || str == "☺h2☺")
                 {
-                    if (richTextBox.Text.Split('\n').Length >= 4)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
                 else if (str == "☺l☺")
                 {
@@ -333,7 +331,10 @@ namespace MakeReportWord
                 }
                 else if (str == "☺c☺")
                 {
-                    // ???
+                    if(File.Exists(SplitMainText()))
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
