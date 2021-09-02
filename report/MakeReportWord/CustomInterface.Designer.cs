@@ -715,6 +715,7 @@ namespace MakeReportWord
             this.DragNDropPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragDrop);
             this.DragNDropPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragEnter);
             this.DragNDropPanel.DragOver += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragOver);
+            this.DragNDropPanel.DragLeave += new System.EventHandler(this.DragNDropPanel_DragLeave);
             // 
             // pictureBox
             // 

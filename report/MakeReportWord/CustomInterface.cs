@@ -9,9 +9,10 @@ namespace MakeReportWord
     public partial class CustomInterface : Form
     {
         string text;
+        string textDragOnDrop;
         int menuLeftIndex;
         string[] menuLabels;
-        string[] fileNames;
+        string fileNames;
         ToolStripMenuItem DownPanelMI;
         UserInput dataComboBox;
 
@@ -98,12 +99,10 @@ namespace MakeReportWord
                         if (!File.Exists(SplitMainText()))
                         {
                             fileNames = null;
-                            pictureBox.Refresh();
                         }
                         else
                         {
-                            fileNames = new string[1] { SplitMainText() };
-                            pictureBox.BackgroundImage = Image.FromFile(SplitMainText());
+                            fileNames = SplitMainText();
                         }
                     }
                     else if (tComboBox.SelectedIndex != -1)
@@ -120,11 +119,10 @@ namespace MakeReportWord
                         if (!File.Exists(SplitMainText()))
                         {
                             fileNames = null;
-                            pictureBox.Refresh();
                         }
                         else
                         {
-                            fileNames = new string[1] { SplitMainText() };
+                            fileNames = SplitMainText();
                         }
                     }
                     richTextBox.SelectionStart = cursorSave;
@@ -752,11 +750,22 @@ namespace MakeReportWord
             string str = TypeRichBox();
             if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
             {
+                textDragOnDrop = richTextBox.Text;
+                richTextBox.Text = string.Empty;
                 e.Effect = DragDropEffects.All;
             }
             else
             {
                 e.Effect = DragDropEffects.None;
+            }
+        }
+
+        void DragNDropPanel_DragLeave(object sender, EventArgs e)
+        {
+            string str = TypeRichBox();
+            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+            {
+                richTextBox.Text = textDragOnDrop;
             }
         }
 
@@ -768,21 +777,19 @@ namespace MakeReportWord
                 var data = e.Data.GetData(DataFormats.FileDrop);
                 if (data != null)
                 {
-                    fileNames = data as string[];
+                    fileNames = (data as string[])[0];
                     if (fileNames.Length > 0)
                     {
-                        string nameFile = fileNames[0].Split('\\')[fileNames[0].Split('\\').Length - 1];
+                        string nameFile = fileNames.Split('\\')[fileNames.Split('\\').Length - 1];
                         Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
                         if (controlRelatedCoords.X < 148)
                         {
-                            richTextBox.Text = "☺p☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames[0];
-                            pictureBox.BackgroundImage = Image.FromFile(fileNames[0]);
-                            fileNames = null;
+                            richTextBox.Text = "☺p☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames;
+                            pictureBox.BackgroundImage = Image.FromFile(fileNames);
                         }
                         else
                         {
-                            richTextBox.Text = "☺c☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames[0];
-                            pictureBox.Refresh();
+                            richTextBox.Text = "☺c☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames;
                         }
                     }
                 }
@@ -812,6 +819,7 @@ namespace MakeReportWord
             if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
             {
                 fileNames = null;
+                textDragOnDrop = richTextBox.Text;
                 richTextBox.Text = string.Empty;
                 pictureBox.BackgroundImage = Properties.Resources.pictureCode;
             }
@@ -822,7 +830,9 @@ namespace MakeReportWord
             string str = TypeRichBox();
             if (str != "☺h1☺" || str != "☺h2☺" || str != "☺l☺" || str != "☺t☺")
             {
+                richTextBox.Text = textDragOnDrop;
                 pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
+                fileNames = SplitMainText();
             }
         }
 
