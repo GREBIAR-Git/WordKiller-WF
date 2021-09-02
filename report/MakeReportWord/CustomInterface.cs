@@ -707,12 +707,13 @@ namespace MakeReportWord
                 elementPanel.ColumnStyles[i].SizeType = SizeType.Percent;
                 elementPanel.ColumnStyles[i].Width = 0;
             }
-            elementPanel.ColumnStyles[0].Width = 6;
-            elementPanel.ColumnStyles[elementPanel.ColumnStyles.Count - 1].Width = 6;
+
+            elementPanel.ColumnStyles[0].Width = 4;
+            elementPanel.ColumnStyles[elementPanel.ColumnStyles.Count - 1].Width = 4;
 
             for (int i = menuLeftIndex; i < menuLeftIndex + 4; i++)
             {
-                elementPanel.ColumnStyles[i].Width = 22;
+                elementPanel.ColumnStyles[i].Width = 23;
             }
             elementPanel.ResumeLayout();
             hideMenuButtons();
