@@ -166,7 +166,7 @@ namespace MakeReportWord
         {
             PictureBox button = (PictureBox)sender;
             int cursorSave = richTextBox.SelectionStart;
-            if (richTextBox.Text.Length > 0 && cursorSave>0 && richTextBox.Text[cursorSave - 1] == '☺')
+            if (richTextBox.Text.Length > 0 && cursorSave > 0 && richTextBox.Text[cursorSave - 1] == '☺')
             {
                 richTextBox.Text = richTextBox.Text.Insert(richTextBox.SelectionStart, button.Name.ToLower());
                 richTextBox.Focus();
@@ -390,7 +390,7 @@ namespace MakeReportWord
                 if (comboBox == h1ComboBox)
                 {
                     richTextBox.Text = "☺h1☺\n" + dataComboBox.ComboBoxH1[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + dataComboBox.ComboBoxH1[comboBox.SelectedIndex][1];
-                    richTextBox.SelectionStart = 5+ dataComboBox.ComboBoxH1[comboBox.SelectedIndex][0].Length;
+                    richTextBox.SelectionStart = 5 + dataComboBox.ComboBoxH1[comboBox.SelectedIndex][0].Length;
                 }
                 else if (comboBox == h2ComboBox)
                 {
@@ -424,6 +424,12 @@ namespace MakeReportWord
                 richTextBox.Text = string.Empty;
             }
         }
+        
+        /*void ComboBox_IndexChanged(System.Collections.Generic.List<string[]> str, string s, ComboBox comboBox)
+        {
+            richTextBox.Text = "☺"+s+"☺\n" + str[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + str[comboBox.SelectedIndex][1];
+            richTextBox.SelectionStart = 3 + s.Length + str[comboBox.SelectedIndex][0].Length;
+        }*/
 
         void LStartText(object sender)
         {
@@ -1065,7 +1071,7 @@ namespace MakeReportWord
             }
         }
 
-        private void richTextBox_KeyDown(object sender, KeyEventArgs e)
+        void richTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if(DownPanelMI == SubstitutionMenuItem)
             {
