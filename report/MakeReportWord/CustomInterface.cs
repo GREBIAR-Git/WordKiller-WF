@@ -70,14 +70,14 @@ namespace MakeReportWord
         {
             if (DownPanelMI == SubstitutionMenuItem)
             {
-                if (elementLabel.Text != "нечто" && ComboBoxSelected())
+                if (elementLabel.Text != "нечто" && ComboBoxSelected() && richTextBox.Text != string.Empty)
                 {
                     int cursorSave = richTextBox.SelectionStart;
-                    if (h1ComboBox.SelectedIndex!=-1)
+                    if (h1ComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                         dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][1] = SplitMainText();
-                        h1ComboBox. Items[h1ComboBox.SelectedIndex] = dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][0];
+                        h1ComboBox.Items[h1ComboBox.SelectedIndex] = dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][0];
                     }
                     else if (h2ComboBox.SelectedIndex != -1)
                     {
@@ -838,7 +838,6 @@ namespace MakeReportWord
             {
                 richTextBox.Text = textDragOnDrop;
                 pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
-                fileNames = SplitMainText();
             }
         }
 
@@ -1083,8 +1082,7 @@ namespace MakeReportWord
                     bool start4 = richTextBox.Text.Split('\n')[0].Length + richTextBox.Text.Split('\n')[1].Length + richTextBox.Text.Split('\n')[2].Length == richTextBox.SelectionStart - 3;
                     if (e.KeyCode == Keys.Enter && (line >= 0 && line <= 2) ||
                         (e.KeyCode == Keys.Back && (line == 0 || line == 2 || start2 || start4)) ||
-                        (e.KeyCode == Keys.Delete && (line == 0 || line == 2 || last)) ||
-                        (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V && line < 3)
+                        (e.KeyCode == Keys.Delete && (line == 0 || line == 2 || last))
                         )
                     {
                         e.Handled = true;
@@ -1098,6 +1096,25 @@ namespace MakeReportWord
             if (h1ComboBox.SelectedIndex != -1 || h2ComboBox.SelectedIndex != -1 || lComboBox.SelectedIndex != -1 || pComboBox.SelectedIndex != -1 || tComboBox.SelectedIndex != -1 || cComboBox.SelectedIndex != -1)
                 return true;
             return false;
+        }
+
+        private void richTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (DownPanelMI == SubstitutionMenuItem)
+            {
+                int line = richTextBox.GetLineFromCharIndex(richTextBox.SelectionStart);
+                if (ComboBoxSelected())
+                {
+                    bool last = richTextBox.Text.Split('\n')[1].Length - 1 + richTextBox.Text.Split('\n')[0].Length == richTextBox.SelectionStart - 2;
+                    bool start2 = richTextBox.Text.Split('\n')[0].Length == richTextBox.SelectionStart - 1;
+                    bool start4 = richTextBox.Text.Split('\n')[0].Length + richTextBox.Text.Split('\n')[1].Length + richTextBox.Text.Split('\n')[2].Length == richTextBox.SelectionStart - 3;
+                    if ((Control.ModifierKeys == Keys.Control && e.KeyChar == (char)Keys.V && line < 3) ||
+                        (richTextBox.SelectionLength > 0 && (e.KeyChar != (char)Keys.Back || e.KeyChar != (char)Keys.Delete)))
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
         }
     }
 }
