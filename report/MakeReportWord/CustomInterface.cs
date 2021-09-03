@@ -1088,6 +1088,14 @@ namespace MakeReportWord
                     {
                         e.Handled = true;
                     }
+                    else if (e.KeyCode == Keys.Down && line == 1)
+                    {
+                        richTextBox.SelectionStart += richTextBox.Text.Split('\n')[2].Length + richTextBox.Text.Split('\n')[1].Length +2;
+                    }
+                    else if (e.KeyCode == Keys.Up && line == 3)
+                    {
+                        richTextBox.SelectionStart -= richTextBox.Text.Split('\n')[2].Length + 2;
+                    }
                 }
             }
         }
