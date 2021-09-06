@@ -793,7 +793,6 @@ namespace MakeReportWord
                         if (controlRelatedCoords.X < 148)
                         {
                             richTextBox.Text = "☺p☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames;
-                            pictureBox.BackgroundImage = Image.FromFile(fileNames);
                         }
                         else
                         {
@@ -836,7 +835,7 @@ namespace MakeReportWord
         void CustomInterface_DragLeave(object sender, EventArgs e)
         {
             string str = TypeRichBox();
-            if (str != "☺h1☺" || str != "☺h2☺" || str != "☺l☺" || str != "☺t☺")
+            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
             {
                 richTextBox.Text = textDragOnDrop;
                 pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
@@ -1021,6 +1020,8 @@ namespace MakeReportWord
             {
                 richTextBox.Text = "☺p☺\n\n☺Содержимое☺\n";
                 richTextBox.SelectionStart = 4;
+                fileNames = null;
+                pictureBox.Refresh();
             }
             else if (control.Name == "Таблица")
             {
