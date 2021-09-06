@@ -693,6 +693,7 @@ namespace MakeReportWord
                 textPicturePanel.ColumnStyles[0].Width = 100;
                 DownPanelMI = TextMenuItem;
                 richTextBox.Text = text;
+                richTextBox.SelectionStart = richTextBox.Text.Length;
                 UpdateTypeButton();
                 richTextBox.Focus();
             }
@@ -1114,9 +1115,6 @@ namespace MakeReportWord
                 int line = richTextBox.GetLineFromCharIndex(richTextBox.SelectionStart);
                 if (ComboBoxSelected())
                 {
-                    bool last = richTextBox.Text.Split('\n')[1].Length - 1 + richTextBox.Text.Split('\n')[0].Length == richTextBox.SelectionStart - 2;
-                    bool start2 = richTextBox.Text.Split('\n')[0].Length == richTextBox.SelectionStart - 1;
-                    bool start4 = richTextBox.Text.Split('\n')[0].Length + richTextBox.Text.Split('\n')[1].Length + richTextBox.Text.Split('\n')[2].Length == richTextBox.SelectionStart - 3;
                     if ((Control.ModifierKeys == Keys.Control && e.KeyChar == (char)Keys.V && line < 3) ||
                         (richTextBox.SelectionLength > 0 && (e.KeyChar != (char)Keys.Back || e.KeyChar != (char)Keys.Delete)))
                     {

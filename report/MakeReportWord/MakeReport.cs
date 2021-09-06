@@ -9,11 +9,12 @@ namespace MakeReportWord
     {
         Document doc;
         Range word;
+        Application app;
         bool pgBreak = false;
         char special = '☺';
         public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year, UserInput content)
         {
-            Application app = new Application();
+            app = new Application();
             app.Visible = true;
             doc = app.Documents.Add();
             word = null;
@@ -72,7 +73,11 @@ namespace MakeReportWord
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
             PageBreak();
 
-            if(content.Text!=null)
+
+            // Чтобы установить обтекание текста, конвертируем рисунок в фигуру
+            //var Shape = Picture.ConvertToShape();
+            //Shape.WrapFormat.Type = 0; // по контуру...
+            if (content.Text!=null)
             {
                 ProcessContent(content);
             }
@@ -102,7 +107,7 @@ namespace MakeReportWord
                         if (content.Text[i + 2] == '1')
                         {
                             i += 2;
-                            string text = h1.ToString() + " " + ProcessSpecial(h1,"h1", content);
+                            string text = h1.ToString() + " " + ProcessSpecial(h1,"h1", content)[0];
                             Heading1(text);
                             h1++;
                             h2 = 1;
@@ -110,7 +115,7 @@ namespace MakeReportWord
                         else if (content.Text[i + 2] == '2')
                         {
                             i += 2;
-                            string text = (h1-1).ToString() + "." + h2.ToString() + " " + ProcessSpecial(h2all,"h2", content);
+                            string text = (h1-1).ToString() + "." + h2.ToString() + " " + ProcessSpecial(h2all,"h2", content)[0];
                             Heading2(text);
                             h2all++;
                             h2++;
@@ -119,29 +124,30 @@ namespace MakeReportWord
                     else if (content.Text[i + 1] == 'l')
                     {
                         i += 1;
-                        string text = ProcessSpecial(l, "l", content);
-                        List(text);
+                        string[] text = ProcessSpecial(l, "l", content);
+                        List(text[0]);
                         l++;
                     }
                     else if (content.Text[i + 1] == 'p')
                     {
                         i += 1;
-                        string text = ProcessSpecial(p, "p", content);
-                        СaptionForPicture(text);
+                        string[] text = ProcessSpecial(p, "p", content);
+                        Picture(text[0]);
+                        СaptionForPicture("Рисунок " + p + " – " + text[1]);
                         p++;
                     }
                     else if (content.Text[i + 1] == 't')
                     {
                         i += 1;
-                        string text = ProcessSpecial(t, "t", content);
-                        Table(text);
+                        string[] text = ProcessSpecial(t, "t", content);
+                        Table(text[0]);
                         t++;
                     }
                     else if (content.Text[i + 1] == 'c')
                     {
                         i += 1;
-                        string text = ProcessSpecial(c, "c", content);
-                        Code(text);
+                        string[] text = ProcessSpecial(c, "c", content);
+                        Code(text[0]);
                         c++;
                     }
                 }
@@ -157,32 +163,33 @@ namespace MakeReportWord
             }
         }
 
-        string ProcessSpecial(int i, string special, UserInput content)
+        string[] ProcessSpecial(int i, string special, UserInput content)
         {
-            string text = string.Empty;
+            string[] text = new string[2];
             if (special == "h1")
             {
-                text = content.ComboBoxH1[i - 1][1];
+                text[0] = content.ComboBoxH1[i - 1][1];
             }
             else if (special == "h2")
             {
-                text = content.ComboBoxH2[i - 1][1];
+                text[0] = content.ComboBoxH2[i - 1][1];
             }
             else if (special == "l")
             {
-                text = content.ComboBoxL[i - 1][1];
+                text[0] = content.ComboBoxL[i - 1][1];
             }
             else if (special == "p")
             {
-                text = content.ComboBoxP[i - 1][1];
+                text[0] = content.ComboBoxP[i - 1][1];
+                text[1] = content.ComboBoxP[i - 1][0];
             }
             else if (special == "t")
             {
-                text = content.ComboBoxT[i - 1][1];
+                text[0] = content.ComboBoxT[i - 1][1];
             }
             else if (special == "c")
             {
-                text = content.ComboBoxC[i - 1][1];
+                text[0] = content.ComboBoxC[i - 1][1];
             }
             return text;
         }
@@ -266,13 +273,24 @@ namespace MakeReportWord
 
         }
 
-        void Picture()
+        void Picture(string text)
         {
+            WriteTextWord("");
+            object f = false;
+            object t = true;
+            var Picture = word.InlineShapes.AddPicture(text, ref f, ref t);
+            Picture.Height = 350;
+            Picture.Width = 420;
+
             word.Paragraphs.Space15();
             word.Paragraphs.FirstLineIndent = 0;
             word.Font.AllCaps = 0;
             word.Font.ColorIndex = 0;
+
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            Range wordTemp = doc.Range();
+            int Length = wordTemp.Text.Length;
+            word = doc.Range(Length-1, Type.Missing);
         }
 
         void СaptionForPicture(string text)
