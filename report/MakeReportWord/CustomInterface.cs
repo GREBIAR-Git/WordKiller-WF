@@ -359,6 +359,15 @@ namespace MakeReportWord
             return false;
         }
 
+        private void Paste()
+        {
+            if (Clipboard.ContainsText(TextDataFormat.Rtf))
+            {
+                richTextBox.Rtf = Clipboard.GetText(TextDataFormat.Rtf);
+
+            }
+        }
+
         void AddToComboBox(ComboBox comboBox, System.Collections.Generic.List<string[]> saveComboBox, string[] strData)
         {
             string str = richTextBox.Text.Split('\n')[1];
@@ -1075,9 +1084,9 @@ namespace MakeReportWord
 
         void richTextBox_KeyDown(object sender, KeyEventArgs e)
         {
+            int line = richTextBox.GetLineFromCharIndex(richTextBox.SelectionStart);
             if(DownPanelMI == SubstitutionMenuItem)
             {
-                int line = richTextBox.GetLineFromCharIndex(richTextBox.SelectionStart);
                 if (ComboBoxSelected())
                 {
                     bool last = richTextBox.Text.Split('\n')[1].Length - 1 + richTextBox.Text.Split('\n')[0].Length == richTextBox.SelectionStart - 2;
@@ -1100,6 +1109,36 @@ namespace MakeReportWord
                     }
                 }
             }
+            if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V && !(DownPanelMI == SubstitutionMenuItem && line < 3))
+            {
+                // suspend layout to avoid blinking
+                richTextBox.SuspendLayout();
+
+                // get insertion point
+                int insPt = richTextBox.SelectionStart;
+
+                // preserve text from after insertion pont to end of RTF content
+                string postRTFContent = richTextBox.Text.Substring(insPt);
+
+                // remove the content after the insertion point
+                richTextBox.Text = richTextBox.Text.Substring(0, insPt);
+
+                // add the clipboard content and then the preserved postRTF content
+                richTextBox.Text += (string)Clipboard.GetData("Text") + postRTFContent;
+
+                // adjust the insertion point to just after the inserted text
+                richTextBox.SelectionStart = richTextBox.TextLength - postRTFContent.Length;
+
+                // restore layout
+                richTextBox.ResumeLayout();
+
+                // cancel the paste
+                e.Handled = true;
+            }
+            else if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V && (DownPanelMI == SubstitutionMenuItem && line < 3))
+            {
+                e.Handled = true;
+            }
         }
 
         bool ComboBoxSelected()
@@ -1113,9 +1152,9 @@ namespace MakeReportWord
         {
             if (DownPanelMI == SubstitutionMenuItem)
             {
-                int line = richTextBox.GetLineFromCharIndex(richTextBox.SelectionStart);
                 if (ComboBoxSelected())
                 {
+                    int line = richTextBox.GetLineFromCharIndex(richTextBox.SelectionStart);
                     if ((Control.ModifierKeys == Keys.Control && e.KeyChar == (char)Keys.V && line < 3) ||
                         (richTextBox.SelectionLength > 0 && (e.KeyChar != (char)Keys.Back || e.KeyChar != (char)Keys.Delete)))
                     {
@@ -1123,6 +1162,7 @@ namespace MakeReportWord
                     }
                 }
             }
+            
         }
     }
 }

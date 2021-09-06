@@ -240,7 +240,7 @@ namespace MakeReportWord
             word.Font.ColorIndex = 0;
             word.Paragraphs.Space15();
             word.Paragraphs.FirstLineIndent = CentimetersToPoints(1.5f);
-            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
         }
 
         void Heading1(string text)
