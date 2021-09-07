@@ -673,6 +673,7 @@ namespace MakeReportWord
             {
                 this.MinimumSize = new Size(846, 393);
                 this.MaximumSize = new Size(846, 393);
+                richTextBox.EnableAutoDragDrop = false;
                 buttonDown.Visible = true;
                 titlepagePanel.Visible = true;
                 DownPanel.Visible = false;
@@ -683,6 +684,7 @@ namespace MakeReportWord
             {
                 this.MinimumSize = new Size(846, 577);
                 this.MaximumSize = new Size(846, 577);
+                richTextBox.EnableAutoDragDrop = false;
                 buttonUp.Visible = true;
                 DownPanel.Visible = true;
                 pictureBox.Visible = true;
@@ -700,6 +702,7 @@ namespace MakeReportWord
             {
                 this.MinimumSize = new Size(846, 577);
                 this.MaximumSize = new Size(846, 2000);
+                richTextBox.EnableAutoDragDrop = true;
                 buttonUp.Visible = true;
                 DownPanel.Visible = true;
                 buttonText.Text = "К подстановкам";

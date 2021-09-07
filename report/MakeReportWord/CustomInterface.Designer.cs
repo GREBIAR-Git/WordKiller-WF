@@ -131,7 +131,7 @@ namespace MakeReportWord
             this.titlepagePanel.Controls.Add(this.yearTextBox, 1, 7);
             this.titlepagePanel.Controls.Add(this.professorLabel, 0, 6);
             this.titlepagePanel.Controls.Add(this.professorComboBox, 1, 6);
-            this.titlepagePanel.Location = new System.Drawing.Point(0, 0);
+            this.titlepagePanel.Location = new System.Drawing.Point(0, 50);
             this.titlepagePanel.Margin = new System.Windows.Forms.Padding(0);
             this.titlepagePanel.Name = "titlepagePanel";
             this.titlepagePanel.Padding = new System.Windows.Forms.Padding(46, 28, 46, 28);
@@ -340,23 +340,24 @@ namespace MakeReportWord
             // 
             // MainPanel
             // 
-            this.MainPanel.AutoSize = true;
             this.MainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.MainPanel.ColumnCount = 1;
-            this.MainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1484F));
+            this.MainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1640F));
             this.MainPanel.Controls.Add(this.DownPanel, 0, 3);
             this.MainPanel.Controls.Add(this.buttonUp, 0, 2);
             this.MainPanel.Controls.Add(this.titlepagePanel, 0, 0);
             this.MainPanel.Controls.Add(this.buttonDown, 0, 1);
-            this.MainPanel.Location = new System.Drawing.Point(17, 48);
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(5, 6, 22, 22);
             this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
             this.MainPanel.RowCount = 4;
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.MainPanel.Size = new System.Drawing.Size(1484, 1511);
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.MainPanel.Size = new System.Drawing.Size(1640, 1564);
             this.MainPanel.TabIndex = 1;
             // 
             // DownPanel
@@ -373,7 +374,8 @@ namespace MakeReportWord
             this.DownPanel.Controls.Add(this.elementPanel, 0, 0);
             this.DownPanel.Controls.Add(this.textPicturePanel, 0, 2);
             this.DownPanel.Controls.Add(this.tableLayoutPanel1, 2, 1);
-            this.DownPanel.Location = new System.Drawing.Point(5, 685);
+            this.DownPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DownPanel.Location = new System.Drawing.Point(5, 735);
             this.DownPanel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.DownPanel.Name = "DownPanel";
             this.DownPanel.Padding = new System.Windows.Forms.Padding(46, 28, 46, 11);
@@ -381,7 +383,7 @@ namespace MakeReportWord
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.DownPanel.Size = new System.Drawing.Size(1472, 820);
+            this.DownPanel.Size = new System.Drawing.Size(1630, 823);
             this.DownPanel.TabIndex = 2;
             // 
             // displayedLabel
@@ -392,7 +394,7 @@ namespace MakeReportWord
             this.displayedLabel.Location = new System.Drawing.Point(51, 213);
             this.displayedLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.displayedLabel.Name = "displayedLabel";
-            this.displayedLabel.Size = new System.Drawing.Size(266, 74);
+            this.displayedLabel.Size = new System.Drawing.Size(297, 74);
             this.displayedLabel.TabIndex = 28;
             this.displayedLabel.Text = "Отображается:";
             this.displayedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -402,10 +404,10 @@ namespace MakeReportWord
             this.elementLabel.AutoSize = true;
             this.elementLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.elementLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.elementLabel.Location = new System.Drawing.Point(327, 213);
+            this.elementLabel.Location = new System.Drawing.Point(358, 213);
             this.elementLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.elementLabel.Name = "elementLabel";
-            this.elementLabel.Size = new System.Drawing.Size(266, 74);
+            this.elementLabel.Size = new System.Drawing.Size(297, 74);
             this.elementLabel.TabIndex = 29;
             this.elementLabel.Text = "нечто";
             this.elementLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -670,6 +672,7 @@ namespace MakeReportWord
             // 
             // textPicturePanel
             // 
+            this.textPicturePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.textPicturePanel.ColumnCount = 2;
             this.DownPanel.SetColumnSpan(this.textPicturePanel, 5);
             this.textPicturePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -683,7 +686,7 @@ namespace MakeReportWord
             this.textPicturePanel.RowCount = 1;
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 516F));
-            this.textPicturePanel.Size = new System.Drawing.Size(1370, 516);
+            this.textPicturePanel.Size = new System.Drawing.Size(1528, 519);
             this.textPicturePanel.TabIndex = 32;
             // 
             // richTextBox
@@ -694,7 +697,7 @@ namespace MakeReportWord
             this.richTextBox.Location = new System.Drawing.Point(5, 6);
             this.richTextBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(812, 504);
+            this.richTextBox.Size = new System.Drawing.Size(906, 504);
             this.richTextBox.TabIndex = 18;
             this.richTextBox.Text = "";
             this.richTextBox.WordWrap = false;
@@ -707,10 +710,10 @@ namespace MakeReportWord
             this.DragNDropPanel.AllowDrop = true;
             this.DragNDropPanel.Controls.Add(this.pictureBox);
             this.DragNDropPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DragNDropPanel.Location = new System.Drawing.Point(822, 6);
+            this.DragNDropPanel.Location = new System.Drawing.Point(916, 6);
             this.DragNDropPanel.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
             this.DragNDropPanel.Name = "DragNDropPanel";
-            this.DragNDropPanel.Size = new System.Drawing.Size(548, 504);
+            this.DragNDropPanel.Size = new System.Drawing.Size(612, 504);
             this.DragNDropPanel.TabIndex = 19;
             this.DragNDropPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragDrop);
             this.DragNDropPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragEnter);
@@ -726,7 +729,7 @@ namespace MakeReportWord
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(5, 7, 2, 6);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(548, 504);
+            this.pictureBox.Size = new System.Drawing.Size(612, 504);
             this.pictureBox.TabIndex = 32;
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
@@ -742,12 +745,12 @@ namespace MakeReportWord
             this.tableLayoutPanel1.Controls.Add(this.ButtonAdd, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableTypeInserts, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(603, 219);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(665, 219);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(818, 62);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(914, 62);
             this.tableLayoutPanel1.TabIndex = 34;
             // 
             // buttonText
@@ -756,7 +759,7 @@ namespace MakeReportWord
             this.buttonText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonText.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonText.Location = new System.Drawing.Point(542, 0);
+            this.buttonText.Location = new System.Drawing.Point(638, 0);
             this.buttonText.Margin = new System.Windows.Forms.Padding(0);
             this.buttonText.Name = "buttonText";
             this.buttonText.Size = new System.Drawing.Size(276, 62);
@@ -770,7 +773,7 @@ namespace MakeReportWord
             this.ButtonAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ButtonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ButtonAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ButtonAdd.Location = new System.Drawing.Point(266, 0);
+            this.ButtonAdd.Location = new System.Drawing.Point(362, 0);
             this.ButtonAdd.Margin = new System.Windows.Forms.Padding(0);
             this.ButtonAdd.Name = "ButtonAdd";
             this.ButtonAdd.Size = new System.Drawing.Size(276, 62);
@@ -799,7 +802,7 @@ namespace MakeReportWord
             this.tableTypeInserts.Name = "tableTypeInserts";
             this.tableTypeInserts.RowCount = 1;
             this.tableTypeInserts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableTypeInserts.Size = new System.Drawing.Size(260, 62);
+            this.tableTypeInserts.Size = new System.Drawing.Size(356, 62);
             this.tableTypeInserts.TabIndex = 32;
             this.tableTypeInserts.Visible = false;
             // 
@@ -808,10 +811,10 @@ namespace MakeReportWord
             this.buttonSpecialP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonSpecialP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSpecialP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecialP.Location = new System.Drawing.Point(129, 0);
+            this.buttonSpecialP.Location = new System.Drawing.Point(177, 0);
             this.buttonSpecialP.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSpecialP.Name = "buttonSpecialP";
-            this.buttonSpecialP.Size = new System.Drawing.Size(43, 62);
+            this.buttonSpecialP.Size = new System.Drawing.Size(59, 62);
             this.buttonSpecialP.TabIndex = 16;
             this.buttonSpecialP.Text = "P";
             this.buttonSpecialP.UseVisualStyleBackColor = true;
@@ -822,10 +825,10 @@ namespace MakeReportWord
             this.buttonSpecialL.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonSpecialL.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSpecialL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecialL.Location = new System.Drawing.Point(86, 0);
+            this.buttonSpecialL.Location = new System.Drawing.Point(118, 0);
             this.buttonSpecialL.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSpecialL.Name = "buttonSpecialL";
-            this.buttonSpecialL.Size = new System.Drawing.Size(43, 62);
+            this.buttonSpecialL.Size = new System.Drawing.Size(59, 62);
             this.buttonSpecialL.TabIndex = 19;
             this.buttonSpecialL.Text = "L";
             this.buttonSpecialL.UseVisualStyleBackColor = true;
@@ -836,10 +839,10 @@ namespace MakeReportWord
             this.buttonSpecialH2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonSpecialH2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSpecialH2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecialH2.Location = new System.Drawing.Point(43, 0);
+            this.buttonSpecialH2.Location = new System.Drawing.Point(59, 0);
             this.buttonSpecialH2.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSpecialH2.Name = "buttonSpecialH2";
-            this.buttonSpecialH2.Size = new System.Drawing.Size(43, 62);
+            this.buttonSpecialH2.Size = new System.Drawing.Size(59, 62);
             this.buttonSpecialH2.TabIndex = 18;
             this.buttonSpecialH2.Text = "H2";
             this.buttonSpecialH2.UseVisualStyleBackColor = true;
@@ -853,7 +856,7 @@ namespace MakeReportWord
             this.buttonSpecialH1.Location = new System.Drawing.Point(0, 0);
             this.buttonSpecialH1.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSpecialH1.Name = "buttonSpecialH1";
-            this.buttonSpecialH1.Size = new System.Drawing.Size(43, 62);
+            this.buttonSpecialH1.Size = new System.Drawing.Size(59, 62);
             this.buttonSpecialH1.TabIndex = 17;
             this.buttonSpecialH1.Text = "H1";
             this.buttonSpecialH1.UseVisualStyleBackColor = true;
@@ -864,10 +867,10 @@ namespace MakeReportWord
             this.buttonSpecialT.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonSpecialT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSpecialT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecialT.Location = new System.Drawing.Point(172, 0);
+            this.buttonSpecialT.Location = new System.Drawing.Point(236, 0);
             this.buttonSpecialT.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSpecialT.Name = "buttonSpecialT";
-            this.buttonSpecialT.Size = new System.Drawing.Size(43, 62);
+            this.buttonSpecialT.Size = new System.Drawing.Size(59, 62);
             this.buttonSpecialT.TabIndex = 20;
             this.buttonSpecialT.Text = "T";
             this.buttonSpecialT.UseVisualStyleBackColor = true;
@@ -878,10 +881,10 @@ namespace MakeReportWord
             this.buttonSpecialC.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonSpecialC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSpecialC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecialC.Location = new System.Drawing.Point(215, 0);
+            this.buttonSpecialC.Location = new System.Drawing.Point(295, 0);
             this.buttonSpecialC.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.buttonSpecialC.Name = "buttonSpecialC";
-            this.buttonSpecialC.Size = new System.Drawing.Size(43, 62);
+            this.buttonSpecialC.Size = new System.Drawing.Size(59, 62);
             this.buttonSpecialC.TabIndex = 21;
             this.buttonSpecialC.Text = "C";
             this.buttonSpecialC.UseVisualStyleBackColor = true;
@@ -894,10 +897,10 @@ namespace MakeReportWord
             this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonUp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonUp.Location = new System.Drawing.Point(235, 619);
+            this.buttonUp.Location = new System.Drawing.Point(235, 669);
             this.buttonUp.Margin = new System.Windows.Forms.Padding(235, 34, 235, 6);
             this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(1014, 54);
+            this.buttonUp.Size = new System.Drawing.Size(1170, 54);
             this.buttonUp.TabIndex = 7;
             this.buttonUp.TabStop = false;
             this.buttonUp.Text = " ";
@@ -913,10 +916,10 @@ namespace MakeReportWord
             this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDown.Location = new System.Drawing.Point(235, 527);
+            this.buttonDown.Location = new System.Drawing.Point(235, 577);
             this.buttonDown.Margin = new System.Windows.Forms.Padding(235, 6, 235, 6);
             this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(1014, 52);
+            this.buttonDown.Size = new System.Drawing.Size(1170, 52);
             this.buttonDown.TabIndex = 7;
             this.buttonDown.TabStop = false;
             this.buttonDown.Text = " ";
