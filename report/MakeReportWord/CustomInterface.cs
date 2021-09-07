@@ -661,6 +661,7 @@ namespace MakeReportWord
             }
             else if (MenuItem == TextMenuItem)
             {
+                this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 HideSpecials();
                 DownPanelMI = TextMenuItem;
             }
@@ -710,6 +711,7 @@ namespace MakeReportWord
                 textPicturePanel.ColumnStyles[1].Width = 0;
                 textPicturePanel.ColumnStyles[0].Width = 100;
                 DownPanelMI = TextMenuItem;
+                this.AutoSizeMode = AutoSizeMode.GrowOnly;
                 richTextBox.Text = text;
                 richTextBox.SelectionStart = richTextBox.Text.Length;
                 UpdateTypeButton();
