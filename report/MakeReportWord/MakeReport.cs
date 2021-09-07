@@ -18,7 +18,6 @@ namespace MakeReportWord
             app.Visible = true;
             doc = app.Documents.Add();
             word = null;
-
             string text = "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
                 "РОССИЙСКОЙ ФЕДЕРАЦИИ" + SkipLine(1) +
                 "ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ" + SkipLine(1) +
@@ -27,6 +26,7 @@ namespace MakeReportWord
                 "ИМЕНИ И.С.ТУРГЕНЕВА»" + SkipLine(2) +
                 "Кафедра " + faculty + SkipLine(3);
             WriteTextWord(text);
+            
             PageMargin(2,2,3,1.5f);
             word.Font.Size = 14;
             word.Font.Name = "Times New Roman";
@@ -72,15 +72,23 @@ namespace MakeReportWord
             WriteTextWord(text);
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
             PageBreak();
-
-
-            // Чтобы установить обтекание текста, конвертируем рисунок в фигуру
-            //var Shape = Picture.ConvertToShape();
-            //Shape.WrapFormat.Type = 0; // по контуру...
             if (content.Text!=null)
             {
                 ProcessContent(content);
             }
+            //Переход на вторую страницу (вернее, в начало третьей)
+            Range range = doc.Range().GoTo(WdGoToItem.wdGoToPage, WdGoToDirection.wdGoToAbsolute, 3);
+            //Вставка разрыва раздела в конце второй страницы. 
+            doc.Sections.Add(range, WdSectionStart.wdSectionContinuous);
+            //Колонтитул второго раздела
+            HeaderFooter hf = doc.Sections[doc.Sections.Count].Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary];
+            //Открепление нумерации от колонтитула предыдущего раздела
+            hf.LinkToPrevious = false;
+            //Не начинать нумерацию с 1
+            hf.PageNumbers.RestartNumberingAtSection = false;
+            //Добавление нумерации по заданному выравниванию
+            WdPageNumberAlignment alignment = WdPageNumberAlignment.wdAlignPageNumberCenter;
+            hf.PageNumbers.Add(alignment, true);
         }
 
         void ProcessContent(UserInput content)

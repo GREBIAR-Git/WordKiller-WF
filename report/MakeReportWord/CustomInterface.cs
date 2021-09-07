@@ -798,6 +798,7 @@ namespace MakeReportWord
                     if (fileNames.Length > 0)
                     {
                         string nameFile = fileNames.Split('\\')[fileNames.Split('\\').Length - 1];
+                        nameFile = nameFile.Substring(0, nameFile.LastIndexOf('.'));
                         Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
                         if (controlRelatedCoords.X < 148)
                         {
@@ -807,6 +808,7 @@ namespace MakeReportWord
                         {
                             richTextBox.Text = "☺c☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames;
                         }
+                        pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
                     }
                 }
             }
@@ -1111,28 +1113,13 @@ namespace MakeReportWord
             }
             if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V && !(DownPanelMI == SubstitutionMenuItem && line < 3))
             {
-                // suspend layout to avoid blinking
                 richTextBox.SuspendLayout();
-
-                // get insertion point
                 int insPt = richTextBox.SelectionStart;
-
-                // preserve text from after insertion pont to end of RTF content
                 string postRTFContent = richTextBox.Text.Substring(insPt);
-
-                // remove the content after the insertion point
                 richTextBox.Text = richTextBox.Text.Substring(0, insPt);
-
-                // add the clipboard content and then the preserved postRTF content
                 richTextBox.Text += (string)Clipboard.GetData("Text") + postRTFContent;
-
-                // adjust the insertion point to just after the inserted text
                 richTextBox.SelectionStart = richTextBox.TextLength - postRTFContent.Length;
-
-                // restore layout
                 richTextBox.ResumeLayout();
-
-                // cancel the paste
                 e.Handled = true;
             }
             else if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V && (DownPanelMI == SubstitutionMenuItem && line < 3))
