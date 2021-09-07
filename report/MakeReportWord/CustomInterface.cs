@@ -671,6 +671,8 @@ namespace MakeReportWord
         {
             if (MenuItem == TitlePageMenuItem)
             {
+                this.MinimumSize = new Size(846, 393);
+                this.MaximumSize = new Size(846, 393);
                 buttonDown.Visible = true;
                 titlepagePanel.Visible = true;
                 DownPanel.Visible = false;
@@ -679,6 +681,8 @@ namespace MakeReportWord
             }
             else if (MenuItem == SubstitutionMenuItem)
             {
+                this.MinimumSize = new Size(846, 577);
+                this.MaximumSize = new Size(846, 577);
                 buttonUp.Visible = true;
                 DownPanel.Visible = true;
                 pictureBox.Visible = true;
@@ -694,6 +698,8 @@ namespace MakeReportWord
             }
             else if (MenuItem == TextMenuItem)
             {
+                this.MinimumSize = new Size(846, 577);
+                this.MaximumSize = new Size(846, 2000);
                 buttonUp.Visible = true;
                 DownPanel.Visible = true;
                 buttonText.Text = "К подстановкам";

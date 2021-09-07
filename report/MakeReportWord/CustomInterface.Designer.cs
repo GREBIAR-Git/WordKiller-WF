@@ -354,9 +354,8 @@ namespace MakeReportWord
             this.MainPanel.RowCount = 4;
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.MainPanel.Size = new System.Drawing.Size(1484, 1511);
             this.MainPanel.TabIndex = 1;
             // 
@@ -1048,7 +1047,7 @@ namespace MakeReportWord
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
-            this.menuStrip.Size = new System.Drawing.Size(1748, 42);
+            this.menuStrip.Size = new System.Drawing.Size(1640, 42);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -1090,16 +1089,17 @@ namespace MakeReportWord
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1748, 1564);
+            this.ClientSize = new System.Drawing.Size(1640, 1564);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.MainPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(846, 393);
             this.Name = "CustomInterface";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Сотворение документа из небытия";
             this.Shown += new System.EventHandler(this.CustomInterface_Shown);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.CustomInterface_DragEnter);
