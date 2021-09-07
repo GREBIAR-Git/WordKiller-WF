@@ -9,12 +9,11 @@ namespace MakeReportWord
     {
         Document doc;
         Range word;
-        Application app;
         bool pgBreak = false;
         char special = '☺';
         public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year, UserInput content)
         {
-            app = new Application();
+            Application app = new Application();
             app.Visible = true;
             doc = app.Documents.Add();
             word = null;
@@ -77,7 +76,7 @@ namespace MakeReportWord
                 ProcessContent(content);
             }
             //Переход на вторую страницу (вернее, в начало третьей)
-            Range range = doc.Range().GoTo(WdGoToItem.wdGoToPage, WdGoToDirection.wdGoToAbsolute, 3);
+            Range range = doc.Range().GoTo(WdGoToItem.wdGoToPage, WdGoToDirection.wdGoToAbsolute, 2);
             //Вставка разрыва раздела в конце второй страницы. 
             doc.Sections.Add(range, WdSectionStart.wdSectionContinuous);
             //Колонтитул второго раздела

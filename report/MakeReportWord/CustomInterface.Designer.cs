@@ -1097,6 +1097,7 @@ namespace MakeReportWord
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.MainPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
@@ -1108,6 +1109,7 @@ namespace MakeReportWord
             this.Shown += new System.EventHandler(this.CustomInterface_Shown);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.CustomInterface_DragEnter);
             this.DragLeave += new System.EventHandler(this.CustomInterface_DragLeave);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomInterface_KeyDown);
             this.titlepagePanel.ResumeLayout(false);
             this.titlepagePanel.PerformLayout();
             this.MainPanel.ResumeLayout(false);

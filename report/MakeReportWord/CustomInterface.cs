@@ -1162,6 +1162,18 @@ namespace MakeReportWord
             }
             
         }
+
+        private void CustomInterface_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                for (int i = elementPanel.ColumnCount + 1; i < elementPanel.Controls.Count - 1; i++)
+                {
+                    ComboBox cmbBox = (ComboBox)elementPanel.Controls[i];
+                    cmbBox.SelectedIndex = -1;
+                }
+            }
+        }
     }
 }
 
