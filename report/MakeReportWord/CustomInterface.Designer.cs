@@ -662,7 +662,7 @@ namespace MakeReportWord
             this.textPicturePanel.Name = "textPicturePanel";
             this.textPicturePanel.RowCount = 1;
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 265F));
+            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
             this.textPicturePanel.Size = new System.Drawing.Size(929, 295);
             this.textPicturePanel.TabIndex = 32;
             // 
