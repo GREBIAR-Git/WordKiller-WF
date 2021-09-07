@@ -662,6 +662,7 @@ namespace MakeReportWord
             else if (MenuItem == TextMenuItem)
             {
                 this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                richTextBox.EnableAutoDragDrop = false;
                 HideSpecials();
                 DownPanelMI = TextMenuItem;
             }
@@ -674,7 +675,6 @@ namespace MakeReportWord
             {
                 this.MinimumSize = new Size(846, 393);
                 this.MaximumSize = new Size(846, 393);
-                richTextBox.EnableAutoDragDrop = false;
                 buttonDown.Visible = true;
                 titlepagePanel.Visible = true;
                 DownPanel.Visible = false;
@@ -685,7 +685,6 @@ namespace MakeReportWord
             {
                 this.MinimumSize = new Size(846, 577);
                 this.MaximumSize = new Size(846, 577);
-                richTextBox.EnableAutoDragDrop = false;
                 buttonUp.Visible = true;
                 DownPanel.Visible = true;
                 pictureBox.Visible = true;
@@ -1017,12 +1016,11 @@ namespace MakeReportWord
         void createTemplate(object sender)
         {
             Control control = (Control)sender;
-            h1ComboBox.SelectedIndex = -1;
-            h2ComboBox.SelectedIndex = -1;
-            lComboBox.SelectedIndex = -1;
-            pComboBox.SelectedIndex = -1;
-            tComboBox.SelectedIndex = -1;
-            cComboBox.SelectedIndex = -1;
+            for (int i = elementPanel.ColumnCount + 1; i < elementPanel.Controls.Count - 1; i++)
+            {
+                ComboBox cmbBox = (ComboBox)elementPanel.Controls[i];
+                cmbBox.SelectedIndex = -1;
+            }
             if (control.Name == "Заголовок 1")
             {
                 richTextBox.Text = "☺h1☺\n\n☺Содержимое☺\n";
