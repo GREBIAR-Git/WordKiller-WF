@@ -1240,8 +1240,6 @@ namespace MakeReportWord
                 this.Size += sizeDiff;
             }
         }
-
-        
     }
 }
 
