@@ -1107,6 +1107,7 @@ namespace MakeReportWord
             this.Text = "Сотворение документа из небытия";
             this.Shown += new System.EventHandler(this.CustomInterface_Shown);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.CustomInterface_DragEnter);
+            this.DragOver += new System.Windows.Forms.DragEventHandler(this.CustomInterface_DragOver);
             this.DragLeave += new System.EventHandler(this.CustomInterface_DragLeave);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomInterface_KeyDown);
             this.titlepagePanel.ResumeLayout(false);

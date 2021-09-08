@@ -813,7 +813,9 @@ namespace MakeReportWord
             if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
             {
                 richTextBox.Text = textDragOnDrop;
+                dragging = 3;
             }
+            pictureBox.Refresh();
         }
 
         void DragNDropPanel_DragDrop(object sender, DragEventArgs e)
@@ -838,41 +840,30 @@ namespace MakeReportWord
                         {
                             richTextBox.Text = "☺c☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames;
                         }
-                        pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
                     }
                 }
             }
+            dragging = 0;
+            pictureBox.Refresh();
         }
-
+        int dragging = 0; // 1 - мышь на левой половине пикчербокса, 2 - на правой, 3 - мышь на форме, но не на пикчербоксе, 0 - ничего не перетаскивается
         void DragNDropPanel_DragOver(object sender, DragEventArgs e)
         {
             string str = TypeRichBox();
             if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
             {
                 Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
-                if (controlRelatedCoords.X < 148)
+                if (controlRelatedCoords.X <= 154)
                 {
-                    pictureBox.BackgroundImage = Properties.Resources.pictureCode_Picture;
-                    Graphics g = pictureBox.CreateGraphics();
-                    string str1 = "Для";
-                    SizeF stringSize = g.MeasureString(str1, new Font("Microsoft Sans Serif", 14));
-                    g.DrawString(str1, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.White), new Point((int)(pictureBox.Width / 4 - stringSize.Width / 2), pictureBox.Height / 2 + 30));
-                    str1 = "картинки";
-                    stringSize = g.MeasureString(str1, new Font("Microsoft Sans Serif", 14));
-                    g.DrawString(str1, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.White), new Point((int)(pictureBox.Width / 4 - stringSize.Width / 2), pictureBox.Height / 2 + 50));
+                    dragging = 1;
                 }
                 else
                 {
-                    pictureBox.BackgroundImage = Properties.Resources.pictureCode_Code;
-                    Graphics g = pictureBox.CreateGraphics();
-                    string str1 = "Для";
-                    SizeF stringSize = g.MeasureString(str1, new Font("Microsoft Sans Serif", 14));
-                    g.DrawString(str1, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.White), new Point((int)(3* pictureBox.Width / 4 - stringSize.Width / 2), pictureBox.Height / 2 + 30));
-                    str1 = "кода";
-                    stringSize = g.MeasureString(str1, new Font("Microsoft Sans Serif", 14));
-                    g.DrawString(str1, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.White), new Point((int)(3 * pictureBox.Width / 4 - stringSize.Width / 2), pictureBox.Height / 2 + 50));
+                    dragging = 2;
+                    
                 }
             }
+            pictureBox.Refresh();
         }
 
         void CustomInterface_DragEnter(object sender, DragEventArgs e)
@@ -883,8 +874,17 @@ namespace MakeReportWord
                 fileNames = null;
                 textDragOnDrop = richTextBox.Text;
                 richTextBox.Text = string.Empty;
-                pictureBox.BackgroundImage = Properties.Resources.pictureCode;
             }
+        }
+
+        private void CustomInterface_DragOver(object sender, DragEventArgs e)
+        {
+            string str = TypeRichBox();
+            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+            {
+                dragging = 3;
+            }
+            pictureBox.Refresh();
         }
 
         void CustomInterface_DragLeave(object sender, EventArgs e)
@@ -893,8 +893,9 @@ namespace MakeReportWord
             if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
             {
                 richTextBox.Text = textDragOnDrop;
-                pictureBox.BackgroundImage = Properties.Resources.DragNDrop;
+                dragging = 0;
             }
+            pictureBox.Refresh();
         }
 
         string TypeRichBox()
@@ -1236,6 +1237,8 @@ namespace MakeReportWord
                 this.Size += sizeDiff;
             }
         }
+
+        
     }
 }
 
