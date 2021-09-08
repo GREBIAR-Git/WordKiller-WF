@@ -15,7 +15,7 @@ namespace MakeReportWord
         string fileNames;
         ToolStripMenuItem DownPanelMI;
         UserInput dataComboBox;
-
+        WindowSize wndSize;
         public CustomInterface()
         {
             InitializeComponent();
@@ -49,6 +49,7 @@ namespace MakeReportWord
             }
             replaceMenu();
             menuLeftIndex = 1;
+            wndSize = new WindowSize();
             dataComboBox = new UserInput();
         }
 
@@ -661,6 +662,7 @@ namespace MakeReportWord
             }
             else if (MenuItem == TextMenuItem)
             {
+                wndSize.Text.Current = this.Size;
                 this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 richTextBox.EnableAutoDragDrop = false;
                 HideSpecials();
@@ -669,12 +671,32 @@ namespace MakeReportWord
             MenuItem.Checked = false;
         }
 
-        void ShowElements(ToolStripMenuItem MenuItem)
+        void UpdateSize(ToolStripMenuItem MenuItem)
         {
             if (MenuItem == TitlePageMenuItem)
             {
-                this.MinimumSize = new Size(846, 393);
-                this.MaximumSize = new Size(846, 393);
+                this.MinimumSize = wndSize.Title.Min;
+                this.MaximumSize = wndSize.Title.Max;
+            }
+            else if (MenuItem == SubstitutionMenuItem)
+            {
+                this.MinimumSize = wndSize.Subst.Min;
+                this.MaximumSize = wndSize.Subst.Max;
+            }
+            else if (MenuItem == TextMenuItem)
+            {
+                this.MinimumSize = wndSize.Text.Min;
+                this.MaximumSize = wndSize.Text.Max;
+                this.Size = wndSize.Text.Current;
+            }
+        }
+
+
+        void ShowElements(ToolStripMenuItem MenuItem)
+        {
+            UpdateSize(MenuItem);
+            if (MenuItem == TitlePageMenuItem)
+            {
                 buttonDown.Visible = true;
                 titlepagePanel.Visible = true;
                 DownPanel.Visible = false;
@@ -683,8 +705,6 @@ namespace MakeReportWord
             }
             else if (MenuItem == SubstitutionMenuItem)
             {
-                this.MinimumSize = new Size(846, 577);
-                this.MaximumSize = new Size(846, 577);
                 buttonUp.Visible = true;
                 DownPanel.Visible = true;
                 pictureBox.Visible = true;
@@ -700,8 +720,6 @@ namespace MakeReportWord
             }
             else if (MenuItem == TextMenuItem)
             {
-                this.MinimumSize = new Size(846, 577);
-                this.MaximumSize = new Size(846, 2000);
                 richTextBox.EnableAutoDragDrop = true;
                 buttonUp.Visible = true;
                 DownPanel.Visible = true;
