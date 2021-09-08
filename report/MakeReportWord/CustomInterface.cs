@@ -889,13 +889,16 @@ namespace MakeReportWord
 
         void CustomInterface_DragLeave(object sender, EventArgs e)
         {
-            string str = TypeRichBox();
-            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+            if (Cursor.Position.X < this.Location.X || Cursor.Position.X > this.Location.X + this.Width || Cursor.Position.Y < this.Location.Y || Cursor.Position.Y > this.Location.Y + this.Height)
             {
-                richTextBox.Text = textDragOnDrop;
-                dragging = 0;
+                string str = TypeRichBox();
+                if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+                {
+                    richTextBox.Text = textDragOnDrop;
+                    dragging = 0;
+                }
+                pictureBox.Refresh();
             }
-            pictureBox.Refresh();
         }
 
         string TypeRichBox()
