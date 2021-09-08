@@ -1247,7 +1247,7 @@ namespace MakeReportWord
         private void timer1_Tick(object sender, EventArgs e)
         {
             test++;
-            richTextBox.Text = test.ToString();
+            this.Text = test.ToString();
             dragging = 0;
             pictureBox.Refresh();
         }
