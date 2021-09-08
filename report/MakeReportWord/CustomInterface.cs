@@ -48,6 +48,9 @@ namespace MakeReportWord
                 this.Text = "Сотворение РГР из небытия";
             }
             replaceMenu();
+            timer1.Interval = 100;
+            timer1.Enabled = true;
+            timer1.Start();
             menuLeftIndex = 1;
             wndSize = new WindowSize();
             dataComboBox = new UserInput();
@@ -1239,6 +1242,14 @@ namespace MakeReportWord
                 Size sizeDiff = new Size(0, e.Y - mouse.Y);
                 this.Size += sizeDiff;
             }
+        }
+        byte test = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            test++;
+            richTextBox.Text = test.ToString();
+            dragging = 0;
+            pictureBox.Refresh();
         }
     }
 }

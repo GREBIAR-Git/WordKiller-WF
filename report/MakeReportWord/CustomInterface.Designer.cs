@@ -29,6 +29,7 @@ namespace MakeReportWord
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomInterface));
             this.titlepagePanel = new System.Windows.Forms.TableLayoutPanel();
             this.facultyLabel = new System.Windows.Forms.Label();
@@ -98,6 +99,7 @@ namespace MakeReportWord
             this.TitlePageMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SubstitutionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -1086,6 +1088,10 @@ namespace MakeReportWord
             this.TextMenuItem.Text = "Текст";
             this.TextMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // CustomInterface
             // 
             this.AllowDrop = true;
@@ -1204,6 +1210,7 @@ namespace MakeReportWord
         private System.Windows.Forms.Button buttonSpecialT;
         private System.Windows.Forms.Button buttonSpecialC;
         private System.Windows.Forms.PictureBox CustomSizeGrip;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
