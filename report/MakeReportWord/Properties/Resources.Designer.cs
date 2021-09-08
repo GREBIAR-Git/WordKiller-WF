@@ -333,6 +333,16 @@ namespace MakeReportWord.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ResizeGrip {
+            get {
+                object obj = ResourceManager.GetObject("ResizeGrip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wex {
             get {
                 object obj = ResourceManager.GetObject("wex", resourceCulture);
@@ -356,6 +366,16 @@ namespace MakeReportWord.Properties {
         internal static System.Drawing.Bitmap wexSelected {
             get {
                 object obj = ResourceManager.GetObject("wexSelected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white {
+            get {
+                object obj = ResourceManager.GetObject("white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

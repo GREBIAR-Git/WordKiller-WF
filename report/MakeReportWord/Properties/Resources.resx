@@ -118,94 +118,100 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="arrowsLeftSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsLeftSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pictureCode" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pictureCode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="arrowsLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrowsLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DragNDrop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DragNDrop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowsRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowsLeftPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsLeftPressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pictureCode_Picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pictureCode_Picture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowsRightSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsRightSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pictureCode_Code" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pictureCode_Code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowsRightPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsRightPressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowsDownPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsDownPressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowsDownSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsDownSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowsUpPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsUpPressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowsUpSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsUpSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowsDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowsUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BtnPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addpressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BtnSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exort" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exort.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exortPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exortpressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exortSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exortselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="quas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\quas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="quasPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\quaspressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="quasSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\quasselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wex" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wex.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wexPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wexpressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrowsLeftPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsLeftPressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exortSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exortselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtnPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addpressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wex.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrowsDownSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsDownSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pictureCode_Picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pictureCode_Picture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DragNDrop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DragNDrop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pictureCode_Code" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pictureCode_Code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrowsRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quasPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quaspressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrowsUpSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsUpSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="wexSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wexselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrowsDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exortPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exortpressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exort" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exort.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtnSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Code" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arrowsDownPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsDownPressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quasSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quasselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pictureCode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pictureCode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrowsLeftSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsLeftSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrowsRightPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsRightPressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrowsUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrowsUpPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsUpPressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrowsRightSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsRightSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ResizeGrip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ResizeGrip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

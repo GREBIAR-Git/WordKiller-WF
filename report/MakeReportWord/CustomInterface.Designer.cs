@@ -78,6 +78,7 @@ namespace MakeReportWord
             this.buttonSpecialC = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.PictureBox();
             this.buttonDown = new System.Windows.Forms.PictureBox();
+            this.CustomSizeGrip = new System.Windows.Forms.PictureBox();
             this.Scroll1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ReadScroll = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseWindow = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,6 +111,7 @@ namespace MakeReportWord
             this.tableTypeInserts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomSizeGrip)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -340,28 +342,32 @@ namespace MakeReportWord
             // MainPanel
             // 
             this.MainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MainPanel.BackColor = System.Drawing.SystemColors.Control;
             this.MainPanel.ColumnCount = 1;
             this.MainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainPanel.Controls.Add(this.DownPanel, 0, 3);
             this.MainPanel.Controls.Add(this.buttonUp, 0, 2);
             this.MainPanel.Controls.Add(this.titlepagePanel, 0, 0);
             this.MainPanel.Controls.Add(this.buttonDown, 0, 1);
+            this.MainPanel.Controls.Add(this.CustomSizeGrip, 0, 4);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(6, 6, 22, 22);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Padding = new System.Windows.Forms.Padding(0, 50, 0, 18);
-            this.MainPanel.RowCount = 4;
+            this.MainPanel.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.MainPanel.RowCount = 5;
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.MainPanel.Size = new System.Drawing.Size(1817, 1564);
             this.MainPanel.TabIndex = 1;
             // 
             // DownPanel
             // 
             this.DownPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DownPanel.BackColor = System.Drawing.SystemColors.Control;
             this.DownPanel.ColumnCount = 5;
             this.DownPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.DownPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -382,7 +388,7 @@ namespace MakeReportWord
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.DownPanel.Size = new System.Drawing.Size(1805, 806);
+            this.DownPanel.Size = new System.Drawing.Size(1805, 786);
             this.DownPanel.TabIndex = 2;
             // 
             // displayedLabel
@@ -685,8 +691,8 @@ namespace MakeReportWord
             this.textPicturePanel.Name = "textPicturePanel";
             this.textPicturePanel.RowCount = 1;
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 502F));
-            this.textPicturePanel.Size = new System.Drawing.Size(1701, 502);
+            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 482F));
+            this.textPicturePanel.Size = new System.Drawing.Size(1701, 482);
             this.textPicturePanel.TabIndex = 32;
             // 
             // richTextBox
@@ -697,7 +703,7 @@ namespace MakeReportWord
             this.richTextBox.Location = new System.Drawing.Point(6, 6);
             this.richTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(1008, 490);
+            this.richTextBox.Size = new System.Drawing.Size(1008, 470);
             this.richTextBox.TabIndex = 18;
             this.richTextBox.Text = "";
             this.richTextBox.WordWrap = false;
@@ -713,7 +719,7 @@ namespace MakeReportWord
             this.DragNDropPanel.Location = new System.Drawing.Point(1020, 6);
             this.DragNDropPanel.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
             this.DragNDropPanel.Name = "DragNDropPanel";
-            this.DragNDropPanel.Size = new System.Drawing.Size(681, 490);
+            this.DragNDropPanel.Size = new System.Drawing.Size(681, 470);
             this.DragNDropPanel.TabIndex = 19;
             this.DragNDropPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragDrop);
             this.DragNDropPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragEnter);
@@ -729,7 +735,7 @@ namespace MakeReportWord
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(6, 7, 2, 6);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(681, 490);
+            this.pictureBox.Size = new System.Drawing.Size(681, 470);
             this.pictureBox.TabIndex = 32;
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
@@ -928,6 +934,25 @@ namespace MakeReportWord
             this.buttonDown.MouseLeave += new System.EventHandler(this.buttonDown_MouseLeave);
             this.buttonDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonDown_MouseUp);
             // 
+            // CustomSizeGrip
+            // 
+            this.CustomSizeGrip.BackColor = System.Drawing.Color.Transparent;
+            this.CustomSizeGrip.BackgroundImage = global::MakeReportWord.Properties.Resources.ResizeGrip;
+            this.CustomSizeGrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CustomSizeGrip.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.CustomSizeGrip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomSizeGrip.Location = new System.Drawing.Point(20, 1526);
+            this.CustomSizeGrip.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.CustomSizeGrip.Name = "CustomSizeGrip";
+            this.CustomSizeGrip.Padding = new System.Windows.Forms.Padding(0, 10, 0, 20);
+            this.CustomSizeGrip.Size = new System.Drawing.Size(1777, 38);
+            this.CustomSizeGrip.TabIndex = 8;
+            this.CustomSizeGrip.TabStop = false;
+            this.CustomSizeGrip.Visible = false;
+            this.CustomSizeGrip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CustomSizeGrip_MouseDown);
+            this.CustomSizeGrip.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CustomSizeGrip_MouseMove);
+            this.CustomSizeGrip.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CustomSizeGrip_MouseUp);
+            // 
             // Scroll1
             // 
             this.Scroll1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1093,9 +1118,11 @@ namespace MakeReportWord
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1817, 1564);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.MainPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip;
@@ -1126,6 +1153,7 @@ namespace MakeReportWord
             this.tableTypeInserts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomSizeGrip)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -1202,6 +1230,7 @@ namespace MakeReportWord
         private System.Windows.Forms.Button buttonSpecialH1;
         private System.Windows.Forms.Button buttonSpecialT;
         private System.Windows.Forms.Button buttonSpecialC;
+        private System.Windows.Forms.PictureBox CustomSizeGrip;
     }
 }
 

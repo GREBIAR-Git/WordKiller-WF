@@ -665,6 +665,7 @@ namespace MakeReportWord
                 wndSize.Text.Current = this.Size;
                 this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 richTextBox.EnableAutoDragDrop = false;
+                CustomSizeGrip.Visible = false;
                 HideSpecials();
                 DownPanelMI = TextMenuItem;
             }
@@ -723,6 +724,7 @@ namespace MakeReportWord
                 richTextBox.EnableAutoDragDrop = true;
                 buttonUp.Visible = true;
                 DownPanel.Visible = true;
+                CustomSizeGrip.Visible = true;
                 buttonText.Text = "К подстановкам";
                 elementLabel.Text = "текст";
                 textPicturePanel.ColumnStyles[1].Width = 0;
@@ -1188,6 +1190,36 @@ namespace MakeReportWord
                     ComboBox cmbBox = (ComboBox)elementPanel.Controls[i];
                     cmbBox.SelectedIndex = -1;
                 }
+            }
+        }
+
+        Point mouse = new Point();
+        bool resizing = false;
+        private void CustomSizeGrip_MouseDown(object sender, MouseEventArgs e)
+        {
+            resizing = true;
+            if (e.Button == MouseButtons.Left)
+            {
+                mouse.X = e.X; mouse.Y = e.Y;
+            }
+        }
+
+        private void CustomSizeGrip_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && resizing)
+            {
+                Size sizeDiff = new Size(0, e.Y - mouse.Y);
+                this.Size += sizeDiff;
+            }
+            resizing = false;
+        }
+
+        private void CustomSizeGrip_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && resizing)
+            {
+                Size sizeDiff = new Size(0, e.Y - mouse.Y);
+                this.Size += sizeDiff;
             }
         }
     }
