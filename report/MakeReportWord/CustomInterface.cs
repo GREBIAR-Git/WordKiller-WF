@@ -69,7 +69,6 @@ namespace MakeReportWord
 
         void richTextBox_TextChanged(object sender, EventArgs e)
         {
-            this.Text = pictureBox.Size.ToString();
             if (DownPanelMI == SubstitutionMenuItem)
             {
                 if (elementLabel.Text != "нечто" && ComboBoxSelected() && richTextBox.Text != string.Empty)

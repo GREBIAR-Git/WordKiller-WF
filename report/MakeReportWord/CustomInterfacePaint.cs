@@ -87,7 +87,6 @@ namespace MakeReportWord
 
         void pictureBox_Paint(object sender, PaintEventArgs e)
         {
-
             string str = TypeRichBox();
             if (str == "☺h1☺")
             {
@@ -125,6 +124,7 @@ namespace MakeReportWord
                 {
                     try
                     {
+                        e.Graphics.DrawImage(Properties.Resources.purpleBackground, 0, 0, pictureBox.Width, pictureBox.Height);
                         e.Graphics.DrawImage(Image.FromFile(fileNames), 0, 0, pictureBox.Width, pictureBox.Height);
                     }
                     catch (System.OutOfMemoryException)
