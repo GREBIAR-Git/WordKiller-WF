@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="256x256.ico" />
+    <None Include="Resources\Picture.png" />
     <None Include="Resources\purpleBackground.png" />
     <None Include="Resources\ResizeGrip.png" />
     <None Include="Resources\white.png" />
