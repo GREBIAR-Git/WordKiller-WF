@@ -1132,7 +1132,6 @@ namespace MakeReportWord
             this.Name = "CustomInterface";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Сотворение документа из небытия";
-            this.TopMost = true;
             this.Shown += new System.EventHandler(this.CustomInterface_Shown);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.CustomInterface_DragEnter);
             this.DragLeave += new System.EventHandler(this.CustomInterface_DragLeave);

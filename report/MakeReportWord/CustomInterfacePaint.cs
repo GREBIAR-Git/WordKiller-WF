@@ -123,7 +123,14 @@ namespace MakeReportWord
                 }
                 else
                 {
-                    e.Graphics.DrawImage(Image.FromFile(fileNames), 0, 0, pictureBox.Width, pictureBox.Height);
+                    try
+                    {
+                        e.Graphics.DrawImage(Image.FromFile(fileNames), 0, 0, pictureBox.Width, pictureBox.Height);
+                    }
+                    catch (System.OutOfMemoryException)
+                    {
+                        richTextBox.Clear();
+                    }
                 }
             }
             else if (str == "☺c☺")

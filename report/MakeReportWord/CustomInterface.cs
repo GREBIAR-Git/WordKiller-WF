@@ -69,6 +69,7 @@ namespace MakeReportWord
 
         void richTextBox_TextChanged(object sender, EventArgs e)
         {
+            this.Text = pictureBox.Size.ToString();
             if (DownPanelMI == SubstitutionMenuItem)
             {
                 if (elementLabel.Text != "нечто" && ComboBoxSelected() && richTextBox.Text != string.Empty)
@@ -853,10 +854,24 @@ namespace MakeReportWord
                 if (controlRelatedCoords.X < 148)
                 {
                     pictureBox.BackgroundImage = Properties.Resources.pictureCode_Picture;
+                    Graphics g = pictureBox.CreateGraphics();
+                    string str1 = "Для";
+                    SizeF stringSize = g.MeasureString(str1, new Font("Microsoft Sans Serif", 14));
+                    g.DrawString(str1, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.White), new Point((int)(pictureBox.Width / 4 - stringSize.Width / 2), pictureBox.Height / 2 + 30));
+                    str1 = "картинки";
+                    stringSize = g.MeasureString(str1, new Font("Microsoft Sans Serif", 14));
+                    g.DrawString(str1, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.White), new Point((int)(pictureBox.Width / 4 - stringSize.Width / 2), pictureBox.Height / 2 + 50));
                 }
                 else
                 {
                     pictureBox.BackgroundImage = Properties.Resources.pictureCode_Code;
+                    Graphics g = pictureBox.CreateGraphics();
+                    string str1 = "Для";
+                    SizeF stringSize = g.MeasureString(str1, new Font("Microsoft Sans Serif", 14));
+                    g.DrawString(str1, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.White), new Point((int)(3* pictureBox.Width / 4 - stringSize.Width / 2), pictureBox.Height / 2 + 30));
+                    str1 = "кода";
+                    stringSize = g.MeasureString(str1, new Font("Microsoft Sans Serif", 14));
+                    g.DrawString(str1, new Font("Microsoft Sans Serif", 14), new SolidBrush(Color.White), new Point((int)(3 * pictureBox.Width / 4 - stringSize.Width / 2), pictureBox.Height / 2 + 50));
                 }
             }
         }
