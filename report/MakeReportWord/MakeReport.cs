@@ -82,25 +82,20 @@ namespace MakeReportWord
             {
                 ProcessContent(content);
             }
-            //надо доделать
             if(numbering)
             {
-                if (fromNumbering != null && fromNumbering != "0")
+                int startPage = int.Parse(fromNumbering);
+                if (startPage > 0)
                 {
-                    //Переход вначала 2 страницы
-                    Range range = doc.Range().GoTo(WdGoToItem.wdGoToPage, WdGoToDirection.wdGoToAbsolute, 2);
-                    //Вставка разрыва раздела в конце второй страницы. 
-                    doc.Sections.Add(range, WdSectionStart.wdSectionContinuous);
-                    //Колонтитул второго раздела
-                    HeaderFooter hf = doc.Sections[doc.Sections.Count].Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary];
-                    //Открепление нумерации от колонтитула предыдущего раздела
-                    hf.LinkToPrevious = false;
-                    if (fromNumbering != "1")
+                    HeaderFooter hf = doc.Sections[doc.Sections.First.Index].Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary];
+                    if (startPage != 1)
                     {
-                        //Не начинать нумерацию с 1
+                        Range range = doc.Range().GoTo(WdGoToItem.wdGoToPage, WdGoToDirection.wdGoToAbsolute, startPage);
+                        doc.Sections.Add(range, WdSectionStart.wdSectionContinuous);
+                        hf = doc.Sections[doc.Sections.Count].Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary];
+                        hf.LinkToPrevious = false;
                         hf.PageNumbers.RestartNumberingAtSection = false;
                     }
-                    //Добавление нумерации по заданному выравниванию
                     WdPageNumberAlignment alignment = WdPageNumberAlignment.wdAlignPageNumberCenter;
                     hf.PageNumbers.Add(alignment, true);
                 }
