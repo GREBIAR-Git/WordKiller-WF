@@ -800,6 +800,8 @@ namespace MakeReportWord
                 textDragOnDrop = richTextBox.Text;
                 richTextBox.Text = string.Empty;
                 e.Effect = DragDropEffects.All;
+                richTextBox.Visible = true;
+                textPicturePanel.Invalidate();
             }
             else
             {
@@ -814,6 +816,8 @@ namespace MakeReportWord
             {
                 richTextBox.Text = textDragOnDrop;
                 dragging = 3;
+                richTextBox.Visible = false;
+                textPicturePanel.Invalidate();
             }
             pictureBox.Refresh();
         }
@@ -873,6 +877,8 @@ namespace MakeReportWord
                 fileNames = null;
                 textDragOnDrop = richTextBox.Text;
                 richTextBox.Text = string.Empty;
+                richTextBox.Visible = false;
+                textPicturePanel.Invalidate();
             }
         }
 
@@ -896,6 +902,8 @@ namespace MakeReportWord
                 {
                     richTextBox.Text = textDragOnDrop;
                     dragging = 0;
+                    richTextBox.Visible = true;
+                    textPicturePanel.Invalidate();
                 }
                 pictureBox.Refresh();
             }
@@ -1208,6 +1216,19 @@ namespace MakeReportWord
                     ComboBox cmbBox = (ComboBox)elementPanel.Controls[i];
                     cmbBox.SelectedIndex = -1;
                 }
+            }
+        }
+
+        private void textPicturePanel_Paint(object sender, PaintEventArgs e)
+        {
+            if (richTextBox.Visible)
+            {
+
+            }
+            else
+            {
+                Point locationOnForm = textPicturePanel.PointToClient(richTextBox.PointToScreen(richTextBox.Location));
+                e.Graphics.FillRectangle(new SolidBrush(Color.White), locationOnForm.X - richTextBox.Margin.Left, locationOnForm.Y - richTextBox.Margin.Left, richTextBox.Width, richTextBox.Height);
             }
         }
     }
