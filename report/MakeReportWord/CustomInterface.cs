@@ -829,7 +829,15 @@ namespace MakeReportWord
             if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
             {
                 richTextBox.Text = textDragOnDrop;
-                dragging = 3;
+                Point absCoords = pictureBox.PointToScreen(pictureBox.Location);
+                if (Cursor.Position.X < absCoords.X || Cursor.Position.X > absCoords.X + pictureBox.Width || Cursor.Position.Y < absCoords.Y || Cursor.Position.Y > absCoords.Y + pictureBox.Height)
+                {
+                    dragging = 3;
+                }
+                else
+                {
+                    dragging = 0;
+                }
                 richTextBox.Visible = false;
             }
             pictureBox.Refresh();
