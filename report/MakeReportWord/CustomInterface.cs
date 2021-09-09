@@ -888,7 +888,8 @@ namespace MakeReportWord
 
         void CustomInterface_DragLeave(object sender, EventArgs e)
         {
-            if (Cursor.Position.X < this.Location.X || Cursor.Position.X > this.Location.X + this.Width || Cursor.Position.Y < this.Location.Y || Cursor.Position.Y > this.Location.Y + this.Height)
+            Point absCoords = pictureBox.PointToScreen(pictureBox.Location);
+            if (Cursor.Position.X < absCoords.X || Cursor.Position.X > absCoords.X + pictureBox.Width || Cursor.Position.Y < absCoords.Y || Cursor.Position.Y > absCoords.Y + pictureBox.Height)
             {
                 string str = TypeRichBox();
                 if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
