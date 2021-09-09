@@ -801,7 +801,6 @@ namespace MakeReportWord
                 richTextBox.Text = string.Empty;
                 e.Effect = DragDropEffects.All;
                 richTextBox.Visible = true;
-                textPicturePanel.Invalidate();
             }
             else
             {
@@ -817,7 +816,6 @@ namespace MakeReportWord
                 richTextBox.Text = textDragOnDrop;
                 dragging = 3;
                 richTextBox.Visible = false;
-                textPicturePanel.Invalidate();
             }
             pictureBox.Refresh();
         }
@@ -878,7 +876,6 @@ namespace MakeReportWord
                 textDragOnDrop = richTextBox.Text;
                 richTextBox.Text = string.Empty;
                 richTextBox.Visible = false;
-                textPicturePanel.Invalidate();
             }
         }
 
@@ -903,7 +900,6 @@ namespace MakeReportWord
                     richTextBox.Text = textDragOnDrop;
                     dragging = 0;
                     richTextBox.Visible = true;
-                    textPicturePanel.Invalidate();
                 }
                 pictureBox.Refresh();
             }
@@ -1221,15 +1217,16 @@ namespace MakeReportWord
 
         private void textPicturePanel_Paint(object sender, PaintEventArgs e)
         {
-            if (richTextBox.Visible)
-            {
-
-            }
-            else
+            if (!richTextBox.Visible)
             {
                 Point locationOnForm = textPicturePanel.PointToClient(richTextBox.PointToScreen(richTextBox.Location));
-                e.Graphics.FillRectangle(new SolidBrush(Color.White), locationOnForm.X - richTextBox.Margin.Left, locationOnForm.Y - richTextBox.Margin.Left, richTextBox.Width, richTextBox.Height);
+                e.Graphics.FillRectangle(new SolidBrush(richTextBox.BackColor), locationOnForm.X - richTextBox.Margin.Left, locationOnForm.Y - richTextBox.Margin.Left, richTextBox.Width, richTextBox.Height);
             }
+        }
+
+        private void richTextBox_VisibleChanged(object sender, EventArgs e)
+        {
+            textPicturePanel.Invalidate();
         }
     }
 }
