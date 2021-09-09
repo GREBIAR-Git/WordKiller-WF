@@ -48,9 +48,6 @@ namespace MakeReportWord
                 this.Text = "Сотворение РГР из небытия";
             }
             replaceMenu();
-            timer1.Interval = 100;
-            timer1.Enabled = true;
-            timer1.Start();
             menuLeftIndex = 1;
             wndSize = new WindowSize();
             dataComboBox = new UserInput();
@@ -863,7 +860,6 @@ namespace MakeReportWord
                 else
                 {
                     dragging = 2;
-                    
                 }
             }
             pictureBox.Refresh();
@@ -1212,44 +1208,6 @@ namespace MakeReportWord
                     cmbBox.SelectedIndex = -1;
                 }
             }
-        }
-
-        Point mouse = new Point();
-        bool resizing = false;
-        private void CustomSizeGrip_MouseDown(object sender, MouseEventArgs e)
-        {
-            resizing = true;
-            if (e.Button == MouseButtons.Left)
-            {
-                mouse.X = e.X; mouse.Y = e.Y;
-            }
-        }
-
-        private void CustomSizeGrip_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left && resizing)
-            {
-                Size sizeDiff = new Size(0, e.Y - mouse.Y);
-                this.Size += sizeDiff;
-            }
-            resizing = false;
-        }
-
-        private void CustomSizeGrip_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left && resizing)
-            {
-                Size sizeDiff = new Size(0, e.Y - mouse.Y);
-                this.Size += sizeDiff;
-            }
-        }
-        byte test = 0;
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            test++;
-            this.Text = test.ToString();
-            dragging = 0;
-            pictureBox.Refresh();
         }
     }
 }

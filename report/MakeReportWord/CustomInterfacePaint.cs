@@ -140,7 +140,6 @@ namespace MakeReportWord
                 else if (str == "☺c☺")
                 {
                     e.Graphics.DrawImage(Properties.Resources.Code, 0, 0, pictureBox.Width, pictureBox.Height);
-
                     if (fileNames == null)
                     {
                         SizeF stringSize = e.Graphics.MeasureString("Не указан", new Font("Microsoft Sans Serif", 14));
@@ -156,18 +155,17 @@ namespace MakeReportWord
             }
             else if (dragging == 1)
             {
-                pictureBox.BackgroundImage = Properties.Resources.pictureCode_Picture;
+                e.Graphics.DrawImage(Properties.Resources.pictureCode_Picture, 0, 0, pictureBox.Width, pictureBox.Height);
                 DragNDrop_PaintText(e, Color.White, Color.Black);
-
             }
             else if (dragging == 2)
             {
-                pictureBox.BackgroundImage = Properties.Resources.pictureCode_Code;
+                e.Graphics.DrawImage(Properties.Resources.pictureCode_Code, 0, 0, pictureBox.Width, pictureBox.Height);
                 DragNDrop_PaintText(e, Color.Black, Color.White);
             }
             else if (dragging == 3)
             {
-                pictureBox.BackgroundImage = Properties.Resources.pictureCode;
+                e.Graphics.DrawImage(Properties.Resources.pictureCode, 0, 0, pictureBox.Width, pictureBox.Height);
                 DragNDrop_PaintText(e, Color.Black, Color.Black);
             }
         }
