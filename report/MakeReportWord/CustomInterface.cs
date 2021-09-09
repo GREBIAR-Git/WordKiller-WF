@@ -19,31 +19,35 @@ namespace MakeReportWord
         public CustomInterface()
         {
             InitializeComponent();
-            if (Lab.Checked)
+            if (DefaultDocumentMenuItem.Checked)
+            {
+                this.Text = "Сотворение документа из небытия";
+            }
+            else if (LabMenuItem.Checked)
             {
                 this.Text = "Сотворение лабораторной работы из небытия";
             }
-            else if (Practice.Checked)
+            else if (PracticeMenuItem.Checked)
             {
                 this.Text = "Сотворение практической работы из небытия";
             }
-            else if (Kurs.Checked)
+            else if (KursMenuItem.Checked)
             {
                 this.Text = "Сотворение курсовой работы из небытия";
             }
-            else if (Ref.Checked)
+            else if (RefMenuItem.Checked)
             {
                 this.Text = "Сотворение реферата из небытия";
             }
-            else if (Diplom.Checked)
+            else if (DiplomMenuItem.Checked)
             {
                 this.Text = "Сотворение дипломной работы из небытия";
             }
-            else if (VKR.Checked)
+            else if (VKRMenuItem.Checked)
             {
                 this.Text = "Сотворение ВКР из небытия";
             }
-            else if (RGR.Checked)
+            else if (RGRMenuItem.Checked)
             {
                 this.Text = "Сотворение РГР из небытия";
             }
@@ -97,7 +101,7 @@ namespace MakeReportWord
                         dataComboBox.ComboBoxP[pComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                         dataComboBox.ComboBoxP[pComboBox.SelectedIndex][1] = SplitMainText();
                         pComboBox.Items[pComboBox.SelectedIndex] = dataComboBox.ComboBoxP[pComboBox.SelectedIndex][0];
-                        if (!File.Exists(SplitMainText()))
+                        if (!System.IO.File.Exists(SplitMainText()))
                         {
                             fileNames = null;
                         }
@@ -117,7 +121,7 @@ namespace MakeReportWord
                         dataComboBox.ComboBoxC[cComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
                         dataComboBox.ComboBoxC[cComboBox.SelectedIndex][1] = SplitMainText();
                         cComboBox.Items[cComboBox.SelectedIndex] = dataComboBox.ComboBoxC[cComboBox.SelectedIndex][0];
-                        if (!File.Exists(SplitMainText()))
+                        if (!System.IO.File.Exists(SplitMainText()))
                         {
                             fileNames = null;
                         }
@@ -340,7 +344,7 @@ namespace MakeReportWord
                 }
                 else if (str == "☺p☺")
                 {
-                    if (File.Exists(SplitMainText()))
+                    if (System.IO.File.Exists(SplitMainText()))
                     {
                         return true;
                     }
@@ -351,7 +355,7 @@ namespace MakeReportWord
                 }
                 else if (str == "☺c☺")
                 {
-                    if(File.Exists(SplitMainText()))
+                    if(System.IO.File.Exists(SplitMainText()))
                     {
                         return true;
                     }
@@ -536,7 +540,7 @@ namespace MakeReportWord
                 {
                     dataComboBox.Text = text;
                 }
-                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, dataComboBox));
+                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, dataComboBox,TitleOffOnMenuItem.Checked,NumberingMenuItem.Checked,ContentMenuItem.Checked));
             }
             catch
             {
@@ -565,15 +569,19 @@ namespace MakeReportWord
             {
                 return;
             }
-            if (toolStripMenuItem.Text == "Лабораторная")
+            if (toolStripMenuItem.Text == "Обычный документ")
+            {
+                this.Text = "Сотворение документа из небытия";
+            }
+            else if (toolStripMenuItem.Text == "Лабораторная работа")
             {
                 this.Text = "Сотворение лабораторной работы из небытия";
             }
-            else if (toolStripMenuItem.Text == "Практическая")
+            else if (toolStripMenuItem.Text == "Практическая работа")
             {
                 this.Text = "Сотворение практической работы из небытия";
             }
-            else if (toolStripMenuItem.Text == "Курсовая")
+            else if (toolStripMenuItem.Text == "Курсовая работа")
             {
                 this.Text = "Сотворение курсовой работы из небытия";
             }
@@ -581,7 +589,7 @@ namespace MakeReportWord
             {
                 this.Text = "Сотворение реферата из небытия";
             }
-            else if (toolStripMenuItem.Text == "Диплом")
+            else if (toolStripMenuItem.Text == "Дипломная работа")
             {
                 this.Text = "Сотворение дипломной работы из небытия";
             }
@@ -593,13 +601,14 @@ namespace MakeReportWord
             {
                 this.Text = "Сотворение РГР из небытия";
             }
-            Lab.Checked = false;
-            Practice.Checked = false;
-            Kurs.Checked = false;
-            Ref.Checked = false;
-            Diplom.Checked = false;
-            VKR.Checked = false;
-            RGR.Checked = false;
+            DefaultDocumentMenuItem.Checked = false;
+            LabMenuItem.Checked = false;
+            PracticeMenuItem.Checked = false;
+            KursMenuItem.Checked = false;
+            RefMenuItem.Checked = false;
+            DiplomMenuItem.Checked = false;
+            VKRMenuItem.Checked = false;
+            RGRMenuItem.Checked = false;
             toolStripMenuItem.Checked = true;
         }
 
@@ -706,7 +715,10 @@ namespace MakeReportWord
             }
             else if (MenuItem == SubstitutionMenuItem)
             {
-                buttonUp.Visible = true;
+                if(TitleOffOnMenuItem.Checked)
+                {
+                    buttonUp.Visible = true;
+                }
                 DownPanel.Visible = true;
                 pictureBox.Visible = true;
                 elementPanel.Visible = true;
@@ -722,7 +734,10 @@ namespace MakeReportWord
             else if (MenuItem == TextMenuItem)
             {
                 richTextBox.EnableAutoDragDrop = true;
-                buttonUp.Visible = true;
+                if (TitleOffOnMenuItem.Checked)
+                {
+                    buttonUp.Visible = true;
+                }
                 DownPanel.Visible = true;
                 CustomSizeGrip.Visible = true;
                 buttonText.Text = "К подстановкам";
@@ -1103,31 +1118,27 @@ namespace MakeReportWord
             professorComboBox.Items.Clear();
             if (facultyComboBox.SelectedIndex == 0)
             {
-                str = "Амелина О.В.!Артёмов А.В.!Валухов В.А.!Волков В.Н.!Гордиенко А.П.!Демидов А.В.!Захарова О.В.!Константинов И.С.!Конюхова О.В.!Кравцова Э.А.!Лукьянов П.В.!Преснецова В.Ю.!Раков В.И.!Рыженков Д.В.!Санников Д.П.!Селихов А.В.!Стычук А.А.!Ужаринский А.Ю.!Фролов А.И.!Чижов А.В.!Шатеев Р.В.";
+                str = "Амелина О.В.!Артёмов А.В.!Валухов В.А.!Волков В.Н.!Гордиенко А.П.!Демидов А.В.!Загородних Н.А.!Захарова О.В.!Конюхова О.В.!Корнаева Е.П.!Королева А.К.!Короткий А.В.!Коськин А.В.!Кравцова Э.А.!Лукьянов П.В.!Лунёв Р.А.!Лыськов О.Э.!Машкова А.Л.!Митин А.А.!Новиков С.В.!Новикова Е.В.!Олькина Е.В.!Преснецова В.Ю.!Раков В.И.!Рыженков Д.В.!Савина О.А.!Санников Д.П.!Сезонов Д.С.!Соков О.А.!Стычук А.А.!Терентьев С.В.!Ужаринский А.Ю.!Фроленкова Л.Ю.!Фролов А.И.!Фролова В.А.!Чижов А.В.!Шатеев Р.В.";
             }
             else if (facultyComboBox.SelectedIndex == 1)
             {
-                str = "Амелина О.В.!Артёмов А.В.!Батищев А.В.!Биктимиров М.Р.!Волков В.Н.!Демидов А.В.!Загородних Н.А.!Закалкина Е.В.!Корнаева Е.П.!Коськин А.В.!Кравцова Э.А.!Красуля О.А.!Ларина Л.Ю.!Лунёв Р.А.!Лыськов О.Э.!Машкова А.Л.!Митин А.А.!Новиков С.В.!Олькина Е.В.!Преснецова В.Ю.!Рыженков Д.В.!Савина О.А.!Сезонов Д.С.!Соков О.А.!Строев С.П.!Стычук А.А.!Терентьев С.В.!Федоров Г.Д.!Фроленкова Л.Ю.!Фролова В.А.";
+                str = "Бондарева Л.А.!Дрёмин В.В.!Дунаев А.В.!Жидков А.В.!Козлов И.О.!Козлова Л.Д.!Марков В.В.!Матюхин С.И.!Незнанов А.И.!Подмастерьев К.В.!Секаева Ж.А.!Селихов А.В.!Углова Н.В.!Шуплецов В.В.!Яковенко М.В.";
             }
             else if (facultyComboBox.SelectedIndex == 2)
             {
-                str = "Бондарева Л.А.!Дунаев А.В.!Жидков А.В.!Жильцов М.П.!Козлова Л.Д.!Крутикова В.Ю.!Маковик И.Н.!Марков В.В.!Незнанов А.И.!Подмастерьев К.В.!Потапова Е.В.!Секаева Ж.А.!Селихов А.В.!Семёнов В.В.!Сковпень В.Н.!Углова Н.В.!Яковенко М.В.";
+                str = "Белевская Ю.А.!Ерёменко В.Т.!Мишин Д.С.!Пеньков Н.Г!Савва Ю.Б.!Фисун А.П.";
             }
             else if (facultyComboBox.SelectedIndex == 3)
             {
-                str = "Ерёменко В.Т.!Мишин Д.С.!Пеньков Н.Г.!Савва Ю.Б.!Фисенко В.Е.!Фисун А.П.";
+                str = "Батуров Д.П.!Гордон В.А.!Кирсанова О.В.!Матюхин С.И.!Потураева Т.В.!Ромашин С.Н.!Семёнова Г.А.!Фроленкова Л.Ю.!Якушина С.И.";
             }
             else if (facultyComboBox.SelectedIndex == 4)
             {
-                str = "Батуров Д.П.!Бурлакова Е.А.!Гордон В.А.!Кирсанова О.В.!Матюхин С.И.!Потураева Т.В.!Ромашин С.Н.!Семёнова Г.А.!Фроленкова Л.Ю.!Шоркин В.С.!Якушина С.И.";
+                str = "Аксёнов К.В.!Багров В.В.!Батенков А.А.!Варгашкин В.Я.!Власова М.А.!Воронина О.А.!Донцов В.М.!Косчинский С.Л.!Лобанова В.А.!Лобода О.А.!Майоров М.В.!Мишин В.В.!Муравьёв А.А.!Плащенков Д.А.!Рязанцев П.Н.!Селихов А.В.!Суздальцев А.И.!Тугарев А.С.!Тютякин А.В.!Филина А.В.";
             }
             else if (facultyComboBox.SelectedIndex == 5)
             {
-                str = "Аксёнов К.В.!Багров В.В.!Батенков А.А.!Варгашкин В.Я.!Воронина О.А.!Донцов В.М.!Игнатов Ю.В.!Косчинский С.Л.!Лобанова В.А.!Лобода О.А.!Майоров М.В.!Мишин В.В.!Моисеев П.П.!Муравьёв А.А.!Плащенков Д.А.!Рязанцев П.Н.!Селихов А.В.!Сковпень В.Н.!Суздальцев А.И.!Тарарака А.В.!Тугарев А.С.!Тютякин А.В.!Филина А.В.!Шишкин А.А.";
-            }
-            else if (facultyComboBox.SelectedIndex == 6)
-            {
-                str = "Качанов А.Н.!Комаристый А.С.!Коренков Д.А.!Королева Т.Г.!Петров Г.Н.!Токарев А.М.!Филина А.В.!Харитонова Л.Г.!Чернышов В.А.";
+                str = "Аксёнов К.В.!Гладышев А.В.!Качанов А.Н.!Коренков Д.А.!Королева Т.Г.!Петров Г.Н.!Филина А.В.!Чернышов В.А.";
             }
             foreach (string s in str.Split('!'))
             {
@@ -1227,6 +1238,28 @@ namespace MakeReportWord
         private void richTextBox_VisibleChanged(object sender, EventArgs e)
         {
             textPicturePanel.Invalidate();
+        }
+
+        private void ContentMenuItem_Click(object sender, EventArgs e)
+        {
+            ContentMenuItem.Checked = !ContentMenuItem.Checked;
+        }
+
+        private void NumberingMenuItem_Click(object sender, EventArgs e)
+        {
+            NumberingMenuItem.Checked = !NumberingMenuItem.Checked;
+        }
+
+        private void TitleOffOnMenuItem_Click(object sender, EventArgs e)
+        {
+            if (TitleOffOnMenuItem.Checked && TitlePageMenuItem.Checked)
+            {
+                HiddenElements(TitlePageMenuItem);
+                ShowElements(DownPanelMI);
+            }
+            TitlePageMenuItem.Visible = !TitleOffOnMenuItem.Checked;
+            buttonUp.Visible = !TitleOffOnMenuItem.Checked;
+            TitleOffOnMenuItem.Checked = !TitleOffOnMenuItem.Checked;
         }
     }
 }

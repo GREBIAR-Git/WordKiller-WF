@@ -115,7 +115,7 @@ namespace MakeReportWord
             saveFileDialog.Filter = "|*.wordkiller;";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                FileStream fileStream = File.Open(saveFileDialog.FileName, FileMode.Create);
+                FileStream fileStream = System.IO.File.Open(saveFileDialog.FileName, FileMode.Create);
                 StreamWriter output = new StreamWriter(fileStream);
 
                 output.WriteLine("facultyComboBox=" + facultyComboBox.SelectedItem.ToString());

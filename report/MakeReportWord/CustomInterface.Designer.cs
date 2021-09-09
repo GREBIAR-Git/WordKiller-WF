@@ -79,25 +79,30 @@ namespace MakeReportWord
             this.buttonUp = new System.Windows.Forms.PictureBox();
             this.buttonDown = new System.Windows.Forms.PictureBox();
             this.CustomSizeGrip = new System.Windows.Forms.PictureBox();
-            this.Scroll1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.File = new System.Windows.Forms.ToolStripMenuItem();
             this.ReadScroll = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.Save = new System.Windows.Forms.ToolStripMenuItem();
             this.Open = new System.Windows.Forms.ToolStripMenuItem();
             this.Exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.Type = new System.Windows.Forms.ToolStripMenuItem();
-            this.Lab = new System.Windows.Forms.ToolStripMenuItem();
-            this.Practice = new System.Windows.Forms.ToolStripMenuItem();
-            this.Kurs = new System.Windows.Forms.ToolStripMenuItem();
-            this.Ref = new System.Windows.Forms.ToolStripMenuItem();
-            this.Diplom = new System.Windows.Forms.ToolStripMenuItem();
-            this.VKR = new System.Windows.Forms.ToolStripMenuItem();
-            this.RGR = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.View = new System.Windows.Forms.ToolStripMenuItem();
             this.TitlePageMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SubstitutionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Document = new System.Windows.Forms.ToolStripMenuItem();
+            this.TitleOffOnMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NumberingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TypeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DefaultDocumentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PracticeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.KursMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RefMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DiplomMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.VKRMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RGRMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -134,21 +139,21 @@ namespace MakeReportWord
             this.titlepagePanel.Controls.Add(this.professorLabel, 0, 6);
             this.titlepagePanel.Controls.Add(this.professorComboBox, 1, 6);
             this.titlepagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titlepagePanel.Location = new System.Drawing.Point(0, 27);
+            this.titlepagePanel.Location = new System.Drawing.Point(0, 50);
             this.titlepagePanel.Margin = new System.Windows.Forms.Padding(0);
             this.titlepagePanel.Name = "titlepagePanel";
-            this.titlepagePanel.Padding = new System.Windows.Forms.Padding(25, 15, 25, 15);
+            this.titlepagePanel.Padding = new System.Windows.Forms.Padding(46, 28, 46, 28);
             this.titlepagePanel.RowCount = 9;
             this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.titlepagePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.titlepagePanel.Size = new System.Drawing.Size(991, 282);
+            this.titlepagePanel.Size = new System.Drawing.Size(1817, 521);
             this.titlepagePanel.TabIndex = 0;
             this.titlepagePanel.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.titlepagePanel_CellPaint);
             // 
@@ -157,9 +162,10 @@ namespace MakeReportWord
             this.facultyLabel.AutoSize = true;
             this.facultyLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.facultyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.facultyLabel.Location = new System.Drawing.Point(28, 15);
+            this.facultyLabel.Location = new System.Drawing.Point(52, 28);
+            this.facultyLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.facultyLabel.Name = "facultyLabel";
-            this.facultyLabel.Size = new System.Drawing.Size(307, 38);
+            this.facultyLabel.Size = new System.Drawing.Size(563, 58);
             this.facultyLabel.TabIndex = 0;
             this.facultyLabel.Text = "Кафедра:";
             this.facultyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -177,9 +183,10 @@ namespace MakeReportWord
             "технической физики и математики",
             "электроники, радиотехники и систем связи",
             "электрооборудования и энергосбережения"});
-            this.facultyComboBox.Location = new System.Drawing.Point(341, 18);
+            this.facultyComboBox.Location = new System.Drawing.Point(627, 34);
+            this.facultyComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.facultyComboBox.Name = "facultyComboBox";
-            this.facultyComboBox.Size = new System.Drawing.Size(622, 32);
+            this.facultyComboBox.Size = new System.Drawing.Size(1138, 46);
             this.facultyComboBox.TabIndex = 1;
             this.facultyComboBox.Text = "информационных систем и цифровых технологий";
             this.facultyComboBox.SelectedIndexChanged += new System.EventHandler(this.facultyComboBox_SelectedIndexChanged);
@@ -188,9 +195,10 @@ namespace MakeReportWord
             // 
             this.numberLabTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numberLabTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numberLabTextBox.Location = new System.Drawing.Point(341, 56);
+            this.numberLabTextBox.Location = new System.Drawing.Point(627, 92);
+            this.numberLabTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.numberLabTextBox.Name = "numberLabTextBox";
-            this.numberLabTextBox.Size = new System.Drawing.Size(622, 29);
+            this.numberLabTextBox.Size = new System.Drawing.Size(1138, 44);
             this.numberLabTextBox.TabIndex = 2;
             // 
             // numberLabLabel
@@ -200,9 +208,10 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numberLabLabel.AutoSize = true;
             this.numberLabLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numberLabLabel.Location = new System.Drawing.Point(28, 53);
+            this.numberLabLabel.Location = new System.Drawing.Point(52, 86);
+            this.numberLabLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.numberLabLabel.Name = "numberLabLabel";
-            this.numberLabLabel.Size = new System.Drawing.Size(307, 35);
+            this.numberLabLabel.Size = new System.Drawing.Size(563, 56);
             this.numberLabLabel.TabIndex = 2;
             this.numberLabLabel.Text = "Номер лабораторной:";
             this.numberLabLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -214,9 +223,10 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Right)));
             this.themeLabel.AutoSize = true;
             this.themeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.themeLabel.Location = new System.Drawing.Point(28, 108);
+            this.themeLabel.Location = new System.Drawing.Point(52, 179);
+            this.themeLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.themeLabel.Name = "themeLabel";
-            this.themeLabel.Size = new System.Drawing.Size(307, 35);
+            this.themeLabel.Size = new System.Drawing.Size(563, 56);
             this.themeLabel.TabIndex = 4;
             this.themeLabel.Text = "Тема:";
             this.themeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -225,10 +235,11 @@ namespace MakeReportWord
             // 
             this.themeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.themeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.themeTextBox.Location = new System.Drawing.Point(341, 111);
+            this.themeTextBox.Location = new System.Drawing.Point(627, 185);
+            this.themeTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.themeTextBox.Name = "themeTextBox";
             this.themeTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.themeTextBox.Size = new System.Drawing.Size(622, 29);
+            this.themeTextBox.Size = new System.Drawing.Size(1138, 44);
             this.themeTextBox.TabIndex = 3;
             // 
             // disciplineLabel
@@ -238,9 +249,10 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Right)));
             this.disciplineLabel.AutoSize = true;
             this.disciplineLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.disciplineLabel.Location = new System.Drawing.Point(28, 143);
+            this.disciplineLabel.Location = new System.Drawing.Point(52, 235);
+            this.disciplineLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.disciplineLabel.Name = "disciplineLabel";
-            this.disciplineLabel.Size = new System.Drawing.Size(307, 35);
+            this.disciplineLabel.Size = new System.Drawing.Size(563, 56);
             this.disciplineLabel.TabIndex = 6;
             this.disciplineLabel.Text = "Дисциплина:";
             this.disciplineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -249,10 +261,11 @@ namespace MakeReportWord
             // 
             this.disciplineTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.disciplineTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.disciplineTextBox.Location = new System.Drawing.Point(341, 146);
+            this.disciplineTextBox.Location = new System.Drawing.Point(627, 241);
+            this.disciplineTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.disciplineTextBox.Name = "disciplineTextBox";
             this.disciplineTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.disciplineTextBox.Size = new System.Drawing.Size(622, 29);
+            this.disciplineTextBox.Size = new System.Drawing.Size(1138, 44);
             this.disciplineTextBox.TabIndex = 4;
             // 
             // yearLabel
@@ -262,9 +275,10 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Right)));
             this.yearLabel.AutoSize = true;
             this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearLabel.Location = new System.Drawing.Point(28, 236);
+            this.yearLabel.Location = new System.Drawing.Point(52, 386);
+            this.yearLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(307, 35);
+            this.yearLabel.Size = new System.Drawing.Size(563, 56);
             this.yearLabel.TabIndex = 10;
             this.yearLabel.Text = "Год:";
             this.yearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -273,9 +287,10 @@ namespace MakeReportWord
             // 
             this.yearTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.yearTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearTextBox.Location = new System.Drawing.Point(341, 239);
+            this.yearTextBox.Location = new System.Drawing.Point(627, 392);
+            this.yearTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.yearTextBox.Name = "yearTextBox";
-            this.yearTextBox.Size = new System.Drawing.Size(622, 29);
+            this.yearTextBox.Size = new System.Drawing.Size(1138, 44);
             this.yearTextBox.TabIndex = 6;
             this.yearTextBox.Text = "202";
             // 
@@ -286,9 +301,10 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Right)));
             this.professorLabel.AutoSize = true;
             this.professorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.professorLabel.Location = new System.Drawing.Point(28, 198);
+            this.professorLabel.Location = new System.Drawing.Point(52, 328);
+            this.professorLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.professorLabel.Name = "professorLabel";
-            this.professorLabel.Size = new System.Drawing.Size(307, 38);
+            this.professorLabel.Size = new System.Drawing.Size(563, 58);
             this.professorLabel.TabIndex = 8;
             this.professorLabel.Text = "Преподаватель:";
             this.professorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -302,10 +318,45 @@ namespace MakeReportWord
             this.professorComboBox.Items.AddRange(new object[] {
             "Амелина О.В.",
             "Артёмов А.В.",
-            "Валухов В.А."});
-            this.professorComboBox.Location = new System.Drawing.Point(341, 201);
+            "Валухов В.А.",
+            "Волков В.Н.",
+            "Гордиенко А.П.",
+            "Демидов А.В.",
+            "Загородних Н.А.",
+            "Захарова О.В.",
+            "Конюхова О.В.",
+            "Корнаева Е.П.",
+            "Королева А.К.",
+            "Короткий А.В.",
+            "Коськин А.В.",
+            "Кравцова Э.А.",
+            "Лукьянов П.В.",
+            "Лунёв Р.А.",
+            "Лыськов О.Э.",
+            "Машкова А.Л.",
+            "Митин А.А.",
+            "Новиков С.В.",
+            "Новикова Е.В.",
+            "Олькина Е.В.",
+            "Преснецова В.Ю.",
+            "Раков В.И.",
+            "Рыженков Д.В.",
+            "Савина О.А.",
+            "Санников Д.П.",
+            "Сезонов Д.С.",
+            "Соков О.А.",
+            "Стычук А.А.",
+            "Терентьев С.В.",
+            "Ужаринский А.Ю.",
+            "Фроленкова Л.Ю.",
+            "Фролов А.И.",
+            "Фролова В.А.",
+            "Чижов А.В.",
+            "Шатеев Р.В."});
+            this.professorComboBox.Location = new System.Drawing.Point(627, 334);
+            this.professorComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.professorComboBox.Name = "professorComboBox";
-            this.professorComboBox.Size = new System.Drawing.Size(622, 32);
+            this.professorComboBox.Size = new System.Drawing.Size(1138, 46);
             this.professorComboBox.TabIndex = 5;
             // 
             // MainPanel
@@ -321,16 +372,16 @@ namespace MakeReportWord
             this.MainPanel.Controls.Add(this.CustomSizeGrip, 0, 4);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
-            this.MainPanel.Margin = new System.Windows.Forms.Padding(3, 3, 12, 12);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(6, 6, 22, 22);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Padding = new System.Windows.Forms.Padding(0, 27, 0, 0);
+            this.MainPanel.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
             this.MainPanel.RowCount = 5;
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.MainPanel.Size = new System.Drawing.Size(991, 770);
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.MainPanel.Size = new System.Drawing.Size(1817, 1422);
             this.MainPanel.TabIndex = 1;
             // 
             // DownPanel
@@ -349,14 +400,15 @@ namespace MakeReportWord
             this.DownPanel.Controls.Add(this.textPicturePanel, 0, 2);
             this.DownPanel.Controls.Add(this.tableLayoutPanel1, 2, 1);
             this.DownPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DownPanel.Location = new System.Drawing.Point(3, 396);
+            this.DownPanel.Location = new System.Drawing.Point(6, 734);
+            this.DownPanel.Margin = new System.Windows.Forms.Padding(6);
             this.DownPanel.Name = "DownPanel";
-            this.DownPanel.Padding = new System.Windows.Forms.Padding(25, 15, 25, 6);
+            this.DownPanel.Padding = new System.Windows.Forms.Padding(46, 28, 46, 11);
             this.DownPanel.RowCount = 3;
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.DownPanel.Size = new System.Drawing.Size(985, 350);
+            this.DownPanel.Size = new System.Drawing.Size(1805, 643);
             this.DownPanel.TabIndex = 2;
             // 
             // displayedLabel
@@ -364,9 +416,10 @@ namespace MakeReportWord
             this.displayedLabel.AutoSize = true;
             this.displayedLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.displayedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.displayedLabel.Location = new System.Drawing.Point(28, 115);
+            this.displayedLabel.Location = new System.Drawing.Point(52, 213);
+            this.displayedLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.displayedLabel.Name = "displayedLabel";
-            this.displayedLabel.Size = new System.Drawing.Size(181, 40);
+            this.displayedLabel.Size = new System.Drawing.Size(330, 74);
             this.displayedLabel.TabIndex = 28;
             this.displayedLabel.Text = "Отображается:";
             this.displayedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -376,9 +429,10 @@ namespace MakeReportWord
             this.elementLabel.AutoSize = true;
             this.elementLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.elementLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.elementLabel.Location = new System.Drawing.Point(215, 115);
+            this.elementLabel.Location = new System.Drawing.Point(394, 213);
+            this.elementLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.elementLabel.Name = "elementLabel";
-            this.elementLabel.Size = new System.Drawing.Size(181, 40);
+            this.elementLabel.Size = new System.Drawing.Size(330, 74);
             this.elementLabel.TabIndex = 29;
             this.elementLabel.Text = "нечто";
             this.elementLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -410,14 +464,14 @@ namespace MakeReportWord
             this.elementPanel.Controls.Add(this.cComboBox, 6, 1);
             this.elementPanel.Controls.Add(this.buttonForward, 7, 0);
             this.elementPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementPanel.Location = new System.Drawing.Point(55, 15);
-            this.elementPanel.Margin = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.elementPanel.Location = new System.Drawing.Point(101, 28);
+            this.elementPanel.Margin = new System.Windows.Forms.Padding(55, 0, 55, 0);
             this.elementPanel.Name = "elementPanel";
             this.elementPanel.RowCount = 2;
             this.elementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.elementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.elementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.elementPanel.Size = new System.Drawing.Size(875, 100);
+            this.elementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.elementPanel.Size = new System.Drawing.Size(1603, 185);
             this.elementPanel.TabIndex = 0;
             // 
             // buttonBack
@@ -425,10 +479,11 @@ namespace MakeReportWord
             this.buttonBack.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsLeft;
             this.buttonBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonBack.Location = new System.Drawing.Point(3, 3);
+            this.buttonBack.Location = new System.Drawing.Point(6, 6);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(6);
             this.buttonBack.Name = "buttonBack";
             this.elementPanel.SetRowSpan(this.buttonBack, 2);
-            this.buttonBack.Size = new System.Drawing.Size(56, 94);
+            this.buttonBack.Size = new System.Drawing.Size(102, 173);
             this.buttonBack.TabIndex = 20;
             this.buttonBack.TabStop = false;
             this.buttonBack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonBack_MouseDown);
@@ -443,10 +498,10 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Right)));
             this.heading1Label.AutoSize = true;
             this.heading1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.heading1Label.Location = new System.Drawing.Point(65, 3);
-            this.heading1Label.Margin = new System.Windows.Forms.Padding(3);
+            this.heading1Label.Location = new System.Drawing.Point(120, 6);
+            this.heading1Label.Margin = new System.Windows.Forms.Padding(6);
             this.heading1Label.Name = "heading1Label";
-            this.heading1Label.Size = new System.Drawing.Size(118, 52);
+            this.heading1Label.Size = new System.Drawing.Size(216, 88);
             this.heading1Label.TabIndex = 15;
             this.heading1Label.Text = "Заголовок 1";
             this.heading1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -458,10 +513,10 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Right)));
             this.heading2Label.AutoSize = true;
             this.heading2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.heading2Label.Location = new System.Drawing.Point(189, 3);
-            this.heading2Label.Margin = new System.Windows.Forms.Padding(3);
+            this.heading2Label.Location = new System.Drawing.Point(348, 6);
+            this.heading2Label.Margin = new System.Windows.Forms.Padding(6);
             this.heading2Label.Name = "heading2Label";
-            this.heading2Label.Size = new System.Drawing.Size(118, 52);
+            this.heading2Label.Size = new System.Drawing.Size(216, 88);
             this.heading2Label.TabIndex = 16;
             this.heading2Label.Text = "Заголовок 2";
             this.heading2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -473,10 +528,10 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listLabel.AutoSize = true;
             this.listLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listLabel.Location = new System.Drawing.Point(313, 3);
-            this.listLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.listLabel.Location = new System.Drawing.Point(576, 6);
+            this.listLabel.Margin = new System.Windows.Forms.Padding(6);
             this.listLabel.Name = "listLabel";
-            this.listLabel.Size = new System.Drawing.Size(118, 52);
+            this.listLabel.Size = new System.Drawing.Size(216, 88);
             this.listLabel.TabIndex = 17;
             this.listLabel.Text = "Список";
             this.listLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -488,10 +543,10 @@ namespace MakeReportWord
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureLabel.AutoSize = true;
             this.pictureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pictureLabel.Location = new System.Drawing.Point(437, 3);
-            this.pictureLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.pictureLabel.Location = new System.Drawing.Point(804, 6);
+            this.pictureLabel.Margin = new System.Windows.Forms.Padding(6);
             this.pictureLabel.Name = "pictureLabel";
-            this.pictureLabel.Size = new System.Drawing.Size(118, 52);
+            this.pictureLabel.Size = new System.Drawing.Size(216, 88);
             this.pictureLabel.TabIndex = 18;
             this.pictureLabel.Text = "Картинка";
             this.pictureLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -504,10 +559,10 @@ namespace MakeReportWord
             this.tableLabel.AutoSize = true;
             this.tableLabel.BackColor = System.Drawing.SystemColors.Control;
             this.tableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tableLabel.Location = new System.Drawing.Point(561, 3);
-            this.tableLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.tableLabel.Location = new System.Drawing.Point(1032, 6);
+            this.tableLabel.Margin = new System.Windows.Forms.Padding(6);
             this.tableLabel.Name = "tableLabel";
-            this.tableLabel.Size = new System.Drawing.Size(118, 52);
+            this.tableLabel.Size = new System.Drawing.Size(216, 88);
             this.tableLabel.TabIndex = 21;
             this.tableLabel.Text = "Таблица";
             this.tableLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -520,10 +575,10 @@ namespace MakeReportWord
             this.codeLabel.AutoSize = true;
             this.codeLabel.BackColor = System.Drawing.SystemColors.Control;
             this.codeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.codeLabel.Location = new System.Drawing.Point(685, 3);
-            this.codeLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.codeLabel.Location = new System.Drawing.Point(1260, 6);
+            this.codeLabel.Margin = new System.Windows.Forms.Padding(6);
             this.codeLabel.Name = "codeLabel";
-            this.codeLabel.Size = new System.Drawing.Size(118, 52);
+            this.codeLabel.Size = new System.Drawing.Size(216, 88);
             this.codeLabel.TabIndex = 22;
             this.codeLabel.Text = "Код";
             this.codeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -535,10 +590,11 @@ namespace MakeReportWord
             this.h1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.h1ComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.h1ComboBox.FormattingEnabled = true;
-            this.h1ComboBox.ItemHeight = 24;
-            this.h1ComboBox.Location = new System.Drawing.Point(65, 61);
+            this.h1ComboBox.ItemHeight = 38;
+            this.h1ComboBox.Location = new System.Drawing.Point(120, 106);
+            this.h1ComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.h1ComboBox.Name = "h1ComboBox";
-            this.h1ComboBox.Size = new System.Drawing.Size(118, 32);
+            this.h1ComboBox.Size = new System.Drawing.Size(216, 46);
             this.h1ComboBox.TabIndex = 8;
             this.h1ComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             this.h1ComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
@@ -550,10 +606,11 @@ namespace MakeReportWord
             this.h2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.h2ComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.h2ComboBox.FormattingEnabled = true;
-            this.h2ComboBox.ItemHeight = 24;
-            this.h2ComboBox.Location = new System.Drawing.Point(189, 61);
+            this.h2ComboBox.ItemHeight = 38;
+            this.h2ComboBox.Location = new System.Drawing.Point(348, 106);
+            this.h2ComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.h2ComboBox.Name = "h2ComboBox";
-            this.h2ComboBox.Size = new System.Drawing.Size(118, 32);
+            this.h2ComboBox.Size = new System.Drawing.Size(216, 46);
             this.h2ComboBox.TabIndex = 10;
             this.h2ComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             this.h2ComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
@@ -565,10 +622,11 @@ namespace MakeReportWord
             this.lComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lComboBox.FormattingEnabled = true;
-            this.lComboBox.ItemHeight = 24;
-            this.lComboBox.Location = new System.Drawing.Point(313, 61);
+            this.lComboBox.ItemHeight = 38;
+            this.lComboBox.Location = new System.Drawing.Point(576, 106);
+            this.lComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.lComboBox.Name = "lComboBox";
-            this.lComboBox.Size = new System.Drawing.Size(118, 32);
+            this.lComboBox.Size = new System.Drawing.Size(216, 46);
             this.lComboBox.TabIndex = 12;
             this.lComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             this.lComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
@@ -580,10 +638,11 @@ namespace MakeReportWord
             this.pComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.pComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pComboBox.FormattingEnabled = true;
-            this.pComboBox.ItemHeight = 24;
-            this.pComboBox.Location = new System.Drawing.Point(437, 61);
+            this.pComboBox.ItemHeight = 38;
+            this.pComboBox.Location = new System.Drawing.Point(804, 106);
+            this.pComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.pComboBox.Name = "pComboBox";
-            this.pComboBox.Size = new System.Drawing.Size(118, 32);
+            this.pComboBox.Size = new System.Drawing.Size(216, 46);
             this.pComboBox.TabIndex = 14;
             this.pComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             this.pComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
@@ -595,10 +654,11 @@ namespace MakeReportWord
             this.tComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tComboBox.FormattingEnabled = true;
-            this.tComboBox.ItemHeight = 24;
-            this.tComboBox.Location = new System.Drawing.Point(561, 61);
+            this.tComboBox.ItemHeight = 38;
+            this.tComboBox.Location = new System.Drawing.Point(1032, 106);
+            this.tComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.tComboBox.Name = "tComboBox";
-            this.tComboBox.Size = new System.Drawing.Size(118, 32);
+            this.tComboBox.Size = new System.Drawing.Size(216, 46);
             this.tComboBox.TabIndex = 16;
             this.tComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             this.tComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
@@ -610,10 +670,11 @@ namespace MakeReportWord
             this.cComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cComboBox.FormattingEnabled = true;
-            this.cComboBox.ItemHeight = 24;
-            this.cComboBox.Location = new System.Drawing.Point(685, 61);
+            this.cComboBox.ItemHeight = 38;
+            this.cComboBox.Location = new System.Drawing.Point(1260, 106);
+            this.cComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.cComboBox.Name = "cComboBox";
-            this.cComboBox.Size = new System.Drawing.Size(118, 32);
+            this.cComboBox.Size = new System.Drawing.Size(216, 46);
             this.cComboBox.TabIndex = 24;
             this.cComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             this.cComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboBox_MouseDown);
@@ -623,10 +684,11 @@ namespace MakeReportWord
             this.buttonForward.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsRight;
             this.buttonForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonForward.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonForward.Location = new System.Drawing.Point(809, 3);
+            this.buttonForward.Location = new System.Drawing.Point(1488, 6);
+            this.buttonForward.Margin = new System.Windows.Forms.Padding(6);
             this.buttonForward.Name = "buttonForward";
             this.elementPanel.SetRowSpan(this.buttonForward, 2);
-            this.buttonForward.Size = new System.Drawing.Size(63, 94);
+            this.buttonForward.Size = new System.Drawing.Size(109, 173);
             this.buttonForward.TabIndex = 19;
             this.buttonForward.TabStop = false;
             this.buttonForward.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonForward_MouseDown);
@@ -644,13 +706,13 @@ namespace MakeReportWord
             this.textPicturePanel.Controls.Add(this.richTextBox, 0, 0);
             this.textPicturePanel.Controls.Add(this.DragNDropPanel, 1, 0);
             this.textPicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textPicturePanel.Location = new System.Drawing.Point(28, 158);
-            this.textPicturePanel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.textPicturePanel.Location = new System.Drawing.Point(52, 293);
+            this.textPicturePanel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 0);
             this.textPicturePanel.Name = "textPicturePanel";
             this.textPicturePanel.RowCount = 1;
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 186F));
-            this.textPicturePanel.Size = new System.Drawing.Size(929, 186);
+            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 339F));
+            this.textPicturePanel.Size = new System.Drawing.Size(1701, 339);
             this.textPicturePanel.TabIndex = 32;
             this.textPicturePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.textPicturePanel_Paint);
             // 
@@ -659,9 +721,10 @@ namespace MakeReportWord
             this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox.Location = new System.Drawing.Point(3, 3);
+            this.richTextBox.Location = new System.Drawing.Point(6, 6);
+            this.richTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(551, 180);
+            this.richTextBox.Size = new System.Drawing.Size(1008, 327);
             this.richTextBox.TabIndex = 18;
             this.richTextBox.Text = "";
             this.richTextBox.WordWrap = false;
@@ -675,10 +738,10 @@ namespace MakeReportWord
             this.DragNDropPanel.AllowDrop = true;
             this.DragNDropPanel.Controls.Add(this.pictureBox);
             this.DragNDropPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DragNDropPanel.Location = new System.Drawing.Point(557, 3);
-            this.DragNDropPanel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.DragNDropPanel.Location = new System.Drawing.Point(1020, 6);
+            this.DragNDropPanel.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
             this.DragNDropPanel.Name = "DragNDropPanel";
-            this.DragNDropPanel.Size = new System.Drawing.Size(372, 180);
+            this.DragNDropPanel.Size = new System.Drawing.Size(681, 327);
             this.DragNDropPanel.TabIndex = 19;
             this.DragNDropPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragDrop);
             this.DragNDropPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragEnter);
@@ -692,9 +755,9 @@ namespace MakeReportWord
             this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 1, 3);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(6, 7, 2, 6);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(372, 180);
+            this.pictureBox.Size = new System.Drawing.Size(681, 327);
             this.pictureBox.TabIndex = 32;
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
@@ -704,17 +767,18 @@ namespace MakeReportWord
             this.tableLayoutPanel1.ColumnCount = 3;
             this.DownPanel.SetColumnSpan(this.tableLayoutPanel1, 3);
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 277F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 277F));
             this.tableLayoutPanel1.Controls.Add(this.buttonText, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.ButtonAdd, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableTypeInserts, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(402, 118);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(736, 219);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(555, 34);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1017, 62);
             this.tableLayoutPanel1.TabIndex = 34;
             // 
             // buttonText
@@ -723,10 +787,10 @@ namespace MakeReportWord
             this.buttonText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonText.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonText.Location = new System.Drawing.Point(404, 0);
+            this.buttonText.Location = new System.Drawing.Point(740, 0);
             this.buttonText.Margin = new System.Windows.Forms.Padding(0);
             this.buttonText.Name = "buttonText";
-            this.buttonText.Size = new System.Drawing.Size(151, 34);
+            this.buttonText.Size = new System.Drawing.Size(277, 62);
             this.buttonText.TabIndex = 35;
             this.buttonText.Text = "К тексту";
             this.buttonText.UseVisualStyleBackColor = true;
@@ -737,10 +801,10 @@ namespace MakeReportWord
             this.ButtonAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ButtonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ButtonAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ButtonAdd.Location = new System.Drawing.Point(253, 0);
+            this.ButtonAdd.Location = new System.Drawing.Point(463, 0);
             this.ButtonAdd.Margin = new System.Windows.Forms.Padding(0);
             this.ButtonAdd.Name = "ButtonAdd";
-            this.ButtonAdd.Size = new System.Drawing.Size(151, 34);
+            this.ButtonAdd.Size = new System.Drawing.Size(277, 62);
             this.ButtonAdd.TabIndex = 34;
             this.ButtonAdd.Text = "Добавить";
             this.ButtonAdd.UseVisualStyleBackColor = true;
@@ -761,12 +825,12 @@ namespace MakeReportWord
             this.tableTypeInserts.Controls.Add(this.buttonSpecialT, 4, 0);
             this.tableTypeInserts.Controls.Add(this.buttonSpecialC, 5, 0);
             this.tableTypeInserts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableTypeInserts.Location = new System.Drawing.Point(2, 0);
-            this.tableTypeInserts.Margin = new System.Windows.Forms.Padding(2, 0, 1, 0);
+            this.tableTypeInserts.Location = new System.Drawing.Point(4, 0);
+            this.tableTypeInserts.Margin = new System.Windows.Forms.Padding(4, 0, 2, 0);
             this.tableTypeInserts.Name = "tableTypeInserts";
             this.tableTypeInserts.RowCount = 1;
             this.tableTypeInserts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableTypeInserts.Size = new System.Drawing.Size(250, 34);
+            this.tableTypeInserts.Size = new System.Drawing.Size(457, 62);
             this.tableTypeInserts.TabIndex = 32;
             this.tableTypeInserts.Visible = false;
             // 
@@ -775,10 +839,10 @@ namespace MakeReportWord
             this.buttonSpecialP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonSpecialP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSpecialP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecialP.Location = new System.Drawing.Point(123, 0);
+            this.buttonSpecialP.Location = new System.Drawing.Point(228, 0);
             this.buttonSpecialP.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSpecialP.Name = "buttonSpecialP";
-            this.buttonSpecialP.Size = new System.Drawing.Size(41, 34);
+            this.buttonSpecialP.Size = new System.Drawing.Size(76, 62);
             this.buttonSpecialP.TabIndex = 16;
             this.buttonSpecialP.Text = "P";
             this.buttonSpecialP.UseVisualStyleBackColor = true;
@@ -789,10 +853,10 @@ namespace MakeReportWord
             this.buttonSpecialL.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonSpecialL.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSpecialL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecialL.Location = new System.Drawing.Point(82, 0);
+            this.buttonSpecialL.Location = new System.Drawing.Point(152, 0);
             this.buttonSpecialL.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSpecialL.Name = "buttonSpecialL";
-            this.buttonSpecialL.Size = new System.Drawing.Size(41, 34);
+            this.buttonSpecialL.Size = new System.Drawing.Size(76, 62);
             this.buttonSpecialL.TabIndex = 19;
             this.buttonSpecialL.Text = "L";
             this.buttonSpecialL.UseVisualStyleBackColor = true;
@@ -803,10 +867,10 @@ namespace MakeReportWord
             this.buttonSpecialH2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonSpecialH2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSpecialH2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecialH2.Location = new System.Drawing.Point(41, 0);
+            this.buttonSpecialH2.Location = new System.Drawing.Point(76, 0);
             this.buttonSpecialH2.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSpecialH2.Name = "buttonSpecialH2";
-            this.buttonSpecialH2.Size = new System.Drawing.Size(41, 34);
+            this.buttonSpecialH2.Size = new System.Drawing.Size(76, 62);
             this.buttonSpecialH2.TabIndex = 18;
             this.buttonSpecialH2.Text = "H2";
             this.buttonSpecialH2.UseVisualStyleBackColor = true;
@@ -820,7 +884,7 @@ namespace MakeReportWord
             this.buttonSpecialH1.Location = new System.Drawing.Point(0, 0);
             this.buttonSpecialH1.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSpecialH1.Name = "buttonSpecialH1";
-            this.buttonSpecialH1.Size = new System.Drawing.Size(41, 34);
+            this.buttonSpecialH1.Size = new System.Drawing.Size(76, 62);
             this.buttonSpecialH1.TabIndex = 17;
             this.buttonSpecialH1.Text = "H1";
             this.buttonSpecialH1.UseVisualStyleBackColor = true;
@@ -831,10 +895,10 @@ namespace MakeReportWord
             this.buttonSpecialT.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonSpecialT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSpecialT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecialT.Location = new System.Drawing.Point(164, 0);
+            this.buttonSpecialT.Location = new System.Drawing.Point(304, 0);
             this.buttonSpecialT.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSpecialT.Name = "buttonSpecialT";
-            this.buttonSpecialT.Size = new System.Drawing.Size(41, 34);
+            this.buttonSpecialT.Size = new System.Drawing.Size(76, 62);
             this.buttonSpecialT.TabIndex = 20;
             this.buttonSpecialT.Text = "T";
             this.buttonSpecialT.UseVisualStyleBackColor = true;
@@ -845,10 +909,10 @@ namespace MakeReportWord
             this.buttonSpecialC.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonSpecialC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSpecialC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpecialC.Location = new System.Drawing.Point(205, 0);
-            this.buttonSpecialC.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.buttonSpecialC.Location = new System.Drawing.Point(380, 0);
+            this.buttonSpecialC.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.buttonSpecialC.Name = "buttonSpecialC";
-            this.buttonSpecialC.Size = new System.Drawing.Size(44, 34);
+            this.buttonSpecialC.Size = new System.Drawing.Size(75, 62);
             this.buttonSpecialC.TabIndex = 21;
             this.buttonSpecialC.Text = "C";
             this.buttonSpecialC.UseVisualStyleBackColor = true;
@@ -861,10 +925,10 @@ namespace MakeReportWord
             this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonUp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonUp.Location = new System.Drawing.Point(128, 361);
-            this.buttonUp.Margin = new System.Windows.Forms.Padding(128, 18, 128, 3);
+            this.buttonUp.Location = new System.Drawing.Point(235, 668);
+            this.buttonUp.Margin = new System.Windows.Forms.Padding(235, 33, 235, 6);
             this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(735, 29);
+            this.buttonUp.Size = new System.Drawing.Size(1347, 54);
             this.buttonUp.TabIndex = 7;
             this.buttonUp.TabStop = false;
             this.buttonUp.Text = " ";
@@ -880,10 +944,10 @@ namespace MakeReportWord
             this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDown.Location = new System.Drawing.Point(128, 312);
-            this.buttonDown.Margin = new System.Windows.Forms.Padding(128, 3, 128, 3);
+            this.buttonDown.Location = new System.Drawing.Point(235, 577);
+            this.buttonDown.Margin = new System.Windows.Forms.Padding(235, 6, 235, 6);
             this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(735, 28);
+            this.buttonDown.Size = new System.Drawing.Size(1347, 52);
             this.buttonDown.TabIndex = 7;
             this.buttonDown.TabStop = false;
             this.buttonDown.Text = " ";
@@ -899,11 +963,11 @@ namespace MakeReportWord
             this.CustomSizeGrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CustomSizeGrip.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.CustomSizeGrip.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CustomSizeGrip.Location = new System.Drawing.Point(11, 749);
-            this.CustomSizeGrip.Margin = new System.Windows.Forms.Padding(11, 0, 11, 0);
+            this.CustomSizeGrip.Location = new System.Drawing.Point(20, 1383);
+            this.CustomSizeGrip.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.CustomSizeGrip.Name = "CustomSizeGrip";
-            this.CustomSizeGrip.Padding = new System.Windows.Forms.Padding(0, 5, 0, 11);
-            this.CustomSizeGrip.Size = new System.Drawing.Size(969, 21);
+            this.CustomSizeGrip.Padding = new System.Windows.Forms.Padding(0, 9, 0, 20);
+            this.CustomSizeGrip.Size = new System.Drawing.Size(1777, 39);
             this.CustomSizeGrip.TabIndex = 8;
             this.CustomSizeGrip.TabStop = false;
             this.CustomSizeGrip.Visible = false;
@@ -911,128 +975,64 @@ namespace MakeReportWord
             this.CustomSizeGrip.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CustomSizeGrip_MouseMove);
             this.CustomSizeGrip.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CustomSizeGrip_MouseUp);
             // 
-            // Scroll1
+            // File
             // 
-            this.Scroll1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ReadScroll,
             this.CloseWindow,
             this.Save,
             this.Open,
             this.Exit});
-            this.Scroll1.Name = "Scroll1";
-            this.Scroll1.Size = new System.Drawing.Size(106, 20);
-            this.Scroll1.Text = "Свиток дракона";
+            this.File.Name = "File";
+            this.File.Size = new System.Drawing.Size(177, 34);
+            this.File.Text = "Свиток дракона";
             // 
             // ReadScroll
             // 
             this.ReadScroll.Name = "ReadScroll";
-            this.ReadScroll.Size = new System.Drawing.Size(465, 22);
+            this.ReadScroll.Size = new System.Drawing.Size(787, 34);
             this.ReadScroll.Text = "Прочитать заклинание материализации";
             this.ReadScroll.Click += new System.EventHandler(this.ReadScroll_Click);
             // 
             // CloseWindow
             // 
             this.CloseWindow.Name = "CloseWindow";
-            this.CloseWindow.Size = new System.Drawing.Size(465, 22);
+            this.CloseWindow.Size = new System.Drawing.Size(787, 34);
             this.CloseWindow.Text = "Разложить приложение на первоначальные элементы по завершении";
             this.CloseWindow.Click += new System.EventHandler(this.CloseWindow_Click);
             // 
             // Save
             // 
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(465, 22);
+            this.Save.Size = new System.Drawing.Size(787, 34);
             this.Save.Text = "Сохранение";
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // Open
             // 
             this.Open.Name = "Open";
-            this.Open.Size = new System.Drawing.Size(465, 22);
+            this.Open.Size = new System.Drawing.Size(787, 34);
             this.Open.Text = "Открытие";
             this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
             // Exit
             // 
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(465, 22);
+            this.Exit.Size = new System.Drawing.Size(787, 34);
             this.Exit.Text = "Выход";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
-            // 
-            // Type
-            // 
-            this.Type.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Lab,
-            this.Practice,
-            this.Kurs,
-            this.Ref,
-            this.Diplom,
-            this.VKR,
-            this.RGR});
-            this.Type.Name = "Type";
-            this.Type.Size = new System.Drawing.Size(39, 20);
-            this.Type.Text = "Тип";
-            // 
-            // Lab
-            // 
-            this.Lab.Checked = true;
-            this.Lab.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Lab.Name = "Lab";
-            this.Lab.Size = new System.Drawing.Size(153, 22);
-            this.Lab.Text = "Лабораторная";
-            this.Lab.Click += new System.EventHandler(this.work_Click);
-            // 
-            // Practice
-            // 
-            this.Practice.Name = "Practice";
-            this.Practice.Size = new System.Drawing.Size(153, 22);
-            this.Practice.Text = "Практическая";
-            this.Practice.Click += new System.EventHandler(this.work_Click);
-            // 
-            // Kurs
-            // 
-            this.Kurs.Name = "Kurs";
-            this.Kurs.Size = new System.Drawing.Size(153, 22);
-            this.Kurs.Text = "Курсовая";
-            this.Kurs.Click += new System.EventHandler(this.work_Click);
-            // 
-            // Ref
-            // 
-            this.Ref.Name = "Ref";
-            this.Ref.Size = new System.Drawing.Size(153, 22);
-            this.Ref.Text = "Реферат";
-            this.Ref.Click += new System.EventHandler(this.work_Click);
-            // 
-            // Diplom
-            // 
-            this.Diplom.Name = "Diplom";
-            this.Diplom.Size = new System.Drawing.Size(153, 22);
-            this.Diplom.Text = "Диплом";
-            this.Diplom.Click += new System.EventHandler(this.work_Click);
-            // 
-            // VKR
-            // 
-            this.VKR.Name = "VKR";
-            this.VKR.Size = new System.Drawing.Size(153, 22);
-            this.VKR.Text = "ВКР";
-            this.VKR.Click += new System.EventHandler(this.work_Click);
-            // 
-            // RGR
-            // 
-            this.RGR.Name = "RGR";
-            this.RGR.Size = new System.Drawing.Size(153, 22);
-            this.RGR.Text = "РГР";
-            this.RGR.Click += new System.EventHandler(this.work_Click);
             // 
             // menuStrip
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Scroll1,
-            this.Type,
-            this.View});
+            this.File,
+            this.View,
+            this.Document});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(991, 24);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
+            this.menuStrip.Size = new System.Drawing.Size(1817, 42);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -1043,7 +1043,7 @@ namespace MakeReportWord
             this.SubstitutionMenuItem,
             this.TextMenuItem});
             this.View.Name = "View";
-            this.View.Size = new System.Drawing.Size(39, 20);
+            this.View.Size = new System.Drawing.Size(60, 34);
             this.View.Text = "Вид";
             // 
             // TitlePageMenuItem
@@ -1051,40 +1051,150 @@ namespace MakeReportWord
             this.TitlePageMenuItem.Checked = true;
             this.TitlePageMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitlePageMenuItem.Name = "TitlePageMenuItem";
-            this.TitlePageMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.TitlePageMenuItem.Size = new System.Drawing.Size(228, 34);
             this.TitlePageMenuItem.Text = "Титульник";
             this.TitlePageMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // SubstitutionMenuItem
             // 
             this.SubstitutionMenuItem.Name = "SubstitutionMenuItem";
-            this.SubstitutionMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.SubstitutionMenuItem.Size = new System.Drawing.Size(228, 34);
             this.SubstitutionMenuItem.Text = "Подстановка";
             this.SubstitutionMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // TextMenuItem
             // 
             this.TextMenuItem.Name = "TextMenuItem";
-            this.TextMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.TextMenuItem.Size = new System.Drawing.Size(228, 34);
             this.TextMenuItem.Text = "Текст";
             this.TextMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
+            // 
+            // Document
+            // 
+            this.Document.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TitleOffOnMenuItem,
+            this.NumberingMenuItem,
+            this.TypeMenuItem,
+            this.ContentMenuItem});
+            this.Document.Name = "Document";
+            this.Document.Size = new System.Drawing.Size(119, 34);
+            this.Document.Text = "Документ";
+            // 
+            // TitleOffOnMenuItem
+            // 
+            this.TitleOffOnMenuItem.Checked = true;
+            this.TitleOffOnMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TitleOffOnMenuItem.Name = "TitleOffOnMenuItem";
+            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.TitleOffOnMenuItem.Text = "Титульник";
+            this.TitleOffOnMenuItem.Click += new System.EventHandler(this.TitleOffOnMenuItem_Click);
+            // 
+            // NumberingMenuItem
+            // 
+            this.NumberingMenuItem.Checked = true;
+            this.NumberingMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.NumberingMenuItem.Name = "NumberingMenuItem";
+            this.NumberingMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.NumberingMenuItem.Text = "Нумерация";
+            this.NumberingMenuItem.Click += new System.EventHandler(this.NumberingMenuItem_Click);
+            // 
+            // TypeMenuItem
+            // 
+            this.TypeMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DefaultDocumentMenuItem,
+            this.LabMenuItem,
+            this.PracticeMenuItem,
+            this.KursMenuItem,
+            this.RefMenuItem,
+            this.DiplomMenuItem,
+            this.VKRMenuItem,
+            this.RGRMenuItem});
+            this.TypeMenuItem.Name = "TypeMenuItem";
+            this.TypeMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.TypeMenuItem.Text = "Тип";
+            // 
+            // DefaultDocumentMenuItem
+            // 
+            this.DefaultDocumentMenuItem.Checked = true;
+            this.DefaultDocumentMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DefaultDocumentMenuItem.Name = "DefaultDocumentMenuItem";
+            this.DefaultDocumentMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.DefaultDocumentMenuItem.Text = "Обычный документ";
+            this.DefaultDocumentMenuItem.Click += new System.EventHandler(this.work_Click);
+            // 
+            // LabMenuItem
+            // 
+            this.LabMenuItem.Name = "LabMenuItem";
+            this.LabMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.LabMenuItem.Text = "Лабораторная работа";
+            this.LabMenuItem.Click += new System.EventHandler(this.work_Click);
+            // 
+            // PracticeMenuItem
+            // 
+            this.PracticeMenuItem.Name = "PracticeMenuItem";
+            this.PracticeMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.PracticeMenuItem.Text = "Практическая работа";
+            this.PracticeMenuItem.Click += new System.EventHandler(this.work_Click);
+            // 
+            // KursMenuItem
+            // 
+            this.KursMenuItem.Name = "KursMenuItem";
+            this.KursMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.KursMenuItem.Text = "Курсовая работа";
+            this.KursMenuItem.Click += new System.EventHandler(this.work_Click);
+            // 
+            // RefMenuItem
+            // 
+            this.RefMenuItem.Name = "RefMenuItem";
+            this.RefMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.RefMenuItem.Text = "Реферат";
+            this.RefMenuItem.Click += new System.EventHandler(this.work_Click);
+            // 
+            // DiplomMenuItem
+            // 
+            this.DiplomMenuItem.Name = "DiplomMenuItem";
+            this.DiplomMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.DiplomMenuItem.Text = "Дипломная работа";
+            this.DiplomMenuItem.Click += new System.EventHandler(this.work_Click);
+            // 
+            // VKRMenuItem
+            // 
+            this.VKRMenuItem.Name = "VKRMenuItem";
+            this.VKRMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.VKRMenuItem.Text = "ВКР";
+            this.VKRMenuItem.Click += new System.EventHandler(this.work_Click);
+            // 
+            // RGRMenuItem
+            // 
+            this.RGRMenuItem.Name = "RGRMenuItem";
+            this.RGRMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.RGRMenuItem.Text = "РГР";
+            this.RGRMenuItem.Click += new System.EventHandler(this.work_Click);
+            // 
+            // ContentMenuItem
+            // 
+            this.ContentMenuItem.Name = "ContentMenuItem";
+            this.ContentMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.ContentMenuItem.Text = "Содержание";
+            this.ContentMenuItem.Click += new System.EventHandler(this.ContentMenuItem_Click);
             // 
             // CustomInterface
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(991, 770);
+            this.ClientSize = new System.Drawing.Size(1817, 1422);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(462, 207);
+            this.MinimumSize = new System.Drawing.Size(827, 328);
             this.Name = "CustomInterface";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Сотворение документа из небытия";
@@ -1146,18 +1256,10 @@ namespace MakeReportWord
         private System.Windows.Forms.Label displayedLabel;
         private System.Windows.Forms.Label elementLabel;
         private System.Windows.Forms.TableLayoutPanel elementPanel;
-        private System.Windows.Forms.ToolStripMenuItem Scroll1;
+        private System.Windows.Forms.ToolStripMenuItem File;
         private System.Windows.Forms.ToolStripMenuItem ReadScroll;
         private System.Windows.Forms.ToolStripMenuItem CloseWindow;
         private System.Windows.Forms.ToolStripMenuItem Exit;
-        private System.Windows.Forms.ToolStripMenuItem Type;
-        private System.Windows.Forms.ToolStripMenuItem Lab;
-        private System.Windows.Forms.ToolStripMenuItem Practice;
-        private System.Windows.Forms.ToolStripMenuItem Kurs;
-        private System.Windows.Forms.ToolStripMenuItem Ref;
-        private System.Windows.Forms.ToolStripMenuItem Diplom;
-        private System.Windows.Forms.ToolStripMenuItem VKR;
-        private System.Windows.Forms.ToolStripMenuItem RGR;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem Save;
         private System.Windows.Forms.ToolStripMenuItem Open;
@@ -1187,6 +1289,19 @@ namespace MakeReportWord
         private System.Windows.Forms.Button buttonSpecialT;
         private System.Windows.Forms.Button buttonSpecialC;
         private System.Windows.Forms.PictureBox CustomSizeGrip;
+        private System.Windows.Forms.ToolStripMenuItem Document;
+        private System.Windows.Forms.ToolStripMenuItem TitleOffOnMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NumberingMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TypeMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LabMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PracticeMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem KursMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RefMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DiplomMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem VKRMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RGRMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ContentMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DefaultDocumentMenuItem;
     }
 }
 

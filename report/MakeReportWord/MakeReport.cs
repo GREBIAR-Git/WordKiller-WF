@@ -11,83 +11,93 @@ namespace MakeReportWord
         Range word;
         bool pgBreak = false;
         char special = '☺';
-        public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year, UserInput content)
+        public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year, UserInput content, bool title, bool numbering, bool cont)
         {
             Application app = new Application();
             app.Visible = true;
             doc = app.Documents.Add();
             word = null;
-            string text = "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
-                "РОССИЙСКОЙ ФЕДЕРАЦИИ" + SkipLine(1) +
-                "ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ" + SkipLine(1) +
-                "ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
-                "«ОРЛОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ" + SkipLine(1) +
-                "ИМЕНИ И.С.ТУРГЕНЕВА»" + SkipLine(2) +
-                "Кафедра " + faculty + SkipLine(3);
-            WriteTextWord(text);
-            
-            PageMargin(2,2,3,1.5f);
-            word.Font.Size = 14;
-            word.Font.Name = "Times New Roman";
-            word.Paragraphs.SpaceAfter = 0;
-            word.Paragraphs.Space1();
-            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            word = doc.Range();
+            PageMargin(2, 2, 3, 1.5f);
+            if(title)
+            {
+                string text = "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
+               "РОССИЙСКОЙ ФЕДЕРАЦИИ" + SkipLine(1) +
+               "ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ" + SkipLine(1) +
+               "ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
+               "«ОРЛОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ" + SkipLine(1) +
+               "ИМЕНИ И.С.ТУРГЕНЕВА»" + SkipLine(2) +
+               "Кафедра " + faculty + SkipLine(3);
+                WriteTextWord(text);
+                word.Font.Size = 14;
+                word.Font.Name = "Times New Roman";
+                word.Paragraphs.SpaceAfter = 0;
+                word.Paragraphs.Space1();
+                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
 
-            text = "ОТЧЁТ";
-            WriteTextWord(text);
-            word.Font.Size = 16;
-            word.Font.Bold = 1;
+                text = "ОТЧЁТ";
+                WriteTextWord(text);
+                word.Font.Size = 16;
+                word.Font.Bold = 1;
 
-            text = "По лабораторной работе №" + numberLab;
-            WriteTextWord(text);
-            word.Paragraphs.SpaceAfter = 10;
-            word.Font.Bold = 0;
+                text = "По лабораторной работе №" + numberLab;
+                WriteTextWord(text);
+                word.Paragraphs.SpaceAfter = 10;
+                word.Font.Bold = 0;
 
-            text = "на тему: «" + theme + "»" + SkipLine(1) + "по дисциплине: «" + discipline + "»" + SkipLine(8); ;
-            WriteTextWord(text);
-            word.Font.Size = 14;
-            word.Paragraphs.SpaceAfter = 0;
+                text = "на тему: «" + theme + "»" + SkipLine(1) + "по дисциплине: «" + discipline + "»" + SkipLine(8); ;
+                WriteTextWord(text);
+                word.Font.Size = 14;
+                word.Paragraphs.SpaceAfter = 0;
 
-            text = "Выполнили: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
-                "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
-                "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
-                "Группа: 92ПГ";
-            WriteTextWord(text);
-            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                text = "Выполнили: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
+                    "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
+                    "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
+                    "Группа: 92ПГ";
+                WriteTextWord(text);
+                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
 
-            text = "Проверил: " + professor;
-            WriteTextWord(text);
-            word.Paragraphs.SpaceAfter = 10;
+                text = "Проверил: " + professor;
+                WriteTextWord(text);
+                word.Paragraphs.SpaceAfter = 10;
 
-            text = SkipLine(1) + "Отметка о зачёте: ";
-            WriteTextWord(text);
-            word.Paragraphs.SpaceAfter = 0;
+                text = SkipLine(1) + "Отметка о зачёте: ";
+                WriteTextWord(text);
+                word.Paragraphs.SpaceAfter = 0;
 
-            text = "Дата: «____» __________ " + year + "г.";
-            WriteTextWord(text);
-            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+                text = "Дата: «____» __________ " + year + "г.";
+                WriteTextWord(text);
+                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
 
-            text = SkipLine(8) + "Орел, " + year;
-            WriteTextWord(text);
-            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-            PageBreak();
+                text = SkipLine(8) + "Орел, " + year;
+                WriteTextWord(text);
+                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+                PageBreak();
+            }
+            if(cont)
+            {
+                //Сделать содержание
+            }
             if (content.Text!=null)
             {
                 ProcessContent(content);
             }
-            //Переход на вторую страницу (вернее, в начало третьей)
-            Range range = doc.Range().GoTo(WdGoToItem.wdGoToPage, WdGoToDirection.wdGoToAbsolute, 2);
-            //Вставка разрыва раздела в конце второй страницы. 
-            doc.Sections.Add(range, WdSectionStart.wdSectionContinuous);
-            //Колонтитул второго раздела
-            HeaderFooter hf = doc.Sections[doc.Sections.Count].Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary];
-            //Открепление нумерации от колонтитула предыдущего раздела
-            hf.LinkToPrevious = false;
-            //Не начинать нумерацию с 1
-            hf.PageNumbers.RestartNumberingAtSection = false;
-            //Добавление нумерации по заданному выравниванию
-            WdPageNumberAlignment alignment = WdPageNumberAlignment.wdAlignPageNumberCenter;
-            hf.PageNumbers.Add(alignment, true);
+            if(numbering)
+            {
+                //Переход на вторую страницу (вернее, в начало третьей)
+                Range range = doc.Range().GoTo(WdGoToItem.wdGoToPage, WdGoToDirection.wdGoToAbsolute, 2);
+                //Вставка разрыва раздела в конце второй страницы. 
+                doc.Sections.Add(range, WdSectionStart.wdSectionContinuous);
+                //Колонтитул второго раздела
+                HeaderFooter hf = doc.Sections[doc.Sections.Count].Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary];
+                //Открепление нумерации от колонтитула предыдущего раздела
+                hf.LinkToPrevious = false;
+                //Не начинать нумерацию с 1
+                hf.PageNumbers.RestartNumberingAtSection = false;
+                //Добавление нумерации по заданному выравниванию
+                WdPageNumberAlignment alignment = WdPageNumberAlignment.wdAlignPageNumberCenter;
+                hf.PageNumbers.Add(alignment, true);
+            }
         }
 
         void ProcessContent(UserInput content)
