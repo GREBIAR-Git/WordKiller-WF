@@ -93,6 +93,7 @@ namespace MakeReportWord
             this.Document = new System.Windows.Forms.ToolStripMenuItem();
             this.TitleOffOnMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NumberingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FromNumberingTextBoxMenuItem = new System.Windows.Forms.ToolStripTextBox();
             this.TypeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefaultDocumentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1093,10 +1094,17 @@ namespace MakeReportWord
             // 
             this.NumberingMenuItem.Checked = true;
             this.NumberingMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.NumberingMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FromNumberingTextBoxMenuItem});
             this.NumberingMenuItem.Name = "NumberingMenuItem";
             this.NumberingMenuItem.Size = new System.Drawing.Size(288, 34);
             this.NumberingMenuItem.Text = "Нумерация";
             this.NumberingMenuItem.Click += new System.EventHandler(this.NumberingMenuItem_Click);
+            // 
+            // FromNumberingTextBoxMenuItem
+            // 
+            this.FromNumberingTextBoxMenuItem.Name = "FromNumberingTextBoxMenuItem";
+            this.FromNumberingTextBoxMenuItem.Size = new System.Drawing.Size(100, 35);
             // 
             // TypeMenuItem
             // 
@@ -1302,6 +1310,7 @@ namespace MakeReportWord
         private System.Windows.Forms.ToolStripMenuItem RGRMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ContentMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DefaultDocumentMenuItem;
+        private System.Windows.Forms.ToolStripTextBox FromNumberingTextBoxMenuItem;
     }
 }
 

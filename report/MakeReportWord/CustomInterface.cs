@@ -540,7 +540,7 @@ namespace MakeReportWord
                 {
                     dataComboBox.Text = text;
                 }
-                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, dataComboBox,TitleOffOnMenuItem.Checked,NumberingMenuItem.Checked,ContentMenuItem.Checked));
+                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, dataComboBox,TitleOffOnMenuItem.Checked,NumberingMenuItem.Checked,ContentMenuItem.Checked,FromNumberingTextBoxMenuItem.Text));
             }
             catch
             {
@@ -1248,6 +1248,7 @@ namespace MakeReportWord
         private void NumberingMenuItem_Click(object sender, EventArgs e)
         {
             NumberingMenuItem.Checked = !NumberingMenuItem.Checked;
+            FromNumberingTextBoxMenuItem.Visible = NumberingMenuItem.Checked;
         }
 
         private void TitleOffOnMenuItem_Click(object sender, EventArgs e)

@@ -11,7 +11,7 @@ namespace MakeReportWord
         Range word;
         bool pgBreak = false;
         char special = '☺';
-        public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year, UserInput content, bool title, bool numbering, bool cont)
+        public void CreateReportLab(string faculty, string numberLab, string theme, string discipline, string professor, string year, UserInput content, bool title, bool numbering, bool cont, string fromNumbering)
         {
             Application app = new Application();
             app.Visible = true;
@@ -82,21 +82,28 @@ namespace MakeReportWord
             {
                 ProcessContent(content);
             }
+            //надо доделать
             if(numbering)
             {
-                //Переход на вторую страницу (вернее, в начало третьей)
-                Range range = doc.Range().GoTo(WdGoToItem.wdGoToPage, WdGoToDirection.wdGoToAbsolute, 2);
-                //Вставка разрыва раздела в конце второй страницы. 
-                doc.Sections.Add(range, WdSectionStart.wdSectionContinuous);
-                //Колонтитул второго раздела
-                HeaderFooter hf = doc.Sections[doc.Sections.Count].Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary];
-                //Открепление нумерации от колонтитула предыдущего раздела
-                hf.LinkToPrevious = false;
-                //Не начинать нумерацию с 1
-                hf.PageNumbers.RestartNumberingAtSection = false;
-                //Добавление нумерации по заданному выравниванию
-                WdPageNumberAlignment alignment = WdPageNumberAlignment.wdAlignPageNumberCenter;
-                hf.PageNumbers.Add(alignment, true);
+                if (fromNumbering != null && fromNumbering != "0")
+                {
+                    //Переход вначала 2 страницы
+                    Range range = doc.Range().GoTo(WdGoToItem.wdGoToPage, WdGoToDirection.wdGoToAbsolute, 2);
+                    //Вставка разрыва раздела в конце второй страницы. 
+                    doc.Sections.Add(range, WdSectionStart.wdSectionContinuous);
+                    //Колонтитул второго раздела
+                    HeaderFooter hf = doc.Sections[doc.Sections.Count].Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary];
+                    //Открепление нумерации от колонтитула предыдущего раздела
+                    hf.LinkToPrevious = false;
+                    if (fromNumbering != "1")
+                    {
+                        //Не начинать нумерацию с 1
+                        hf.PageNumbers.RestartNumberingAtSection = false;
+                    }
+                    //Добавление нумерации по заданному выравниванию
+                    WdPageNumberAlignment alignment = WdPageNumberAlignment.wdAlignPageNumberCenter;
+                    hf.PageNumbers.Add(alignment, true);
+                }
             }
         }
 
