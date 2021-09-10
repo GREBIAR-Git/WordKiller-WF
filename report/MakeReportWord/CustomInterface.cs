@@ -590,7 +590,7 @@ namespace MakeReportWord
             Application.Exit();
         }
 
-        void ShowTitleElems(int[] rows, int[] columns)
+        void ShowTitleElems(int[] columns, int[] rows)
         {
             Control[] titleSave = CopyControls(titlepagePanel, rows, columns);
             titlepagePanel.Controls.Clear();
@@ -692,7 +692,7 @@ namespace MakeReportWord
             else if (toolStripMenuItem.Text == "Лабораторная работа")
             {
                 this.Text = "Сотворение лабораторной работы из небытия";
-                ShowTitleElems(new int[] { 3, 0}, new int[] { 0, 3 });
+                ShowTitleElems(new int[] { 0, 1, 2, 3, 0, 1, 0, 1, 0, 1, 0, 1}, new int[] { 0, 0, 1, 1, 3, 3, 4, 4, 6, 6, 7, 7});
             }
             else if (toolStripMenuItem.Text == "Практическая работа")
             {
