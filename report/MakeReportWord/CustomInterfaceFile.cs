@@ -55,7 +55,7 @@ namespace MakeReportWord
                                 }
                                 else if (variable_value[0].StartsWith("numberLabTextBox.Text"))
                                 {
-                                    numberLabTextBox.Text = variable_value[1];
+                                    numberTextBox.Text = variable_value[1];
                                 }
                                 else if (variable_value[0].StartsWith("themeTextBox.Text"))
                                 {
@@ -119,7 +119,7 @@ namespace MakeReportWord
                 StreamWriter output = new StreamWriter(fileStream);
 
                 output.WriteLine("facultyComboBox=" + facultyComboBox.SelectedItem.ToString());
-                output.WriteLine("numberLabTextBox.Text=" + numberLabTextBox.Text);
+                output.WriteLine("numberLabTextBox.Text=" + numberTextBox.Text);
                 output.WriteLine("themeTextBox.Text=" + themeTextBox.Text);
                 output.WriteLine("disciplineTextBox.Text=" + disciplineTextBox.Text);
                 output.WriteLine("professorTextBox.Text=" + professorComboBox.Text);

@@ -525,7 +525,7 @@ namespace MakeReportWord
         {
             MakeReport report = new MakeReport();
             string faculty = facultyComboBox.Text;
-            string numberLab = numberLabTextBox.Text;
+            string numberLab = numberTextBox.Text;
             string theme = themeTextBox.Text;
             string discipline = disciplineTextBox.Text;
             string professor = professorComboBox.Text;
@@ -555,6 +555,7 @@ namespace MakeReportWord
                 }
                 else if (KursMenuItem.Checked)
                 {
+                    //await Task.Run(() => report.CreateReportKurs(faculty, numberLab, theme, discipline, professor, year, dataComboBox, TitleOffOnMenuItem.Checked, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
                 }
                 else if (RefMenuItem.Checked)
                 {
@@ -589,6 +590,92 @@ namespace MakeReportWord
             Application.Exit();
         }
 
+        void ShowTitleElems(int[] rows, int[] columns)
+        {
+            Control[] titleSave = CopyControls(titlepagePanel, rows, columns);
+            titlepagePanel.Controls.Clear();
+            PushbackControls(titleSave, titlepagePanel, 0, titleSave.Length-1, rows, columns);
+        }
+
+        T[] CopyArray<T>(T[] array, int startElem, int endElem)
+        {
+            T[] newArray = new T[array.Length];
+            for (int i = startElem; i <= endElem; i++)
+            {
+                newArray[i] = array[i];
+            }
+            return newArray;
+        }
+
+        Control[] CopyControls(TableLayoutPanel tableLayoutPanel, int startElem, int endElem)
+        {
+            Control[] newArray = new Control[tableLayoutPanel.Controls.Count];
+            for (int i = startElem; i <= endElem; i++)
+            {
+                newArray[i] = tableLayoutPanel.Controls[i];
+            }
+            return newArray;
+        }
+
+        T[] ArrayPushBack<T>(T[] array, T element)
+        {
+            T[] newArray = new T[array.Length + 1];
+            for (int i = 0; i < array.Length; i++)
+            {
+                newArray[i] = array[i];
+            }
+            newArray[newArray.Length - 1] = element;
+            return newArray;
+        }
+
+        Control[] CopyControls(TableLayoutPanel tableLayoutPanel, int[] rows, int[] columns)
+        {
+            Control[] newArray = new Control[tableLayoutPanel.Controls.Count];
+            for (int i = 0; i < tableLayoutPanel.Controls.Count; i++)
+            {
+                if (rows.Length == columns.Length && rows.Length <= i)
+                {
+                    if (CheckControlPosition(tableLayoutPanel, i, rows, columns))
+                    {
+                        newArray = ArrayPushBack(newArray, tableLayoutPanel.Controls[i]);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return newArray;
+        }
+
+        bool CheckControlPosition(TableLayoutPanel tableLayoutPanel, int controlIndex, int[] rows, int[] columns)
+        {
+            if (rows == columns)
+            {
+                for (int i = 0; i < rows.Length; i++)
+                {
+                    if (tableLayoutPanel.Controls[controlIndex] == tableLayoutPanel.GetControlFromPosition(columns[i], rows[i]))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        bool PushbackControls(Control[] controls, TableLayoutPanel tableLayoutPanel, int startElem, int endElem, int[] rows, int[] columns)
+        {
+            if (columns != rows || columns.Length < endElem - startElem + 1)
+            {
+                return false;
+            }
+            for (int i = startElem; i <= endElem; i++)
+            {
+                tableLayoutPanel.Controls.Add(controls[i], columns[i], rows[i]);
+            }
+            return true;
+        }
+
         void work_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem toolStripMenuItem = (ToolStripMenuItem)sender;
@@ -603,6 +690,7 @@ namespace MakeReportWord
             else if (toolStripMenuItem.Text == "Лабораторная работа")
             {
                 this.Text = "Сотворение лабораторной работы из небытия";
+                ShowTitleElems(new int[] { 0, 0}, new int[] { 0, 1 });
             }
             else if (toolStripMenuItem.Text == "Практическая работа")
             {
