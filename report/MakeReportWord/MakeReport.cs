@@ -17,8 +17,6 @@ namespace MakeReportWord
             app.Visible = true;
             doc = app.Documents.Add();
             word = null;
-            word = doc.Range();
-            PageMargin(2, 2, 3, 1.5f);
             if(title)
             {
                 string text = "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
@@ -29,6 +27,7 @@ namespace MakeReportWord
                "ИМЕНИ И.С.ТУРГЕНЕВА»" + SkipLine(2) +
                "Кафедра " + faculty + SkipLine(3);
                 WriteTextWord(text);
+                PageMargin(2, 2, 3, 1.5f);
                 word.Font.Size = 14;
                 word.Font.Name = "Times New Roman";
                 word.Paragraphs.SpaceAfter = 0;

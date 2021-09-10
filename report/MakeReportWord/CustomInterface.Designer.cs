@@ -1092,8 +1092,6 @@ namespace MakeReportWord
             // 
             // NumberingMenuItem
             // 
-            this.NumberingMenuItem.Checked = true;
-            this.NumberingMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.NumberingMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FromNumberingTextBoxMenuItem});
             this.NumberingMenuItem.Name = "NumberingMenuItem";
@@ -1105,6 +1103,7 @@ namespace MakeReportWord
             // 
             this.FromNumberingTextBoxMenuItem.Name = "FromNumberingTextBoxMenuItem";
             this.FromNumberingTextBoxMenuItem.Size = new System.Drawing.Size(100, 35);
+            this.FromNumberingTextBoxMenuItem.Visible = false;
             // 
             // TypeMenuItem
             // 

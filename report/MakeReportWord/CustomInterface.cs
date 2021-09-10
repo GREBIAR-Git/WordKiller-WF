@@ -1257,6 +1257,9 @@ namespace MakeReportWord
         {
             NumberingMenuItem.Checked = !NumberingMenuItem.Checked;
             FromNumberingTextBoxMenuItem.Visible = NumberingMenuItem.Checked;
+            Document.ShowDropDown();
+            NumberingMenuItem.Select();
+            FromNumberingTextBoxMenuItem.Visible = true;
         }
 
         private void TitleOffOnMenuItem_Click(object sender, EventArgs e)
