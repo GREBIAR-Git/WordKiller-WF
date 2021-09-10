@@ -630,10 +630,10 @@ namespace MakeReportWord
 
         Control[] CopyControls(TableLayoutPanel tableLayoutPanel, int[] rows, int[] columns)
         {
-            Control[] newArray = new Control[tableLayoutPanel.Controls.Count];
+            Control[] newArray = new Control[0];
             for (int i = 0; i < tableLayoutPanel.Controls.Count; i++)
             {
-                if (rows.Length == columns.Length && rows.Length <= i)
+                if (rows.Length == columns.Length && i <= rows.Length)
                 {
                     if (CheckControlPosition(tableLayoutPanel, i, rows, columns))
                     {
@@ -650,11 +650,13 @@ namespace MakeReportWord
 
         bool CheckControlPosition(TableLayoutPanel tableLayoutPanel, int controlIndex, int[] rows, int[] columns)
         {
-            if (rows == columns)
+            if (rows.Length == columns.Length)
             {
                 for (int i = 0; i < rows.Length; i++)
                 {
-                    if (tableLayoutPanel.Controls[controlIndex] == tableLayoutPanel.GetControlFromPosition(columns[i], rows[i]))
+                    TableLayoutPanelCellPosition ctrlToCheckPosition  = tableLayoutPanel.GetCellPosition(tableLayoutPanel.Controls[controlIndex]);
+                    TableLayoutPanelCellPosition ctrlInCellPosition = tableLayoutPanel.GetCellPosition(tableLayoutPanel.GetControlFromPosition(columns[i], rows[i]));
+                    if (ctrlToCheckPosition == ctrlInCellPosition)
                     {
                         return true;
                     }
@@ -665,7 +667,7 @@ namespace MakeReportWord
 
         bool PushbackControls(Control[] controls, TableLayoutPanel tableLayoutPanel, int startElem, int endElem, int[] rows, int[] columns)
         {
-            if (columns != rows || columns.Length < endElem - startElem + 1)
+            if (columns.Length != rows.Length || columns.Length < endElem - startElem + 1)
             {
                 return false;
             }
@@ -690,7 +692,7 @@ namespace MakeReportWord
             else if (toolStripMenuItem.Text == "Лабораторная работа")
             {
                 this.Text = "Сотворение лабораторной работы из небытия";
-                ShowTitleElems(new int[] { 0, 0}, new int[] { 0, 1 });
+                ShowTitleElems(new int[] { 3, 0}, new int[] { 0, 3 });
             }
             else if (toolStripMenuItem.Text == "Практическая работа")
             {
