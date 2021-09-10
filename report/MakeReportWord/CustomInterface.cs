@@ -631,11 +631,13 @@ namespace MakeReportWord
         Control[] CopyControls(TableLayoutPanel tableLayoutPanel, int[] rows, int[] columns)
         {
             Control[] newArray = new Control[0];
+            int j = 0;
             for (int i = 0; i < tableLayoutPanel.Controls.Count; i++)
             {
-                if (rows.Length == columns.Length && i <= rows.Length)
+                if (rows.Length == columns.Length && j <= rows.Length)
                 {
-                    if (CheckControlPosition(tableLayoutPanel, i, rows, columns))
+                    bool test = CheckControlPosition(tableLayoutPanel, i, rows, columns);
+                    if (test)
                     {
                         newArray = ArrayPushBack(newArray, tableLayoutPanel.Controls[i]);
                     }
@@ -650,12 +652,14 @@ namespace MakeReportWord
 
         bool CheckControlPosition(TableLayoutPanel tableLayoutPanel, int controlIndex, int[] rows, int[] columns)
         {
+            TableLayoutPanelCellPosition ctrlToCheckPosition; TableLayoutPanelCellPosition ctrlInCellPosition;
             if (rows.Length == columns.Length)
             {
+
                 for (int i = 0; i < rows.Length; i++)
                 {
-                    TableLayoutPanelCellPosition ctrlToCheckPosition  = tableLayoutPanel.GetCellPosition(tableLayoutPanel.Controls[controlIndex]);
-                    TableLayoutPanelCellPosition ctrlInCellPosition = tableLayoutPanel.GetCellPosition(tableLayoutPanel.GetControlFromPosition(columns[i], rows[i]));
+                    ctrlToCheckPosition  = tableLayoutPanel.GetCellPosition(tableLayoutPanel.Controls[controlIndex]);
+                    ctrlInCellPosition = tableLayoutPanel.GetCellPosition(tableLayoutPanel.GetControlFromPosition(columns[i], rows[i]));
                     if (ctrlToCheckPosition == ctrlInCellPosition)
                     {
                         return true;
