@@ -636,8 +636,7 @@ namespace MakeReportWord
             {
                 if (rows.Length == columns.Length && j <= rows.Length)
                 {
-                    bool test = CheckControlPosition(tableLayoutPanel, i, rows, columns);
-                    if (test)
+                    if (CheckControlPosition(tableLayoutPanel, i, rows, columns))
                     {
                         newArray = ArrayPushBack(newArray, tableLayoutPanel.Controls[i]);
                     }
@@ -652,14 +651,12 @@ namespace MakeReportWord
 
         bool CheckControlPosition(TableLayoutPanel tableLayoutPanel, int controlIndex, int[] rows, int[] columns)
         {
-            TableLayoutPanelCellPosition ctrlToCheckPosition; TableLayoutPanelCellPosition ctrlInCellPosition;
             if (rows.Length == columns.Length)
             {
-
                 for (int i = 0; i < rows.Length; i++)
                 {
-                    ctrlToCheckPosition  = tableLayoutPanel.GetCellPosition(tableLayoutPanel.Controls[controlIndex]);
-                    ctrlInCellPosition = tableLayoutPanel.GetCellPosition(tableLayoutPanel.GetControlFromPosition(columns[i], rows[i]));
+                    TableLayoutPanelCellPosition ctrlToCheckPosition = tableLayoutPanel.GetCellPosition(tableLayoutPanel.Controls[controlIndex]);
+                    TableLayoutPanelCellPosition ctrlInCellPosition = tableLayoutPanel.GetCellPosition(tableLayoutPanel.GetControlFromPosition(columns[i], rows[i]));
                     if (ctrlToCheckPosition == ctrlInCellPosition)
                     {
                         return true;
