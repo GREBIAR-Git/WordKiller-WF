@@ -540,7 +540,34 @@ namespace MakeReportWord
                 {
                     dataComboBox.Text = text;
                 }
-                await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, dataComboBox,TitleOffOnMenuItem.Checked,NumberingMenuItem.Checked,ContentMenuItem.Checked,FromNumberingTextBoxMenuItem.Text));
+
+                if (DefaultDocumentMenuItem.Checked)
+                {
+                    await Task.Run(() => report.CreateReportDocument(dataComboBox, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
+                }
+                else if (LabMenuItem.Checked)
+                {
+                    await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, dataComboBox, TitleOffOnMenuItem.Checked, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
+                }
+                else if (PracticeMenuItem.Checked)
+                {
+                    await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, dataComboBox, TitleOffOnMenuItem.Checked, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
+                }
+                else if (KursMenuItem.Checked)
+                {
+                }
+                else if (RefMenuItem.Checked)
+                {
+                }
+                else if (DiplomMenuItem.Checked)
+                {
+                }
+                else if (VKRMenuItem.Checked)
+                {
+                }
+                else if (RGRMenuItem.Checked)
+                {
+                }
             }
             catch
             {
@@ -1264,6 +1291,11 @@ namespace MakeReportWord
 
         private void TitleOffOnMenuItem_Click(object sender, EventArgs e)
         {
+            ShowingTitelPanel();
+        }
+
+        void ShowingTitelPanel()
+        {
             if (TitleOffOnMenuItem.Checked && TitlePageMenuItem.Checked)
             {
                 HiddenElements(TitlePageMenuItem);
@@ -1272,6 +1304,12 @@ namespace MakeReportWord
             TitlePageMenuItem.Visible = !TitleOffOnMenuItem.Checked;
             buttonUp.Visible = !TitleOffOnMenuItem.Checked;
             TitleOffOnMenuItem.Checked = !TitleOffOnMenuItem.Checked;
+        }
+
+        private void DefaultDocumentMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
+            ShowingTitelPanel();
         }
     }
 }

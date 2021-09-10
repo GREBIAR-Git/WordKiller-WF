@@ -1122,15 +1122,16 @@ namespace MakeReportWord
             // 
             // DefaultDocumentMenuItem
             // 
-            this.DefaultDocumentMenuItem.Checked = true;
-            this.DefaultDocumentMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.DefaultDocumentMenuItem.Name = "DefaultDocumentMenuItem";
             this.DefaultDocumentMenuItem.Size = new System.Drawing.Size(316, 34);
             this.DefaultDocumentMenuItem.Text = "Обычный документ";
+            this.DefaultDocumentMenuItem.CheckedChanged += new System.EventHandler(this.DefaultDocumentMenuItem_CheckedChanged);
             this.DefaultDocumentMenuItem.Click += new System.EventHandler(this.work_Click);
             // 
             // LabMenuItem
             // 
+            this.LabMenuItem.Checked = true;
+            this.LabMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.LabMenuItem.Name = "LabMenuItem";
             this.LabMenuItem.Size = new System.Drawing.Size(316, 34);
             this.LabMenuItem.Text = "Лабораторная работа";
