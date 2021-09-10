@@ -76,6 +76,65 @@ namespace MakeReportWord
             MainPart(cont, content, numbering, fromNumbering);
         }
 
+        public void CreateReportPra(string faculty, string numberLab, string theme, string discipline, string professor, string year, UserInput content, bool title, bool numbering, bool cont, string fromNumbering)
+        {
+            Beginning();
+            string text = "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
+            "РОССИЙСКОЙ ФЕДЕРАЦИИ" + SkipLine(1) +
+            "ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ" + SkipLine(1) +
+            "ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
+            "«ОРЛОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ" + SkipLine(1) +
+            "ИМЕНИ И.С.ТУРГЕНЕВА»" + SkipLine(2) +
+            "Кафедра " + faculty + SkipLine(3);
+            WriteTextWord(text);
+            PageMargin(2, 2, 3, 1.5f);
+            word.Font.Size = 14;
+            word.Font.Name = "Times New Roman";
+            word.Paragraphs.SpaceAfter = 0;
+            word.Paragraphs.Space1();
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+
+            text = "ОТЧЁТ";
+            WriteTextWord(text);
+            word.Font.Size = 16;
+            word.Font.Bold = 1;
+
+            text = "По практической работе №" + numberLab;
+            WriteTextWord(text);
+            word.Paragraphs.SpaceAfter = 10;
+            word.Font.Bold = 0;
+
+            text = "на тему: «" + theme + "»" + SkipLine(1) + "по дисциплине: «" + discipline + "»" + SkipLine(8); ;
+            WriteTextWord(text);
+            word.Font.Size = 14;
+            word.Paragraphs.SpaceAfter = 0;
+
+            text = "Выполнили: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
+                "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
+                "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
+                "Группа: 92ПГ";
+            WriteTextWord(text);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+
+            text = "Проверил: " + professor;
+            WriteTextWord(text);
+            word.Paragraphs.SpaceAfter = 10;
+
+            text = SkipLine(1) + "Отметка о зачёте: ";
+            WriteTextWord(text);
+            word.Paragraphs.SpaceAfter = 0;
+
+            text = "Дата: «____» __________ " + year + "г.";
+            WriteTextWord(text);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+
+            text = SkipLine(8) + "Орел, " + year;
+            WriteTextWord(text);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            PageBreak();
+            MainPart(cont, content, numbering, fromNumbering);
+        }
+
         void Beginning()
         {
             Application app = new Application();

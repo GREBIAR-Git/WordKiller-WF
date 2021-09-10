@@ -551,7 +551,7 @@ namespace MakeReportWord
                 }
                 else if (PracticeMenuItem.Checked)
                 {
-                    await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, dataComboBox, TitleOffOnMenuItem.Checked, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
+                    await Task.Run(() => report.CreateReportPra(faculty, numberLab, theme, discipline, professor, year, dataComboBox, TitleOffOnMenuItem.Checked, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
                 }
                 else if (KursMenuItem.Checked)
                 {
