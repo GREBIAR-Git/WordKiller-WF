@@ -594,7 +594,34 @@ namespace MakeReportWord
         {
             Control[] titleSave = CopyControls(titlepagePanel, rows, columns);
             titlepagePanel.Controls.Clear();
+            for (int i = 0; i < titleSave.Length; i++)
+            {
+                if (columns[i] >= 2 && RowElemCounter(rows, rows[i]) <= 2)
+                {
+                    columns[i] -= 2;
+                }
+            }
             PushbackControls(titleSave, titlepagePanel, 0, titleSave.Length-1, rows, columns);
+            for (int i = 0; i < titlepagePanel.Controls.Count; i++)
+            {
+                if (columns[i] == 1 && RowElemCounter(rows, rows[i]) <= 2)
+                {
+                    titlepagePanel.SetColumnSpan(titlepagePanel.Controls[i], 3);
+                }
+            }
+        }
+
+        int RowElemCounter(int[] rows, int row)
+        {
+            int counter = 0;
+            for (int i = 0; i < rows.Length; i++)
+            {
+                if (rows[i] == row)
+                {
+                    counter++;
+                }
+            }
+            return counter;
         }
 
         T[] CopyArray<T>(T[] array, int startElem, int endElem)
@@ -631,14 +658,21 @@ namespace MakeReportWord
         Control[] CopyControls(TableLayoutPanel tableLayoutPanel, int[] rows, int[] columns)
         {
             Control[] newArray = new Control[0];
-            int j = 0;
             for (int i = 0; i < tableLayoutPanel.Controls.Count; i++)
             {
-                if (rows.Length == columns.Length && j <= rows.Length)
+                if (rows.Length == columns.Length)
                 {
-                    if (CheckControlPosition(tableLayoutPanel, i, rows, columns))
+                    int cellIndex = CheckControlPosition(tableLayoutPanel, i, rows, columns);
+                    if (cellIndex != -1)
                     {
                         newArray = ArrayPushBack(newArray, tableLayoutPanel.Controls[i]);
+
+                        int tmpColumn = columns[newArray.Length - 1];
+                        int tmpRow = rows[newArray.Length - 1];
+                        columns[newArray.Length - 1] = columns[cellIndex];
+                        rows[newArray.Length - 1] = rows[cellIndex];
+                        columns[cellIndex] = tmpColumn;
+                        rows[cellIndex] = tmpRow;
                     }
                 }
                 else
@@ -649,7 +683,7 @@ namespace MakeReportWord
             return newArray;
         }
 
-        bool CheckControlPosition(TableLayoutPanel tableLayoutPanel, int controlIndex, int[] rows, int[] columns)
+        int CheckControlPosition(TableLayoutPanel tableLayoutPanel, int controlIndex, int[] rows, int[] columns)
         {
             if (rows.Length == columns.Length)
             {
@@ -659,12 +693,13 @@ namespace MakeReportWord
                     TableLayoutPanelCellPosition ctrlInCellPosition = tableLayoutPanel.GetCellPosition(tableLayoutPanel.GetControlFromPosition(columns[i], rows[i]));
                     if (ctrlToCheckPosition == ctrlInCellPosition)
                     {
-                        return true;
+                        return i;
                     }
                 }
             }
-            return false;
+            return -1;
         }
+
 
         bool PushbackControls(Control[] controls, TableLayoutPanel tableLayoutPanel, int startElem, int endElem, int[] rows, int[] columns)
         {
