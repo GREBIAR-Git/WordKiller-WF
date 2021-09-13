@@ -590,32 +590,66 @@ namespace MakeReportWord
             Application.Exit();
         }
 
-        void ShowTitleElems(int[,] cell)
+        void ShowTitleElems(string cells)
         {
-            Control[] titleSave = CopyControls(titlepagePanel, cell);
+            ShowAllChildControls(titlepagePanel);
+            ResetAllChildColumnSpans(titlepagePanel);
+            string[] column_row = cells.Split(' ');
+            int[] columns = new int[column_row.Length];
+            int[] rows = new int[column_row.Length];
+            for (int i = 0; i < column_row.Length; i++)
+            {
+                columns[i] = int.Parse(column_row[i].Split('.')[0]);
+                rows[i] = int.Parse(column_row[i].Split('.')[1]);
+            }
+            Control[] titleSave = CopyControls(titlepagePanel, rows, columns);
             titlepagePanel.Controls.Clear();
             for (int i = 0; i < titleSave.Length; i++)
             {
                 if (columns[i] >= 4 && RowElemCounter(rows, rows[i]) <= 4)
                 {
-                    columns[i] -= 4;
+                    columns[i] -= 2;
                 }
                 if (columns[i] >= 2 && RowElemCounter(rows, rows[i]) <= 2)
                 {
                     columns[i] -= 2;
                 }
             }
-            PushbackControls(titleSave, titlepagePanel, 0, titleSave.Length-1, rows, columns);
+            PushbackControls(titleSave, titlepagePanel, 0, titleSave.Length - 1, rows, columns);
             for (int i = 0; i < titlepagePanel.Controls.Count; i++)
             {
-                if (columns[i] == 1 && RowElemCounter(rows, rows[i]) <= 2)
-                {
-                    titlepagePanel.SetColumnSpan(titlepagePanel.Controls[i], 5);
-                }
                 if (columns[i] == 3 && RowElemCounter(rows, rows[i]) <= 4)
                 {
                     titlepagePanel.SetColumnSpan(titlepagePanel.Controls[i], 3);
                 }
+                else if (columns[i] == 1 && RowElemCounter(rows, rows[i]) <= 2)
+                {
+                    titlepagePanel.SetColumnSpan(titlepagePanel.Controls[i], 5);
+                }
+            }
+        }
+
+        void ShowAllChildControls(Control control)
+        {
+            foreach (Control ctrl in control.Controls)
+            {
+                ctrl.Visible = true;
+            }
+        }
+
+        void ResetAllChildColumnSpans(TableLayoutPanel table)
+        {
+            foreach (Control ctrl in table.Controls)
+            {
+                table.SetColumnSpan(ctrl, 1);
+            }
+        }
+
+        void ResetAllChildRowSpans(TableLayoutPanel table)
+        {
+            foreach (Control ctrl in table.Controls)
+            {
+                table.SetRowSpan(ctrl, 1);
             }
         }
 
@@ -663,7 +697,7 @@ namespace MakeReportWord
             return newArray;
         }
 
-        Control[] CopyControls(TableLayoutPanel tableLayoutPanel, int[,] cell)
+        Control[] CopyControls(TableLayoutPanel tableLayoutPanel, int[] rows, int[] columns)
         {
             Control[] newArray = new Control[0];
             for (int i = 0; i < tableLayoutPanel.Controls.Count; i++)
@@ -736,8 +770,6 @@ namespace MakeReportWord
             else if (toolStripMenuItem.Text == "Лабораторная работа")
             {
                 this.Text = "Сотворение лабораторной работы из небытия";
-                //ShowTitleElems(new int[][] { 0, 1, 2, 3, 0, 1, 0, 1, 0, 1, 0, 1}, new int[] { 0, 0, 1, 1, 3, 3, 4, 4, 6, 6, 7, 7});
-                ShowTitleElems(new int[,] { { 0, 0 }, { 1, 0 }, { 1, 1 }, { 0, 1 }, { 0, 3 }, { 1, 3 }, { 0, 4 }, { 1, 4 }, { 0, 6 }, { 1, 6 }, { 0, 7 }, { 1, 7 } });
             }
             else if (toolStripMenuItem.Text == "Практическая работа")
             {
@@ -746,7 +778,7 @@ namespace MakeReportWord
             else if (toolStripMenuItem.Text == "Курсовая работа")
             {
                 this.Text = "Сотворение курсовой работы из небытия";
-                ShowTitleElems(new int[] { 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 2, 3}, new int[] { 0, 0, 1, 1, 3, 3, 4, 4, 6, 6, 7, 7, 0, 0});
+                ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.6");
             }
             else if (toolStripMenuItem.Text == "Реферат")
             {
