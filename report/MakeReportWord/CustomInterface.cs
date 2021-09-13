@@ -590,12 +590,16 @@ namespace MakeReportWord
             Application.Exit();
         }
 
-        void ShowTitleElems(int[] columns, int[] rows)
+        void ShowTitleElems(int[,] cell)
         {
-            Control[] titleSave = CopyControls(titlepagePanel, rows, columns);
+            Control[] titleSave = CopyControls(titlepagePanel, cell);
             titlepagePanel.Controls.Clear();
             for (int i = 0; i < titleSave.Length; i++)
             {
+                if (columns[i] >= 4 && RowElemCounter(rows, rows[i]) <= 4)
+                {
+                    columns[i] -= 4;
+                }
                 if (columns[i] >= 2 && RowElemCounter(rows, rows[i]) <= 2)
                 {
                     columns[i] -= 2;
@@ -605,6 +609,10 @@ namespace MakeReportWord
             for (int i = 0; i < titlepagePanel.Controls.Count; i++)
             {
                 if (columns[i] == 1 && RowElemCounter(rows, rows[i]) <= 2)
+                {
+                    titlepagePanel.SetColumnSpan(titlepagePanel.Controls[i], 5);
+                }
+                if (columns[i] == 3 && RowElemCounter(rows, rows[i]) <= 4)
                 {
                     titlepagePanel.SetColumnSpan(titlepagePanel.Controls[i], 3);
                 }
@@ -655,7 +663,7 @@ namespace MakeReportWord
             return newArray;
         }
 
-        Control[] CopyControls(TableLayoutPanel tableLayoutPanel, int[] rows, int[] columns)
+        Control[] CopyControls(TableLayoutPanel tableLayoutPanel, int[,] cell)
         {
             Control[] newArray = new Control[0];
             for (int i = 0; i < tableLayoutPanel.Controls.Count; i++)
@@ -728,7 +736,8 @@ namespace MakeReportWord
             else if (toolStripMenuItem.Text == "Лабораторная работа")
             {
                 this.Text = "Сотворение лабораторной работы из небытия";
-                ShowTitleElems(new int[] { 0, 1, 2, 3, 0, 1, 0, 1, 0, 1, 0, 1}, new int[] { 0, 0, 1, 1, 3, 3, 4, 4, 6, 6, 7, 7});
+                //ShowTitleElems(new int[][] { 0, 1, 2, 3, 0, 1, 0, 1, 0, 1, 0, 1}, new int[] { 0, 0, 1, 1, 3, 3, 4, 4, 6, 6, 7, 7});
+                ShowTitleElems(new int[,] { { 0, 0 }, { 1, 0 }, { 1, 1 }, { 0, 1 }, { 0, 3 }, { 1, 3 }, { 0, 4 }, { 1, 4 }, { 0, 6 }, { 1, 6 }, { 0, 7 }, { 1, 7 } });
             }
             else if (toolStripMenuItem.Text == "Практическая работа")
             {
@@ -737,6 +746,7 @@ namespace MakeReportWord
             else if (toolStripMenuItem.Text == "Курсовая работа")
             {
                 this.Text = "Сотворение курсовой работы из небытия";
+                ShowTitleElems(new int[] { 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 2, 3}, new int[] { 0, 0, 1, 1, 3, 3, 4, 4, 6, 6, 7, 7, 0, 0});
             }
             else if (toolStripMenuItem.Text == "Реферат")
             {
