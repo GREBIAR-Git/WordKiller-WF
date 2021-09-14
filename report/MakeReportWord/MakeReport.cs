@@ -135,6 +135,64 @@ namespace MakeReportWord
             MainPart(cont, content, numbering, fromNumbering);
         }
 
+        public void CreateReportKurs(string faculty, string students, string shifr, string theme, string discipline, string professor, string year, UserInput content, bool title, bool numbering, bool cont, string fromNumbering)
+        {
+            Beginning();
+            string text = "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
+            "РОССИЙСКОЙ ФЕДЕРАЦИИ" + SkipLine(1) +
+            "ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ" + SkipLine(1) +
+            "ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
+            "«ОРЛОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ" + SkipLine(1) +
+            "ИМЕНИ И.С.ТУРГЕНЕВА»" + SkipLine(3) +
+            "Кафедра " + faculty + SkipLine(3);
+            WriteTextWord(text);
+            PageMargin(2, 2, 3, 1.5f);
+            word.Font.Size = 14;
+            word.Font.Name = "Times New Roman";
+            word.Paragraphs.SpaceAfter = 0;
+            word.Paragraphs.Space1();
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+
+            text = "Работа допущена к защите" + SkipLine(1) + "______________Руководитель" + SkipLine(1) + "«____»_____________20___г.";
+            WriteTextWord(text);
+            word.Font.Size = 14;
+            word.Font.Bold = 0;
+            word.Paragraphs.LeftIndent = CentimetersToPoints((float)9.5);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpace1pt5;
+
+            text = SkipLine(3) + "КУРСОВАЯ РАБОТА";
+            WriteTextWord(text);
+            word.Font.Size = 14;
+            word.Font.Bold = 1;
+            word.Paragraphs.LeftIndent = 0;
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
+
+            text = SkipLine(1) + "по дисциплине: «" + discipline + "»" + SkipLine(1) + "на тему: «" + theme + "»" + SkipLine(2);
+            WriteTextWord(text);
+            word.Font.Size = 14;
+            word.Font.Bold = 0;
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpace1pt5;
+
+            text = "Студент _________________" + students + SkipLine(1) +
+                "Шифр " + shifr + SkipLine(1) +
+                "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
+                "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
+                "Группа: 92ПГ" + SkipLine(1) +
+                "Руководитель __________________" + professor + SkipLine(1) +
+                "Оценка: «________________»               Дата ______________";
+            WriteTextWord(text);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+
+            text = SkipLine(3) + "Орел, " + year;
+            WriteTextWord(text);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            PageBreak();
+            MainPart(cont, content, numbering, fromNumbering);
+        }
+
 
         void Beginning()
         {

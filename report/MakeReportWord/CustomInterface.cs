@@ -530,6 +530,8 @@ namespace MakeReportWord
             string discipline = disciplineTextBox.Text;
             string professor = professorComboBox.Text;
             string year = yearTextBox.Text;
+            string students = studentsTextBox.Text;
+            string shifr = shifrTextBox.Text;
             try
             {
                 if (TextMenuItem.Checked)
@@ -555,7 +557,7 @@ namespace MakeReportWord
                 }
                 else if (KursMenuItem.Checked)
                 {
-                    //await Task.Run(() => report.CreateReportKurs(faculty, numberLab, theme, discipline, professor, year, dataComboBox, TitleOffOnMenuItem.Checked, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
+                    await Task.Run(() => report.CreateReportKurs(faculty, students, shifr, theme, discipline, professor, year, dataComboBox, TitleOffOnMenuItem.Checked, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
                 }
                 else if (RefMenuItem.Checked)
                 {
