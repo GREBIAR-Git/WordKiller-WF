@@ -778,7 +778,7 @@ namespace MakeReportWord
             else if (toolStripMenuItem.Text == "Курсовая работа")
             {
                 this.Text = "Сотворение курсовой работы из небытия";
-                ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.6");
+                ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
             }
             else if (toolStripMenuItem.Text == "Реферат")
             {
