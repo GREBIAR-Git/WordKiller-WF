@@ -10,6 +10,8 @@ namespace MakeReportWord
         {
             this.BackColor = Color.FromArgb(255, 50, 39, 62);
             facultyLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
+            Students.BackColor = Color.FromArgb(255, 253, 219, 124);
+            Shifr.BackColor = Color.FromArgb(255, 253, 219, 124);
             numberLabLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
             themeLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
             disciplineLabel.BackColor = Color.FromArgb(255, 208, 117, 252);
