@@ -4,13 +4,14 @@ using Microsoft.Office.Interop.Word;
 
 namespace MakeReportWord
 {
-    
+
     class MakeReport
     {
         Document doc;
         Range word;
         bool pgBreak = false;
         char special = '☺';
+        Paragraphs old = null;
         public void CreateReportDocument(UserInput dataComboBox, bool numbering, bool content, string fromNumbering)
         {
             Beginning();
@@ -32,10 +33,12 @@ namespace MakeReportWord
             word.Paragraphs.SpaceAfter = 10;
             word.Font.Bold = 0;
 
-            text = "на тему: «" + theme + "»" + SkipLine(1) + "по дисциплине: «" + discipline + "»" + SkipLine(8); ;
+            text = "на тему: «" + theme + "»" + SkipLine(1) + "по дисциплине: «" + discipline + "»";
             WriteTextWord(text);
             word.Font.Size = 14;
             word.Paragraphs.SpaceAfter = 0;
+
+            SkipLinesSingle(7);
 
             text = "Выполнили: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
                 "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
@@ -47,8 +50,8 @@ namespace MakeReportWord
             text = "Проверил: " + professor;
             WriteTextWord(text);
             word.Paragraphs.SpaceAfter = 10;
-
-            text = SkipLine(1) + "Отметка о зачёте: ";
+            SkipLinesSingle(1);
+            text = "Отметка о зачёте: ";
             WriteTextWord(text);
             word.Paragraphs.SpaceAfter = 0;
 
@@ -56,10 +59,9 @@ namespace MakeReportWord
             WriteTextWord(text);
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
 
-            text = SkipLine(8) + "Орел, " + year;
-            WriteTextWord(text);
-            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-            PageBreak();
+            SkipLinesSingle(7);
+
+            Orel(year);
             MainPart(cont, content, numbering, fromNumbering);
         }
 
@@ -102,10 +104,8 @@ namespace MakeReportWord
             WriteTextWord(text);
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
 
-            text = SkipLine(8) + "Орел, " + year;
-            WriteTextWord(text);
-            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-            PageBreak();
+            SkipLinesSingle(7);
+            Orel(year);
             MainPart(cont, content, numbering, fromNumbering);
         }
 
@@ -157,20 +157,27 @@ namespace MakeReportWord
             WriteTextWord(text);
             word.Paragraphs.SpaceAfter = 12;
 
-            text  = "Оценка: «________________»               Дата ______________";
+            text = "Оценка: «________________»               Дата ______________";
             WriteTextWord(text);
             word.Paragraphs.SpaceAfter = 0;
 
-            text = SkipLine(1);
+            SkipLinesSingle(1);
+            Orel(year);
+            MainPart(cont, content, numbering, fromNumbering);
+        }
+
+        void SkipLinesSingle(int number)
+        {
+            if(word==null)
+            {
+                return;
+            }
+            old = word.Paragraphs;
+            string text = SkipLine(number);
             WriteTextWord(text);
             word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
-
-            text =  "Орел, " + year;
-            WriteTextWord(text);
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-            word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpace1pt5;
-            PageBreak();
-            MainPart(cont, content, numbering, fromNumbering);
+            word.Paragraphs.SpaceAfter = 0;
         }
 
         void Ministry(string faculty)
@@ -180,15 +187,27 @@ namespace MakeReportWord
             "ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ" + SkipLine(1) +
             "ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
             "«ОРЛОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ" + SkipLine(1) +
-            "ИМЕНИ И.С.ТУРГЕНЕВА»" + SkipLine(3) +
-            "Кафедра " + faculty + SkipLine(3);
+            "ИМЕНИ И.С.ТУРГЕНЕВА»";
             WriteTextWord(text);
             word.Font.Size = 14;
             word.Font.Name = "Times New Roman";
             word.Paragraphs.SpaceAfter = 0;
             word.Paragraphs.Space1();
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-                        PageMargin(2, 2, 3, 1.5f);
+            SkipLinesSingle(2);
+            text = "Кафедра " + faculty;
+            WriteTextWord(text);
+            SkipLinesSingle(2);
+            PageMargin(2, 2, 3, 1.5f);
+        }
+
+        void Orel(string year)
+        {
+            string text = "Орел, " + year;
+            WriteTextWord(text);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
+            PageBreak();
         }
 
         void Beginning()
@@ -342,6 +361,7 @@ namespace MakeReportWord
 
         void WriteTextWord(string text)
         {
+            
             Range wordTemp = doc.Range();
             int Length = wordTemp.Text.Length;
             if (word == null)
@@ -352,6 +372,12 @@ namespace MakeReportWord
             else
             {
                 word.Text += text;
+            }
+            if (old!= null)
+            {
+                word.Paragraphs.LineSpacingRule = old.LineSpacingRule;
+                word.Paragraphs.Alignment = old.Alignment;
+                old = null;
             }
             if(pgBreak)
             {
