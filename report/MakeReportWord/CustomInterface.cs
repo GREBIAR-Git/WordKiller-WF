@@ -19,6 +19,8 @@ namespace MakeReportWord
         public CustomInterface()
         {
             InitializeComponent();
+            SaveTitlePagePanelCells();
+            DEFAULTtitlepagePanelControls = CopyControls(titlepagePanel, 0, titlepagePanel.Controls.Count - 1);
             if (DefaultDocumentMenuItem.Checked)
             {
                 this.Text = "Сотворение документа из небытия";
@@ -26,6 +28,7 @@ namespace MakeReportWord
             else if (LabMenuItem.Checked)
             {
                 this.Text = "Сотворение лабораторной работы из небытия";
+                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
             }
             else if (PracticeMenuItem.Checked)
             {
@@ -592,8 +595,23 @@ namespace MakeReportWord
             Application.Exit();
         }
 
+        void SaveTitlePagePanelCells()
+        {
+            rows = new int[0]; columns = new int[0];
+            for (int i = 0; i < titlepagePanel.Controls.Count; i++)
+            {
+                rows = ArrayPushBack<int>(rows, titlepagePanel.GetCellPosition(titlepagePanel.Controls[i]).Row);
+                columns = ArrayPushBack<int>(columns, titlepagePanel.GetCellPosition(titlepagePanel.Controls[i]).Column);
+            }
+        }
+
+        Control[] DEFAULTtitlepagePanelControls; int[] rows; int[] columns;
         void ShowTitleElems(string cells)
         {
+            titlepagePanel.SuspendLayout();
+            titlepagePanel.Controls.Clear();
+            PushbackControls(DEFAULTtitlepagePanelControls, titlepagePanel, 0, DEFAULTtitlepagePanelControls.Length - 1, this.rows, this.columns);
+
             ShowAllChildControls(titlepagePanel);
             ResetAllChildColumnSpans(titlepagePanel);
             string[] column_row = cells.Split(' ');
@@ -629,6 +647,7 @@ namespace MakeReportWord
                     titlepagePanel.SetColumnSpan(titlepagePanel.Controls[i], 5);
                 }
             }
+            titlepagePanel.ResumeLayout();
         }
 
         void ShowAllChildControls(Control control)
@@ -772,6 +791,7 @@ namespace MakeReportWord
             else if (toolStripMenuItem.Text == "Лабораторная работа")
             {
                 this.Text = "Сотворение лабораторной работы из небытия";
+                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
             }
             else if (toolStripMenuItem.Text == "Практическая работа")
             {
