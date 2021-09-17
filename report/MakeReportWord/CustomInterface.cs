@@ -545,35 +545,8 @@ namespace MakeReportWord
                 {
                     dataComboBox.Text = text;
                 }
-
-                if (DefaultDocumentMenuItem.Checked)
-                {
-                    await Task.Run(() => report.CreateReportDocument(dataComboBox, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
-                }
-                else if (LabMenuItem.Checked)
-                {
-                    await Task.Run(() => report.CreateReportLab(faculty, numberLab, theme, discipline, professor, year, dataComboBox, TitleOffOnMenuItem.Checked, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
-                }
-                else if (PracticeMenuItem.Checked)
-                {
-                    await Task.Run(() => report.CreateReportPra(faculty, numberLab, theme, discipline, professor, year, dataComboBox, TitleOffOnMenuItem.Checked, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
-                }
-                else if (KursMenuItem.Checked)
-                {
-                    await Task.Run(() => report.CreateReportKurs(faculty, students, shifr, theme, discipline, professor, year, dataComboBox, TitleOffOnMenuItem.Checked, NumberingMenuItem.Checked, ContentMenuItem.Checked, FromNumberingTextBoxMenuItem.Text));
-                }
-                else if (RefMenuItem.Checked)
-                {
-                }
-                else if (DiplomMenuItem.Checked)
-                {
-                }
-                else if (VKRMenuItem.Checked)
-                {
-                }
-                else if (RGRMenuItem.Checked)
-                {
-                }
+                string[] titleData = new string[6];
+                await Task.Run(() => report.CreateReport(dataComboBox, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text),this.Text.ToString(), titleData));
             }
             catch
             {
