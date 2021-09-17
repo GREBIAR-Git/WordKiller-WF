@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
@@ -527,26 +528,26 @@ namespace MakeReportWord
         async void ReadScroll_Click(object sender, EventArgs e)
         {
             MakeReport report = new MakeReport();
-            string faculty = facultyComboBox.Text;
-            string numberLab = numberTextBox.Text;
-            string theme = themeTextBox.Text;
-            string discipline = disciplineTextBox.Text;
-            string professor = professorComboBox.Text;
-            string year = yearTextBox.Text;
-            string students = studentsTextBox.Text;
-            string shifr = shifrTextBox.Text;
+            if (TextMenuItem.Checked)
+            {
+                dataComboBox.Text = richTextBox.Text;
+            }
+            else
+            {
+                dataComboBox.Text = text;
+            }
+            List<string> titleData = new List<string>();
+            AddTitleData(facultyComboBox, ref titleData);
+            AddTitleData(numberTextBox, ref titleData);
+            AddTitleData(themeTextBox, ref titleData);
+            AddTitleData(disciplineTextBox, ref titleData);
+            AddTitleData(professorComboBox, ref titleData);
+            AddTitleData(yearTextBox, ref titleData);
+            AddTitleData(studentsTextBox, ref titleData);
+            AddTitleData(shifrTextBox, ref titleData);
             try
             {
-                if (TextMenuItem.Checked)
-                {
-                    dataComboBox.Text = richTextBox.Text;
-                }
-                else
-                {
-                    dataComboBox.Text = text;
-                }
-                string[] titleData = new string[6];
-                await Task.Run(() => report.CreateReport(dataComboBox, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text),this.Text.ToString(), titleData));
+                await Task.Run(() => report.CreateReport(dataComboBox, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text),this.Text.ToString(), titleData.ToArray()));
             }
             catch
             {
@@ -555,6 +556,15 @@ namespace MakeReportWord
             if (CloseWindow.Checked)
             {
                 Application.Exit();
+            }
+        }
+
+        void AddTitleData(Control control, ref List<string> titleData)
+        {
+            //что-то вместо visible
+            if (control.Visible)
+            {
+                titleData.Add(control.Text);
             }
         }
 
