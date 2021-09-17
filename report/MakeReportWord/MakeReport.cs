@@ -11,7 +11,6 @@ namespace MakeReportWord
         Range word;
         bool pgBreak = false;
         char special = '☺';
-        Paragraphs old = null;
         public void CreateReportDocument(UserInput dataComboBox, bool numbering, bool content, string fromNumbering)
         {
             Beginning();
@@ -53,6 +52,7 @@ namespace MakeReportWord
             SkipLinesSingle(1);
             text = "Отметка о зачёте: ";
             WriteTextWord(text);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
             word.Paragraphs.SpaceAfter = 0;
 
             text = "Дата: «____» __________ " + year + "г.";
@@ -99,6 +99,7 @@ namespace MakeReportWord
             text = SkipLine(1) + "Отметка о зачёте: ";
             WriteTextWord(text);
             word.Paragraphs.SpaceAfter = 0;
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
 
             text = "Дата: «____» __________ " + year + "г.";
             WriteTextWord(text);
@@ -172,7 +173,6 @@ namespace MakeReportWord
             {
                 return;
             }
-            old = word.Paragraphs;
             string text = SkipLine(number);
             WriteTextWord(text);
             word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
@@ -372,12 +372,6 @@ namespace MakeReportWord
             else
             {
                 word.Text += text;
-            }
-            if (old!= null)
-            {
-                word.Paragraphs.LineSpacingRule = old.LineSpacingRule;
-                word.Paragraphs.Alignment = old.Alignment;
-                old = null;
             }
             if(pgBreak)
             {
