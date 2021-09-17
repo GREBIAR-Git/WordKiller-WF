@@ -660,16 +660,6 @@ namespace MakeReportWord
             return counter;
         }
 
-        T[] CopyArray<T>(T[] array, int startElem, int endElem)
-        {
-            T[] newArray = new T[array.Length];
-            for (int i = startElem; i <= endElem; i++)
-            {
-                newArray[i] = array[i];
-            }
-            return newArray;
-        }
-
         Control[] CopyControls(TableLayoutPanel tableLayoutPanel, int startElem, int endElem)
         {
             Control[] newArray = new Control[tableLayoutPanel.Controls.Count];

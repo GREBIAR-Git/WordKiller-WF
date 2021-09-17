@@ -11,7 +11,7 @@ namespace MakeReportWord
         bool pgBreak = false;
         char special = '☺';
 
-        public void CreateReport(UserInput dataMainPart, bool numbering, bool content,bool title, int fromNumbering,string typeDocument, string[] dataTitle)
+        public void CreateReport(UserInput dataMainPart, bool numbering, bool content,bool title, int fromNumbering, string typeDocument, string[] dataTitle)
         {
             Beginning();
             if(title)
