@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,6 +16,7 @@ namespace MakeReportWord
         ToolStripMenuItem DownPanelMI;
         UserInput dataComboBox;
         WindowSize wndSize;
+
         public CustomInterface()
         {
             InitializeComponent();
@@ -24,41 +24,48 @@ namespace MakeReportWord
             DEFAULTtitlepagePanelControls = CopyControls(titlepagePanel, 0, titlepagePanel.Controls.Count - 1);
             if (DefaultDocumentMenuItem.Checked)
             {
-                this.Text = "Сотворение документа из небытия";
+                TextHeader("документа");
             }
             else if (LabMenuItem.Checked)
             {
-                this.Text = "Сотворение лабораторной работы из небытия";
+                TextHeader("лабораторной работы");
                 ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
             }
             else if (PracticeMenuItem.Checked)
             {
-                this.Text = "Сотворение практической работы из небытия";
+                TextHeader("практической работы");
+                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
             }
             else if (KursMenuItem.Checked)
             {
-                this.Text = "Сотворение курсовой работы из небытия";
+                TextHeader("курсовой работы");
+                ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
             }
             else if (RefMenuItem.Checked)
             {
-                this.Text = "Сотворение реферата из небытия";
+                TextHeader("реферата");
             }
             else if (DiplomMenuItem.Checked)
             {
-                this.Text = "Сотворение дипломной работы из небытия";
+                TextHeader("дипломной работы");
             }
             else if (VKRMenuItem.Checked)
             {
-                this.Text = "Сотворение ВКР из небытия";
+                TextHeader("ВКР");
             }
             else if (RGRMenuItem.Checked)
             {
-                this.Text = "Сотворение РГР из небытия";
+                TextHeader("РГР");
             }
             replaceMenu();
             menuLeftIndex = 1;
             wndSize = new WindowSize();
             dataComboBox = new UserInput();
+        }
+
+        void TextHeader(string type)
+        {
+            this.Text = "Сотворение " + type + " из небытия";
         }
 
         void buttonText_Click(object sender, EventArgs e)
@@ -759,37 +766,38 @@ namespace MakeReportWord
             }
             if (toolStripMenuItem.Text == "Обычный документ")
             {
-                this.Text = "Сотворение документа из небытия";
+                TextHeader("документа");
             }
             else if (toolStripMenuItem.Text == "Лабораторная работа")
             {
-                this.Text = "Сотворение лабораторной работы из небытия";
+                TextHeader("лабораторной работы");
                 ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
             }
             else if (toolStripMenuItem.Text == "Практическая работа")
             {
-                this.Text = "Сотворение практической работы из небытия";
+                TextHeader("практической работы");
+                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
             }
             else if (toolStripMenuItem.Text == "Курсовая работа")
             {
-                this.Text = "Сотворение курсовой работы из небытия";
+                TextHeader("курсовой работы");
                 ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
             }
             else if (toolStripMenuItem.Text == "Реферат")
             {
-                this.Text = "Сотворение реферата из небытия";
+                TextHeader("реферата");
             }
             else if (toolStripMenuItem.Text == "Дипломная работа")
             {
-                this.Text = "Сотворение дипломной работы из небытия";
+                TextHeader("дипломной работы");
             }
             else if (toolStripMenuItem.Text == "ВКР")
             {
-                this.Text = "Сотворение ВКР из небытия";
+                TextHeader("ВКР");
             }
             else if (toolStripMenuItem.Text == "РГР")
             {
-                this.Text = "Сотворение РГР из небытия";
+                TextHeader("РГР");
             }
             DefaultDocumentMenuItem.Checked = false;
             LabMenuItem.Checked = false;
