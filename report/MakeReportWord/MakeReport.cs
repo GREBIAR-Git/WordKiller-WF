@@ -21,6 +21,14 @@ namespace MakeReportWord
             MainPart(dataMainPart, content, numbering, fromNumbering);
         }
 
+        void Beginning()
+        {
+            Application app = new Application();
+            app.Visible = true;
+            doc = app.Documents.Add();
+            word = null;
+        }
+
         void TitlePart(string typeDocument,string[] dataTitle)
         {
             Ministry(dataTitle[0]);
@@ -41,7 +49,7 @@ namespace MakeReportWord
                 word.Font.Size = 14;
                 word.Paragraphs.SpaceAfter = 0;
 
-                SkipLinesSingle(7);
+                SkipLinesSingle(8);
 
                 text = "Выполнили: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
                     "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
@@ -53,7 +61,9 @@ namespace MakeReportWord
                 text = "Проверил: " + dataTitle[4];
                 WriteTextWord(text);
                 word.Paragraphs.SpaceAfter = 10;
-                SkipLinesSingle(0);
+
+                SkipLinesSingle(1);
+
                 text = "Отметка о зачёте: ";
                 WriteTextWord(text);
                 word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
@@ -63,7 +73,7 @@ namespace MakeReportWord
                 WriteTextWord(text);
                 word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
 
-                SkipLinesSingle(7);
+                SkipLinesSingle(8);
             }
             else if (typeDocument == "Сотворение практической работы из небытия")
             {
@@ -82,7 +92,7 @@ namespace MakeReportWord
                 word.Font.Size = 14;
                 word.Paragraphs.SpaceAfter = 0;
 
-                SkipLinesSingle(7);
+                SkipLinesSingle(8);
 
                 text = "Выполнили: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
                     "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
@@ -94,7 +104,9 @@ namespace MakeReportWord
                 text = "Проверил: " + dataTitle[4];
                 WriteTextWord(text);
                 word.Paragraphs.SpaceAfter = 10;
-                SkipLinesSingle(0);
+
+                SkipLinesSingle(1);
+
                 text = "Отметка о зачёте: ";
                 WriteTextWord(text);
                 word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
@@ -104,7 +116,7 @@ namespace MakeReportWord
                 WriteTextWord(text);
                 word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
 
-                SkipLinesSingle(7);
+                SkipLinesSingle(8);
             }
             else if (typeDocument == "Сотворение курсовой работы из небытия")
             {
@@ -135,9 +147,7 @@ namespace MakeReportWord
                 WriteTextWord(text);
                 word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpace1pt5;
 
-                text = SkipLine(1);
-                WriteTextWord(text);
-                word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
+                SkipLinesSingle(2);
 
                 text = "Студент _________________" + dataTitle[3] + SkipLine(1) +
                     "Шифр " + dataTitle[4] + SkipLine(1) +
@@ -156,7 +166,7 @@ namespace MakeReportWord
                 WriteTextWord(text);
                 word.Paragraphs.SpaceAfter = 0;
 
-                SkipLinesSingle(1);
+                SkipLinesSingle(2);
             }
             else if (typeDocument == "Сотворение реферата из небытия")
             {
@@ -173,19 +183,6 @@ namespace MakeReportWord
             Orel(dataTitle[dataTitle.Length-1]);
         }
 
-        void SkipLinesSingle(int number)
-        {
-            if(word==null)
-            {
-                return;
-            }
-            string text = SkipLine(number);
-            WriteTextWord(text);
-            word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
-            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-            word.Paragraphs.SpaceAfter = 0;
-        }
-
         void Ministry(string faculty)
         {
             string text = "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ" + SkipLine(1) +
@@ -200,10 +197,10 @@ namespace MakeReportWord
             word.Paragraphs.SpaceAfter = 0;
             word.Paragraphs.Space1();
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-            SkipLinesSingle(0);
+            SkipLinesSingle(2);
             text = "Кафедра " + faculty;
             WriteTextWord(text);
-            SkipLinesSingle(2);
+            SkipLinesSingle(3);
             PageMargin(2, 2, 3, 1.5f);
         }
 
@@ -214,14 +211,6 @@ namespace MakeReportWord
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
             word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
             PageBreak();
-        }
-
-        void Beginning()
-        {
-            Application app = new Application();
-            app.Visible = true;
-            doc = app.Documents.Add();
-            word = null;
         }
 
         void MainPart(UserInput content, bool cont, bool numbering, int fromNumbering)
@@ -509,6 +498,19 @@ namespace MakeReportWord
         float CentimetersToPoints(float cen)
         {
             return cen * 28.3465f;
+        }
+
+        void SkipLinesSingle(int number)
+        {
+            if (word == null)
+            {
+                return;
+            }
+            string text = SkipLine(number-1);
+            WriteTextWord(text);
+            word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            word.Paragraphs.SpaceAfter = 0;
         }
 
         string SkipLine(int quantity)
