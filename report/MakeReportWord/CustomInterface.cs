@@ -1276,14 +1276,19 @@ namespace MakeReportWord
             return pictureBox;
         }
 
-        void createTemplate(object sender)
+        void UnselectComboBoxes()
         {
-            Control control = (Control)sender;
-            for (int i = elementPanel.ColumnCount + 1; i < elementPanel.Controls.Count - 1; i++)
+            for (int i = elementPanel.ColumnCount - 1; i < elementPanel.Controls.Count - 1; i++)
             {
                 ComboBox cmbBox = (ComboBox)elementPanel.Controls[i];
                 cmbBox.SelectedIndex = -1;
             }
+        }
+
+        void createTemplate(object sender)
+        {
+            UnselectComboBoxes();
+            Control control = (Control)sender;
             if (control.Name == "Заголовок 1")
             {
                 richTextBox.Text = "☺h1☺\n\n☺Содержимое☺\n";
@@ -1424,11 +1429,7 @@ namespace MakeReportWord
         {
             if (e.KeyCode == Keys.Escape)
             {
-                for (int i = elementPanel.ColumnCount - 1; i < elementPanel.Controls.Count - 1; i++)
-                {
-                    ComboBox cmbBox = (ComboBox)elementPanel.Controls[i];
-                    cmbBox.SelectedIndex = -1;
-                }
+                UnselectComboBoxes();
             }
         }
 
