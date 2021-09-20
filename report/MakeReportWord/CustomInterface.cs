@@ -1424,7 +1424,7 @@ namespace MakeReportWord
         {
             if (e.KeyCode == Keys.Escape)
             {
-                for (int i = elementPanel.ColumnCount + 1; i < elementPanel.Controls.Count - 1; i++)
+                for (int i = elementPanel.ColumnCount - 1; i < elementPanel.Controls.Count - 1; i++)
                 {
                     ComboBox cmbBox = (ComboBox)elementPanel.Controls[i];
                     cmbBox.SelectedIndex = -1;

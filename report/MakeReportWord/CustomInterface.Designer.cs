@@ -31,6 +31,9 @@ namespace MakeReportWord
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomInterface));
             this.titlepagePanel = new System.Windows.Forms.TableLayoutPanel();
+            this.shifrTextBox = new System.Windows.Forms.TextBox();
+            this.studentsTextBox = new System.Windows.Forms.TextBox();
+            this.numberTextBox = new System.Windows.Forms.TextBox();
             this.Students = new System.Windows.Forms.Label();
             this.Shifr = new System.Windows.Forms.Label();
             this.facultyLabel = new System.Windows.Forms.Label();
@@ -105,9 +108,6 @@ namespace MakeReportWord
             this.VKRMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RGRMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.numberTextBox = new System.Windows.Forms.TextBox();
-            this.studentsTextBox = new System.Windows.Forms.TextBox();
-            this.shifrTextBox = new System.Windows.Forms.TextBox();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -169,6 +169,39 @@ namespace MakeReportWord
             this.titlepagePanel.Size = new System.Drawing.Size(1817, 521);
             this.titlepagePanel.TabIndex = 0;
             this.titlepagePanel.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.titlepagePanel_CellPaint);
+            // 
+            // shifrTextBox
+            // 
+            this.shifrTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.shifrTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shifrTextBox.Location = new System.Drawing.Point(1515, 92);
+            this.shifrTextBox.Margin = new System.Windows.Forms.Padding(6);
+            this.shifrTextBox.Name = "shifrTextBox";
+            this.shifrTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.shifrTextBox.Size = new System.Drawing.Size(250, 44);
+            this.shifrTextBox.TabIndex = 17;
+            // 
+            // studentsTextBox
+            // 
+            this.studentsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.studentsTextBox.Location = new System.Drawing.Point(483, 92);
+            this.studentsTextBox.Margin = new System.Windows.Forms.Padding(6);
+            this.studentsTextBox.Name = "studentsTextBox";
+            this.studentsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.studentsTextBox.Size = new System.Drawing.Size(246, 44);
+            this.studentsTextBox.TabIndex = 16;
+            // 
+            // numberTextBox
+            // 
+            this.numberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numberTextBox.Location = new System.Drawing.Point(999, 92);
+            this.numberTextBox.Margin = new System.Windows.Forms.Padding(6);
+            this.numberTextBox.Name = "numberTextBox";
+            this.numberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.numberTextBox.Size = new System.Drawing.Size(246, 44);
+            this.numberTextBox.TabIndex = 15;
             // 
             // Students
             // 
@@ -1118,7 +1151,7 @@ namespace MakeReportWord
             this.TitleOffOnMenuItem.Checked = true;
             this.TitleOffOnMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitleOffOnMenuItem.Name = "TitleOffOnMenuItem";
-            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(225, 34);
+            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(288, 34);
             this.TitleOffOnMenuItem.Text = "Титульник";
             this.TitleOffOnMenuItem.Click += new System.EventHandler(this.TitleOffOnMenuItem_Click);
             // 
@@ -1127,7 +1160,7 @@ namespace MakeReportWord
             this.NumberingMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FromNumberingTextBoxMenuItem});
             this.NumberingMenuItem.Name = "NumberingMenuItem";
-            this.NumberingMenuItem.Size = new System.Drawing.Size(225, 34);
+            this.NumberingMenuItem.Size = new System.Drawing.Size(288, 34);
             this.NumberingMenuItem.Text = "Нумерация";
             this.NumberingMenuItem.Click += new System.EventHandler(this.NumberingMenuItem_Click);
             // 
@@ -1150,7 +1183,7 @@ namespace MakeReportWord
             this.VKRMenuItem,
             this.RGRMenuItem});
             this.TypeMenuItem.Name = "TypeMenuItem";
-            this.TypeMenuItem.Size = new System.Drawing.Size(225, 34);
+            this.TypeMenuItem.Size = new System.Drawing.Size(288, 34);
             this.TypeMenuItem.Text = "Тип";
             // 
             // DefaultDocumentMenuItem
@@ -1215,42 +1248,9 @@ namespace MakeReportWord
             // ContentMenuItem
             // 
             this.ContentMenuItem.Name = "ContentMenuItem";
-            this.ContentMenuItem.Size = new System.Drawing.Size(225, 34);
+            this.ContentMenuItem.Size = new System.Drawing.Size(288, 34);
             this.ContentMenuItem.Text = "Содержание";
             this.ContentMenuItem.Click += new System.EventHandler(this.ContentMenuItem_Click);
-            // 
-            // numberTextBox
-            // 
-            this.numberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numberTextBox.Location = new System.Drawing.Point(999, 92);
-            this.numberTextBox.Margin = new System.Windows.Forms.Padding(6);
-            this.numberTextBox.Name = "numberTextBox";
-            this.numberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.numberTextBox.Size = new System.Drawing.Size(246, 44);
-            this.numberTextBox.TabIndex = 15;
-            // 
-            // studentsTextBox
-            // 
-            this.studentsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.studentsTextBox.Location = new System.Drawing.Point(483, 92);
-            this.studentsTextBox.Margin = new System.Windows.Forms.Padding(6);
-            this.studentsTextBox.Name = "studentsTextBox";
-            this.studentsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.studentsTextBox.Size = new System.Drawing.Size(246, 44);
-            this.studentsTextBox.TabIndex = 16;
-            // 
-            // shifrTextBox
-            // 
-            this.shifrTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.shifrTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shifrTextBox.Location = new System.Drawing.Point(1515, 92);
-            this.shifrTextBox.Margin = new System.Windows.Forms.Padding(6);
-            this.shifrTextBox.Name = "shifrTextBox";
-            this.shifrTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.shifrTextBox.Size = new System.Drawing.Size(250, 44);
-            this.shifrTextBox.TabIndex = 17;
             // 
             // CustomInterface
             // 
