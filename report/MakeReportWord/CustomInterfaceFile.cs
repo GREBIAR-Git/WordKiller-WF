@@ -16,9 +16,8 @@ namespace MakeReportWord
                 ClearGlobal();
                 FileStream file = new FileStream(openFileDialog.FileName, FileMode.Open);
                 StreamReader reader = new StreamReader(file);
-                //try
-                //{
-
+                try
+                {
                     string data = reader.ReadToEnd();
                     for (int i = 1; i < data.Length; i++)
                     {
@@ -130,11 +129,11 @@ namespace MakeReportWord
                             }
                         }
                     }
-               /* }
+                }
                 catch
                 {
                     MessageBox.Show("Файл повреждён");
-                }*/
+                }
                 reader.Close();
             }
         }
