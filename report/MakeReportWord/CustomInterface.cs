@@ -16,8 +16,7 @@ namespace MakeReportWord
         ToolStripMenuItem DownPanelMI;
         DataComboBox dataComboBox;
         WindowSize wndSize;
-
-        public CustomInterface()
+        public CustomInterface(string[] fileName)
         {
             InitializeComponent();
             SaveTitlePagePanelCells();
@@ -61,6 +60,17 @@ namespace MakeReportWord
             menuLeftIndex = 1;
             wndSize = new WindowSize();
             dataComboBox = new DataComboBox();
+            if(fileName.Length > 0)
+            {
+                if (fileName[0].EndsWith(".wordkiller") && System.IO.File.Exists(fileName[0]))
+                {
+                    OpenWordKiller(fileName[0]);
+                }
+                else
+                {
+                    throw new Exception("Ошибка открытия файла:\nФайл не найден или формат не поддерживается");
+                }
+            }
         }
 
         void TextHeader(string type)

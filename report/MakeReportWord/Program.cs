@@ -12,11 +12,11 @@ namespace MakeReportWord
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] str)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CustomInterface());
+            Application.Run(new CustomInterface(str));
         }
     }
 }

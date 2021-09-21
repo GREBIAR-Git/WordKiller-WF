@@ -13,110 +13,116 @@ namespace MakeReportWord
             openFileDialog.Filter = "|*.wordkiller;";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                ClearGlobal();
-                FileStream file = new FileStream(openFileDialog.FileName, FileMode.Open);
-                StreamReader reader = new StreamReader(file);
-                try
-                {
-                    string data = reader.ReadToEnd();
-                    for (int i = 1; i < data.Length; i++)
-                    {
-                        if (data[i - 1] == '\r')
-                        {
-                            data = data.Remove(i, 1);
-                        }
-                    }
-                    string[] lines = data.Split('\r');
+                OpenWordKiller(openFileDialog.FileName);
+            }
+        }
 
-                    bool readingText = false;
-                    List<Control> controls = new List<Control>();
-                    foreach(string line in lines)
-                    { 
-                        if (line.StartsWith("☺TextStart☺"))
+        void OpenWordKiller(string fileName)
+        {
+            ClearGlobal();
+            FileStream file = new FileStream(fileName, FileMode.Open);
+            StreamReader reader = new StreamReader(file);
+            try
+            {
+                string data = reader.ReadToEnd();
+                for (int i = 1; i < data.Length; i++)
+                {
+                    if (data[i - 1] == '\r')
+                    {
+                        data = data.Remove(i, 1);
+                    }
+                }
+                string[] lines = data.Split('\r');
+
+                bool readingText = false;
+                List<Control> controls = new List<Control>();
+                foreach (string line in lines)
+                {
+                    if (line.StartsWith("☺TextStart☺"))
+                    {
+                        readingText = true;
+                    }
+                    else if (readingText)
+                    {
+                        if (line.StartsWith("☺TextEnd☺"))
                         {
-                            readingText = true;
-                        }
-                        else if (readingText)
-                        {
-                            if (line.StartsWith("☺TextEnd☺"))
-                            {
-                                readingText = false;
-                            }
-                            else
-                            {
-                                text += line + "\n";
-                            }
+                            readingText = false;
                         }
                         else
                         {
-                            string[] variable_value = line.Split('☺');
-                            if(variable_value.Length == 2)
+                            text += line + "\n";
+                        }
+                    }
+                    else
+                    {
+                        string[] variable_value = line.Split('☺');
+                        if (variable_value.Length == 2)
+                        {
+                            if (variable_value[0].StartsWith("TypeMenuItem"))
                             {
-                                if (variable_value[0].StartsWith("TypeMenuItem"))
+                                
+                                work_Click(TypeMenuItem.DropDown.Items.Find(variable_value[1], false)[0], new EventArgs());
+                                foreach (Control control in titlepagePanel.Controls)
                                 {
-                                    work_Click(TypeMenuItem.DropDown.Items.Find(variable_value[1], false)[0], e);
-                                    foreach (Control control in titlepagePanel.Controls)
-                                    {
-                                        controls.Add(control);
-                                    }
-                                }
-                                for (int i=0;i<controls.Count;i++)
-                                {
-                                    if (LoadingOfTwo(variable_value, controls[i]))
-                                    {
-                                        controls.RemoveAt(i);
-                                        break;
-                                    }
+                                    controls.Add(control);
                                 }
                             }
-                            else if (variable_value.Length == 3)
+                            for (int i = 0; i < controls.Count; i++)
                             {
-                                if (variable_value[0].StartsWith("h1ComboBox"))
+                                if (LoadingOfTwo(variable_value, controls[i]))
                                 {
-                                    h1ComboBox.Items.Add(variable_value[1]);
-                                    string[] str = new string[] { variable_value[1], variable_value[2]};
-                                    dataComboBox.ComboBoxH1.Add(str);
+                                    controls.RemoveAt(i);
+                                    break;
                                 }
-                                else if (variable_value[0].StartsWith("h2ComboBox"))
-                                {
-                                    h2ComboBox.Items.Add(variable_value[1]);
-                                    string[] str = new string[] { variable_value[1], variable_value[2] };
-                                    dataComboBox.ComboBoxH2.Add(str);
-                                }
-                                else if (variable_value[0].StartsWith("lComboBox"))
-                                {
-                                    lComboBox.Items.Add(variable_value[1]);
-                                    string[] str = new string[] { variable_value[1], variable_value[2] };
-                                    dataComboBox.ComboBoxL.Add(str);
-                                }
-                                else if (variable_value[0].StartsWith("pComboBox"))
-                                {
-                                    pComboBox.Items.Add(variable_value[1]);
-                                    string[] str = new string[] { variable_value[1], variable_value[2] };
-                                    dataComboBox.ComboBoxP.Add(str);
-                                }
-                                else if (variable_value[0].StartsWith("tComboBox"))
-                                {
-                                    tComboBox.Items.Add(variable_value[1]);
-                                    string[] str = new string[] { variable_value[1], variable_value[2] };
-                                    dataComboBox.ComboBoxT.Add(str);
-                                }
-                                else if (variable_value[0].StartsWith("cComboBox"))
-                                {
-                                    cComboBox.Items.Add(variable_value[1]);
-                                    string[] str = new string[] { variable_value[1], variable_value[2] };
-                                    dataComboBox.ComboBoxC.Add(str);
-                                }
+                            }
+                        }
+                        else if (variable_value.Length == 3)
+                        {
+                            if (variable_value[0].StartsWith("h1ComboBox"))
+                            {
+                                h1ComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxH1.Add(str);
+                            }
+                            else if (variable_value[0].StartsWith("h2ComboBox"))
+                            {
+                                h2ComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxH2.Add(str);
+                            }
+                            else if (variable_value[0].StartsWith("lComboBox"))
+                            {
+                                lComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxL.Add(str);
+                            }
+                            else if (variable_value[0].StartsWith("pComboBox"))
+                            {
+                                pComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxP.Add(str);
+                            }
+                            else if (variable_value[0].StartsWith("tComboBox"))
+                            {
+                                tComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxT.Add(str);
+                            }
+                            else if (variable_value[0].StartsWith("cComboBox"))
+                            {
+                                cComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxC.Add(str);
                             }
                         }
                     }
                 }
-                catch
-                {
-                    MessageBox.Show("Файл повреждён");
-                }
-                reader.Close();
             }
+            catch
+            {
+                MessageBox.Show("Файл повреждён");
+            }
+            reader.Close();
         }
 
         bool LoadingOfTwo(string[] variable_value,Control control)
