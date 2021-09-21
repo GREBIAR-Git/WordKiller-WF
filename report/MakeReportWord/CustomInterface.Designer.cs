@@ -110,6 +110,10 @@ namespace MakeReportWord
             this.ContentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Misc = new System.Windows.Forms.ToolStripMenuItem();
             this.SetAsDefaultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьКакToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -1049,6 +1053,7 @@ namespace MakeReportWord
             this.ReadScroll,
             this.CloseWindow,
             this.Save,
+            this.сохранитьКакToolStripMenuItem,
             this.Open,
             this.Exit});
             this.File.Name = "File";
@@ -1065,6 +1070,7 @@ namespace MakeReportWord
             // CloseWindow
             // 
             this.CloseWindow.Name = "CloseWindow";
+            this.CloseWindow.ShortcutKeyDisplayString = "";
             this.CloseWindow.Size = new System.Drawing.Size(787, 34);
             this.CloseWindow.Text = "Разложить приложение на первоначальные элементы по завершении";
             this.CloseWindow.Click += new System.EventHandler(this.CloseWindow_Click);
@@ -1072,20 +1078,23 @@ namespace MakeReportWord
             // Save
             // 
             this.Save.Name = "Save";
+            this.Save.ShortcutKeyDisplayString = "Ctrl + S";
             this.Save.Size = new System.Drawing.Size(787, 34);
-            this.Save.Text = "Сохранение";
+            this.Save.Text = "Сохранить";
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // Open
             // 
             this.Open.Name = "Open";
+            this.Open.ShortcutKeyDisplayString = "Ctrl + O";
             this.Open.Size = new System.Drawing.Size(787, 34);
-            this.Open.Text = "Открытие";
+            this.Open.Text = "Открыть";
             this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
             // Exit
             // 
             this.Exit.Name = "Exit";
+            this.Exit.ShortcutKeyDisplayString = "Ctrl + Q";
             this.Exit.Size = new System.Drawing.Size(787, 34);
             this.Exit.Text = "Выход";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
@@ -1097,7 +1106,8 @@ namespace MakeReportWord
             this.File,
             this.View,
             this.Document,
-            this.Misc});
+            this.Misc,
+            this.справкаToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
@@ -1120,21 +1130,22 @@ namespace MakeReportWord
             this.TitlePageMenuItem.Checked = true;
             this.TitlePageMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitlePageMenuItem.Name = "TitlePageMenuItem";
-            this.TitlePageMenuItem.Size = new System.Drawing.Size(228, 34);
+            this.TitlePageMenuItem.ShortcutKeyDisplayString = "";
+            this.TitlePageMenuItem.Size = new System.Drawing.Size(288, 34);
             this.TitlePageMenuItem.Text = "Титульник";
             this.TitlePageMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // SubstitutionMenuItem
             // 
             this.SubstitutionMenuItem.Name = "SubstitutionMenuItem";
-            this.SubstitutionMenuItem.Size = new System.Drawing.Size(228, 34);
+            this.SubstitutionMenuItem.Size = new System.Drawing.Size(288, 34);
             this.SubstitutionMenuItem.Text = "Подстановка";
             this.SubstitutionMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // TextMenuItem
             // 
             this.TextMenuItem.Name = "TextMenuItem";
-            this.TextMenuItem.Size = new System.Drawing.Size(228, 34);
+            this.TextMenuItem.Size = new System.Drawing.Size(288, 34);
             this.TextMenuItem.Text = "Текст";
             this.TextMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
@@ -1268,7 +1279,34 @@ namespace MakeReportWord
             this.SetAsDefaultMenuItem.Name = "SetAsDefaultMenuItem";
             this.SetAsDefaultMenuItem.Size = new System.Drawing.Size(610, 34);
             this.SetAsDefaultMenuItem.Text = "Сделать приложением по умолчанию для .wordkiller";
-            this.SetAsDefaultMenuItem.Click += new System.EventHandler(this.SetAsDefaultMenuItem_Click);
+            // 
+            // сохранитьКакToolStripMenuItem
+            // 
+            this.сохранитьКакToolStripMenuItem.Name = "сохранитьКакToolStripMenuItem";
+            this.сохранитьКакToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl + Shift + S";
+            this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(787, 34);
+            this.сохранитьКакToolStripMenuItem.Text = "Сохранить как...";
+            // 
+            // справкаToolStripMenuItem
+            // 
+            this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.оToolStripMenuItem,
+            this.оПрограммеToolStripMenuItem});
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(105, 34);
+            this.справкаToolStripMenuItem.Text = "Справка";
+            // 
+            // оToolStripMenuItem
+            // 
+            this.оToolStripMenuItem.Name = "оToolStripMenuItem";
+            this.оToolStripMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.оToolStripMenuItem.Text = "Документация";
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // CustomInterface
             // 
@@ -1401,6 +1439,10 @@ namespace MakeReportWord
         private System.Windows.Forms.TextBox studentsTextBox;
         private System.Windows.Forms.ToolStripMenuItem Misc;
         private System.Windows.Forms.ToolStripMenuItem SetAsDefaultMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьКакToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem оToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
     }
 }
 
