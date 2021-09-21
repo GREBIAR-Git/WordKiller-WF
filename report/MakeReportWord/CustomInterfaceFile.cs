@@ -123,7 +123,7 @@ namespace MakeReportWord
         {
             if (variable_value[0].StartsWith(control.Name))
             {
-                this.Controls.Find(control.Name, true)[0].Text = variable_value[1];
+                control.Text = variable_value[1];
                 return true;
             }
             return false;
