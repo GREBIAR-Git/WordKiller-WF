@@ -11,7 +11,7 @@ namespace MakeReportWord
         bool pgBreak = false;
         char special = '☺';
 
-        public void CreateReport(UserInput dataMainPart, bool numbering, bool content,bool title, int fromNumbering, string typeDocument, string[] dataTitle)
+        public void CreateReport(DataComboBox dataMainPart, bool numbering, bool content,bool title, int fromNumbering, string typeDocument, string[] dataTitle)
         {
             Beginning();
             if(title)
@@ -213,7 +213,7 @@ namespace MakeReportWord
             PageBreak();
         }
 
-        void MainPart(UserInput content, bool cont, bool numbering, int fromNumbering)
+        void MainPart(DataComboBox content, bool cont, bool numbering, int fromNumbering)
         {
             if (cont)
             {
@@ -242,7 +242,7 @@ namespace MakeReportWord
             }
         }
 
-        void ProcessContent(UserInput content)
+        void ProcessContent(DataComboBox content)
         {
             int h1 = 1;
             int h2 = 1;
@@ -322,7 +322,7 @@ namespace MakeReportWord
             }
         }
 
-        string[] ProcessSpecial(int i, string special, UserInput content)
+        string[] ProcessSpecial(int i, string special, DataComboBox content)
         {
             string[] text = new string[2];
             if (special == "h1")

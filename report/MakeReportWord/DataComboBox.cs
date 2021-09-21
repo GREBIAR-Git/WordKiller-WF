@@ -2,7 +2,7 @@
 
 namespace MakeReportWord
 {
-    class UserInput
+    class DataComboBox
     {
         List<string[]> comboBoxH1, comboBoxH2, comboBoxL, comboBoxP, comboBoxT, comboBoxC;
         string text;
@@ -45,7 +45,7 @@ namespace MakeReportWord
         {
             return comboBoxH1.Count + comboBoxH2.Count + comboBoxL.Count + comboBoxP.Count + comboBoxT.Count + comboBoxC.Count;
         }
-        public UserInput()
+        public DataComboBox()
         {
             comboBoxH1 = new List<string[]>();
             comboBoxH2 = new List<string[]>();

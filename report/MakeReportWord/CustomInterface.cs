@@ -14,7 +14,7 @@ namespace MakeReportWord
         string[] menuLabels;
         string fileNames;
         ToolStripMenuItem DownPanelMI;
-        UserInput dataComboBox;
+        DataComboBox dataComboBox;
         WindowSize wndSize;
 
         public CustomInterface()
@@ -60,7 +60,7 @@ namespace MakeReportWord
             replaceMenu();
             menuLeftIndex = 1;
             wndSize = new WindowSize();
-            dataComboBox = new UserInput();
+            dataComboBox = new DataComboBox();
         }
 
         void TextHeader(string type)
@@ -1422,7 +1422,6 @@ namespace MakeReportWord
                     }
                 }
             }
-            
         }
 
         private void CustomInterface_KeyDown(object sender, KeyEventArgs e)

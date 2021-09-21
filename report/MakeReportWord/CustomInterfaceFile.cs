@@ -29,63 +29,44 @@ namespace MakeReportWord
                     string[] lines = data.Split('\r');
 
                     bool readingText = false;
-                    for (int i = 0; i < lines.Length; i++)
-                    {
-                        if (lines[i].StartsWith("☺TextStart☺"))
+                    List<Control> controls = new List<Control>();
+                    foreach(string line in lines)
+                    { 
+                        if (line.StartsWith("☺TextStart☺"))
                         {
                             readingText = true;
                         }
                         else if (readingText)
                         {
-                            if (lines[i].StartsWith("☺TextEnd☺"))
+                            if (line.StartsWith("☺TextEnd☺"))
                             {
                                 readingText = false;
                             }
                             else
                             {
-                                text += lines[i] + "\n";
+                                text += line + "\n";
                             }
                         }
                         else
                         {
-                            string[] variable_value = lines[i].Split('☺');
+                            string[] variable_value = line.Split('☺');
                             if(variable_value.Length == 2)
                             {
-                                if (variable_value[0].StartsWith("facultyComboBox"))
-                                {
-                                    facultyComboBox.SelectedItem = variable_value[1];
-                                }
-                                else if (variable_value[0].StartsWith("numberLabTextBox.Text"))
-                                {
-                                    numberTextBox.Text = variable_value[1];
-                                }
-                                else if (variable_value[0].StartsWith("themeTextBox.Text"))
-                                {
-                                    themeTextBox.Text = variable_value[1];
-                                }
-                                else if (variable_value[0].StartsWith("disciplineTextBox.Text"))
-                                {
-                                    disciplineTextBox.Text = variable_value[1];
-                                }
-                                else if (variable_value[0].StartsWith("professorTextBox.Text"))
-                                {
-                                    professorComboBox.Text = variable_value[1];
-                                }
-                                else if (variable_value[0].StartsWith("yearTextBox.Text"))
-                                {
-                                    yearTextBox.Text = variable_value[1];
-                                }
-                                else if (variable_value[0].StartsWith("shifrTextBox.Text"))
-                                {
-                                    shifrTextBox.Text = variable_value[1];
-                                }
-                                else if (variable_value[0].StartsWith("studentsTextBox.Text"))
-                                {
-                                    studentsTextBox.Text = variable_value[1];
-                                }
-                                else if (variable_value[0].StartsWith("TypeMenuItem"))
+                                if (variable_value[0].StartsWith("TypeMenuItem"))
                                 {
                                     work_Click(TypeMenuItem.DropDown.Items.Find(variable_value[1], false)[0], e);
+                                    foreach (Control control in titlepagePanel.Controls)
+                                    {
+                                        controls.Add(control);
+                                    }
+                                }
+                                for (int i=0;i<controls.Count;i++)
+                                {
+                                    if (LoadingOfTwo(variable_value, controls[i]))
+                                    {
+                                        controls.RemoveAt(i);
+                                        break;
+                                    }
                                 }
                             }
                             else if (variable_value.Length == 3)
@@ -138,6 +119,16 @@ namespace MakeReportWord
             }
         }
 
+        bool LoadingOfTwo(string[] variable_value,Control control)
+        {
+            if (variable_value[0].StartsWith(control.Name))
+            {
+                this.Controls.Find(control.Name, true)[0].Text = variable_value[1];
+                return true;
+            }
+            return false;
+        }
+
         void Save_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -153,14 +144,14 @@ namespace MakeReportWord
                         output.WriteLine("TypeMenuItem☺" + item.Name.ToString());
                     }
                 }
-                output.WriteLine("facultyComboBox☺" + facultyComboBox.SelectedItem.ToString());
-                output.WriteLine("numberLabTextBox.Text☺" + numberTextBox.Text);
-                output.WriteLine("themeTextBox.Text☺" + themeTextBox.Text);
-                output.WriteLine("disciplineTextBox.Text☺" + disciplineTextBox.Text);
-                output.WriteLine("professorTextBox.Text☺" + professorComboBox.Text);
-                output.WriteLine("yearTextBox.Text☺" + yearTextBox.Text);
-                output.WriteLine("shifrTextBox.Text☺" + shifrTextBox.Text);
-                output.WriteLine("studentsTextBox.Text☺" + studentsTextBox.Text);
+                output.WriteLine("facultyComboBox☺" + facultyComboBox.Text);
+                output.WriteLine("numberTextBox☺" + numberTextBox.Text);
+                output.WriteLine("themeTextBox☺" + themeTextBox.Text);
+                output.WriteLine("disciplineTextBox☺" + disciplineTextBox.Text);
+                output.WriteLine("professorComboBox☺" + professorComboBox.Text);
+                output.WriteLine("yearTextBox☺" + yearTextBox.Text);
+                output.WriteLine("shifrTextBox☺" + shifrTextBox.Text);
+                output.WriteLine("studentsTextBox☺" + studentsTextBox.Text);
                 SaveCombobox(output, h1ComboBox, dataComboBox.ComboBoxH1);
                 SaveCombobox(output, h2ComboBox, dataComboBox.ComboBoxH2);
                 SaveCombobox(output, lComboBox, dataComboBox.ComboBoxL);
@@ -186,7 +177,7 @@ namespace MakeReportWord
 
         void ClearGlobal()
         {
-            dataComboBox = new UserInput();
+            dataComboBox = new DataComboBox();
             for (int i = elementPanel.ColumnCount - 1; i < elementPanel.Controls.Count - 1; i++)
             {
                 ComboBox cmbBox = (ComboBox)elementPanel.Controls[i];

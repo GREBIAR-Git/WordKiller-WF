@@ -80,7 +80,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="StringArraySearcher.cs" />
-    <Compile Include="UserInput.cs" />
+    <Compile Include="DataComboBox.cs" />
     <Compile Include="WindowSize.cs" />
     <EmbeddedResource Include="CustomInterface.resx">
       <DependentUpon>CustomInterface.cs</DependentUpon>
