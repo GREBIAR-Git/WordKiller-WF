@@ -108,6 +108,8 @@ namespace MakeReportWord
             this.VKRMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RGRMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Misc = new System.Windows.Forms.ToolStripMenuItem();
+            this.SetAsDefaultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -1094,7 +1096,8 @@ namespace MakeReportWord
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.File,
             this.View,
-            this.Document});
+            this.Document,
+            this.Misc});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
@@ -1151,7 +1154,7 @@ namespace MakeReportWord
             this.TitleOffOnMenuItem.Checked = true;
             this.TitleOffOnMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitleOffOnMenuItem.Name = "TitleOffOnMenuItem";
-            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(225, 34);
+            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(288, 34);
             this.TitleOffOnMenuItem.Text = "Титульник";
             this.TitleOffOnMenuItem.Click += new System.EventHandler(this.TitleOffOnMenuItem_Click);
             // 
@@ -1160,7 +1163,7 @@ namespace MakeReportWord
             this.NumberingMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FromNumberingTextBoxMenuItem});
             this.NumberingMenuItem.Name = "NumberingMenuItem";
-            this.NumberingMenuItem.Size = new System.Drawing.Size(225, 34);
+            this.NumberingMenuItem.Size = new System.Drawing.Size(288, 34);
             this.NumberingMenuItem.Text = "Нумерация";
             this.NumberingMenuItem.Click += new System.EventHandler(this.NumberingMenuItem_Click);
             // 
@@ -1183,7 +1186,7 @@ namespace MakeReportWord
             this.VKRMenuItem,
             this.RGRMenuItem});
             this.TypeMenuItem.Name = "TypeMenuItem";
-            this.TypeMenuItem.Size = new System.Drawing.Size(225, 34);
+            this.TypeMenuItem.Size = new System.Drawing.Size(288, 34);
             this.TypeMenuItem.Text = "Тип";
             // 
             // DefaultDocumentMenuItem
@@ -1248,9 +1251,24 @@ namespace MakeReportWord
             // ContentMenuItem
             // 
             this.ContentMenuItem.Name = "ContentMenuItem";
-            this.ContentMenuItem.Size = new System.Drawing.Size(225, 34);
+            this.ContentMenuItem.Size = new System.Drawing.Size(288, 34);
             this.ContentMenuItem.Text = "Содержание";
             this.ContentMenuItem.Click += new System.EventHandler(this.ContentMenuItem_Click);
+            // 
+            // Misc
+            // 
+            this.Misc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SetAsDefaultMenuItem});
+            this.Misc.Name = "Misc";
+            this.Misc.Size = new System.Drawing.Size(92, 34);
+            this.Misc.Text = "Разное";
+            // 
+            // SetAsDefaultMenuItem
+            // 
+            this.SetAsDefaultMenuItem.Name = "SetAsDefaultMenuItem";
+            this.SetAsDefaultMenuItem.Size = new System.Drawing.Size(610, 34);
+            this.SetAsDefaultMenuItem.Text = "Сделать приложением по умолчанию для .wordkiller";
+            this.SetAsDefaultMenuItem.Click += new System.EventHandler(this.SetAsDefaultMenuItem_Click);
             // 
             // CustomInterface
             // 
@@ -1381,6 +1399,8 @@ namespace MakeReportWord
         private System.Windows.Forms.TextBox numberTextBox;
         private System.Windows.Forms.TextBox shifrTextBox;
         private System.Windows.Forms.TextBox studentsTextBox;
+        private System.Windows.Forms.ToolStripMenuItem Misc;
+        private System.Windows.Forms.ToolStripMenuItem SetAsDefaultMenuItem;
     }
 }
 
