@@ -385,15 +385,6 @@ namespace MakeReportWord
             return false;
         }
 
-        private void Paste()
-        {
-            if (Clipboard.ContainsText(TextDataFormat.Rtf))
-            {
-                richTextBox.Rtf = Clipboard.GetText(TextDataFormat.Rtf);
-
-            }
-        }
-
         void AddToComboBox(ComboBox comboBox, System.Collections.Generic.List<string[]> saveComboBox, string[] strData)
         {
             string str = richTextBox.Text.Split('\n')[1];
@@ -554,14 +545,7 @@ namespace MakeReportWord
                 dataComboBox.Text = text;
             }
             List<string> titleData = new List<string>();
-            AddTitleData(facultyComboBox, ref titleData);
-            AddTitleData(numberTextBox, ref titleData);
-            AddTitleData(themeTextBox, ref titleData);
-            AddTitleData(disciplineTextBox, ref titleData);
-            AddTitleData(professorComboBox, ref titleData);
-            AddTitleData(yearTextBox, ref titleData);
-            AddTitleData(studentsTextBox, ref titleData);
-            AddTitleData(shifrTextBox, ref titleData);
+            AddTitleData(ref titleData);
             try
             {
                 await Task.Run(() => report.CreateReport(dataComboBox, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text),this.Text.ToString(), titleData.ToArray()));
@@ -576,12 +560,14 @@ namespace MakeReportWord
             }
         }
 
-        void AddTitleData(Control control, ref List<string> titleData)
+        void AddTitleData(ref List<string> titleData)
         {
-            //что-то вместо visible
-            if (control.Visible)
+            foreach (Control control in titlepagePanel.Controls)
             {
-                titleData.Add(control.Text);
+                if(control.GetType().ToString() != "System.Windows.Forms.Label")
+                {
+                    titleData.Add(control.Text);
+                }
             }
         }
 
