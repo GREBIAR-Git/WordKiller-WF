@@ -1143,7 +1143,7 @@ namespace MakeReportWord
             this.TitleOffOnMenuItem.Checked = true;
             this.TitleOffOnMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitleOffOnMenuItem.Name = "TitleOffOnMenuItem";
-            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(180, 22);
             this.TitleOffOnMenuItem.Text = "Титульник";
             this.TitleOffOnMenuItem.Click += new System.EventHandler(this.TitleOffOnMenuItem_Click);
             // 
@@ -1152,7 +1152,7 @@ namespace MakeReportWord
             this.NumberingMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FromNumberingTextBoxMenuItem});
             this.NumberingMenuItem.Name = "NumberingMenuItem";
-            this.NumberingMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.NumberingMenuItem.Size = new System.Drawing.Size(180, 22);
             this.NumberingMenuItem.Text = "Нумерация";
             this.NumberingMenuItem.Click += new System.EventHandler(this.NumberingMenuItem_Click);
             // 
@@ -1176,7 +1176,7 @@ namespace MakeReportWord
             this.VKRMenuItem,
             this.RGRMenuItem});
             this.TypeMenuItem.Name = "TypeMenuItem";
-            this.TypeMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.TypeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.TypeMenuItem.Text = "Тип";
             // 
             // DefaultDocumentMenuItem
@@ -1184,7 +1184,6 @@ namespace MakeReportWord
             this.DefaultDocumentMenuItem.Name = "DefaultDocumentMenuItem";
             this.DefaultDocumentMenuItem.Size = new System.Drawing.Size(194, 22);
             this.DefaultDocumentMenuItem.Text = "Обычный документ";
-            this.DefaultDocumentMenuItem.CheckedChanged += new System.EventHandler(this.DefaultDocumentMenuItem_CheckedChanged);
             this.DefaultDocumentMenuItem.Click += new System.EventHandler(this.work_Click);
             // 
             // LabMenuItem
@@ -1241,7 +1240,7 @@ namespace MakeReportWord
             // ContentMenuItem
             // 
             this.ContentMenuItem.Name = "ContentMenuItem";
-            this.ContentMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.ContentMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ContentMenuItem.Text = "Содержание";
             this.ContentMenuItem.Click += new System.EventHandler(this.ContentMenuItem_Click);
             // 

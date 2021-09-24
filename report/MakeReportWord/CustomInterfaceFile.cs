@@ -63,11 +63,14 @@ namespace MakeReportWord
                             if (variable_value[0].StartsWith("TypeMenuItem"))
                             {
                                 work_Click(TypeMenuItem.DropDown.Items.Find(variable_value[1], false)[0], new EventArgs());
-                                foreach (Control control in titlepagePanel.Controls)
+                                if(variable_value[1]!="DefaultDocumentMenuItem")
                                 {
-                                    if (control.GetType().ToString() != "System.Windows.Forms.Label")
+                                    foreach (Control control in titlepagePanel.Controls)
                                     {
-                                        controls.Add(control);
+                                        if (control.GetType().ToString() != "System.Windows.Forms.Label")
+                                        {
+                                            controls.Add(control);
+                                        }
                                     }
                                 }
                             }

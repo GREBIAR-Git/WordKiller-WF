@@ -60,8 +60,10 @@ namespace MakeReportWord
             menuLeftIndex = 1;
             wndSize = new WindowSize();
             dataComboBox = new DataComboBox();
-            if(fileName.Length > 0)
+            this.Text = "!" + fileName[0] + "!";
+            if (fileName.Length > 0)
             {
+                this.Text = "!"+fileName[0]+"!";
                 if (fileName[0].EndsWith(".wordkiller") && System.IO.File.Exists(fileName[0]))
                 {
                     OpenWordKiller(fileName[0]);
@@ -683,7 +685,7 @@ namespace MakeReportWord
             return newArray;
         }
 
-        T[] ArrayPushBack<T>(T[] array, T element)
+        public static T[] ArrayPushBack<T>(T[] array, T element)
         {
             T[] newArray = new T[array.Length + 1];
             for (int i = 0; i < array.Length; i++)
@@ -762,6 +764,8 @@ namespace MakeReportWord
             if (toolStripMenuItem.Text == "Обычный документ")
             {
                 TextHeader("документа");
+                TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
+                ShowingTitelPanel();
             }
             else if (toolStripMenuItem.Text == "Лабораторная работа")
             {
@@ -943,7 +947,10 @@ namespace MakeReportWord
                 UpdateTypeButton();
                 richTextBox.Focus();
             }
-            MenuItem.Checked = true;
+            if(MenuItem!=null)
+            {
+                MenuItem.Checked = true;
+            }
         }
 
         void refreshMenu()
@@ -1371,12 +1378,6 @@ namespace MakeReportWord
             TitlePageMenuItem.Visible = !TitleOffOnMenuItem.Checked;
             buttonUp.Visible = !TitleOffOnMenuItem.Checked;
             TitleOffOnMenuItem.Checked = !TitleOffOnMenuItem.Checked;
-        }
-
-        void DefaultDocumentMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
-            ShowingTitelPanel();
         }
     }
 }
