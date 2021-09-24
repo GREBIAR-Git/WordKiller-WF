@@ -1305,6 +1305,17 @@ namespace MakeReportWord
             {
                 UnselectComboBoxes();
             }
+            else if (e.KeyCode == Keys.S && Control.ModifierKeys == Keys.Control)
+            {
+                if (Control.ModifierKeys != Keys.Shift)
+                {
+                    Save_Click(sender, e);
+                }
+                else
+                {
+                    SaveAsMenuItem_Click(sender, e);
+                }
+            }
         }
 
         private void textPicturePanel_Paint(object sender, PaintEventArgs e)

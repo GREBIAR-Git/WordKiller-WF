@@ -151,7 +151,7 @@ namespace MakeReportWord
             }
         }
 
-        private void SaveAsMenuItem_Click(object sender, EventArgs e)
+        void SaveAsMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "|*.wordkiller;";
