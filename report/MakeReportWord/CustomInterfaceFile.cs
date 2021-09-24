@@ -7,6 +7,7 @@ namespace MakeReportWord
 {
     public partial class CustomInterface
     {
+        string saveFileName = string.Empty;
         void Open_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -19,6 +20,7 @@ namespace MakeReportWord
 
         void OpenWordKiller(string fileName)
         {
+            saveFileName = fileName;
             ClearGlobal();
             FileStream file = new FileStream(fileName, FileMode.Open);
             StreamReader reader = new StreamReader(file);
@@ -139,41 +141,65 @@ namespace MakeReportWord
 
         void Save_Click(object sender, EventArgs e)
         {
+            if(!string.IsNullOrEmpty(saveFileName))
+            {
+                SaveWordKiller(saveFileName);
+            }
+            else
+            {
+                SaveAsMenuItem_Click(sender, e);
+            }
+        }
+
+        private void SaveAsMenuItem_Click(object sender, EventArgs e)
+        {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "|*.wordkiller;";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                FileStream fileStream = System.IO.File.Open(saveFileDialog.FileName, FileMode.Create);
-                StreamWriter output = new StreamWriter(fileStream);
-                foreach (ToolStripMenuItem item in TypeMenuItem.DropDown.Items)
-                {
-                    if (item.Checked)
-                    {
-                        output.WriteLine("TypeMenuItem☺" + item.Name.ToString());
-                    }
-                }
-                output.WriteLine("facultyComboBox☺" + facultyComboBox.Text);
-                output.WriteLine("numberTextBox☺" + numberTextBox.Text);
-                output.WriteLine("themeTextBox☺" + themeTextBox.Text);
-                output.WriteLine("disciplineTextBox☺" + disciplineTextBox.Text);
-                output.WriteLine("professorComboBox☺" + professorComboBox.Text);
-                output.WriteLine("yearTextBox☺" + yearTextBox.Text);
-                output.WriteLine("shifrTextBox☺" + shifrTextBox.Text);
-                output.WriteLine("studentsTextBox☺" + studentsTextBox.Text);
-                SaveCombobox(output, h1ComboBox, dataComboBox.ComboBoxH1);
-                SaveCombobox(output, h2ComboBox, dataComboBox.ComboBoxH2);
-                SaveCombobox(output, lComboBox, dataComboBox.ComboBoxL);
-                SaveCombobox(output, pComboBox, dataComboBox.ComboBoxP);
-                SaveCombobox(output, tComboBox, dataComboBox.ComboBoxT);
-                SaveCombobox(output, cComboBox, dataComboBox.ComboBoxC);
-
-                output.WriteLine("☺TextStart☺");
-                output.WriteLine(text);
-                output.WriteLine("☺TextEnd☺");
-
-                output.Close();
+                saveFileName = saveFileDialog.FileName;
+                SaveWordKiller(saveFileName);
             }
         }
+
+
+
+
+
+        void SaveWordKiller(string nameFile)
+        {
+            FileStream fileStream = System.IO.File.Open(nameFile, FileMode.Create);
+            StreamWriter output = new StreamWriter(fileStream);
+            foreach (ToolStripMenuItem item in TypeMenuItem.DropDown.Items)
+            {
+                if (item.Checked)
+                {
+                    output.WriteLine("TypeMenuItem☺" + item.Name.ToString());
+                }
+            }
+            output.WriteLine("facultyComboBox☺" + facultyComboBox.Text);
+            output.WriteLine("numberTextBox☺" + numberTextBox.Text);
+            output.WriteLine("themeTextBox☺" + themeTextBox.Text);
+            output.WriteLine("disciplineTextBox☺" + disciplineTextBox.Text);
+            output.WriteLine("professorComboBox☺" + professorComboBox.Text);
+            output.WriteLine("yearTextBox☺" + yearTextBox.Text);
+            output.WriteLine("shifrTextBox☺" + shifrTextBox.Text);
+            output.WriteLine("studentsTextBox☺" + studentsTextBox.Text);
+            SaveCombobox(output, h1ComboBox, dataComboBox.ComboBoxH1);
+            SaveCombobox(output, h2ComboBox, dataComboBox.ComboBoxH2);
+            SaveCombobox(output, lComboBox, dataComboBox.ComboBoxL);
+            SaveCombobox(output, pComboBox, dataComboBox.ComboBoxP);
+            SaveCombobox(output, tComboBox, dataComboBox.ComboBoxT);
+            SaveCombobox(output, cComboBox, dataComboBox.ComboBoxC);
+
+            output.WriteLine("☺TextStart☺");
+            output.WriteLine(text);
+            output.WriteLine("☺TextEnd☺");
+
+            output.Close();
+        }
+
+
 
         void SaveCombobox(StreamWriter output, ComboBox comboBox, List<string[]> Lstr)
         {
