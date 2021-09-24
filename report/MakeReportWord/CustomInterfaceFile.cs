@@ -162,10 +162,6 @@ namespace MakeReportWord
             }
         }
 
-
-
-
-
         void SaveWordKiller(string nameFile)
         {
             FileStream fileStream = System.IO.File.Open(nameFile, FileMode.Create);
@@ -198,8 +194,6 @@ namespace MakeReportWord
 
             output.Close();
         }
-
-
 
         void SaveCombobox(StreamWriter output, ComboBox comboBox, List<string[]> Lstr)
         {

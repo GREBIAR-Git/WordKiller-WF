@@ -739,7 +739,6 @@ namespace MakeReportWord
             return -1;
         }
 
-
         bool PushbackControls(Control[] controls, TableLayoutPanel tableLayoutPanel, int startElem, int endElem, int[] rows, int[] columns)
         {
             if (columns.Length != rows.Length || columns.Length < endElem - startElem + 1)
@@ -1305,15 +1304,26 @@ namespace MakeReportWord
             {
                 UnselectComboBoxes();
             }
-            else if (e.KeyCode == Keys.S && Control.ModifierKeys == Keys.Control)
+            else if (Control.ModifierKeys == Keys.Control)
             {
-                if (Control.ModifierKeys != Keys.Shift)
+                if(e.KeyCode == Keys.S)
                 {
-                    Save_Click(sender, e);
+                    if (Control.ModifierKeys != Keys.Shift)
+                    {
+                        Save_Click(sender, e);
+                    }
+                    else
+                    {
+                        SaveAsMenuItem_Click(sender, e);
+                    }
                 }
-                else
+                else if (e.KeyCode == Keys.O)
                 {
-                    SaveAsMenuItem_Click(sender, e);
+                    Open_Click(sender, e);
+                }
+                else if(e.KeyCode == Keys.Q)
+                {
+                    Application.Exit();
                 }
             }
         }
