@@ -60,7 +60,6 @@ namespace MakeReportWord
             menuLeftIndex = 1;
             wndSize = new WindowSize();
             dataComboBox = new DataComboBox();
-            this.Text = "!" + fileName[0] + "!";
             if (fileName.Length > 0)
             {
                 this.Text = "!"+fileName[0]+"!";
