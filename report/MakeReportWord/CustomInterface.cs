@@ -62,7 +62,6 @@ namespace MakeReportWord
             dataComboBox = new DataComboBox();
             if (fileName.Length > 0)
             {
-                this.Text = "!"+fileName[0]+"!";
                 if (fileName[0].EndsWith(".wordkiller") && System.IO.File.Exists(fileName[0]))
                 {
                     OpenWordKiller(fileName[0]);
@@ -1327,6 +1326,10 @@ namespace MakeReportWord
                 {
                     Open_Click(sender, e);
                 }
+                else if (e.KeyCode == Keys.N)
+                {
+                    CreateMenuItem_Click(sender, e);
+                }
                 else if(e.KeyCode == Keys.Q)
                 {
                     Application.Exit();
@@ -1377,6 +1380,27 @@ namespace MakeReportWord
             TitlePageMenuItem.Visible = !TitleOffOnMenuItem.Checked;
             buttonUp.Visible = !TitleOffOnMenuItem.Checked;
             TitleOffOnMenuItem.Checked = !TitleOffOnMenuItem.Checked;
+        }
+
+        private void CreateMenuItem_Click(object sender, EventArgs e)
+        {
+            if(fileNames!=null)
+            {
+                //спросить нужно ли сохранить
+            }
+            fileNames = null;
+            ClearGlobal();
+            text = "";
+            textDragOnDrop = "";
+            menuLeftIndex = 1;
+            dataComboBox = new DataComboBox();
+            foreach (Control control in titlepagePanel.Controls)
+            {
+                if (control.GetType().ToString() == "System.Windows.Forms.TextBox")
+                {
+                    control.Text = "";
+                }
+            }
         }
     }
 }
