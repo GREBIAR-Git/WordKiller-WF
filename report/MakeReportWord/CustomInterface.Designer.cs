@@ -1057,9 +1057,9 @@ namespace MakeReportWord
             this.CloseWindow,
             this.toolStripSeparator2,
             this.CreateMenuItem,
+            this.Open,
             this.Save,
             this.SaveAsMenuItem,
-            this.Open,
             this.toolStripSeparator3,
             this.Exit});
             this.File.Name = "File";
@@ -1163,21 +1163,21 @@ namespace MakeReportWord
             this.TitlePageMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitlePageMenuItem.Name = "TitlePageMenuItem";
             this.TitlePageMenuItem.ShortcutKeyDisplayString = "";
-            this.TitlePageMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.TitlePageMenuItem.Size = new System.Drawing.Size(216, 26);
             this.TitlePageMenuItem.Text = "Титульник";
             this.TitlePageMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // SubstitutionMenuItem
             // 
             this.SubstitutionMenuItem.Name = "SubstitutionMenuItem";
-            this.SubstitutionMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.SubstitutionMenuItem.Size = new System.Drawing.Size(216, 26);
             this.SubstitutionMenuItem.Text = "Подстановка";
             this.SubstitutionMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // TextMenuItem
             // 
             this.TextMenuItem.Name = "TextMenuItem";
-            this.TextMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.TextMenuItem.Size = new System.Drawing.Size(216, 26);
             this.TextMenuItem.Text = "Текст";
             this.TextMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
@@ -1197,7 +1197,7 @@ namespace MakeReportWord
             this.TitleOffOnMenuItem.Checked = true;
             this.TitleOffOnMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitleOffOnMenuItem.Name = "TitleOffOnMenuItem";
-            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(216, 26);
             this.TitleOffOnMenuItem.Text = "Титульник";
             this.TitleOffOnMenuItem.Click += new System.EventHandler(this.TitleOffOnMenuItem_Click);
             // 
@@ -1206,7 +1206,7 @@ namespace MakeReportWord
             this.NumberingMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FromNumberingTextBoxMenuItem});
             this.NumberingMenuItem.Name = "NumberingMenuItem";
-            this.NumberingMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.NumberingMenuItem.Size = new System.Drawing.Size(216, 26);
             this.NumberingMenuItem.Text = "Нумерация";
             this.NumberingMenuItem.Click += new System.EventHandler(this.NumberingMenuItem_Click);
             // 
@@ -1229,7 +1229,7 @@ namespace MakeReportWord
             this.VKRMenuItem,
             this.RGRMenuItem});
             this.TypeMenuItem.Name = "TypeMenuItem";
-            this.TypeMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.TypeMenuItem.Size = new System.Drawing.Size(216, 26);
             this.TypeMenuItem.Text = "Тип";
             // 
             // DefaultDocumentMenuItem
@@ -1293,7 +1293,7 @@ namespace MakeReportWord
             // ContentMenuItem
             // 
             this.ContentMenuItem.Name = "ContentMenuItem";
-            this.ContentMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.ContentMenuItem.Size = new System.Drawing.Size(216, 26);
             this.ContentMenuItem.Text = "Содержание";
             this.ContentMenuItem.Click += new System.EventHandler(this.ContentMenuItem_Click);
             // 
@@ -1323,13 +1323,13 @@ namespace MakeReportWord
             // оToolStripMenuItem
             // 
             this.оToolStripMenuItem.Name = "оToolStripMenuItem";
-            this.оToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.оToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.оToolStripMenuItem.Text = "Документация";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // CustomInterface
