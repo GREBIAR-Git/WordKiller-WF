@@ -548,7 +548,7 @@ namespace MakeReportWord
             AddTitleData(ref titleData);
             try
             {
-                await Task.Run(() => report.CreateReport(dataComboBox, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text),this.Text.ToString(), titleData.ToArray()));
+                await Task.Run(() => report.CreateReport(dataComboBox, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text), NumberHeadingMenuItem.Checked,  this.Text.ToString(), titleData.ToArray()));
             }
             catch
             {
@@ -1401,6 +1401,11 @@ namespace MakeReportWord
                     control.Text = "";
                 }
             }
+        }
+
+        private void NumberHeadingMenuItem_Click(object sender, EventArgs e)
+        {
+            NumberHeadingMenuItem.Checked = !NumberHeadingMenuItem.Checked;
         }
     }
 }

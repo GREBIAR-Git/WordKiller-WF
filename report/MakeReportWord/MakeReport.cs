@@ -11,14 +11,14 @@ namespace MakeReportWord
         bool pgBreak = false;
         char special = '☺';
 
-        public void CreateReport(DataComboBox dataMainPart, bool numbering, bool content,bool title, int fromNumbering, string typeDocument, string[] dataTitle)
+        public void CreateReport(DataComboBox dataMainPart, bool numbering, bool content,bool title, int fromNumbering, bool numberHeading, string typeDocument, string[] dataTitle)
         {
             Beginning();
             if(title)
             {
                 TitlePart(typeDocument, dataTitle);
             }
-            MainPart(dataMainPart, content, numbering, fromNumbering);
+            MainPart(dataMainPart, content, numbering, fromNumbering, numberHeading);
         }
 
         void Beginning()
@@ -213,7 +213,7 @@ namespace MakeReportWord
             PageBreak();
         }
 
-        void MainPart(DataComboBox content, bool cont, bool numbering, int fromNumbering)
+        void MainPart(DataComboBox content, bool cont, bool numbering, int fromNumbering, bool numberHeading)
         {
             if (cont)
             {
@@ -221,7 +221,14 @@ namespace MakeReportWord
             }
             if (content.Text != null)
             {
-                ProcessContent(content);
+                if(numberHeading)
+                {
+                    ProcessContent(content);
+                }
+                else
+                {
+                    ProcessContentwithoutNumber(content);
+                }
             }
             if (numbering)
             {
@@ -278,6 +285,83 @@ namespace MakeReportWord
                             Heading2(text);
                             h2all++;
                             h2++;
+                        }
+                    }
+                    else if (content.Text[i + 1] == 'l')
+                    {
+                        i += 1;
+                        string[] text = ProcessSpecial(l, "l", content);
+                        List(text[0]);
+                        l++;
+                    }
+                    else if (content.Text[i + 1] == 'p')
+                    {
+                        i += 1;
+                        string[] text = ProcessSpecial(p, "p", content);
+                        Picture(text[0]);
+                        СaptionForPicture("Рисунок " + p + " – " + text[1]);
+                        p++;
+                    }
+                    else if (content.Text[i + 1] == 't')
+                    {
+                        i += 1;
+                        string[] text = ProcessSpecial(t, "t", content);
+                        Table(text[0]);
+                        t++;
+                    }
+                    else if (content.Text[i + 1] == 'c')
+                    {
+                        i += 1;
+                        string[] text = ProcessSpecial(c, "c", content);
+                        Code(text[0]);
+                        c++;
+                    }
+                }
+                else
+                {
+                    def += content.Text[i];
+                }
+            }
+            if (def != string.Empty)
+            {
+                DefaultText(def);
+                def = string.Empty;
+            }
+        }
+
+        void ProcessContentwithoutNumber(DataComboBox content)
+        {
+            int h1 = 1;
+            int h2all = 1;
+            int l = 1;
+            int p = 1;
+            int t = 1;
+            int c = 1;
+            string def = string.Empty;
+            for (int i = 0; i < content.Text.Length; i++)
+            {
+                if (content.Text[i] == special)
+                {
+                    if (def != string.Empty)
+                    {
+                        DefaultText(def);
+                        def = string.Empty;
+                    }
+                    if (content.Text[i + 1] == 'h')
+                    {
+                        if (content.Text[i + 2] == '1')
+                        {
+                            i += 2;
+                            string text = ProcessSpecial(h1, "h1", content)[0];
+                            Heading1(text);
+                            h1++;
+                        }
+                        else if (content.Text[i + 2] == '2')
+                        {
+                            i += 2;
+                            string text = ProcessSpecial(h2all, "h2", content)[0];
+                            Heading2(text);
+                            h2all++;
                         }
                     }
                     else if (content.Text[i + 1] == 'l')
