@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -1263,20 +1264,33 @@ namespace MakeReportWord
                     }
                 }
             }
-            if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V && !(DownPanelMI == SubstitutionMenuItem && line < 3))
+
+            // ✔
+            if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V)
             {
-                richTextBox.SuspendLayout();
-                int insPt = richTextBox.SelectionStart;
-                string postRTFContent = richTextBox.Text.Substring(insPt);
-                richTextBox.Text = richTextBox.Text.Substring(0, insPt);
-                richTextBox.Text += (string)Clipboard.GetData("Text") + postRTFContent;
-                richTextBox.SelectionStart = richTextBox.TextLength - postRTFContent.Length;
-                richTextBox.ResumeLayout();
-                e.Handled = true;
-            }
-            else if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V && (DownPanelMI == SubstitutionMenuItem && line < 3))
-            {
-                e.Handled = true;
+                if (!(DownPanelMI == SubstitutionMenuItem && line < 3))
+                {
+                    richTextBox.SuspendLayout();
+                    int insPt = richTextBox.SelectionStart;
+                    string postContent = richTextBox.Text.Substring(insPt);
+                    richTextBox.Text = richTextBox.Text.Substring(0, insPt);
+                    try
+                    {
+                        byte[] bytes = Encoding.Unicode.GetBytes(Clipboard.GetData(DataFormats.UnicodeText).ToString());
+                        richTextBox.Text += Encoding.Unicode.GetString(bytes) + postContent;
+                    }
+                    catch (NullReferenceException)
+                    {
+                        System.Console.Write(e);
+                    }
+                    richTextBox.SelectionStart = richTextBox.TextLength - postContent.Length;
+                    richTextBox.ResumeLayout();
+                    e.Handled = true;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
             }
         }
 
