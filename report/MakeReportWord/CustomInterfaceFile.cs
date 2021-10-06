@@ -24,8 +24,8 @@ namespace MakeReportWord
             ClearGlobal();
             FileStream file = new FileStream(fileName, FileMode.Open);
             StreamReader reader = new StreamReader(file);
-            try
-            {
+            //try
+            //{
                 string data = reader.ReadToEnd();
                 for (int i = 1; i < data.Length; i++)
                 {
@@ -36,10 +36,31 @@ namespace MakeReportWord
                 }
                 string[] lines = data.Split('\r');
 
+
+            // 1111 0000 1010 1010 1110001010101010
+            // 3140
+
                 bool readingText = false;
                 List<Control> controls = new List<Control>();
                 foreach (string line in lines)
                 {
+                    if(line.StartsWith("☺Menu☺"))
+                    {
+                        string[] menuItem = line.Remove(0, 6).Split('!');
+                        work_Click(TypeMenuItem.DropDown.Items.Find(menuItem[0], false)[0], new EventArgs());
+                        if (menuItem[0] != "DefaultDocumentMenuItem")
+                        {
+                            foreach (Control control in titlepagePanel.Controls)
+                            {
+                                if (control.GetType().ToString() != "System.Windows.Forms.Label")
+                                {
+                                    controls.Add(control);
+                                }
+                            }
+                        }
+                        NumberHeadingMenuItem.Checked = bool.Parse(menuItem[1]);
+                    }
+
                     if (line.StartsWith("☺TextStart☺"))
                     {
                         readingText = true;
@@ -60,20 +81,6 @@ namespace MakeReportWord
                         string[] variable_value = line.Split('☺');
                         if (variable_value.Length == 2)
                         {
-                            if (variable_value[0].StartsWith("TypeMenuItem"))
-                            {
-                                work_Click(TypeMenuItem.DropDown.Items.Find(variable_value[1], false)[0], new EventArgs());
-                                if(variable_value[1]!="DefaultDocumentMenuItem")
-                                {
-                                    foreach (Control control in titlepagePanel.Controls)
-                                    {
-                                        if (control.GetType().ToString() != "System.Windows.Forms.Label")
-                                        {
-                                            controls.Add(control);
-                                        }
-                                    }
-                                }
-                            }
                             for (int i = 0; i < controls.Count; i++)
                             {
                                 if (LoadingOfTwo(variable_value, controls[i]))
@@ -124,11 +131,11 @@ namespace MakeReportWord
                         }
                     }
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Файл повреждён");
-            }
+            //}
+           // catch
+           // {
+             //   MessageBox.Show("Файл повреждён");
+           // }
             reader.Close();
         }
 
@@ -173,7 +180,7 @@ namespace MakeReportWord
             {
                 if (item.Checked)
                 {
-                    output.WriteLine("TypeMenuItem☺" + item.Name.ToString());
+                    output.WriteLine("☺Menu☺" + item.Name.ToString()+"!" + NumberHeadingMenuItem.Checked.ToString());
                 }
             }
             output.WriteLine("facultyComboBox☺" + facultyComboBox.Text);
@@ -190,7 +197,6 @@ namespace MakeReportWord
             SaveCombobox(output, pComboBox, dataComboBox.ComboBoxP);
             SaveCombobox(output, tComboBox, dataComboBox.ComboBoxT);
             SaveCombobox(output, cComboBox, dataComboBox.ComboBoxC);
-
             output.WriteLine("☺TextStart☺");
             output.WriteLine(text);
             output.WriteLine("☺TextEnd☺");
