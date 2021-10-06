@@ -95,11 +95,13 @@ namespace MakeReportWord
 
         void richTextBox_TextChanged(object sender, EventArgs e)
         {
+            richTextBox.SuspendLayout();
+            this.SuspendLayout();
             if (DownPanelMI == SubstitutionMenuItem)
             {
+                int cursorSave = richTextBox.SelectionStart;
                 if (elementLabel.Text != "нечто" && ComboBoxSelected() && richTextBox.Text != string.Empty)
                 {
-                    int cursorSave = richTextBox.SelectionStart;
                     if (h1ComboBox.SelectedIndex != -1)
                     {
                         dataComboBox.ComboBoxH1[h1ComboBox.SelectedIndex][0] = richTextBox.Text.Split('\n')[1];
@@ -152,15 +154,22 @@ namespace MakeReportWord
                             fileNames = SplitMainText();
                         }
                     }
-                    richTextBox.SelectionStart = cursorSave;
                 }
-                pictureBox.Refresh();
+                //2 раз
+                byte[] bytes = Encoding.Unicode.GetBytes(richTextBox.Text);
+                //3 раз
+                //richTextBox.Text = Encoding.Unicode.GetString(bytes);
+                richTextBox.SelectionStart = cursorSave;
+                //pictureBox.Refresh();
+
             }
             else if (DownPanelMI == TextMenuItem)
             {
                 text = richTextBox.Text;
                 UpdateTypeButton();
             }
+            this.ResumeLayout();
+            richTextBox.ResumeLayout();
         }
 
         void UpdateTypeButton()
@@ -1237,6 +1246,7 @@ namespace MakeReportWord
             }
         }
 
+
         void richTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             int line = richTextBox.GetLineFromCharIndex(richTextBox.SelectionStart);
@@ -1248,9 +1258,9 @@ namespace MakeReportWord
                     bool start2 = richTextBox.Text.Split('\n')[0].Length == richTextBox.SelectionStart - 1;
                     bool start4 = richTextBox.Text.Split('\n')[0].Length + richTextBox.Text.Split('\n')[1].Length + richTextBox.Text.Split('\n')[2].Length == richTextBox.SelectionStart - 3;
                     if (e.KeyCode == Keys.Enter && (line >= 0 && line <= 2) ||
-                        (e.KeyCode == Keys.Back && (line == 0 || line == 2 || start2 || start4)) ||
-                        (e.KeyCode == Keys.Delete && (line == 0 || line == 2 || last))
-                        )
+                        (e.KeyCode == Keys.Back && (line == 0 || line == 2 || (start2 && richTextBox.SelectionLength == 0 && line==1)|| (line==1&& richTextBox.SelectedText.Contains("\n")) || (start4 && richTextBox.SelectionLength == 0 && line==3)))||
+                        (e.KeyCode == Keys.Delete && (line == 0 || line == 2 || last || (richTextBox.SelectedText.Contains("\n") && (line<3))))
+                       )
                     {
                         e.Handled = true;
                     }
@@ -1262,22 +1272,36 @@ namespace MakeReportWord
                     {
                         richTextBox.SelectionStart -= richTextBox.Text.Split('\n')[2].Length + 2;
                     }
+                    if (richTextBox.Text == richTextBox.SelectedText && (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete))
+                    {
+                        string[] lines = richTextBox.Text.Split('\n');
+                        lines[1] = "";
+                        lines[3] = "";
+                        richTextBox.Text = lines[0] + "\n" + lines[1] + "\n" + lines[2] + "\n" + lines[3];
+                        richTextBox.SelectionStart = lines[0].Length + 1;
+                    }
                 }
             }
-
+           
             // ✔
             if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V)
             {
-                if (!(DownPanelMI == SubstitutionMenuItem && line < 3))
+                if (!(DownPanelMI == SubstitutionMenuItem && (line == 0 || line == 2)))
                 {
                     richTextBox.SuspendLayout();
                     int insPt = richTextBox.SelectionStart;
                     string postContent = richTextBox.Text.Substring(insPt);
-                    richTextBox.Text = richTextBox.Text.Substring(0, insPt);
+                    string preContent = richTextBox.Text.Substring(0, insPt);
                     try
                     {
                         byte[] bytes = Encoding.Unicode.GetBytes(Clipboard.GetData(DataFormats.UnicodeText).ToString());
-                        richTextBox.Text += Encoding.Unicode.GetString(bytes) + postContent;
+                        string ctrl_v = Encoding.Unicode.GetString(bytes);
+                        if (line == 1)
+                        {
+                            ctrl_v = ctrl_v.Replace("\n", "");
+                            ctrl_v = ctrl_v.Replace("\r", "");
+                        }
+                        richTextBox.Text = preContent + ctrl_v + postContent;
                     }
                     catch (NullReferenceException)
                     {
@@ -1420,6 +1444,11 @@ namespace MakeReportWord
         private void NumberHeadingMenuItem_Click(object sender, EventArgs e)
         {
             NumberHeadingMenuItem.Checked = !NumberHeadingMenuItem.Checked;
+        }
+
+        private void richTextBox_SelectionChanged(object sender, EventArgs e)
+        {
+            int kek = richTextBox.SelectionStart;
         }
     }
 }
