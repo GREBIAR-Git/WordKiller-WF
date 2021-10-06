@@ -160,7 +160,7 @@ namespace MakeReportWord
                 //3 раз
                 //richTextBox.Text = Encoding.Unicode.GetString(bytes);
                 richTextBox.SelectionStart = cursorSave;
-                //pictureBox.Refresh();
+                pictureBox.Refresh();
 
             }
             else if (DownPanelMI == TextMenuItem)
@@ -1257,7 +1257,8 @@ namespace MakeReportWord
                     bool last = richTextBox.Text.Split('\n')[1].Length - 1 + richTextBox.Text.Split('\n')[0].Length == richTextBox.SelectionStart - 2;
                     bool start2 = richTextBox.Text.Split('\n')[0].Length == richTextBox.SelectionStart - 1;
                     bool start4 = richTextBox.Text.Split('\n')[0].Length + richTextBox.Text.Split('\n')[1].Length + richTextBox.Text.Split('\n')[2].Length == richTextBox.SelectionStart - 3;
-                    if (e.KeyCode == Keys.Enter && (line >= 0 && line <= 2) ||
+                    if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.X ||
+                        e.KeyCode == Keys.Enter && (line >= 0 && line <= 2) ||
                         (e.KeyCode == Keys.Back && (line == 0 || line == 2 || (start2 && richTextBox.SelectionLength == 0 && line==1)|| (line==1&& richTextBox.SelectedText.Contains("\n")) || (start4 && richTextBox.SelectionLength == 0 && line==3)))||
                         (e.KeyCode == Keys.Delete && (line == 0 || line == 2 || last || (richTextBox.SelectedText.Contains("\n") && (line<3))))
                        )
