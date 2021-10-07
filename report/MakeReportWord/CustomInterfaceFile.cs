@@ -22,6 +22,7 @@ namespace MakeReportWord
 
         void OpenWordKiller(string fileName)
         {
+
             saveFileName = fileName;
             ClearGlobal();
             FileStream file = new FileStream(fileName, FileMode.Open);
@@ -29,6 +30,7 @@ namespace MakeReportWord
             //try
             //{
             string data = reader.ReadToEnd();
+            MegaConvertD(data);
             for (int i = 1; i < data.Length; i++)
             {
                 if (data[i - 1] == '\r')
@@ -206,43 +208,18 @@ namespace MakeReportWord
         string MegaConvert(string str)
         {
             string megaStr = str;
-
-            megaStr = StringToBinaryString(megaStr);
-            megaStr = RepeatEncodingBinary(megaStr);
-            // to abc
-
+            megaStr = EncodingDecoding.StringToBinaryString(megaStr);
+            megaStr = EncodingDecoding.RepeatEncodingBinary(megaStr);
+            megaStr = EncodingDecoding.DigitsToAbc(megaStr);
             return megaStr;
         }
 
-        string StringToBinaryString(string str)
+        string MegaConvertD(string str)
         {
-            string hexStr = BitConverter.ToString(Encoding.Unicode.GetBytes(str));
-            hexStr = hexStr.Replace("-", "");
-            string binarystring = String.Join(String.Empty, hexStr.Select(c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')));
-            binarystring = binarystring.Replace("0", "a");
-
-
-            return binarystring;
-        }
-
-        static string RepeatEncodingBinary(string binarystring)
-        {
-            string encoded = "";
-            int digit = 0;
-            while (digit < binarystring.Length)
-            {
-                int counter = 0;
-                for (; counter < 9; counter++)
-                {
-                    if (!(digit + counter + 1 < binarystring.Length && binarystring[digit + counter + 1] == binarystring[digit]))
-                    {
-                        break;
-                    }
-                }
-                encoded += (counter + 1).ToString() + binarystring[digit].ToString();
-                digit += counter + 1;
-            }
-            return encoded;
+            str = EncodingDecoding.AbcToDigits(str);
+            str = EncodingDecoding.RepeatDecodingBinary(str);
+            str = EncodingDecoding.BinaryStringToString(str);
+            return str;
         }
 
         void SaveCombobox(StreamWriter output, ComboBox comboBox, List<string[]> Lstr)

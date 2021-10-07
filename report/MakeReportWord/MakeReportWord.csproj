@@ -67,6 +67,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Data.cs" />
+    <Compile Include="EncodingDecoding.cs" />
     <Compile Include="globalFont.cs" />
     <Compile Include="MakeReport.cs" />
     <Compile Include="CustomInterface.cs">
