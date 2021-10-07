@@ -27,116 +27,120 @@ namespace MakeReportWord
             ClearGlobal();
             FileStream file = new FileStream(fileName, FileMode.Open);
             StreamReader reader = new StreamReader(file);
-            //try
-            //{
-            string data = reader.ReadToEnd();
-            MegaConvertD(data);
-            for (int i = 1; i < data.Length; i++)
+            try
             {
-                if (data[i - 1] == '\r')
+                string data = reader.ReadToEnd();
+                data = MegaConvertD(data);
+                for (int i = 1; i < data.Length; i++)
                 {
-                    data = data.Remove(i, 1);
-                }
-            }
-            string[] lines = data.Split('\r');
-
-
-            bool readingText = false;
-            List<Control> controls = new List<Control>();
-            foreach (string line in lines)
-            {
-                if (line.StartsWith("☺Menu☺"))
-                {
-                    string[] menuItem = line.Remove(0, 6).Split('!');
-                    work_Click(TypeMenuItem.DropDown.Items.Find(menuItem[0], false)[0], new EventArgs());
-                    if (menuItem[0] != "DefaultDocumentMenuItem")
+                    if (data[i - 1] == '\r')
                     {
-                        foreach (Control control in titlepagePanel.Controls)
+                        data = data.Remove(i, 1);
+                    }
+                }
+                string[] lines = data.Split('\r');
+
+
+                bool readingText = false;
+                List<Control> controls = new List<Control>();
+                foreach (string line in lines)
+                {
+                    if (line.StartsWith("☺Menu☺"))
+                    {
+                        string[] menuItem = line.Remove(0, 6).Split('!');
+                        work_Click(TypeMenuItem.DropDown.Items.Find(menuItem[0], false)[0], new EventArgs());
+                        if (menuItem[0] != "DefaultDocumentMenuItem")
                         {
-                            if (control.GetType().ToString() != "System.Windows.Forms.Label")
+                            foreach (Control control in titlepagePanel.Controls)
                             {
-                                controls.Add(control);
+                                if (control.GetType().ToString() != "System.Windows.Forms.Label")
+                                {
+                                    controls.Add(control);
+                                }
                             }
                         }
+                        NumberHeadingMenuItem.Checked = bool.Parse(menuItem[1]);
                     }
-                    NumberHeadingMenuItem.Checked = bool.Parse(menuItem[1]);
-                }
 
-                if (line.StartsWith("☺TextStart☺"))
-                {
-                    readingText = true;
-                }
-                else if (readingText)
-                {
-                    if (line.StartsWith("☺TextEnd☺"))
+                    if (line.StartsWith("☺TextStart☺"))
                     {
-                        readingText = false;
+                        readingText = true;
+                    }
+                    else if (readingText)
+                    {
+                        if (line.StartsWith("☺TextEnd☺"))
+                        {
+                            readingText = false;
+                        }
+                        else
+                        {
+                            text += line + "\n";
+                        }
                     }
                     else
                     {
-                        text += line + "\n";
-                    }
-                }
-                else
-                {
-                    string[] variable_value = line.Split('☺');
-                    if (variable_value.Length == 2)
-                    {
-                        for (int i = 0; i < controls.Count; i++)
+                        string[] variable_value = line.Split('☺');
+                        if (variable_value.Length == 2)
                         {
-                            if (LoadingOfTwo(variable_value, controls[i]))
+                            for (int i = 0; i < controls.Count; i++)
                             {
-                                controls.RemoveAt(i);
-                                break;
+                                if (LoadingOfTwo(variable_value, controls[i]))
+                                {
+                                    controls.RemoveAt(i);
+                                    break;
+                                }
+                            }
+                        }
+                        else if (variable_value.Length == 3)
+                        {
+                            if (variable_value[0].StartsWith("h1ComboBox"))
+                            {
+                                h1ComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxH1.Add(str);
+                            }
+                            else if (variable_value[0].StartsWith("h2ComboBox"))
+                            {
+                                h2ComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxH2.Add(str);
+                            }
+                            else if (variable_value[0].StartsWith("lComboBox"))
+                            {
+                                lComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxL.Add(str);
+                            }
+                            else if (variable_value[0].StartsWith("pComboBox"))
+                            {
+                                pComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxP.Add(str);
+                            }
+                            else if (variable_value[0].StartsWith("tComboBox"))
+                            {
+                                tComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxT.Add(str);
+                            }
+                            else if (variable_value[0].StartsWith("cComboBox"))
+                            {
+                                cComboBox.Items.Add(variable_value[1]);
+                                string[] str = new string[] { variable_value[1], variable_value[2] };
+                                dataComboBox.ComboBoxC.Add(str);
                             }
                         }
                     }
-                    else if (variable_value.Length == 3)
-                    {
-                        if (variable_value[0].StartsWith("h1ComboBox"))
-                        {
-                            h1ComboBox.Items.Add(variable_value[1]);
-                            string[] str = new string[] { variable_value[1], variable_value[2] };
-                            dataComboBox.ComboBoxH1.Add(str);
-                        }
-                        else if (variable_value[0].StartsWith("h2ComboBox"))
-                        {
-                            h2ComboBox.Items.Add(variable_value[1]);
-                            string[] str = new string[] { variable_value[1], variable_value[2] };
-                            dataComboBox.ComboBoxH2.Add(str);
-                        }
-                        else if (variable_value[0].StartsWith("lComboBox"))
-                        {
-                            lComboBox.Items.Add(variable_value[1]);
-                            string[] str = new string[] { variable_value[1], variable_value[2] };
-                            dataComboBox.ComboBoxL.Add(str);
-                        }
-                        else if (variable_value[0].StartsWith("pComboBox"))
-                        {
-                            pComboBox.Items.Add(variable_value[1]);
-                            string[] str = new string[] { variable_value[1], variable_value[2] };
-                            dataComboBox.ComboBoxP.Add(str);
-                        }
-                        else if (variable_value[0].StartsWith("tComboBox"))
-                        {
-                            tComboBox.Items.Add(variable_value[1]);
-                            string[] str = new string[] { variable_value[1], variable_value[2] };
-                            dataComboBox.ComboBoxT.Add(str);
-                        }
-                        else if (variable_value[0].StartsWith("cComboBox"))
-                        {
-                            cComboBox.Items.Add(variable_value[1]);
-                            string[] str = new string[] { variable_value[1], variable_value[2] };
-                            dataComboBox.ComboBoxC.Add(str);
-                        }
-                    }
+                }
+                if(text.Length>0)
+                {
+                    text = text.Remove(text.Length - 1);
                 }
             }
-            //}
-            // catch
-            // {
-            //   MessageBox.Show("Файл повреждён");
-            // }
+            catch
+            {
+               MessageBox.Show("Файл повреждён");
+            }
             reader.Close();
         }
 
@@ -181,7 +185,7 @@ namespace MakeReportWord
             {
                 if (item.Checked)
                 {
-                    output.Write(MegaConvert("☺Menu☺" + item.Name.ToString() + "!" + NumberHeadingMenuItem.Checked.ToString()));
+                    output.WriteLine(MegaConvert("☺Menu☺" + item.Name.ToString() + "!" + NumberHeadingMenuItem.Checked.ToString()));
                 }
             }
             output.WriteLine(MegaConvert("facultyComboBox☺" + facultyComboBox.Text));
