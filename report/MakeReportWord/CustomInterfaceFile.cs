@@ -225,25 +225,23 @@ namespace MakeReportWord
             return binarystring;
         }
 
-        string RepeatEncodingBinary(string binarystring)
+        static string RepeatEncodingBinary(string binarystring)
         {
             string encoded = "";
-
-
             int digit = 0;
-            while (digit < binarystring.Length-1)
+            while (digit < binarystring.Length)
             {
                 int counter = 0;
-                for (counter = 0; counter < 9 && digit+counter<binarystring.Length && binarystring[digit + counter] == binarystring[digit]; counter++)
+                for (; counter < 9; counter++)
                 {
+                    if (!(digit + counter + 1 < binarystring.Length && binarystring[digit + counter + 1] == binarystring[digit]))
+                    {
+                        break;
+                    }
                 }
                 encoded += (counter + 1).ToString() + binarystring[digit].ToString();
                 digit += counter + 1;
-                // /???
             }
-
-
-
             return encoded;
         }
 
