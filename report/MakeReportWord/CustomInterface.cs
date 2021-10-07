@@ -1423,9 +1423,14 @@ namespace MakeReportWord
 
         private void CreateMenuItem_Click(object sender, EventArgs e)
         {
-            if(fileNames!=null)
+            if (!string.IsNullOrEmpty(fileNames))
             {
-                //спросить нужно ли сохранить
+                //спросить сохранить..
+                //SaveWordKiller(fileNames);
+            }
+            else
+            {
+                SaveAsMenuItem_Click(sender, e);
             }
             fileNames = null;
             ClearGlobal();

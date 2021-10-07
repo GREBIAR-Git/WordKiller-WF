@@ -20,7 +20,6 @@ namespace MakeReportWord
 
         void OpenWordKiller(string fileName)
         {
-
             saveFileName = fileName;
             ClearGlobal();
             FileStream file = new FileStream(fileName, FileMode.Open);
