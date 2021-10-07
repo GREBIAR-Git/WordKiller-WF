@@ -9,7 +9,7 @@ namespace MakeReportWord
 {
     public partial class CustomInterface : Form
     {
-        string text;
+        string text = string.Empty;
         string textDragOnDrop;
         int menuLeftIndex;
         string[] menuLabels;
@@ -1433,6 +1433,11 @@ namespace MakeReportWord
             textDragOnDrop = "";
             menuLeftIndex = 1;
             dataComboBox = new DataComboBox();
+            richTextBox.Text = "";
+            if(DownPanelMI==TextMenuItem)
+            {
+                HideSpecials();
+            }
             foreach (Control control in titlepagePanel.Controls)
             {
                 if (control.GetType().ToString() == "System.Windows.Forms.TextBox")

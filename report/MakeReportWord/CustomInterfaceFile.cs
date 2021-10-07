@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MakeReportWord
@@ -39,7 +37,6 @@ namespace MakeReportWord
                     }
                 }
                 string[] lines = data.Split('\r');
-
 
                 bool readingText = false;
                 List<Control> controls = new List<Control>();
