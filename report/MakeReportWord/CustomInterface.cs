@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
@@ -1461,6 +1462,14 @@ namespace MakeReportWord
         {
             int kek = richTextBox.SelectionStart;
         }
+
+        private void SetAsDefaultMenuItem_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo("computerdefaults");
+            startInfo.UseShellExecute = true;
+            Process.Start(startInfo);
+        }
+        // основателями поведенческой школы в психологии являются: павлов, уотсон, скиннер/спиннер
     }
 }
 

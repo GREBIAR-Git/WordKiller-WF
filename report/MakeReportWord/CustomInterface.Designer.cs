@@ -1322,6 +1322,7 @@ namespace MakeReportWord
             this.SetAsDefaultMenuItem.Name = "SetAsDefaultMenuItem";
             this.SetAsDefaultMenuItem.Size = new System.Drawing.Size(610, 34);
             this.SetAsDefaultMenuItem.Text = "Сделать приложением по умолчанию для .wordkiller";
+            this.SetAsDefaultMenuItem.Click += new System.EventHandler(this.SetAsDefaultMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
