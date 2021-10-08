@@ -158,7 +158,7 @@ namespace MakeReportWord
                 //2 раз
                 byte[] bytes = Encoding.Unicode.GetBytes(richTextBox.Text);
                 //3 раз
-                //richTextBox.Text = Encoding.Unicode.GetString(bytes);
+                richTextBox.Text = Encoding.Unicode.GetString(bytes);
                 richTextBox.SelectionStart = cursorSave;
                 pictureBox.Refresh();
 

@@ -189,7 +189,7 @@ namespace MakeReportWord
             this.shifrTextBox.Name = "shifrTextBox";
             this.shifrTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.shifrTextBox.Size = new System.Drawing.Size(251, 44);
-            this.shifrTextBox.TabIndex = 17;
+            this.shifrTextBox.TabIndex = 3;
             // 
             // studentsTextBox
             // 
@@ -200,7 +200,7 @@ namespace MakeReportWord
             this.studentsTextBox.Name = "studentsTextBox";
             this.studentsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.studentsTextBox.Size = new System.Drawing.Size(246, 44);
-            this.studentsTextBox.TabIndex = 16;
+            this.studentsTextBox.TabIndex = 2;
             // 
             // numberTextBox
             // 
@@ -211,7 +211,7 @@ namespace MakeReportWord
             this.numberTextBox.Name = "numberTextBox";
             this.numberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.numberTextBox.Size = new System.Drawing.Size(246, 44);
-            this.numberTextBox.TabIndex = 15;
+            this.numberTextBox.TabIndex = 2;
             // 
             // Students
             // 
@@ -313,7 +313,7 @@ namespace MakeReportWord
             this.themeTextBox.Name = "themeTextBox";
             this.themeTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.themeTextBox.Size = new System.Drawing.Size(762, 44);
-            this.themeTextBox.TabIndex = 3;
+            this.themeTextBox.TabIndex = 4;
             // 
             // disciplineLabel
             // 
@@ -340,7 +340,7 @@ namespace MakeReportWord
             this.disciplineTextBox.Name = "disciplineTextBox";
             this.disciplineTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.disciplineTextBox.Size = new System.Drawing.Size(762, 44);
-            this.disciplineTextBox.TabIndex = 4;
+            this.disciplineTextBox.TabIndex = 5;
             // 
             // yearLabel
             // 
@@ -366,7 +366,7 @@ namespace MakeReportWord
             this.yearTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.yearTextBox.Name = "yearTextBox";
             this.yearTextBox.Size = new System.Drawing.Size(762, 44);
-            this.yearTextBox.TabIndex = 6;
+            this.yearTextBox.TabIndex = 7;
             this.yearTextBox.Text = "202";
             // 
             // professorLabel
@@ -433,7 +433,7 @@ namespace MakeReportWord
             this.professorComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.professorComboBox.Name = "professorComboBox";
             this.professorComboBox.Size = new System.Drawing.Size(762, 46);
-            this.professorComboBox.TabIndex = 5;
+            this.professorComboBox.TabIndex = 6;
             // 
             // MainPanel
             // 
