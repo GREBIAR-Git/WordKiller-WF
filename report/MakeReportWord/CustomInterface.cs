@@ -597,37 +597,6 @@ namespace MakeReportWord
             {
                 titleData.Add(control.Text);
             }
-            
-
-            /*
-            int row = 0; int column = 1;
-            for (int i = 0; i < titlepagePanel.ColumnCount/2*Math.Round(titlepagePanel.RowCount*0.75, MidpointRounding.AwayFromZero); i++)
-            {
-                try
-                {
-                    Control control = titlepagePanel.GetControlFromPosition(column, row);
-                    titleData.Add(control.Text);
-                }
-                catch (Exception)
-                {
-                    break;
-                }
-                try
-                {
-                    titlepagePanel.GetControlFromPosition(column+2, row);
-                    column += 2;
-                }
-                catch (Exception)
-                {
-                    column = 1;
-                    row++;
-                    if ((row+1)%3==0)
-                    {
-                        row++;
-                    }
-                }
-               
-            }*/
         }
 
         void CloseWindow_Click(object sender, EventArgs e)
