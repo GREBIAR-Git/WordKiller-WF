@@ -54,12 +54,12 @@ namespace MakeReportWord
             }
         }
 
+
         void richTextBox_TextChanged(object sender, EventArgs e)
         {
-            richTextBox.SuspendLayout();
-            this.SuspendLayout();
             if (DownPanelMI == SubstitutionMenuItem)
             {
+                
                 int cursorSave = richTextBox.SelectionStart;
                 if (elementLabel.Text != "нечто" && ComboBoxSelected() && richTextBox.Text != string.Empty)
                 {
@@ -116,10 +116,13 @@ namespace MakeReportWord
                         }
                     }
                 }
-                //2 раз
+                // снизу крыса
                 byte[] bytes = Encoding.Unicode.GetBytes(richTextBox.Text);
-                //3 раз
-                richTextBox.Text = Encoding.Unicode.GetString(bytes);
+                //richTextBox.Text = Encoding.Unicode.GetString(bytes);
+                // сверху крыса
+
+
+
                 richTextBox.SelectionStart = cursorSave;
                 pictureBox.Refresh();
 
@@ -129,8 +132,6 @@ namespace MakeReportWord
                 text = richTextBox.Text;
                 UpdateTypeButton();
             }
-            this.ResumeLayout();
-            richTextBox.ResumeLayout();
         }
 
         void UpdateTypeButton()
@@ -1439,11 +1440,6 @@ namespace MakeReportWord
         private void NumberHeadingMenuItem_Click(object sender, EventArgs e)
         {
             NumberHeadingMenuItem.Checked = !NumberHeadingMenuItem.Checked;
-        }
-
-        private void richTextBox_SelectionChanged(object sender, EventArgs e)
-        {
-            int kek = richTextBox.SelectionStart;
         }
 
         private void SetAsDefaultMenuItem_Click(object sender, EventArgs e)
