@@ -120,7 +120,7 @@ namespace MakeReportWord
             }
             else if (typeDocument == "Сотворение курсовой работы из небытия")
             {
-                string text = "Работа допущена к защите" + SkipLine(1) + "______________Руководитель" + SkipLine(1) + "«____»_____________20___г.";
+                string text = "Работа допущена к защите" + SkipLine(1) + "______________Руководитель" + SkipLine(1) + "«____»_____________"+ dataTitle[dataTitle.Length - 1] + "г.";
                 WriteTextWord(text);
                 word.Font.Size = 14;
                 word.Font.Bold = 0;
@@ -136,21 +136,21 @@ namespace MakeReportWord
                 word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
                 word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
 
-                text = "по дисциплине: «" + dataTitle[1] + "»";
+                text = "по дисциплине: «" + dataTitle[4] + "»";
                 WriteTextWord(text);
                 word.Font.Size = 14;
                 word.Font.Bold = 0;
                 word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
                 word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpaceDouble;
 
-                text = "на тему: «" + dataTitle[2] + "»";
+                text = "на тему: «" + dataTitle[3] + "»";
                 WriteTextWord(text);
                 word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpace1pt5;
 
                 SkipLinesSingle(2);
 
-                text = "Студент _________________" + dataTitle[3] + SkipLine(1) +
-                    "Шифр " + dataTitle[4] + SkipLine(1) +
+                text = "Студент _________________" + dataTitle[1] + SkipLine(1) +
+                    "Шифр " + dataTitle[2] + SkipLine(1) +
                     "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
                     "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
                     "Группа: 92ПГ";

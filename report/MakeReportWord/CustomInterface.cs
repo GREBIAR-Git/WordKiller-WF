@@ -573,13 +573,61 @@ namespace MakeReportWord
 
         void AddTitleData(ref List<string> titleData)
         {
+            List<Control> controls = new List<Control>();
             foreach (Control control in titlepagePanel.Controls)
             {
                 if(control.GetType().ToString() != "System.Windows.Forms.Label")
                 {
-                    titleData.Add(control.Text);
+                    controls.Add(control);
                 }
             }
+            for(int i=1;i<controls.Count;i++)
+            {
+                for(int f=0; f < controls.Count-i;f++)
+                {
+                    if(controls[f].TabIndex > controls[f+1].TabIndex)
+                    {
+                        Control kek = controls[f];
+                        controls[f] = controls[f + 1];
+                        controls[f + 1] = kek;
+                    }
+                }
+            }
+            foreach (Control control in controls)
+            {
+                titleData.Add(control.Text);
+            }
+            
+
+            /*
+            int row = 0; int column = 1;
+            for (int i = 0; i < titlepagePanel.ColumnCount/2*Math.Round(titlepagePanel.RowCount*0.75, MidpointRounding.AwayFromZero); i++)
+            {
+                try
+                {
+                    Control control = titlepagePanel.GetControlFromPosition(column, row);
+                    titleData.Add(control.Text);
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+                try
+                {
+                    titlepagePanel.GetControlFromPosition(column+2, row);
+                    column += 2;
+                }
+                catch (Exception)
+                {
+                    column = 1;
+                    row++;
+                    if ((row+1)%3==0)
+                    {
+                        row++;
+                    }
+                }
+               
+            }*/
         }
 
         void CloseWindow_Click(object sender, EventArgs e)
