@@ -8,6 +8,10 @@ namespace MakeReportWord
     {
         void CustomInterface_Shown(object sender, EventArgs e)
         {
+            replaceMenu();
+            menuLeftIndex = 1;
+            wndSize = new WindowSize();
+            dataComboBox = new DataComboBox();
             this.BackColor = Color.FromArgb(255, 50, 39, 62);
             facultyLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
             Students.BackColor = Color.FromArgb(255, 253, 219, 124);
@@ -35,6 +39,45 @@ namespace MakeReportWord
             elementLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
             HiddenElements(SubstitutionMenuItem);
             ShowElements(TitlePageMenuItem);
+            SaveTitlePagePanelCells();
+            DEFAULTtitlepagePanelControls = CopyControls(titlepagePanel, 0, titlepagePanel.Controls.Count - 1);
+            if (DefaultDocumentMenuItem.Checked)
+            {
+                TextHeader("документа");
+                TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
+                ShowingTitelPanel();
+            }
+            else if (LabMenuItem.Checked)
+            {
+                TextHeader("лабораторной работы");
+                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+            }
+            else if (PracticeMenuItem.Checked)
+            {
+                TextHeader("практической работы");
+                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+            }
+            else if (KursMenuItem.Checked)
+            {
+                TextHeader("курсовой работы");
+                ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+            }
+            else if (RefMenuItem.Checked)
+            {
+                TextHeader("реферата");
+            }
+            else if (DiplomMenuItem.Checked)
+            {
+                TextHeader("дипломной работы");
+            }
+            else if (VKRMenuItem.Checked)
+            {
+                TextHeader("ВКР");
+            }
+            else if (RGRMenuItem.Checked)
+            {
+                TextHeader("РГР");
+            }
         }
 
         //buttonDownStart

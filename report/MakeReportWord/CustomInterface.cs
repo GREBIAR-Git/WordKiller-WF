@@ -21,47 +21,7 @@ namespace MakeReportWord
         public CustomInterface(string[] fileName)
         {
             InitializeComponent();
-            SaveTitlePagePanelCells();
-            DEFAULTtitlepagePanelControls = CopyControls(titlepagePanel, 0, titlepagePanel.Controls.Count - 1);
-            if (DefaultDocumentMenuItem.Checked)
-            {
-                TextHeader("документа");
-            }
-            else if (LabMenuItem.Checked)
-            {
-                TextHeader("лабораторной работы");
-                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-            }
-            else if (PracticeMenuItem.Checked)
-            {
-                TextHeader("практической работы");
-                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-            }
-            else if (KursMenuItem.Checked)
-            {
-                TextHeader("курсовой работы");
-                ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-            }
-            else if (RefMenuItem.Checked)
-            {
-                TextHeader("реферата");
-            }
-            else if (DiplomMenuItem.Checked)
-            {
-                TextHeader("дипломной работы");
-            }
-            else if (VKRMenuItem.Checked)
-            {
-                TextHeader("ВКР");
-            }
-            else if (RGRMenuItem.Checked)
-            {
-                TextHeader("РГР");
-            }
-            replaceMenu();
-            menuLeftIndex = 1;
-            wndSize = new WindowSize();
-            dataComboBox = new DataComboBox();
+            
             if (fileName.Length > 0)
             {
                 if (fileName[0].EndsWith(".wordkiller") && System.IO.File.Exists(fileName[0]))
@@ -793,36 +753,42 @@ namespace MakeReportWord
                 TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
                 ShowingTitelPanel();
             }
-            else if (toolStripMenuItem.Text == "Лабораторная работа")
+            else
             {
-                TextHeader("лабораторной работы");
-                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-            }
-            else if (toolStripMenuItem.Text == "Практическая работа")
-            {
-                TextHeader("практической работы");
-                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-            }
-            else if (toolStripMenuItem.Text == "Курсовая работа")
-            {
-                TextHeader("курсовой работы");
-                ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-            }
-            else if (toolStripMenuItem.Text == "Реферат")
-            {
-                TextHeader("реферата");
-            }
-            else if (toolStripMenuItem.Text == "Дипломная работа")
-            {
-                TextHeader("дипломной работы");
-            }
-            else if (toolStripMenuItem.Text == "ВКР")
-            {
-                TextHeader("ВКР");
-            }
-            else if (toolStripMenuItem.Text == "РГР")
-            {
-                TextHeader("РГР");
+                TitleOffOnMenuItem.Visible = true;
+                TitleOffOnMenuItem.Checked = false;
+                ShowingTitelPanel();
+                if (toolStripMenuItem.Text == "Лабораторная работа")
+                {
+                    TextHeader("лабораторной работы");
+                    ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+                }
+                else if (toolStripMenuItem.Text == "Практическая работа")
+                {
+                    TextHeader("практической работы");
+                    ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+                }
+                else if (toolStripMenuItem.Text == "Курсовая работа")
+                {
+                    TextHeader("курсовой работы");
+                    ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+                }
+                else if (toolStripMenuItem.Text == "Реферат")
+                {
+                    TextHeader("реферата");
+                }
+                else if (toolStripMenuItem.Text == "Дипломная работа")
+                {
+                    TextHeader("дипломной работы");
+                }
+                else if (toolStripMenuItem.Text == "ВКР")
+                {
+                    TextHeader("ВКР");
+                }
+                else if (toolStripMenuItem.Text == "РГР")
+                {
+                    TextHeader("РГР");
+                }
             }
             DefaultDocumentMenuItem.Checked = false;
             LabMenuItem.Checked = false;
@@ -1486,6 +1452,8 @@ namespace MakeReportWord
             startInfo.UseShellExecute = true;
             Process.Start(startInfo);
         }
+
+        
         // основателями поведенческой школы в психологии являются: павлов, уотсон, скиннер/спиннер
     }
 }

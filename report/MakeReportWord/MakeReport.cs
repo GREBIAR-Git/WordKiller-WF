@@ -16,6 +16,7 @@ namespace MakeReportWord
             Beginning();
             if(title)
             {
+                dataTitle[dataTitle.Length - 1] = SpaceForYear(dataTitle[dataTitle.Length - 1], '_');
                 TitlePart(typeDocument, dataTitle);
             }
             MainPart(dataMainPart, content, numbering, fromNumbering, numberHeading);
@@ -202,6 +203,15 @@ namespace MakeReportWord
             WriteTextWord(text);
             SkipLinesSingle(3);
             PageMargin(2, 2, 3, 1.5f);
+        }
+
+        string SpaceForYear(string year, char spaceCharacter)
+        {
+            for(int i = 0; i < 4-year.Length; i++)
+            {
+                year += spaceCharacter;
+            }
+            return year;
         }
 
         void Orel(string year)
