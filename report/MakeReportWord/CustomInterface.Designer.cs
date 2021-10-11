@@ -804,7 +804,6 @@ namespace MakeReportWord
             this.richTextBox.TabIndex = 18;
             this.richTextBox.Text = "";
             this.richTextBox.WordWrap = false;
-            this.richTextBox.SelectionChanged += new System.EventHandler(this.richTextBox_SelectionChanged);
             this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
             this.richTextBox.VisibleChanged += new System.EventHandler(this.richTextBox_VisibleChanged);
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox_KeyDown);

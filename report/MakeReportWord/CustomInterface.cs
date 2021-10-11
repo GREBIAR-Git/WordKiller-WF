@@ -1408,6 +1408,8 @@ namespace MakeReportWord
 
         private void CreateMenuItem_Click(object sender, EventArgs e)
         {
+            Question f2 = new Question("Вопрос","Да","Нет");
+            f2.Show();
             if (!string.IsNullOrEmpty(fileNames))
             {
                 //спросить сохранить..
