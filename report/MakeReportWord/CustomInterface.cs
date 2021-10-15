@@ -834,14 +834,14 @@ namespace MakeReportWord
 
         void HideAddButton()
         {
-            tableLayoutPanel1.Controls.Find("Добавить", true)[0].Visible = false;
-            tableLayoutPanel1.ColumnStyles[1].Width = 0;
+            PanelWithButton.Controls.Find("Добавить", true)[0].Visible = false;
+            PanelWithButton.ColumnStyles[1].Width = 0;
         }
 
         void ShowAddButton()
         {
-            tableLayoutPanel1.ColumnStyles[1].Width = 151;
-            tableLayoutPanel1.Controls.Find("Добавить", true)[0].Visible = true;
+            PanelWithButton.ColumnStyles[1].Width = 151;
+            PanelWithButton.Controls.Find("Добавить", true)[0].Visible = true;
         }
 
         void HiddenElements(ToolStripMenuItem MenuItem)
@@ -1026,25 +1026,25 @@ namespace MakeReportWord
 
         void replaceMenuRow()
         {
-            Control[] menuPanelSave = new Control[tableLayoutPanel1.Controls.Count];
-            for (int i = 0; i < tableLayoutPanel1.Controls.Count; i++)
+            Control[] menuPanelSave = new Control[PanelWithButton.Controls.Count];
+            for (int i = 0; i < PanelWithButton.Controls.Count; i++)
             {
-                menuPanelSave[i] = tableLayoutPanel1.Controls[i];
+                menuPanelSave[i] = PanelWithButton.Controls[i];
             }
-            tableLayoutPanel1.Controls.Clear();
+            PanelWithButton.Controls.Clear();
             for (int i = 0; i < menuPanelSave.Length; i++)
             {
                 if (menuPanelSave[i].Name == "buttonText")
                 {
-                    tableLayoutPanel1.Controls.Add(GetMenuTextBtnReplacement(), 2, 0);
+                    PanelWithButton.Controls.Add(GetMenuTextBtnReplacement(), 2, 0);
                 }
                 else if (menuPanelSave[i].Name == "ButtonAdd")
                 {
-                    tableLayoutPanel1.Controls.Add(GetMenuButtonReplacement(1, "Добавить")[0], 1, 0);
+                    PanelWithButton.Controls.Add(GetMenuButtonReplacement(1, "Добавить")[0], 1, 0);
                 }
                 else
                 {
-                    tableLayoutPanel1.Controls.Add(menuPanelSave[i]);
+                    PanelWithButton.Controls.Add(menuPanelSave[i]);
                 }
             }
         }

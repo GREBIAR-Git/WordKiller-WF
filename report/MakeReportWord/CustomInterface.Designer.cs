@@ -70,7 +70,7 @@ namespace MakeReportWord
             this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.DragNDropPanel = new System.Windows.Forms.Panel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.PanelWithButton = new System.Windows.Forms.TableLayoutPanel();
             this.buttonText = new System.Windows.Forms.Button();
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.tableTypeInserts = new System.Windows.Forms.TableLayoutPanel();
@@ -86,12 +86,12 @@ namespace MakeReportWord
             this.File = new System.Windows.Forms.ToolStripMenuItem();
             this.ReadScroll = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseWindow = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.delimiter1 = new System.Windows.Forms.ToolStripSeparator();
             this.CreateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Open = new System.Windows.Forms.ToolStripMenuItem();
             this.Save = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.delimiter2 = new System.Windows.Forms.ToolStripSeparator();
             this.Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.View = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,9 +115,9 @@ namespace MakeReportWord
             this.NumberHeadingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Misc = new System.Windows.Forms.ToolStripMenuItem();
             this.SetAsDefaultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Reference = new System.Windows.Forms.ToolStripMenuItem();
+            this.DocumentationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutProgramMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -127,7 +127,7 @@ namespace MakeReportWord
             this.textPicturePanel.SuspendLayout();
             this.DragNDropPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.PanelWithButton.SuspendLayout();
             this.tableTypeInserts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonDown)).BeginInit();
@@ -474,7 +474,7 @@ namespace MakeReportWord
             this.DownPanel.Controls.Add(this.elementLabel, 1, 1);
             this.DownPanel.Controls.Add(this.elementPanel, 0, 0);
             this.DownPanel.Controls.Add(this.textPicturePanel, 0, 2);
-            this.DownPanel.Controls.Add(this.tableLayoutPanel1, 2, 1);
+            this.DownPanel.Controls.Add(this.PanelWithButton, 2, 1);
             this.DownPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DownPanel.Location = new System.Drawing.Point(6, 733);
             this.DownPanel.Margin = new System.Windows.Forms.Padding(6);
@@ -838,24 +838,24 @@ namespace MakeReportWord
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
             // 
-            // tableLayoutPanel1
+            // PanelWithButton
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.DownPanel.SetColumnSpan(this.tableLayoutPanel1, 3);
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 276F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 276F));
-            this.tableLayoutPanel1.Controls.Add(this.buttonText, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ButtonAdd, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableTypeInserts, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(735, 218);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1018, 62);
-            this.tableLayoutPanel1.TabIndex = 34;
+            this.PanelWithButton.ColumnCount = 3;
+            this.DownPanel.SetColumnSpan(this.PanelWithButton, 3);
+            this.PanelWithButton.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.PanelWithButton.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 276F));
+            this.PanelWithButton.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 276F));
+            this.PanelWithButton.Controls.Add(this.buttonText, 0, 0);
+            this.PanelWithButton.Controls.Add(this.ButtonAdd, 0, 0);
+            this.PanelWithButton.Controls.Add(this.tableTypeInserts, 0, 0);
+            this.PanelWithButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelWithButton.Location = new System.Drawing.Point(735, 218);
+            this.PanelWithButton.Margin = new System.Windows.Forms.Padding(6);
+            this.PanelWithButton.Name = "PanelWithButton";
+            this.PanelWithButton.RowCount = 1;
+            this.PanelWithButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.PanelWithButton.Size = new System.Drawing.Size(1018, 62);
+            this.PanelWithButton.TabIndex = 34;
             // 
             // buttonText
             // 
@@ -1056,21 +1056,21 @@ namespace MakeReportWord
             this.File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ReadScroll,
             this.CloseWindow,
-            this.toolStripSeparator2,
+            this.delimiter1,
             this.CreateMenuItem,
             this.Open,
             this.Save,
             this.SaveAsMenuItem,
-            this.toolStripSeparator3,
+            this.delimiter2,
             this.Exit});
             this.File.Name = "File";
-            this.File.Size = new System.Drawing.Size(177, 34);
+            this.File.Size = new System.Drawing.Size(183, 34);
             this.File.Text = "Свиток дракона";
             // 
             // ReadScroll
             // 
             this.ReadScroll.Name = "ReadScroll";
-            this.ReadScroll.Size = new System.Drawing.Size(787, 34);
+            this.ReadScroll.Size = new System.Drawing.Size(814, 40);
             this.ReadScroll.Text = "Прочитать заклинание материализации";
             this.ReadScroll.Click += new System.EventHandler(this.ReadScroll_Click);
             // 
@@ -1078,20 +1078,20 @@ namespace MakeReportWord
             // 
             this.CloseWindow.Name = "CloseWindow";
             this.CloseWindow.ShortcutKeyDisplayString = "";
-            this.CloseWindow.Size = new System.Drawing.Size(787, 34);
+            this.CloseWindow.Size = new System.Drawing.Size(814, 40);
             this.CloseWindow.Text = "Разложить приложение на первоначальные элементы по завершении";
             this.CloseWindow.Click += new System.EventHandler(this.CloseWindow_Click);
             // 
-            // toolStripSeparator2
+            // delimiter1
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(784, 6);
+            this.delimiter1.Name = "delimiter1";
+            this.delimiter1.Size = new System.Drawing.Size(811, 6);
             // 
             // CreateMenuItem
             // 
             this.CreateMenuItem.Name = "CreateMenuItem";
             this.CreateMenuItem.ShortcutKeyDisplayString = "Ctrl + N";
-            this.CreateMenuItem.Size = new System.Drawing.Size(787, 34);
+            this.CreateMenuItem.Size = new System.Drawing.Size(814, 40);
             this.CreateMenuItem.Text = "Создать";
             this.CreateMenuItem.Click += new System.EventHandler(this.CreateMenuItem_Click);
             // 
@@ -1099,7 +1099,7 @@ namespace MakeReportWord
             // 
             this.Open.Name = "Open";
             this.Open.ShortcutKeyDisplayString = "Ctrl + O";
-            this.Open.Size = new System.Drawing.Size(787, 34);
+            this.Open.Size = new System.Drawing.Size(814, 40);
             this.Open.Text = "Открыть";
             this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
@@ -1107,7 +1107,7 @@ namespace MakeReportWord
             // 
             this.Save.Name = "Save";
             this.Save.ShortcutKeyDisplayString = "Ctrl + S";
-            this.Save.Size = new System.Drawing.Size(787, 34);
+            this.Save.Size = new System.Drawing.Size(814, 40);
             this.Save.Text = "Сохранить";
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
@@ -1115,20 +1115,20 @@ namespace MakeReportWord
             // 
             this.SaveAsMenuItem.Name = "SaveAsMenuItem";
             this.SaveAsMenuItem.ShortcutKeyDisplayString = "Ctrl + Shift + S";
-            this.SaveAsMenuItem.Size = new System.Drawing.Size(787, 34);
+            this.SaveAsMenuItem.Size = new System.Drawing.Size(814, 40);
             this.SaveAsMenuItem.Text = "Сохранить как...";
             this.SaveAsMenuItem.Click += new System.EventHandler(this.SaveAsMenuItem_Click);
             // 
-            // toolStripSeparator3
+            // delimiter2
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(784, 6);
+            this.delimiter2.Name = "delimiter2";
+            this.delimiter2.Size = new System.Drawing.Size(811, 6);
             // 
             // Exit
             // 
             this.Exit.Name = "Exit";
             this.Exit.ShortcutKeyDisplayString = "Ctrl + Q";
-            this.Exit.Size = new System.Drawing.Size(787, 34);
+            this.Exit.Size = new System.Drawing.Size(814, 40);
             this.Exit.Text = "Выход";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -1140,7 +1140,7 @@ namespace MakeReportWord
             this.View,
             this.Document,
             this.Misc,
-            this.справкаToolStripMenuItem});
+            this.Reference});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
@@ -1155,7 +1155,7 @@ namespace MakeReportWord
             this.SubstitutionMenuItem,
             this.TextMenuItem});
             this.View.Name = "View";
-            this.View.Size = new System.Drawing.Size(60, 34);
+            this.View.Size = new System.Drawing.Size(66, 34);
             this.View.Text = "Вид";
             // 
             // TitlePageMenuItem
@@ -1164,21 +1164,21 @@ namespace MakeReportWord
             this.TitlePageMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitlePageMenuItem.Name = "TitlePageMenuItem";
             this.TitlePageMenuItem.ShortcutKeyDisplayString = "";
-            this.TitlePageMenuItem.Size = new System.Drawing.Size(228, 34);
+            this.TitlePageMenuItem.Size = new System.Drawing.Size(315, 40);
             this.TitlePageMenuItem.Text = "Титульник";
             this.TitlePageMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // SubstitutionMenuItem
             // 
             this.SubstitutionMenuItem.Name = "SubstitutionMenuItem";
-            this.SubstitutionMenuItem.Size = new System.Drawing.Size(228, 34);
+            this.SubstitutionMenuItem.Size = new System.Drawing.Size(315, 40);
             this.SubstitutionMenuItem.Text = "Подстановка";
             this.SubstitutionMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // TextMenuItem
             // 
             this.TextMenuItem.Name = "TextMenuItem";
-            this.TextMenuItem.Size = new System.Drawing.Size(228, 34);
+            this.TextMenuItem.Size = new System.Drawing.Size(315, 40);
             this.TextMenuItem.Text = "Текст";
             this.TextMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
@@ -1191,7 +1191,7 @@ namespace MakeReportWord
             this.ContentMenuItem,
             this.NumberHeadingMenuItem});
             this.Document.Name = "Document";
-            this.Document.Size = new System.Drawing.Size(119, 34);
+            this.Document.Size = new System.Drawing.Size(125, 34);
             this.Document.Text = "Документ";
             // 
             // TitleOffOnMenuItem
@@ -1199,7 +1199,7 @@ namespace MakeReportWord
             this.TitleOffOnMenuItem.Checked = true;
             this.TitleOffOnMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitleOffOnMenuItem.Name = "TitleOffOnMenuItem";
-            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(305, 34);
+            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(332, 40);
             this.TitleOffOnMenuItem.Text = "Титульник";
             this.TitleOffOnMenuItem.Click += new System.EventHandler(this.TitleOffOnMenuItem_Click);
             // 
@@ -1208,7 +1208,7 @@ namespace MakeReportWord
             this.NumberingMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FromNumberingTextBoxMenuItem});
             this.NumberingMenuItem.Name = "NumberingMenuItem";
-            this.NumberingMenuItem.Size = new System.Drawing.Size(305, 34);
+            this.NumberingMenuItem.Size = new System.Drawing.Size(332, 40);
             this.NumberingMenuItem.Text = "Нумерация";
             this.NumberingMenuItem.Click += new System.EventHandler(this.NumberingMenuItem_Click);
             // 
@@ -1231,7 +1231,7 @@ namespace MakeReportWord
             this.VKRMenuItem,
             this.RGRMenuItem});
             this.TypeMenuItem.Name = "TypeMenuItem";
-            this.TypeMenuItem.Size = new System.Drawing.Size(305, 34);
+            this.TypeMenuItem.Size = new System.Drawing.Size(332, 40);
             this.TypeMenuItem.Text = "Тип";
             // 
             // DefaultDocumentMenuItem
@@ -1239,63 +1239,63 @@ namespace MakeReportWord
             this.DefaultDocumentMenuItem.Checked = true;
             this.DefaultDocumentMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.DefaultDocumentMenuItem.Name = "DefaultDocumentMenuItem";
-            this.DefaultDocumentMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.DefaultDocumentMenuItem.Size = new System.Drawing.Size(343, 40);
             this.DefaultDocumentMenuItem.Text = "Обычный документ";
             this.DefaultDocumentMenuItem.Click += new System.EventHandler(this.work_Click);
             // 
             // LabMenuItem
             // 
             this.LabMenuItem.Name = "LabMenuItem";
-            this.LabMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.LabMenuItem.Size = new System.Drawing.Size(343, 40);
             this.LabMenuItem.Text = "Лабораторная работа";
             this.LabMenuItem.Click += new System.EventHandler(this.work_Click);
             // 
             // PracticeMenuItem
             // 
             this.PracticeMenuItem.Name = "PracticeMenuItem";
-            this.PracticeMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.PracticeMenuItem.Size = new System.Drawing.Size(343, 40);
             this.PracticeMenuItem.Text = "Практическая работа";
             this.PracticeMenuItem.Click += new System.EventHandler(this.work_Click);
             // 
             // KursMenuItem
             // 
             this.KursMenuItem.Name = "KursMenuItem";
-            this.KursMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.KursMenuItem.Size = new System.Drawing.Size(343, 40);
             this.KursMenuItem.Text = "Курсовая работа";
             this.KursMenuItem.Click += new System.EventHandler(this.work_Click);
             // 
             // RefMenuItem
             // 
             this.RefMenuItem.Name = "RefMenuItem";
-            this.RefMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.RefMenuItem.Size = new System.Drawing.Size(343, 40);
             this.RefMenuItem.Text = "Реферат";
             this.RefMenuItem.Click += new System.EventHandler(this.work_Click);
             // 
             // DiplomMenuItem
             // 
             this.DiplomMenuItem.Name = "DiplomMenuItem";
-            this.DiplomMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.DiplomMenuItem.Size = new System.Drawing.Size(343, 40);
             this.DiplomMenuItem.Text = "Дипломная работа";
             this.DiplomMenuItem.Click += new System.EventHandler(this.work_Click);
             // 
             // VKRMenuItem
             // 
             this.VKRMenuItem.Name = "VKRMenuItem";
-            this.VKRMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.VKRMenuItem.Size = new System.Drawing.Size(343, 40);
             this.VKRMenuItem.Text = "ВКР";
             this.VKRMenuItem.Click += new System.EventHandler(this.work_Click);
             // 
             // RGRMenuItem
             // 
             this.RGRMenuItem.Name = "RGRMenuItem";
-            this.RGRMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.RGRMenuItem.Size = new System.Drawing.Size(343, 40);
             this.RGRMenuItem.Text = "РГР";
             this.RGRMenuItem.Click += new System.EventHandler(this.work_Click);
             // 
             // ContentMenuItem
             // 
             this.ContentMenuItem.Name = "ContentMenuItem";
-            this.ContentMenuItem.Size = new System.Drawing.Size(305, 34);
+            this.ContentMenuItem.Size = new System.Drawing.Size(332, 40);
             this.ContentMenuItem.Text = "Содержание";
             this.ContentMenuItem.Click += new System.EventHandler(this.ContentMenuItem_Click);
             // 
@@ -1304,7 +1304,7 @@ namespace MakeReportWord
             this.NumberHeadingMenuItem.Checked = true;
             this.NumberHeadingMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.NumberHeadingMenuItem.Name = "NumberHeadingMenuItem";
-            this.NumberHeadingMenuItem.Size = new System.Drawing.Size(305, 34);
+            this.NumberHeadingMenuItem.Size = new System.Drawing.Size(332, 40);
             this.NumberHeadingMenuItem.Text = "Цифры к заголовкам";
             this.NumberHeadingMenuItem.Click += new System.EventHandler(this.NumberHeadingMenuItem_Click);
             // 
@@ -1313,36 +1313,36 @@ namespace MakeReportWord
             this.Misc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SetAsDefaultMenuItem});
             this.Misc.Name = "Misc";
-            this.Misc.Size = new System.Drawing.Size(92, 34);
+            this.Misc.Size = new System.Drawing.Size(98, 34);
             this.Misc.Text = "Разное";
             // 
             // SetAsDefaultMenuItem
             // 
             this.SetAsDefaultMenuItem.Name = "SetAsDefaultMenuItem";
-            this.SetAsDefaultMenuItem.Size = new System.Drawing.Size(610, 34);
+            this.SetAsDefaultMenuItem.Size = new System.Drawing.Size(637, 40);
             this.SetAsDefaultMenuItem.Text = "Сделать приложением по умолчанию для .wordkiller";
             this.SetAsDefaultMenuItem.Click += new System.EventHandler(this.SetAsDefaultMenuItem_Click);
             // 
-            // справкаToolStripMenuItem
+            // Reference
             // 
-            this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.оToolStripMenuItem,
-            this.оПрограммеToolStripMenuItem});
-            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(105, 34);
-            this.справкаToolStripMenuItem.Text = "Справка";
+            this.Reference.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DocumentationMenuItem,
+            this.AboutProgramMenuItem});
+            this.Reference.Name = "Reference";
+            this.Reference.Size = new System.Drawing.Size(111, 34);
+            this.Reference.Text = "Справка";
             // 
-            // оToolStripMenuItem
+            // DocumentationMenuItem
             // 
-            this.оToolStripMenuItem.Name = "оToolStripMenuItem";
-            this.оToolStripMenuItem.Size = new System.Drawing.Size(245, 34);
-            this.оToolStripMenuItem.Text = "Документация";
+            this.DocumentationMenuItem.Name = "DocumentationMenuItem";
+            this.DocumentationMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.DocumentationMenuItem.Text = "Документация";
             // 
-            // оПрограммеToolStripMenuItem
+            // AboutProgramMenuItem
             // 
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(245, 34);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.AboutProgramMenuItem.Name = "AboutProgramMenuItem";
+            this.AboutProgramMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.AboutProgramMenuItem.Text = "О программе";
             // 
             // CustomInterface
             // 
@@ -1381,7 +1381,7 @@ namespace MakeReportWord
             this.textPicturePanel.ResumeLayout(false);
             this.DragNDropPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.PanelWithButton.ResumeLayout(false);
             this.tableTypeInserts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonDown)).EndInit();
@@ -1443,7 +1443,7 @@ namespace MakeReportWord
         private System.Windows.Forms.ToolStripMenuItem SubstitutionMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TextMenuItem;
         private System.Windows.Forms.ComboBox professorComboBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel PanelWithButton;
         private System.Windows.Forms.Button buttonText;
         private System.Windows.Forms.Button ButtonAdd;
         private System.Windows.Forms.TableLayoutPanel tableTypeInserts;
@@ -1476,12 +1476,12 @@ namespace MakeReportWord
         private System.Windows.Forms.ToolStripMenuItem Misc;
         private System.Windows.Forms.ToolStripMenuItem SetAsDefaultMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SaveAsMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem оToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem Reference;
+        private System.Windows.Forms.ToolStripMenuItem DocumentationMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutProgramMenuItem;
+        private System.Windows.Forms.ToolStripSeparator delimiter1;
         private System.Windows.Forms.ToolStripMenuItem CreateMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator delimiter2;
         private System.Windows.Forms.ToolStripMenuItem NumberHeadingMenuItem;
     }
 }
