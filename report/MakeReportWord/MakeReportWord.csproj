@@ -79,6 +79,11 @@
     <Compile Include="EncodingDecoding.cs" />
     <Compile Include="GlobalFont.cs" />
     <Compile Include="MakeReport.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="StringArraySearcher.cs" />
     <Compile Include="DataComboBox.cs" />
     <Compile Include="WindowSize.cs" />
@@ -96,11 +101,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="CustomInterface.resx">
       <DependentUpon>CustomInterface.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -113,9 +113,6 @@
     <EmbeddedResource Include="Question.resx">
       <DependentUpon>Question.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -133,23 +130,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="256x256.ico" />
+    <None Include="Resources\Btn.png" />
+    <None Include="Resources\BtnPressed.png" />
+    <None Include="Resources\BtnSelected.png" />
     <None Include="Resources\Picture.png" />
     <None Include="Resources\purpleBackground.png" />
     <None Include="Resources\ResizeGrip.png" />
-    <None Include="Resources\white.png" />
-    <None Include="Resources\H1.png" />
     <None Include="Resources\Code.png" />
-    <None Include="Resources\addselected.png" />
-    <None Include="Resources\addpressed.png" />
-    <None Include="Resources\addnormal.png" />
-    <None Include="Resources\wexselected.png" />
-    <None Include="Resources\wexpressed.png" />
-    <None Include="Resources\wexnormal.png" />
-    <None Include="Resources\quasselected.png" />
-    <None Include="Resources\quaspressed.png" />
+    <None Include="Resources\wex.png" />
+    <None Include="Resources\wexSelected.png" />
+    <None Include="Resources\wexPressed.png" />
+    <None Include="Resources\quasSelected.png" />
+    <None Include="Resources\quasPressed.png" />
     <None Include="Resources\quas.png" />
-    <None Include="Resources\exortselected.png" />
-    <None Include="Resources\exortpressed.png" />
+    <None Include="Resources\exortSelected.png" />
+    <None Include="Resources\exortPressed.png" />
     <None Include="Resources\exort.png" />
     <None Include="Resources\arrowsUp.png" />
     <None Include="Resources\arrowsUpSelected.png" />
@@ -163,11 +158,11 @@
     <None Include="Resources\arrowsRight.png" />
     <None Include="Resources\arrowsRightSelected.png" />
     <None Include="Resources\arrowsRightPressed.png" />
-    <None Include="Resources\quasBackground.png" />
     <None Include="Resources\pictureCode.png" />
     <None Include="Resources\pictureCode_Code.png" />
     <None Include="Resources\pictureCode_Picture.png" />
     <None Include="Resources\DragNDrop.png" />
+    <None Include="Resources\Red.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
