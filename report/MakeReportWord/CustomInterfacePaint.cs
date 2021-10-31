@@ -26,7 +26,7 @@ namespace MakeReportWord
             {
                 fontSize = 12;
             }
-            using (Font fnt = new Font(globalFont.GetFont().Name, fontSize))
+            using (Font fnt = new Font(GlobalFont.GetFont().Name, fontSize))
             {
                 string str;
                 if (elementLabel.Text == "текст")
@@ -47,7 +47,7 @@ namespace MakeReportWord
             PictureBox pb = (PictureBox)sender;
             Control controlPB = (Control)sender;
             int index = elementPanel.Controls.IndexOf(controlPB);
-            Font fnt = globalFont.GetFont();
+            Font fnt = GlobalFont.GetFont();
 
             if (MouseIsOverControl(pb) && Control.MouseButtons != MouseButtons.Left)
             {
@@ -68,7 +68,7 @@ namespace MakeReportWord
         {
             PictureBox pb = (PictureBox)sender;
             string str = pb.Name;
-            Font fnt = globalFont.GetFont();
+            Font fnt = GlobalFont.GetFont();
             int size = 10; int selected = 2;
             if (MouseIsOverControl(pb) && Control.MouseButtons != MouseButtons.Left)
             {

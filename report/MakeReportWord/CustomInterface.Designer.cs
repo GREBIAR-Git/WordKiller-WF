@@ -1164,21 +1164,21 @@ namespace MakeReportWord
             this.TitlePageMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TitlePageMenuItem.Name = "TitlePageMenuItem";
             this.TitlePageMenuItem.ShortcutKeyDisplayString = "";
-            this.TitlePageMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.TitlePageMenuItem.Size = new System.Drawing.Size(255, 40);
             this.TitlePageMenuItem.Text = "Титульник";
             this.TitlePageMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // SubstitutionMenuItem
             // 
             this.SubstitutionMenuItem.Name = "SubstitutionMenuItem";
-            this.SubstitutionMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.SubstitutionMenuItem.Size = new System.Drawing.Size(255, 40);
             this.SubstitutionMenuItem.Text = "Подстановка";
             this.SubstitutionMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
             // TextMenuItem
             // 
             this.TextMenuItem.Name = "TextMenuItem";
-            this.TextMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.TextMenuItem.Size = new System.Drawing.Size(255, 40);
             this.TextMenuItem.Text = "Текст";
             this.TextMenuItem.Click += new System.EventHandler(this.View_MenuItem_Click);
             // 
@@ -1335,13 +1335,13 @@ namespace MakeReportWord
             // DocumentationMenuItem
             // 
             this.DocumentationMenuItem.Name = "DocumentationMenuItem";
-            this.DocumentationMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.DocumentationMenuItem.Size = new System.Drawing.Size(272, 40);
             this.DocumentationMenuItem.Text = "Документация";
             // 
             // AboutProgramMenuItem
             // 
             this.AboutProgramMenuItem.Name = "AboutProgramMenuItem";
-            this.AboutProgramMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.AboutProgramMenuItem.Size = new System.Drawing.Size(272, 40);
             this.AboutProgramMenuItem.Text = "О программе";
             // 
             // CustomInterface

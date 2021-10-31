@@ -21,7 +21,7 @@ namespace MakeReportWord
         public CustomInterface(string[] fileName)
         {
             InitializeComponent();
-            
+            dataComboBox = new DataComboBox();
             if (fileName.Length > 0)
             {
                 if (fileName[0].EndsWith(".wordkiller") && System.IO.File.Exists(fileName[0]))
@@ -1051,7 +1051,7 @@ namespace MakeReportWord
 
         void replaceMenu()
         {
-            globalFont.SetFont(heading1Label.Font, heading1Label.Font.Style);
+            GlobalFont.SetFont(heading1Label.Font, heading1Label.Font.Style);
             PictureBox[] menuPBarray = GetMenuLabelReplacement(elementPanel.ColumnCount - 2);
             replaceMenuRow();
             replaceMenuSpecial();

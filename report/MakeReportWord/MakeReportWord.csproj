@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationIcon>256x256.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MakeReportWord.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
@@ -53,24 +56,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomInterfaceDragNDrop.cs">
+      <DependentUpon>CustomInterface.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustominterfaceResizeWindow.cs">
+      <DependentUpon>CustomInterface.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustomInterfaceDecoration.cs">
+      <DependentUpon>CustomInterface.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustomInterfaceFile.cs">
+      <DependentUpon>CustomInterface.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustomInterfacePaint.cs">
+      <DependentUpon>CustomInterface.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Data.cs" />
     <Compile Include="EncodingDecoding.cs" />
-    <Compile Include="globalFont.cs" />
+    <Compile Include="GlobalFont.cs" />
     <Compile Include="MakeReport.cs" />
+    <Compile Include="StringArraySearcher.cs" />
+    <Compile Include="DataComboBox.cs" />
+    <Compile Include="WindowSize.cs" />
+    <Compile Include="Question.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Question.Designer.cs">
+      <DependentUpon>Question.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomInterface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,15 +101,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Question.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Question.Designer.cs">
-      <DependentUpon>Question.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StringArraySearcher.cs" />
-    <Compile Include="DataComboBox.cs" />
-    <Compile Include="WindowSize.cs" />
     <EmbeddedResource Include="CustomInterface.resx">
       <DependentUpon>CustomInterface.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -11,7 +11,6 @@ namespace MakeReportWord
             replaceMenu();
             menuLeftIndex = 1;
             wndSize = new WindowSize();
-            dataComboBox = new DataComboBox();
             this.BackColor = Color.FromArgb(255, 50, 39, 62);
             facultyLabel.BackColor = Color.FromArgb(255, 253, 219, 124);
             Students.BackColor = Color.FromArgb(255, 253, 219, 124);

@@ -2,7 +2,7 @@
 
 namespace MakeReportWord
 {
-    class globalFont
+    class GlobalFont
     {
         static Font font;
         static FontStyle fontStyle;
