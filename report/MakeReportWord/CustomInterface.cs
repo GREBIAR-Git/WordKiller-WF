@@ -22,6 +22,49 @@ namespace MakeReportWord
         {
             InitializeComponent();
             dataComboBox = new DataComboBox();
+            replaceMenu();
+            menuLeftIndex = 1;
+            wndSize = new WindowSize();
+            DownPanelMI = SubstitutionMenuItem;
+            SaveTitlePagePanelCells();
+            DEFAULTtitlepagePanelControls = CopyControls(titlepagePanel, 0, titlepagePanel.Controls.Count - 1);
+            if (DefaultDocumentMenuItem.Checked)
+            {
+                TextHeader("документа");
+                TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
+                ShowingTitelPanel();
+            }
+            else if (LabMenuItem.Checked)
+            {
+                TextHeader("лабораторной работы");
+                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+            }
+            else if (PracticeMenuItem.Checked)
+            {
+                TextHeader("практической работы");
+                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+            }
+            else if (KursMenuItem.Checked)
+            {
+                TextHeader("курсовой работы");
+                ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+            }
+            else if (RefMenuItem.Checked)
+            {
+                TextHeader("реферата");
+            }
+            else if (DiplomMenuItem.Checked)
+            {
+                TextHeader("дипломной работы");
+            }
+            else if (VKRMenuItem.Checked)
+            {
+                TextHeader("ВКР");
+            }
+            else if (RGRMenuItem.Checked)
+            {
+                TextHeader("РГР");
+            }
             if (fileName.Length > 0)
             {
                 if (fileName[0].EndsWith(".wordkiller") && System.IO.File.Exists(fileName[0]))
@@ -580,7 +623,9 @@ namespace MakeReportWord
             }
         }
 
-        Control[] DEFAULTtitlepagePanelControls; int[] rows; int[] columns;
+        Control[] DEFAULTtitlepagePanelControls;
+        int[] rows;
+        int[] columns;
         void ShowTitleElems(string cells)
         {
             titlepagePanel.SuspendLayout();
@@ -1408,16 +1453,17 @@ namespace MakeReportWord
 
         private void CreateMenuItem_Click(object sender, EventArgs e)
         {
-            Question f2 = new Question("Вопрос","Да","Нет");
-            f2.Show();
-            if (!string.IsNullOrEmpty(fileNames))
+            DialogResult result = MessageBox.Show("Нужно ли сохранить?", "Нужно ли сохранить?", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            if(result == DialogResult.Yes)
             {
-                //спросить сохранить..
-                //SaveWordKiller(fileNames);
-            }
-            else
-            {
-                SaveAsMenuItem_Click(sender, e);
+                if (!string.IsNullOrEmpty(fileNames))
+                {
+                    SaveWordKiller(fileNames);
+                }
+                else
+                {
+                    SaveAsMenuItem_Click(sender, e);
+                }
             }
             fileNames = null;
             ClearGlobal();

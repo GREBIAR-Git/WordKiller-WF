@@ -1134,6 +1134,7 @@ namespace MakeReportWord
             // 
             // menuStrip
             // 
+            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.File,
@@ -1214,6 +1215,7 @@ namespace MakeReportWord
             // 
             // FromNumberingTextBoxMenuItem
             // 
+            this.FromNumberingTextBoxMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FromNumberingTextBoxMenuItem.Name = "FromNumberingTextBoxMenuItem";
             this.FromNumberingTextBoxMenuItem.Size = new System.Drawing.Size(150, 35);
             this.FromNumberingTextBoxMenuItem.Text = "1";
