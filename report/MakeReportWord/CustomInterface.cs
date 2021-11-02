@@ -1276,11 +1276,23 @@ namespace MakeReportWord
             }
         }
 
+        int GetLineOfCursor(RichTextBox richTextBox)
+        {
+            int line = 0;
+            for (int i=0;i<richTextBox.SelectionStart;i++)
+            {
+                if(richTextBox.Text[i]=='\n')
+                {
+                    line += 1;
+                }
+            }
+            return line;
+        }
 
         void richTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            int line = richTextBox.GetLineFromCharIndex(richTextBox.SelectionStart);
-            if(DownPanelMI == SubstitutionMenuItem)
+            int line = GetLineOfCursor(richTextBox);
+            if (DownPanelMI == SubstitutionMenuItem)
             {
                 if (ComboBoxSelected())
                 {
