@@ -89,12 +89,12 @@ namespace MakeReportWord
         {
             if (DownPanelMI == SubstitutionMenuItem)
             {
-                HiddenElements(SubstitutionMenuItem);
+                HideElements(SubstitutionMenuItem);
                 ShowElements(TextMenuItem);
             }
             else
             {
-                HiddenElements(TextMenuItem);
+                HideElements(TextMenuItem);
                 ShowElements(SubstitutionMenuItem);
             }
         }
@@ -255,7 +255,7 @@ namespace MakeReportWord
             if (e.Button == MouseButtons.Left)
             {
                 buttonUp.BackgroundImage = Properties.Resources.arrowsUpSelected;
-                HiddenElements(DownPanelMI);
+                HideElements(DownPanelMI);
                 ShowElements(TitlePageMenuItem);
             }
         }
@@ -265,7 +265,7 @@ namespace MakeReportWord
             if (e.Button == MouseButtons.Left)
             {
                 buttonDown.BackgroundImage = Properties.Resources.arrowsDownSelected;
-                HiddenElements(TitlePageMenuItem);
+                HideElements(TitlePageMenuItem);
                 ShowElements(DownPanelMI);
             }
         }
@@ -855,17 +855,17 @@ namespace MakeReportWord
             ToolStripMenuItem ClickMenuItem = (ToolStripMenuItem)sender;
             if (TitlePageMenuItem.Checked)
             {
-                HiddenElements(TitlePageMenuItem);
+                HideElements(TitlePageMenuItem);
                 ShowElements(ClickMenuItem);
             }
             else if (SubstitutionMenuItem.Checked)
             {
-                HiddenElements(SubstitutionMenuItem);
+                HideElements(SubstitutionMenuItem);
                 ShowElements(ClickMenuItem);
             }
             else if (TextMenuItem.Checked)
             {
-                HiddenElements(TextMenuItem);
+                HideElements(TextMenuItem);
                 ShowElements(ClickMenuItem);
             }
         }
@@ -892,7 +892,7 @@ namespace MakeReportWord
             PanelWithButton.Controls.Find("Добавить", true)[0].Visible = true;
         }
 
-        void HiddenElements(ToolStripMenuItem MenuItem)
+        void HideElements(ToolStripMenuItem MenuItem)
         {
             if (MenuItem == TitlePageMenuItem)
             {
@@ -966,6 +966,7 @@ namespace MakeReportWord
                 textPicturePanel.ColumnStyles[1].Width = 40;
                 DownPanelMI = SubstitutionMenuItem;
                 ShowAddButton();
+                UnselectComboBoxes();
                 richTextBox.Text = string.Empty;
                 richTextBox.Focus();
             }
@@ -1468,7 +1469,7 @@ namespace MakeReportWord
         {
             if (TitleOffOnMenuItem.Checked && TitlePageMenuItem.Checked)
             {
-                HiddenElements(TitlePageMenuItem);
+                HideElements(TitlePageMenuItem);
                 ShowElements(DownPanelMI);
             }
             TitlePageMenuItem.Visible = !TitleOffOnMenuItem.Checked;
