@@ -117,5 +117,21 @@ namespace MakeReportWord
             }
             return decoded;
         }
+
+        public static string MegaConvert(string str)
+        {
+            str = StringToBinaryString(str);
+            str = RepeatEncodingBinary(str);
+            str = DigitsToAbc(str);
+            return str;
+        }
+
+        public static string MegaConvertD(string str)
+        {
+            str = AbcToDigits(str);
+            str = RepeatDecodingBinary(str);
+            str = BinaryStringToString(str);
+            return str;
+        }
     }
 }

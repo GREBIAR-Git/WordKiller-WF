@@ -27,7 +27,7 @@ namespace MakeReportWord
             try
             {
                 string data = reader.ReadToEnd();
-                data = MegaConvertD(data);
+                data = EncodingDecoding.MegaConvertD(data);
                 for (int i = 1; i < data.Length; i++)
                 {
                     if (data[i - 1] == '\r')
@@ -177,57 +177,43 @@ namespace MakeReportWord
         {
             FileStream fileStream = System.IO.File.Open(nameFile, FileMode.Create);
             StreamWriter output = new StreamWriter(fileStream);
+            string save = string.Empty;
             foreach (ToolStripMenuItem item in TypeMenuItem.DropDown.Items)
             {
                 if (item.Checked)
                 {
-                    output.WriteLine(MegaConvert("☺Menu☺" + item.Name.ToString() + "!" + NumberHeadingMenuItem.Checked.ToString()));
+                    save += "☺Menu☺" + item.Name.ToString() + "!" + NumberHeadingMenuItem.Checked.ToString()+"\n";
                 }
             }
-            output.WriteLine(MegaConvert("facultyComboBox☺" + facultyComboBox.Text));
-            output.WriteLine(MegaConvert("numberTextBox☺" + numberTextBox.Text));
-            output.WriteLine(MegaConvert("themeTextBox☺" + themeTextBox.Text));
-            output.WriteLine(MegaConvert("disciplineTextBox☺" + disciplineTextBox.Text));
-            output.WriteLine(MegaConvert("professorComboBox☺" + professorComboBox.Text));
-            output.WriteLine(MegaConvert("yearTextBox☺" + yearTextBox.Text));
-            output.WriteLine(MegaConvert("shifrTextBox☺" + shifrTextBox.Text));
-            output.WriteLine(MegaConvert("studentsTextBox☺" + studentsTextBox.Text));
-            SaveCombobox(output, h1ComboBox, dataComboBox.ComboBoxH1);
-            SaveCombobox(output, h2ComboBox, dataComboBox.ComboBoxH2);
-            SaveCombobox(output, lComboBox, dataComboBox.ComboBoxL);
-            SaveCombobox(output, pComboBox, dataComboBox.ComboBoxP);
-            SaveCombobox(output, tComboBox, dataComboBox.ComboBoxT);
-            SaveCombobox(output, cComboBox, dataComboBox.ComboBoxC);
-            output.WriteLine(MegaConvert("☺TextStart☺"));
-            output.WriteLine(MegaConvert(text));
-            output.WriteLine(MegaConvert("☺TextEnd☺"));
-
+            save += "facultyComboBox☺" + facultyComboBox.Text + "\n";
+            save += "numberTextBox☺" + numberTextBox.Text + "\n";
+            save += "themeTextBox☺" + themeTextBox.Text + "\n";
+            save += "disciplineTextBox☺" + disciplineTextBox.Text + "\n";
+            save += "professorComboBox☺" + professorComboBox.Text + "\n";
+            save += "yearTextBox☺" + yearTextBox.Text + "\n";
+            save += "shifrTextBox☺" + shifrTextBox.Text + "\n";
+            save += "studentsTextBox☺" + studentsTextBox.Text + "\n";
+            save += SaveCombobox(output, h1ComboBox, dataComboBox.ComboBoxH1);
+            save += SaveCombobox(output, h2ComboBox, dataComboBox.ComboBoxH2);
+            save += SaveCombobox(output, lComboBox, dataComboBox.ComboBoxL);
+            save += SaveCombobox(output, pComboBox, dataComboBox.ComboBoxP);
+            save += SaveCombobox(output, tComboBox, dataComboBox.ComboBoxT);
+            save += SaveCombobox(output, cComboBox, dataComboBox.ComboBoxC);
+            save += "☺TextStart☺" + "\n";
+            save += text + "\n";
+            save += "☺TextEnd☺" + "\n";
+            output.Write(EncodingDecoding.MegaConvert(save));
             output.Close();
         }
 
-        string MegaConvert(string str)
+        string SaveCombobox(StreamWriter output, ComboBox comboBox, List<string[]> Lstr)
         {
-            string megaStr = str;
-            megaStr = EncodingDecoding.StringToBinaryString(megaStr);
-            megaStr = EncodingDecoding.RepeatEncodingBinary(megaStr);
-            megaStr = EncodingDecoding.DigitsToAbc(megaStr);
-            return megaStr;
-        }
-
-        string MegaConvertD(string str)
-        {
-            str = EncodingDecoding.AbcToDigits(str);
-            str = EncodingDecoding.RepeatDecodingBinary(str);
-            str = EncodingDecoding.BinaryStringToString(str);
-            return str;
-        }
-
-        void SaveCombobox(StreamWriter output, ComboBox comboBox, List<string[]> Lstr)
-        {
+            string comboBoxSave = string.Empty;
             for (int i = 0; i < comboBox.Items.Count; i++)
             {
-                output.WriteLine(MegaConvert(comboBox.Name + "☺" + comboBox.Items[i].ToString() + "☺" + Lstr[i][1])   );
+                comboBoxSave+=comboBox.Name + "☺" + comboBox.Items[i].ToString() + "☺" + Lstr[i][1] + "\n";
             }
+            return comboBoxSave;
         }
 
         void ClearGlobal()
