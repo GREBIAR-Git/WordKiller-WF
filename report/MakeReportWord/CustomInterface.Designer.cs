@@ -760,7 +760,7 @@ namespace MakeReportWord
             this.textPicturePanel.Name = "textPicturePanel";
             this.textPicturePanel.RowCount = 1;
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.textPicturePanel.Size = new System.Drawing.Size(929, 150);
             this.textPicturePanel.TabIndex = 32;
             this.textPicturePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.textPicturePanel_Paint);
@@ -772,6 +772,7 @@ namespace MakeReportWord
             this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox.Location = new System.Drawing.Point(3, 3);
             this.richTextBox.Name = "richTextBox";
+            this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.richTextBox.Size = new System.Drawing.Size(551, 144);
             this.richTextBox.TabIndex = 18;
             this.richTextBox.Text = "";

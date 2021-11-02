@@ -78,10 +78,12 @@ namespace MakeReportWord
             }
         }
 
+
         void TextHeader(string type)
         {
             this.Text = "Сотворение " + type + " из небытия";
         }
+
 
         void buttonText_Click(object sender, EventArgs e)
         {
@@ -102,7 +104,6 @@ namespace MakeReportWord
         {
             if (DownPanelMI == SubstitutionMenuItem)
             {
-                
                 int cursorSave = richTextBox.SelectionStart;
                 if (elementLabel.Text != "нечто" && ComboBoxSelected() && richTextBox.Text != string.Empty)
                 {
@@ -177,6 +178,7 @@ namespace MakeReportWord
             }
         }
 
+
         void UpdateTypeButton()
         {
             if (dataComboBox.Sum()>0)
@@ -190,6 +192,7 @@ namespace MakeReportWord
                 CountTypeText(dataComboBox.ComboBoxC.Count, "c");
             }
         }
+
 
         void CountTypeText(int countCreatedElements, string str)
         {
@@ -912,6 +915,7 @@ namespace MakeReportWord
                 CustomSizeGrip.Visible = false;
                 HideSpecials();
                 DownPanelMI = TextMenuItem;
+                richTextBox.Margin = new Padding(3, 3, 3, 3);
             }
             MenuItem.Checked = false;
         }
@@ -983,12 +987,21 @@ namespace MakeReportWord
                 richTextBox.Text = text;
                 richTextBox.SelectionStart = richTextBox.Text.Length;
                 UpdateTypeButton();
+                MatchWordPage();
                 richTextBox.Focus();
             }
             if(MenuItem!=null)
             {
                 MenuItem.Checked = true;
             }
+        }
+        
+        // Когда возвращаешься из текста в меню заголовков, текстбокс пустой, а заголовок остается выбранным. Можно либо не выбирать заголовок, либо заполнять текстбокс.
+        void MatchWordPage()
+        {
+            int left = 3 + (richTextBox.Width - 790) / 2 + 76;
+            int right = 3 + (richTextBox.Width - 790) / 2 + 56 - 16; // 16 is scrollbar width
+            richTextBox.Margin = new Padding(left,richTextBox.Margin.Top, right, richTextBox.Margin.Bottom);
         }
 
         void refreshMenu()

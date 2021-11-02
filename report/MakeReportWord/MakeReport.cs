@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.Office.Interop.Word;
 
@@ -10,6 +11,12 @@ namespace MakeReportWord
         Range word;
         bool pgBreak = false;
         char special = '☺';
+        Dictionary<string, float> pageMargins;
+
+        public MakeReport()
+        {
+            pageMargins = new Dictionary<string, float>() { { "top", 2 }, { "bottom", 2 }, { "left", 3 }, { "right", 1.5f } };
+        }
 
         public void CreateReport(DataComboBox dataMainPart, bool numbering, bool content,bool title, int fromNumbering, bool numberHeading, string typeDocument, string[] dataTitle)
         {
@@ -202,7 +209,7 @@ namespace MakeReportWord
             text = "Кафедра " + faculty;
             WriteTextWord(text);
             SkipLinesSingle(3);
-            PageMargin(2, 2, 3, 1.5f);
+            PageMargin();
         }
 
         string SpaceForYear(string year, char spaceCharacter)
@@ -524,7 +531,7 @@ namespace MakeReportWord
 
         void List(string text)
         {
-
+            // kek
         }
 
         void Picture(string text)
@@ -562,7 +569,7 @@ namespace MakeReportWord
 
         void Table(string text)
         {
-
+            // kek
         }
 
         void Code(string text)
@@ -581,12 +588,12 @@ namespace MakeReportWord
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
         }
 
-        void PageMargin(float top, float bottom, float left, float right)
+        void PageMargin()
         {
-            word.PageSetup.TopMargin = CentimetersToPoints(top);
-            word.PageSetup.BottomMargin = CentimetersToPoints(bottom);
-            word.PageSetup.LeftMargin = CentimetersToPoints(left);
-            word.PageSetup.RightMargin = CentimetersToPoints(right);
+            word.PageSetup.TopMargin = CentimetersToPoints(pageMargins["top"]);
+            word.PageSetup.BottomMargin = CentimetersToPoints(pageMargins["bottom"]);
+            word.PageSetup.LeftMargin = CentimetersToPoints(pageMargins["left"]);
+            word.PageSetup.RightMargin = CentimetersToPoints(pageMargins["right"]);
         }
 
         float CentimetersToPoints(float cen)
@@ -616,5 +623,6 @@ namespace MakeReportWord
             }
             return str;
         }
+        
     }
 }
