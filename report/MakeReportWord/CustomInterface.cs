@@ -1292,15 +1292,7 @@ namespace MakeReportWord
 
         int GetLineOfCursor(RichTextBox richTextBox)
         {
-            int line = 0;
-            for (int i=0;i<richTextBox.SelectionStart;i++)
-            {
-                if(richTextBox.Text[i]=='\n')
-                {
-                    line += 1;
-                }
-            }
-            return line;
+            return richTextBox.Text.Substring(0, richTextBox.SelectionStart).Split('\n').Length-1;
         }
 
         void richTextBox_KeyDown(object sender, KeyEventArgs e)
