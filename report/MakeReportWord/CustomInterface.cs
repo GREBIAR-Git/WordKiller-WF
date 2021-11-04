@@ -1308,45 +1308,82 @@ namespace MakeReportWord
 
         void richTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (DownPanelMI == SubstitutionMenuItem)
+            if (DownPanelMI == SubstitutionMenuItem && ComboBoxSelected())
             {
-                if (ComboBoxSelected())
+                string text = richTextBox.Text;
+                int line = GetLineOfCursor(richTextBox);
+                string[] lines = text.Split('\n');
+                int index = richTextBox.SelectionStart;
+                if (text == richTextBox.SelectedText && (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete))
                 {
-                    string text = richTextBox.Text;
-                    int line = GetLineOfCursor(richTextBox);
-                    string[] lines = text.Split('\n');
-                    int idx = richTextBox.SelectionStart;
-                    bool last = lines[1].Length + lines[0].Length == idx - 1;
-                    bool start2 = lines[0].Length == idx - 1;
-                    bool start4 = lines[0].Length + lines[1].Length + lines[2].Length == idx - 3;
-                    if (text == richTextBox.SelectedText && (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete))
+                    lines[1] = "";
+                    lines[3] = "";
+                    richTextBox.Text = lines[0] + "\n" + lines[1] + "\n" + lines[2] + "\n" + lines[3];
+                    richTextBox.SelectionStart = lines[0].Length + 1;
+                    e.Handled = true;
+                }
+                else if ((line == 1 || line == 3 || (line == 2 && richTextBox.SelectedText.Contains("\n"))) && !(e.KeyCode == Keys.Up || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left || e.KeyCode == Keys.Right))
+                {
+                    e.Handled = true;
+                }
+                else if (e.KeyCode == Keys.Enter && line == 2 || e.KeyCode == Keys.Delete && EndSecondLines(lines, index) ||
+                        (e.KeyCode == Keys.Back || Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.X) && 
+                        (BeginningSecondLines(lines, index) || BeginningFourthLines(lines, index)) && richTextBox.SelectionLength == 0)
+                {
+                    e.Handled = true;
+                }
+                else if (e.KeyCode == Keys.Down &&( line == 2 || BeginningSecondLines(lines, index) || EndSecondLines(lines, index)))
+                {
+                    richTextBox.SelectionStart += lines[1].Length + lines[2].Length + 2;
+                    e.Handled = true;
+                }
+                else if (e.KeyCode == Keys.Up && (line == 4 || BeginningFourthLines(lines, index)))
+                {
+                    richTextBox.SelectionStart -= lines[1].Length + lines[2].Length + 2;
+                    e.Handled = true;
+                }
+                else if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V)
+                {
+                    if(line == 2)
                     {
-                        lines[1] = "";
-                        lines[3] = "";
-                        richTextBox.Text = lines[0] + "\n" + lines[1] + "\n" + lines[2] + "\n" + lines[3];
-                        richTextBox.SelectionStart = lines[0].Length + 1;
-                        e.Handled = true;
-                    }
-                    else if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.X ||
-                        e.KeyCode == Keys.Enter && (line >= 1 && line <= 3) ||
-                        (e.KeyCode == Keys.Back && (line == 1 || line == 3 || (start2 && richTextBox.SelectionLength == 0 && line == 2) || (line == 2 && richTextBox.SelectedText.Contains("\n")) || (start4 && richTextBox.SelectionLength == 0 && line == 4))) ||
-                        (e.KeyCode == Keys.Delete && (line == 1 || line == 3 || last || (richTextBox.SelectedText.Contains("\n") && (line < 4))))
-                       )
-                    {
-                        e.Handled = true;
-                    }
-                    else if (e.KeyCode == Keys.Down && line == 2)
-                    {
-                        richTextBox.SelectionStart += richTextBox.Text.Split('\n')[2].Length + richTextBox.Text.Split('\n')[1].Length + 2;
-                    }
-                    else if (e.KeyCode == Keys.Up && line == 4)
-                    {
-                        richTextBox.SelectionStart -= richTextBox.Text.Split('\n')[2].Length + 2;
+                        if (richTextBox.SelectedText.Contains("\n"))
+                        {
+                            e.Handled = true;
+                        }
+                        else if (Clipboard.GetText().Contains("\n"))
+                        {
+                            Clipboard.SetText(Clipboard.GetText().Replace("\r","").Replace('\n', ' '));
+                        }
                     }
                 }
             }
+        }
 
-            // ✔
+        bool BeginningSecondLines(string[] lines, int index)
+        {
+            if(lines[0].Length == index - 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        bool BeginningFourthLines(string[] lines, int index)
+        {
+            if (lines[0].Length + lines[1].Length + lines[2].Length == index - 3)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        bool EndSecondLines(string[] lines, int index)
+        {
+            if (lines[1].Length + lines[0].Length == index - 1)
+            {
+                return true;
+            }
+            return false;
         }
 
         bool ComboBoxSelected()
@@ -1358,14 +1395,10 @@ namespace MakeReportWord
 
         private void richTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int line = GetLineOfCursor(richTextBox);
             if (DownPanelMI == SubstitutionMenuItem && ComboBoxSelected())
             {
-                if (line == 1 || line == 3)
-                {
-                    e.Handled = true;
-                }
-                else if (richTextBox.SelectionLength > 0 && (e.KeyChar != (char)Keys.Back || e.KeyChar != (char)Keys.Delete))
+                int line = GetLineOfCursor(richTextBox);
+                if (line == 1 || line == 3 || (line == 2 && richTextBox.SelectedText.Contains("\n")))
                 {
                     e.Handled = true;
                 }
@@ -1495,6 +1528,11 @@ namespace MakeReportWord
             ProcessStartInfo startInfo = new ProcessStartInfo("computerdefaults");
             startInfo.UseShellExecute = true;
             Process.Start(startInfo);
+        }
+
+        private void richTextBox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+
         }
         // основателями поведенческой школы в психологии являются: павлов, уотсон, скиннер/спиннер
     }
