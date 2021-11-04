@@ -1,7 +1,0 @@
-﻿namespace MakeReportWord
-{
-    class Data
-    {
-
-    }
-}
