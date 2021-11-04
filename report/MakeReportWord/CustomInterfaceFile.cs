@@ -89,41 +89,15 @@ namespace MakeReportWord
                         }
                         else if (variable_value.Length == 3)
                         {
-                            if (variable_value[0].StartsWith("h1ComboBox"))
+                            foreach (KeyValuePair<string, ElementComboBox> comboBox in dataComboBox.ComboBox)
                             {
-                                h1ComboBox.Items.Add(variable_value[1]);
-                                string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBox["h1"].Data.Add(str);
-                            }
-                            else if (variable_value[0].StartsWith("h2ComboBox"))
-                            {
-                                h2ComboBox.Items.Add(variable_value[1]);
-                                string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBox["h2"].Data.Add(str);
-                            }
-                            else if (variable_value[0].StartsWith("lComboBox"))
-                            {
-                                lComboBox.Items.Add(variable_value[1]);
-                                string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBox["l"].Data.Add(str);
-                            }
-                            else if (variable_value[0].StartsWith("pComboBox"))
-                            {
-                                pComboBox.Items.Add(variable_value[1]);
-                                string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBox["p"].Data.Add(str);
-                            }
-                            else if (variable_value[0].StartsWith("tComboBox"))
-                            {
-                                tComboBox.Items.Add(variable_value[1]);
-                                string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBox["t"].Data.Add(str);
-                            }
-                            else if (variable_value[0].StartsWith("cComboBox"))
-                            {
-                                cComboBox.Items.Add(variable_value[1]);
-                                string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBox["c"].Data.Add(str);
+                                if (variable_value[0].StartsWith(comboBox.Key + "ComboBox"))
+                                {
+                                    comboBox.Value.Form.Items.Add(variable_value[1]);
+                                    string[] str = new string[] { variable_value[1], variable_value[2] };
+                                    comboBox.Value.Data.Add(str);
+                                    break;
+                                }
                             }
                         }
                     }
@@ -209,7 +183,7 @@ namespace MakeReportWord
             string comboBoxSave = string.Empty;
             for (int i = 0; i < comboBox.Form.Items.Count; i++)
             {
-                comboBoxSave+=name + "☺" + comboBox.Form.Items[i].ToString() + "☺" + comboBox.Data[i][1] + "\n";
+                comboBoxSave+=name + "ComboBox" + "☺" + comboBox.Form.Items[i].ToString() + "☺" + comboBox.Data[i][1] + "\n";
             }
             return comboBoxSave;
         }

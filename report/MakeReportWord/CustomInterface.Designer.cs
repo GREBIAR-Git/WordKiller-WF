@@ -555,7 +555,7 @@ namespace MakeReportWord
             this.heading1Label.AutoSize = true;
             this.heading1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.heading1Label.Location = new System.Drawing.Point(65, 3);
-            this.heading1Label.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.heading1Label.Margin = new System.Windows.Forms.Padding(3);
             this.heading1Label.Name = "heading1Label";
             this.heading1Label.Size = new System.Drawing.Size(118, 52);
             this.heading1Label.TabIndex = 15;
@@ -570,7 +570,7 @@ namespace MakeReportWord
             this.heading2Label.AutoSize = true;
             this.heading2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.heading2Label.Location = new System.Drawing.Point(189, 3);
-            this.heading2Label.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.heading2Label.Margin = new System.Windows.Forms.Padding(3);
             this.heading2Label.Name = "heading2Label";
             this.heading2Label.Size = new System.Drawing.Size(118, 52);
             this.heading2Label.TabIndex = 16;
@@ -585,7 +585,7 @@ namespace MakeReportWord
             this.listLabel.AutoSize = true;
             this.listLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listLabel.Location = new System.Drawing.Point(313, 3);
-            this.listLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.listLabel.Margin = new System.Windows.Forms.Padding(3);
             this.listLabel.Name = "listLabel";
             this.listLabel.Size = new System.Drawing.Size(118, 52);
             this.listLabel.TabIndex = 17;
@@ -600,7 +600,7 @@ namespace MakeReportWord
             this.pictureLabel.AutoSize = true;
             this.pictureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pictureLabel.Location = new System.Drawing.Point(437, 3);
-            this.pictureLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.pictureLabel.Margin = new System.Windows.Forms.Padding(3);
             this.pictureLabel.Name = "pictureLabel";
             this.pictureLabel.Size = new System.Drawing.Size(118, 52);
             this.pictureLabel.TabIndex = 18;
@@ -616,7 +616,7 @@ namespace MakeReportWord
             this.tableLabel.BackColor = System.Drawing.SystemColors.Control;
             this.tableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tableLabel.Location = new System.Drawing.Point(561, 3);
-            this.tableLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tableLabel.Margin = new System.Windows.Forms.Padding(3);
             this.tableLabel.Name = "tableLabel";
             this.tableLabel.Size = new System.Drawing.Size(118, 52);
             this.tableLabel.TabIndex = 21;
@@ -632,7 +632,7 @@ namespace MakeReportWord
             this.codeLabel.BackColor = System.Drawing.SystemColors.Control;
             this.codeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.codeLabel.Location = new System.Drawing.Point(685, 3);
-            this.codeLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.codeLabel.Margin = new System.Windows.Forms.Padding(3);
             this.codeLabel.Name = "codeLabel";
             this.codeLabel.Size = new System.Drawing.Size(118, 52);
             this.codeLabel.TabIndex = 22;
@@ -766,7 +766,7 @@ namespace MakeReportWord
             this.textPicturePanel.Name = "textPicturePanel";
             this.textPicturePanel.RowCount = 1;
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 262F));
+            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.textPicturePanel.Size = new System.Drawing.Size(929, 1);
             this.textPicturePanel.TabIndex = 32;
             this.textPicturePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.textPicturePanel_Paint);
