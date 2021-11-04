@@ -75,6 +75,7 @@
       <DependentUpon>CustomInterface.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ElementComboBox.cs" />
     <Compile Include="EncodingDecoding.cs" />
     <Compile Include="GlobalFont.cs" />
     <Compile Include="MakeReport.cs" />

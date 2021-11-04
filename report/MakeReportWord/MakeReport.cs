@@ -428,28 +428,28 @@ namespace MakeReportWord
             string[] text = new string[2];
             if (special == "h1")
             {
-                text[0] = content.ComboBoxH1[i - 1][1];
+                text[0] = content.ComboBox["h1"].Data[i - 1][1];
             }
             else if (special == "h2")
             {
-                text[0] = content.ComboBoxH2[i - 1][1];
+                text[0] = content.ComboBox["h2"].Data[i - 1][1];
             }
             else if (special == "l")
             {
-                text[0] = content.ComboBoxL[i - 1][1];
+                text[0] = content.ComboBox["l"].Data[i - 1][1];
             }
             else if (special == "p")
             {
-                text[0] = content.ComboBoxP[i - 1][1];
-                text[1] = content.ComboBoxP[i - 1][0];
+                text[0] = content.ComboBox["p"].Data[i - 1][1];
+                text[1] = content.ComboBox["p"].Data[i - 1][0];
             }
             else if (special == "t")
             {
-                text[0] = content.ComboBoxT[i - 1][1];
+                text[0] = content.ComboBox["t"].Data[i - 1][1];
             }
             else if (special == "c")
             {
-                text[0] = content.ComboBoxC[i - 1][1];
+                text[0] = content.ComboBox["c"].Data[i - 1][1];
             }
             return text;
         }

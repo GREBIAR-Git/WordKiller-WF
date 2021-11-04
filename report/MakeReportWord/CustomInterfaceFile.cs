@@ -93,37 +93,37 @@ namespace MakeReportWord
                             {
                                 h1ComboBox.Items.Add(variable_value[1]);
                                 string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBoxH1.Add(str);
+                                dataComboBox.ComboBox["h1"].Data.Add(str);
                             }
                             else if (variable_value[0].StartsWith("h2ComboBox"))
                             {
                                 h2ComboBox.Items.Add(variable_value[1]);
                                 string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBoxH2.Add(str);
+                                dataComboBox.ComboBox["h2"].Data.Add(str);
                             }
                             else if (variable_value[0].StartsWith("lComboBox"))
                             {
                                 lComboBox.Items.Add(variable_value[1]);
                                 string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBoxL.Add(str);
+                                dataComboBox.ComboBox["l"].Data.Add(str);
                             }
                             else if (variable_value[0].StartsWith("pComboBox"))
                             {
                                 pComboBox.Items.Add(variable_value[1]);
                                 string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBoxP.Add(str);
+                                dataComboBox.ComboBox["p"].Data.Add(str);
                             }
                             else if (variable_value[0].StartsWith("tComboBox"))
                             {
                                 tComboBox.Items.Add(variable_value[1]);
                                 string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBoxT.Add(str);
+                                dataComboBox.ComboBox["t"].Data.Add(str);
                             }
                             else if (variable_value[0].StartsWith("cComboBox"))
                             {
                                 cComboBox.Items.Add(variable_value[1]);
                                 string[] str = new string[] { variable_value[1], variable_value[2] };
-                                dataComboBox.ComboBoxC.Add(str);
+                                dataComboBox.ComboBox["c"].Data.Add(str);
                             }
                         }
                     }
@@ -193,12 +193,10 @@ namespace MakeReportWord
             save += "yearTextBox☺" + yearTextBox.Text + "\n";
             save += "shifrTextBox☺" + shifrTextBox.Text + "\n";
             save += "studentsTextBox☺" + studentsTextBox.Text + "\n";
-            save += SaveCombobox(output, h1ComboBox, dataComboBox.ComboBoxH1);
-            save += SaveCombobox(output, h2ComboBox, dataComboBox.ComboBoxH2);
-            save += SaveCombobox(output, lComboBox, dataComboBox.ComboBoxL);
-            save += SaveCombobox(output, pComboBox, dataComboBox.ComboBoxP);
-            save += SaveCombobox(output, tComboBox, dataComboBox.ComboBoxT);
-            save += SaveCombobox(output, cComboBox, dataComboBox.ComboBoxC);
+            foreach (KeyValuePair<string, ElementComboBox> comboBox in dataComboBox.ComboBox)
+            {
+                save += SaveCombobox(output, comboBox.Value, comboBox.Key);
+            }
             save += "☺TextStart☺" + "\n";
             save += text + "\n";
             save += "☺TextEnd☺" + "\n";
@@ -206,19 +204,19 @@ namespace MakeReportWord
             output.Close();
         }
 
-        string SaveCombobox(StreamWriter output, ComboBox comboBox, List<string[]> Lstr)
+        string SaveCombobox(StreamWriter output, ElementComboBox comboBox, string name)
         {
             string comboBoxSave = string.Empty;
-            for (int i = 0; i < comboBox.Items.Count; i++)
+            for (int i = 0; i < comboBox.Form.Items.Count; i++)
             {
-                comboBoxSave+=comboBox.Name + "☺" + comboBox.Items[i].ToString() + "☺" + Lstr[i][1] + "\n";
+                comboBoxSave+=name + "☺" + comboBox.Form.Items[i].ToString() + "☺" + comboBox.Data[i][1] + "\n";
             }
             return comboBoxSave;
         }
 
         void ClearGlobal()
         {
-            dataComboBox = new DataComboBox();
+            dataComboBox = new DataComboBox(h1ComboBox, h2ComboBox, lComboBox, pComboBox, tComboBox, cComboBox);
             for (int i = elementPanel.ColumnCount - 1; i < elementPanel.Controls.Count - 1; i++)
             {
                 ComboBox cmbBox = (ComboBox)elementPanel.Controls[i];

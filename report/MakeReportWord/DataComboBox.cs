@@ -5,12 +5,12 @@ namespace MakeReportWord
 {
     class DataComboBox
     {
-        Dictionary<string, ElementComboBox> comboBoxes { get;set; }
-        public string text { get; set; } 
+        public Dictionary<string, ElementComboBox> ComboBox { get;set; }
+        public string Text { get; set; } 
         
         public ElementComboBox SearchComboBox(ComboBox comboBoxForm)
         {
-            foreach(KeyValuePair<string,ElementComboBox> comboBox in this.comboBoxes)
+            foreach(KeyValuePair<string,ElementComboBox> comboBox in ComboBox)
             {
                 if (comboBox.Value.Form == comboBoxForm)
                 {
@@ -23,7 +23,7 @@ namespace MakeReportWord
         public int Sum()
         {
             int sum=0;
-            foreach (KeyValuePair<string, ElementComboBox> comboBox in this.comboBoxes)
+            foreach (KeyValuePair<string, ElementComboBox> comboBox in ComboBox)
             {
                 sum += comboBox.Value.Data.Count;
             }
@@ -31,13 +31,13 @@ namespace MakeReportWord
         }
         public DataComboBox(ComboBox h1, ComboBox h2, ComboBox l, ComboBox p, ComboBox t, ComboBox c)
         {
-            comboBoxes = new Dictionary<string, ElementComboBox>();
-            comboBoxes["h1"] = new ElementComboBox(h1);
-            comboBoxes["h2"] = new ElementComboBox(h1);
-            comboBoxes["l"] = new ElementComboBox(h1);
-            comboBoxes["p"] = new ElementComboBox(h1);
-            comboBoxes["t"] = new ElementComboBox(h1);
-            comboBoxes["c"] = new ElementComboBox(c);
+            ComboBox = new Dictionary<string, ElementComboBox>();
+            ComboBox["h1"] = new ElementComboBox(h1);
+            ComboBox["h2"] = new ElementComboBox(h2);
+            ComboBox["l"] = new ElementComboBox(l);
+            ComboBox["p"] = new ElementComboBox(p);
+            ComboBox["t"] = new ElementComboBox(t);
+            ComboBox["c"] = new ElementComboBox(c);
         }
     }
 }

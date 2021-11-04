@@ -102,16 +102,16 @@ namespace MakeReportWord
             {
                 if (elementLabel.Text != "нечто" && ComboBoxSelected() && richTextBox.Text != string.Empty)
                 {
-                    if (SaveComboBoxData(dataComboBox.ComboBoxH1))
+                    if (SaveComboBoxData(dataComboBox.ComboBox["h1"]))
                     {
                     }
-                    else if (SaveComboBoxData(dataComboBox.ComboBoxH2))
+                    else if (SaveComboBoxData(dataComboBox.ComboBox["h2"]))
                     {
                     }
-                    else if (SaveComboBoxData(dataComboBox.ComboBoxL))
+                    else if (SaveComboBoxData(dataComboBox.ComboBox["l"]))
                     {
                     }
-                    else if (SaveComboBoxData(dataComboBox.ComboBoxP))
+                    else if (SaveComboBoxData(dataComboBox.ComboBox["p"]))
                     {
                         string mainText = SplitMainText();
                         if (!System.IO.File.Exists(mainText))
@@ -123,10 +123,10 @@ namespace MakeReportWord
                             fileNames = mainText;
                         }
                     }
-                    else if (SaveComboBoxData(dataComboBox.ComboBoxT))
+                    else if (SaveComboBoxData(dataComboBox.ComboBox["t"]))
                     {
                     }
-                    else if (SaveComboBoxData(dataComboBox.ComboBoxC))
+                    else if (SaveComboBoxData(dataComboBox.ComboBox["c"]))
                     {
                         string mainText = SplitMainText();
                         if (!System.IO.File.Exists(mainText))
@@ -170,24 +170,22 @@ namespace MakeReportWord
             if (dataComboBox.Sum()>0)
             {
                 ShowSpecials();
-                CountTypeText(dataComboBox.ComboBoxH1);
-                CountTypeText(dataComboBox.ComboBoxH2);
-                CountTypeText(dataComboBox.ComboBoxL);
-                CountTypeText(dataComboBox.ComboBoxP);
-                CountTypeText(dataComboBox.ComboBoxT);
-                CountTypeText(dataComboBox.ComboBoxC);
+                foreach (KeyValuePair<string, ElementComboBox> comboBox in dataComboBox.ComboBox)
+                {
+                    CountTypeText(comboBox.Value,comboBox.Key);
+                }
             }
         }
 
-        void CountTypeText(ElementComboBox comboBox)
+        void CountTypeText(ElementComboBox comboBox, string name)
         {
-            if (comboBox.Data.Count <= (richTextBox.Text.Length - richTextBox.Text.Replace(("☺" + comboBox.Name), "").Length) / (comboBox.Name.Length + 1))
+            if (comboBox.Data.Count <= (richTextBox.Text.Length - richTextBox.Text.Replace(("☺" + name), "").Length) / (name.Length + 1))
             {
-                tableTypeInserts.Controls[comboBox.Name.ToUpper()].Visible = false;
+                tableTypeInserts.Controls[name.ToUpper()].Visible = false;
             }
             else
             {
-                tableTypeInserts.Controls[comboBox.Name.ToUpper()].Visible = true;
+                tableTypeInserts.Controls[name.ToUpper()].Visible = true;
             }
         }
 
@@ -293,38 +291,9 @@ namespace MakeReportWord
                 element.BackgroundImage = Properties.Resources.BtnSelected;
                 if (element.Name == "Добавить" && ValidAddInput())
                 {
-                    string str = richTextBox.Text.Split('\n')[0];
-                    // соединить 
-                    if (str == "☺h1☺")
-                    {
-                        string[] data = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
-                        AddToComboBox(dataComboBox.ComboBoxH1, data);
-                    }
-                    else if (str == "☺h2☺")
-                    {
-                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
-                        AddToComboBox(dataComboBox.ComboBoxH2, strData);
-                    }
-                    else if (str == "☺l☺")
-                    {
-                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
-                        AddToComboBox(dataComboBox.ComboBoxL, strData);
-                    }
-                    else if (str == "☺p☺")
-                    {
-                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
-                        AddToComboBox(dataComboBox.ComboBoxP, strData);
-                    }
-                    else if (str == "☺t☺")
-                    {
-                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
-                        AddToComboBox(dataComboBox.ComboBoxT, strData);
-                    }
-                    else if (str == "☺c☺")
-                    {
-                        string[] strData = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
-                        AddToComboBox(dataComboBox.ComboBoxC, strData);
-                    }
+                    string str = richTextBox.Text.Split('\n')[0].Replace("☺","");
+                    string[] data = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
+                    AddToComboBox(dataComboBox.ComboBox[str], data);
                 }
                 else if (element.Name == "КнопкаТекст")
                 {
@@ -416,30 +385,7 @@ namespace MakeReportWord
                     }
                 }
                 richTextBox.Focus();
-                if (comboBox == h1ComboBox)
-                {
-                    DataComboBoxToRichBox(dataComboBox.ComboBoxH1);
-                }
-                else if (comboBox == h2ComboBox)
-                {
-                    DataComboBoxToRichBox(dataComboBox.ComboBoxH2);
-                }
-                else if (comboBox == lComboBox)
-                {
-                    DataComboBoxToRichBox(dataComboBox.ComboBoxL);
-                }
-                else if (comboBox == pComboBox)
-                {
-                    DataComboBoxToRichBox(dataComboBox.ComboBoxP);
-                }
-                else if (comboBox == tComboBox)
-                {
-                    DataComboBoxToRichBox(dataComboBox.ComboBoxT);
-                }
-                else if (comboBox == cComboBox)
-                {
-                    DataComboBoxToRichBox(dataComboBox.ComboBoxC);
-                }
+                DataComboBoxToRichBox(dataComboBox.SearchComboBox(comboBox));
             }
         }
 
@@ -448,7 +394,6 @@ namespace MakeReportWord
             richTextBox.Text = "☺h1☺\n" + comboBox.Data[comboBox.Form.SelectedIndex][0] + "\n☺Содержимое☺\n" + comboBox.Data[comboBox.Form.SelectedIndex][1];
             richTextBox.SelectionStart = 5 + comboBox.Data[comboBox.Form.SelectedIndex][0].Length;
         }
-
 
         void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -464,12 +409,6 @@ namespace MakeReportWord
                 richTextBox.Text = string.Empty;
             }
         }
-
-        /*void ComboBox_IndexChanged(System.Collections.Generic.List<string[]> str, string s, ComboBox comboBox)
-        {
-            richTextBox.Text = "☺"+s+"☺\n" + str[comboBox.SelectedIndex][0] + "\n☺Содержимое☺\n" + str[comboBox.SelectedIndex][1];
-            richTextBox.SelectionStart = 3 + s.Length + str[comboBox.SelectedIndex][0].Length;
-        }*/
 
         void LStartText(object sender)
         {
@@ -517,30 +456,7 @@ namespace MakeReportWord
                 }
                 else if (Control.ModifierKeys == Keys.Alt)
                 {
-                    if (comboBox == h1ComboBox)
-                    {
-                        dataComboBox.ComboBoxH1.RemoveAt(comboBox.SelectedIndex);
-                    }
-                    else if (comboBox == h2ComboBox)
-                    {
-                        dataComboBox.ComboBoxH2.RemoveAt(comboBox.SelectedIndex);
-                    }
-                    else if (comboBox == lComboBox)
-                    {
-                        dataComboBox.ComboBoxL.RemoveAt(comboBox.SelectedIndex);
-                    }
-                    else if (comboBox == pComboBox)
-                    {
-                        dataComboBox.ComboBoxP.RemoveAt(comboBox.SelectedIndex);
-                    }
-                    else if (comboBox == tComboBox)
-                    {
-                        dataComboBox.ComboBoxT.RemoveAt(comboBox.SelectedIndex);
-                    }
-                    else if (comboBox == cComboBox)
-                    {
-                        dataComboBox.ComboBoxC.RemoveAt(comboBox.SelectedIndex);
-                    }
+                    dataComboBox.SearchComboBox(comboBox).Data.RemoveAt(comboBox.SelectedIndex);
                     comboBox.Items.RemoveAt(comboBox.SelectedIndex);
                     ComboBoxIndexChange(comboBox);
                     ComboBox_SelectedIndexChanged(comboBox, e);
@@ -1488,7 +1404,7 @@ namespace MakeReportWord
             text = "";
             textDragOnDrop = "";
             menuLeftIndex = 1;
-            dataComboBox = new DataComboBox();
+            dataComboBox = new DataComboBox(h1ComboBox,h2ComboBox,lComboBox,pComboBox,tComboBox,cComboBox);
             richTextBox.Text = "";
             if(DownPanelMI==TextMenuItem)
             {

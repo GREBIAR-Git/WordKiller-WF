@@ -5,7 +5,6 @@ namespace MakeReportWord
 {
     class ElementComboBox
     {
-        public string Name { get; set; }
         public List<string[]> Data { get; set; }
         public ComboBox Form { get; set; }
 
