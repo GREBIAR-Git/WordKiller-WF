@@ -1,58 +1,43 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace MakeReportWord
 {
     class DataComboBox
     {
-        List<string[]> comboBoxH1, comboBoxH2, comboBoxL, comboBoxP, comboBoxT, comboBoxC;
-        string text;
-        public string Text
+        Dictionary<string, ElementComboBox> comboBoxes { get;set; }
+        public string text { get; set; } 
+        
+        public ElementComboBox SearchComboBox(ComboBox comboBoxForm)
         {
-            get{return text;}
-            set{text = value;}
+            foreach(KeyValuePair<string,ElementComboBox> comboBox in this.comboBoxes)
+            {
+                if (comboBox.Value.Form == comboBoxForm)
+                {
+                    return comboBox.Value;
+                }
+            }
+            return null;
         }
-        public List<string[]> ComboBoxH1
-        {
-            get { return comboBoxH1; }
-            set { comboBoxH1 = value; }
-        }
-        public List<string[]> ComboBoxH2
-        {
-            get { return comboBoxH2; }
-            set { comboBoxH2 = value; }
-        }
-        public List<string[]> ComboBoxL
-        {
-            get { return comboBoxL; }
-            set { comboBoxL = value; }
-        }
-        public List<string[]> ComboBoxP
-        {
-            get { return comboBoxP; }
-            set { comboBoxP = value; }
-        }
-        public List<string[]> ComboBoxT
-        {
-            get { return comboBoxT; }
-            set { comboBoxT = value; }
-        }
-        public List<string[]> ComboBoxC
-        {
-            get { return comboBoxC; }
-            set { comboBoxC = value; }
-        }
+
         public int Sum()
         {
-            return comboBoxH1.Count + comboBoxH2.Count + comboBoxL.Count + comboBoxP.Count + comboBoxT.Count + comboBoxC.Count;
+            int sum=0;
+            foreach (KeyValuePair<string, ElementComboBox> comboBox in this.comboBoxes)
+            {
+                sum += comboBox.Value.Data.Count;
+            }
+            return sum;
         }
-        public DataComboBox()
+        public DataComboBox(ComboBox h1, ComboBox h2, ComboBox l, ComboBox p, ComboBox t, ComboBox c)
         {
-            comboBoxH1 = new List<string[]>();
-            comboBoxH2 = new List<string[]>();
-            comboBoxL = new List<string[]>();
-            comboBoxP = new List<string[]>();
-            comboBoxT = new List<string[]>();
-            comboBoxC = new List<string[]>();
+            comboBoxes = new Dictionary<string, ElementComboBox>();
+            comboBoxes["h1"] = new ElementComboBox(h1);
+            comboBoxes["h2"] = new ElementComboBox(h1);
+            comboBoxes["l"] = new ElementComboBox(h1);
+            comboBoxes["p"] = new ElementComboBox(h1);
+            comboBoxes["t"] = new ElementComboBox(h1);
+            comboBoxes["c"] = new ElementComboBox(c);
         }
     }
 }
