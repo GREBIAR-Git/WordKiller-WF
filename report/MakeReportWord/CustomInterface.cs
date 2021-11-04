@@ -163,10 +163,6 @@ namespace MakeReportWord
                     }
                     richTextBox.SelectionStart = cursorSave;
                 }
-                // снизу крыса
-                //byte[] bytes = Encoding.Unicode.GetBytes(richTextBox.Text);
-                //richTextBox.Text = Encoding.Unicode.GetString(bytes);
-                // сверху крыса
                 pictureBox.Refresh();
             }
             else if (DownPanelMI == TextMenuItem)
@@ -462,7 +458,7 @@ namespace MakeReportWord
         }
 
 
-        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             if (comboBox.SelectedIndex != -1)
@@ -476,8 +472,6 @@ namespace MakeReportWord
                 richTextBox.Text = string.Empty;
             }
         }
-
-
 
         /*void ComboBox_IndexChanged(System.Collections.Generic.List<string[]> str, string s, ComboBox comboBox)
         {
@@ -1007,8 +1001,7 @@ namespace MakeReportWord
                 MenuItem.Checked = true;
             }
         }
-        
-        // Когда возвращаешься из текста в меню заголовков, текстбокс пустой, а заголовок остается выбранным. Можно либо не выбирать заголовок, либо заполнять текстбокс.
+
         void MatchWordPage()
         {
             int left = 3 + (richTextBox.Width - 790) / 2 + 76;
@@ -1393,7 +1386,7 @@ namespace MakeReportWord
             return false;
         }
 
-        private void richTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        void richTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (DownPanelMI == SubstitutionMenuItem && ComboBoxSelected())
             {
@@ -1405,7 +1398,7 @@ namespace MakeReportWord
             }
         }
 
-        private void CustomInterface_KeyDown(object sender, KeyEventArgs e)
+        void CustomInterface_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -1439,7 +1432,7 @@ namespace MakeReportWord
             }
         }
 
-        private void textPicturePanel_Paint(object sender, PaintEventArgs e)
+        void textPicturePanel_Paint(object sender, PaintEventArgs e)
         {
             if (!richTextBox.Visible)
             {
@@ -1448,17 +1441,17 @@ namespace MakeReportWord
             }
         }
 
-        private void richTextBox_VisibleChanged(object sender, EventArgs e)
+        void richTextBox_VisibleChanged(object sender, EventArgs e)
         {
             textPicturePanel.Invalidate();
         }
 
-        private void ContentMenuItem_Click(object sender, EventArgs e)
+        void ContentMenuItem_Click(object sender, EventArgs e)
         {
             ContentMenuItem.Checked = !ContentMenuItem.Checked;
         }
 
-        private void NumberingMenuItem_Click(object sender, EventArgs e)
+        void NumberingMenuItem_Click(object sender, EventArgs e)
         {
             NumberingMenuItem.Checked = !NumberingMenuItem.Checked;
             FromNumberingTextBoxMenuItem.Visible = NumberingMenuItem.Checked;
@@ -1467,7 +1460,7 @@ namespace MakeReportWord
             FromNumberingTextBoxMenuItem.Visible = true;
         }
 
-        private void TitleOffOnMenuItem_Click(object sender, EventArgs e)
+        void TitleOffOnMenuItem_Click(object sender, EventArgs e)
         {
             ShowingTitelPanel();
         }
@@ -1484,7 +1477,7 @@ namespace MakeReportWord
             TitleOffOnMenuItem.Checked = !TitleOffOnMenuItem.Checked;
         }
 
-        private void CreateMenuItem_Click(object sender, EventArgs e)
+        void CreateMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Нужно ли сохранить?", "Нужно ли сохранить?", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             if(result == DialogResult.Yes)
@@ -1518,19 +1511,19 @@ namespace MakeReportWord
             }
         }
 
-        private void NumberHeadingMenuItem_Click(object sender, EventArgs e)
+        void NumberHeadingMenuItem_Click(object sender, EventArgs e)
         {
             NumberHeadingMenuItem.Checked = !NumberHeadingMenuItem.Checked;
         }
 
-        private void SetAsDefaultMenuItem_Click(object sender, EventArgs e)
+        void SetAsDefaultMenuItem_Click(object sender, EventArgs e)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo("computerdefaults");
             startInfo.UseShellExecute = true;
             Process.Start(startInfo);
         }
 
-        private void richTextBox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        void richTextBox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
 
         }
