@@ -90,30 +90,41 @@ namespace MakeReportWord
             string str = TypeRichBox();
             if (dragging == 0)
             {
-                e.Graphics.DrawImage(Properties.Resources.DragNDrop, 0, 0, pictureBox.Width, pictureBox.Height);
                 if (str == "☺h1☺")
                 {
                     e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
-                    SizeF stringSize = e.Graphics.MeasureString("Заголовок".ToUpper(), new Font("Microsoft Sans Serif", 20));
-                    e.Graphics.DrawString("Заголовок".ToUpper(), new Font("Microsoft Sans Serif", 20), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 - 20));
+                    int index = dataComboBox.ComboBox["h1"].Form.SelectedIndex;
+                    if (index!=-1)
+                    {
+                        DrawText(dataComboBox.ComboBox["h1"].Data[index][1].ToUpper(), e);
+                    }
+                    else
+                    {
+                        DrawText("Заголовок".ToUpper(), e);
+                    }
                 }
                 else if (str == "☺h2☺")
                 {
                     e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
-                    SizeF stringSize = e.Graphics.MeasureString("Заголовок", new Font("Microsoft Sans Serif", 20));
-                    e.Graphics.DrawString("Заголовок", new Font("Microsoft Sans Serif", 20), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 - 20));
+                    int index = dataComboBox.ComboBox["h2"].Form.SelectedIndex;
+                    if (index != -1)
+                    {
+                        DrawText(dataComboBox.ComboBox["h2"].Data[index][1], e);
+                    }
+                    else
+                    {
+                        DrawText("Заголовок", e);
+                    }
                 }
                 else if (str == "☺l☺")
                 {
                     e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
-                    SizeF stringSize = e.Graphics.MeasureString("Список", new Font("Microsoft Sans Serif", 20));
-                    e.Graphics.DrawString("Список", new Font("Microsoft Sans Serif", 20), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 - 20));
+                    DrawText("Список", e);
                 }
                 else if (str == "☺t☺")
                 {
                     e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
-                    SizeF stringSize = e.Graphics.MeasureString("Таблица", new Font("Microsoft Sans Serif", 20));
-                    e.Graphics.DrawString("Таблица", new Font("Microsoft Sans Serif", 20), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 - 20));
+                    DrawText("Таблица", e);
                 }
                 else if (str == "☺p☺")
                 {
@@ -168,6 +179,11 @@ namespace MakeReportWord
                 e.Graphics.DrawImage(Properties.Resources.pictureCode, 0, 0, pictureBox.Width, pictureBox.Height);
                 DragNDrop_PaintText(e, Color.Black, Color.Black);
             }
+        }
+        void DrawText(string text, PaintEventArgs e)
+        {
+            SizeF stringSize = e.Graphics.MeasureString(text, new Font("Microsoft Sans Serif", 20));
+            e.Graphics.DrawString(text, new Font("Microsoft Sans Serif", 20), new SolidBrush(Color.Black), new Point((int)(pictureBox.Width / 2 - stringSize.Width / 2), pictureBox.Height / 2 - 20));
         }
 
         void DragNDrop_PaintText(PaintEventArgs e, Color picture, Color code)

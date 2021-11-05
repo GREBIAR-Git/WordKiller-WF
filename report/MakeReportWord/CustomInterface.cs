@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -100,7 +101,7 @@ namespace MakeReportWord
         {
             if (DownPanelMI == SubstitutionMenuItem)
             {
-                if (elementLabel.Text != "нечто" && ComboBoxSelected() && richTextBox.Text != string.Empty)
+                if (ComboBoxSelected() && richTextBox.Text != string.Empty)
                 {
                     if (SaveComboBoxData(dataComboBox.ComboBox["h1"]))
                     {
@@ -195,16 +196,19 @@ namespace MakeReportWord
             int cursorSave = richTextBox.SelectionStart;
             if (richTextBox.Text.Length > 0 && cursorSave > 0 && richTextBox.Text[cursorSave - 1] == '☺')
             {
-                richTextBox.Text = richTextBox.Text.Insert(richTextBox.SelectionStart, button.Name.ToLower());
-                richTextBox.Focus();
-                richTextBox.SelectionStart = cursorSave + button.Name.Length;
+                AddSpecialSymbol(button.Name.ToLower(), cursorSave);
             }
             else
             {
-                richTextBox.Text = richTextBox.Text.Insert(richTextBox.SelectionStart, "☺" + button.Name.ToLower());
-                richTextBox.Focus();
-                richTextBox.SelectionStart = cursorSave + button.Name.Length + 1;
+                AddSpecialSymbol("☺"+button.Name.ToLower(), cursorSave);
             }
+        }
+
+        void AddSpecialSymbol(string symbol, int index)
+        {
+            richTextBox.Text = richTextBox.Text.Insert(index, symbol.ToLower());
+            richTextBox.Focus();
+            richTextBox.SelectionStart = index + symbol.Length;
         }
 
         void buttonForward_MouseUp(object sender, MouseEventArgs e)
@@ -391,7 +395,7 @@ namespace MakeReportWord
 
         void DataComboBoxToRichBox(ElementComboBox comboBox)
         {
-            richTextBox.Text = "☺h1☺\n" + comboBox.Data[comboBox.Form.SelectedIndex][0] + "\n☺Содержимое☺\n" + comboBox.Data[comboBox.Form.SelectedIndex][1];
+            richTextBox.Text = "☺" + dataComboBox.ComboBox.FirstOrDefault(x => x.Value == comboBox).Key + "☺\n" + comboBox.Data[comboBox.Form.SelectedIndex][0] + "\n☺Содержимое☺\n" + comboBox.Data[comboBox.Form.SelectedIndex][1];
             richTextBox.SelectionStart = 5 + comboBox.Data[comboBox.Form.SelectedIndex][0].Length;
         }
 
@@ -1414,7 +1418,7 @@ namespace MakeReportWord
             {
                 if (control.GetType().ToString() == "System.Windows.Forms.TextBox")
                 {
-                    control.Text = "";
+                    control.Text = string.Empty;
                 }
             }
         }
@@ -1429,11 +1433,6 @@ namespace MakeReportWord
             ProcessStartInfo startInfo = new ProcessStartInfo("computerdefaults");
             startInfo.UseShellExecute = true;
             Process.Start(startInfo);
-        }
-
-        void richTextBox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-
         }
         // основателями поведенческой школы в психологии являются: павлов, уотсон, скиннер/спиннер
     }
