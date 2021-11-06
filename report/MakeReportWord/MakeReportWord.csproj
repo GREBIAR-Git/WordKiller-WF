@@ -75,6 +75,12 @@
       <DependentUpon>CustomInterface.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Documentation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documentation.Designer.cs">
+      <DependentUpon>Documentation.cs</DependentUpon>
+    </Compile>
     <Compile Include="ElementComboBox.cs" />
     <Compile Include="EncodingDecoding.cs" />
     <Compile Include="GlobalFont.cs" />
@@ -87,11 +93,11 @@
     <Compile Include="StringArraySearcher.cs" />
     <Compile Include="DataComboBox.cs" />
     <Compile Include="WindowSize.cs" />
-    <Compile Include="Question.cs">
+    <Compile Include="AboutProgram.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Question.Designer.cs">
-      <DependentUpon>Question.cs</DependentUpon>
+    <Compile Include="AboutProgram.Designer.cs">
+      <DependentUpon>AboutProgram.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomInterface.cs">
       <SubType>Form</SubType>
@@ -110,8 +116,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Question.resx">
-      <DependentUpon>Question.cs</DependentUpon>
+    <EmbeddedResource Include="AboutProgram.resx">
+      <DependentUpon>AboutProgram.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

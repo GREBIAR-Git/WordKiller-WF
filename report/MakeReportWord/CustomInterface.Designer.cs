@@ -1345,12 +1345,14 @@ namespace MakeReportWord
             this.DocumentationMenuItem.Name = "DocumentationMenuItem";
             this.DocumentationMenuItem.Size = new System.Drawing.Size(272, 40);
             this.DocumentationMenuItem.Text = "Документация";
+            this.DocumentationMenuItem.Click += new System.EventHandler(this.DocumentationMenuItem_Click);
             // 
             // AboutProgramMenuItem
             // 
             this.AboutProgramMenuItem.Name = "AboutProgramMenuItem";
             this.AboutProgramMenuItem.Size = new System.Drawing.Size(272, 40);
             this.AboutProgramMenuItem.Text = "О программе";
+            this.AboutProgramMenuItem.Click += new System.EventHandler(this.AboutProgramMenuItem_Click);
             // 
             // CustomInterface
             // 

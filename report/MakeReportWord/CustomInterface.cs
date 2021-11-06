@@ -18,6 +18,9 @@ namespace MakeReportWord
         ToolStripMenuItem DownPanelMI;
         DataComboBox dataComboBox;
         WindowSize wndSize;
+        Control[] DEFAULTtitlepagePanelControls;
+        int[] rows;
+        int[] columns;
         public CustomInterface(string[] fileName)
         {
             InitializeComponent();
@@ -369,6 +372,7 @@ namespace MakeReportWord
                 ComboBoxIndexChange(comboBox.Form);
             }
         }
+
         void ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ComboBoxIndexChange(sender);
@@ -542,10 +546,6 @@ namespace MakeReportWord
                 columns = ArrayPushBack<int>(columns, titlepagePanel.GetCellPosition(titlepagePanel.Controls[i]).Column);
             }
         }
-
-        Control[] DEFAULTtitlepagePanelControls;
-        int[] rows;
-        int[] columns;
         void ShowTitleElems(string cells)
         {
             titlepagePanel.SuspendLayout();
@@ -637,7 +637,7 @@ namespace MakeReportWord
             return newArray;
         }
 
-        public static T[] ArrayPushBack<T>(T[] array, T element)
+        static T[] ArrayPushBack<T>(T[] array, T element)
         {
             T[] newArray = new T[array.Length + 1];
             for (int i = 0; i < array.Length; i++)
@@ -1433,6 +1433,18 @@ namespace MakeReportWord
             ProcessStartInfo startInfo = new ProcessStartInfo("computerdefaults");
             startInfo.UseShellExecute = true;
             Process.Start(startInfo);
+        }
+
+        void DocumentationMenuItem_Click(object sender, EventArgs e)
+        {
+            Documentation form = new Documentation();
+            form.ShowDialog();
+        }
+
+        void AboutProgramMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutProgram form = new AboutProgram();
+            form.ShowDialog();
         }
         // основателями поведенческой школы в психологии являются: павлов, уотсон, скиннер/спиннер
     }
