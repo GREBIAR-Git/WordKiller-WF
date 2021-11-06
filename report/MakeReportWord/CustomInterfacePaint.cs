@@ -96,7 +96,14 @@ namespace MakeReportWord
                     int index = dataComboBox.ComboBox["h1"].Form.SelectedIndex;
                     if (index!=-1)
                     {
-                        DrawText(dataComboBox.ComboBox["h1"].Data[index][1].ToUpper(), e);
+                        if(NumberHeadingMenuItem.Checked)
+                        {
+                            DrawText((index+1).ToString() + " " + dataComboBox.ComboBox["h1"].Data[index][1].ToUpper(), e);
+                        }
+                        else
+                        {
+                            DrawText(dataComboBox.ComboBox["h1"].Data[index][1].ToUpper(), e);
+                        }
                     }
                     else
                     {
@@ -109,7 +116,14 @@ namespace MakeReportWord
                     int index = dataComboBox.ComboBox["h2"].Form.SelectedIndex;
                     if (index != -1)
                     {
-                        DrawText(dataComboBox.ComboBox["h2"].Data[index][1], e);
+                        if (NumberHeadingMenuItem.Checked)
+                        {
+                            DrawText("H1." + (index + 1).ToString() + " " + dataComboBox.ComboBox["h2"].Data[index][1], e);
+                        }
+                        else
+                        {
+                            DrawText(dataComboBox.ComboBox["h2"].Data[index][1], e);
+                        }
                     }
                     else
                     {

@@ -1426,6 +1426,7 @@ namespace MakeReportWord
         void NumberHeadingMenuItem_Click(object sender, EventArgs e)
         {
             NumberHeadingMenuItem.Checked = !NumberHeadingMenuItem.Checked;
+            pictureBox.Refresh();
         }
 
         void SetAsDefaultMenuItem_Click(object sender, EventArgs e)
