@@ -209,9 +209,9 @@ namespace MakeReportWord
 
         void AddSpecialSymbol(string symbol, int index)
         {
-            richTextBox.Text = richTextBox.Text.Insert(index, symbol.ToLower());
+            richTextBox.Text = richTextBox.Text.Insert(index, symbol.ToLower() + "\n");
             richTextBox.Focus();
-            richTextBox.SelectionStart = index + symbol.Length;
+            richTextBox.SelectionStart = index + symbol.Length + 1;
         }
 
         void buttonForward_MouseUp(object sender, MouseEventArgs e)
