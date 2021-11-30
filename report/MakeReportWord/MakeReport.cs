@@ -519,7 +519,7 @@ namespace MakeReportWord
 
         void Heading2(string text)
         {
-            WriteTextWord(SkipLine(1)+text);
+            WriteTextWord(text);
             word.Paragraphs.FirstLineIndent = CentimetersToPoints(1.5f);
             word.Font.AllCaps = 0;
             word.Font.Size = 14;

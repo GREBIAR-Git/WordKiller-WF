@@ -20,6 +20,7 @@ namespace MakeReportWord
 
         void OpenWordKiller(string fileName)
         {
+            text = String.Empty;
             saveFileName = fileName;
             ClearGlobal();
             FileStream file = new FileStream(fileName, FileMode.Open);
@@ -111,6 +112,7 @@ namespace MakeReportWord
             {
                MessageBox.Show("Файл повреждён");
             }
+            richTextBox.Text = text;
             reader.Close();
         }
 

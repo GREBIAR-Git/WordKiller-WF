@@ -31,6 +31,7 @@ namespace MakeReportWord
             DownPanelMI = SubstitutionMenuItem;
             SaveTitlePagePanelCells();
             DEFAULTtitlepagePanelControls = CopyControls(titlepagePanel, 0, titlepagePanel.Controls.Count - 1);
+            elementComboBox.SelectedIndex = 0;
             if (DefaultDocumentMenuItem.Checked)
             {
                 TextHeader("документа");
@@ -886,6 +887,8 @@ namespace MakeReportWord
                 UnselectComboBoxes();
                 richTextBox.Text = string.Empty;
                 richTextBox.Focus();
+                elementComboBox.Visible = false;
+                elementLabel.Visible = true;
             }
             else if (MenuItem == TextMenuItem)
             {
@@ -905,15 +908,17 @@ namespace MakeReportWord
                 richTextBox.Text = text;
                 richTextBox.SelectionStart = richTextBox.Text.Length;
                 UpdateTypeButton();
-                MatchWordPage();
+                //MatchWordPage();
                 richTextBox.Focus();
+                elementComboBox.Visible = true;
+                elementLabel.Visible = false;
             }
             if(MenuItem!=null)
             {
                 MenuItem.Checked = true;
             }
         }
-
+        //нужнл переделать
         void MatchWordPage()
         {
             int left = 3 + (richTextBox.Width - 790) / 2 + 76;
@@ -1446,6 +1451,14 @@ namespace MakeReportWord
         {
             AboutProgram form = new AboutProgram();
             form.ShowDialog();
+        }
+
+        private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(elementComboBox.SelectedIndex==0)
+            {
+                richTextBox.Text = text;
+            }
         }
         // основателями поведенческой школы в психологии являются: павлов, уотсон, скиннер/спиннер
     }

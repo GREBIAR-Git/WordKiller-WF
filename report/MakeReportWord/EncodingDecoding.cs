@@ -6,15 +6,14 @@ namespace MakeReportWord
 {
     class EncodingDecoding
     {
+        static string abc = "abcdefghij";
         public static char DigitToLetter(char digit)
         {
-            string abc = "abcdefghij";
-            return abc[int.Parse(digit.ToString())];
+            return abc[digit - 48];
         }
 
         public static char LetterToDigit(char letter)
         {
-            string abc = "abcdefghij";
             if (letter != '\r'&&letter!='\n')
             {
                 return abc.IndexOf(letter).ToString()[0];
@@ -45,7 +44,7 @@ namespace MakeReportWord
         public static string StringToBinaryString(string str)
         {
             StringBuilder sb = new StringBuilder();
-            foreach (byte b in System.Text.Encoding.UTF8.GetBytes(str))
+            foreach (byte b in Encoding.UTF8.GetBytes(str))
                 sb.Append(Convert.ToString(b, 2).PadLeft(8, '0'));
             return sb.ToString();
         }

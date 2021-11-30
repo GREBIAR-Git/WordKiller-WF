@@ -23,6 +23,7 @@ namespace MakeReportWord
             pictureLabel.BackColor = Color.FromArgb(255, 84, 213, 245);
             displayedLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
             elementLabel.BackColor = Color.FromArgb(255, 50, 39, 62);
+            elementComboBox.BackColor = Color.FromArgb(255, 50, 39, 62);
             buttonText.BackColor = Color.FromArgb(255, 238, 230, 246);
             h1ComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
             pComboBox.BackColor = Color.FromArgb(255, 238, 230, 246);
@@ -33,6 +34,7 @@ namespace MakeReportWord
             DownPanel.BackColor = Color.FromArgb(255, 50, 39, 62);
             displayedLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
             elementLabel.ForeColor = Color.FromArgb(255, 238, 230, 246);
+            elementComboBox.ForeColor = Color.FromArgb(255, 238, 230, 246);
         }
 
         //buttonDownStart
