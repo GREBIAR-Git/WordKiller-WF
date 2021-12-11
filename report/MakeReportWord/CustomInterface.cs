@@ -1466,6 +1466,33 @@ namespace MakeReportWord
                 richTextBox.Text = text;
             }
         }
+
+        private void ChangeUserMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeUser(dataComboBox.ComboBox["p"]);
+            ChangeUser(dataComboBox.ComboBox["c"]);
+        }
+
+        void ChangeUser(ElementComboBox elementComboBox)
+        {
+            for(int i=0;i< elementComboBox.Data.Count(); i++)
+            {
+                if (elementComboBox.Data[i][1].Contains(":\\Users\\"))
+                {
+                    string[] directory = elementComboBox.Data[i][1].Split('\\');
+                    for (int f = 0; f < directory.Length; f++)
+                    {
+                        if (directory[f] == "Users")
+                        {
+                            directory[f + 1] = Environment.UserName;
+                            break;
+                        }
+                    }
+                    elementComboBox.Data[i][1] = String.Join("\\",directory);
+                }
+            }
+        }
+
         // основателями поведенческой школы в психологии являются: павлов, уотсон, скиннер/спиннер
     }
 }

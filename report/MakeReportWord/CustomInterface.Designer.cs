@@ -117,6 +117,7 @@ namespace MakeReportWord
             this.NumberHeadingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Misc = new System.Windows.Forms.ToolStripMenuItem();
             this.SetAsDefaultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChangeUserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Reference = new System.Windows.Forms.ToolStripMenuItem();
             this.DocumentationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutProgramMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1224,7 +1225,6 @@ namespace MakeReportWord
             // 
             // FromNumberingTextBoxMenuItem
             // 
-            this.FromNumberingTextBoxMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FromNumberingTextBoxMenuItem.Name = "FromNumberingTextBoxMenuItem";
             this.FromNumberingTextBoxMenuItem.Size = new System.Drawing.Size(150, 23);
             this.FromNumberingTextBoxMenuItem.Text = "1";
@@ -1322,7 +1322,8 @@ namespace MakeReportWord
             // Misc
             // 
             this.Misc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SetAsDefaultMenuItem});
+            this.SetAsDefaultMenuItem,
+            this.ChangeUserMenuItem});
             this.Misc.Name = "Misc";
             this.Misc.Size = new System.Drawing.Size(57, 20);
             this.Misc.Text = "Разное";
@@ -1333,6 +1334,13 @@ namespace MakeReportWord
             this.SetAsDefaultMenuItem.Size = new System.Drawing.Size(366, 22);
             this.SetAsDefaultMenuItem.Text = "Сделать приложением по умолчанию для .wordkiller";
             this.SetAsDefaultMenuItem.Click += new System.EventHandler(this.SetAsDefaultMenuItem_Click);
+            // 
+            // ChangeUserMenuItem
+            // 
+            this.ChangeUserMenuItem.Name = "ChangeUserMenuItem";
+            this.ChangeUserMenuItem.Size = new System.Drawing.Size(366, 22);
+            this.ChangeUserMenuItem.Text = "Поменять пользователя";
+            this.ChangeUserMenuItem.Click += new System.EventHandler(this.ChangeUserMenuItem_Click);
             // 
             // Reference
             // 
@@ -1498,6 +1506,7 @@ namespace MakeReportWord
         private System.Windows.Forms.ToolStripMenuItem NumberHeadingMenuItem;
         private System.Windows.Forms.TableLayoutPanel elementVisiblePanel;
         private System.Windows.Forms.ComboBox elementComboBox;
+        private System.Windows.Forms.ToolStripMenuItem ChangeUserMenuItem;
     }
 }
 
