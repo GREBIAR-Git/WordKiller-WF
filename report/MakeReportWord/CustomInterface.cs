@@ -210,7 +210,15 @@ namespace MakeReportWord
 
         void AddSpecialSymbol(string symbol, int index)
         {
-            richTextBox.Text = richTextBox.Text.Insert(index, symbol.ToLower() + "\n");
+            if (richTextBox.SelectionStart == 0 || richTextBox.Text[richTextBox.SelectionStart-1]=='\n')
+            {
+                richTextBox.Text = richTextBox.Text.Insert(index, symbol.ToLower() + "\n");
+            }
+            else
+            {
+                richTextBox.Text = richTextBox.Text.Insert(index, "\n" + symbol.ToLower() + "\n");
+                index++;
+            }
             richTextBox.Focus();
             richTextBox.SelectionStart = index + symbol.Length + 1;
         }

@@ -26,7 +26,36 @@ namespace MakeReportWord
                 dataTitle[dataTitle.Length - 1] = SpaceForYear(dataTitle[dataTitle.Length - 1], '_');
                 TitlePart(typeDocument, dataTitle);
             }
+            dataMainPart.Text = rr(dataMainPart.Text);
             MainPart(dataMainPart, content, numbering, fromNumbering, numberHeading);
+        }
+
+        string rr(string text)
+        {
+            tt(ref text, "☺h1");
+            tt(ref text, "☺h2");
+            tt(ref text, "☺l");
+            tt(ref text, "☺p");
+            tt(ref text, "☺t");
+            tt(ref text, "☺c");
+            return text;
+        }
+
+        void tt(ref string text,string symbol)
+        {
+            string[] str = text.Split(new string[] { symbol }, StringSplitOptions.None);
+            for (int i = 0; i < str.Length; i++)
+            {
+                if(str[i].Length>0 && str[i][0]== '\n')
+                {
+                    str[i] = str[i].Remove(0, 1);
+                }
+                if (str[i].Length > 0 && str[i][str[i].Length - 1] == '\n')
+                {
+                    str[i] = str[i].Remove(str[i].Length - 1, 1);
+                }
+            }
+            text = String.Join(symbol, str);
         }
 
         void Beginning()
@@ -537,11 +566,14 @@ namespace MakeReportWord
         void Picture(string text)
         {
             WriteTextWord("");
-            object f = false;
-            object t = true;
-            var Picture = word.InlineShapes.AddPicture(text, ref f, ref t);
-            Picture.Height = 350;
-            Picture.Width = 420;
+
+            InlineShape Picture = word.InlineShapes.AddPicture(text, false, true);
+
+            /*using (System.Drawing.Image objImage = System.Drawing.Image.FromFile(text))
+            {
+                int width = SizePicture(420, objImage.Width);
+                int height = SizePicture(350, objImage.Height);
+            }*/
 
             word.Paragraphs.Space15();
             word.Paragraphs.FirstLineIndent = 0;
@@ -553,6 +585,18 @@ namespace MakeReportWord
             int Length = wordTemp.Text.Length;
             word = doc.Range(Length-1, Type.Missing);
         }
+
+        /*public int SizePicture(int max,int current)
+        {
+            if (current < max)
+            {
+                return current;
+            }
+            else
+            {
+                return max;
+            }
+        }*/
 
         void СaptionForPicture(string text)
         {
