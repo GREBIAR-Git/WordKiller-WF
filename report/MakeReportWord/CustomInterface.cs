@@ -429,7 +429,7 @@ namespace MakeReportWord
         void ComboBox_MouseDown(object sender, MouseEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            if (e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right&& ComboBoxSelected())
             {
                 if (Control.ModifierKeys != Keys.Shift && Control.ModifierKeys != Keys.Control && Control.ModifierKeys != Keys.Alt)
                 {
@@ -444,9 +444,12 @@ namespace MakeReportWord
                     if (comboBox.SelectedIndex > 0)
                     {
                         int cursorSave = richTextBox.SelectionStart;
-                        string save = comboBox.Items[comboBox.SelectedIndex].ToString();
+                        string[] save = dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex];
+                        dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex] = dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex - 1];
+                        dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex - 1] = save;
+                        string saveName = comboBox.Items[comboBox.SelectedIndex].ToString();
                         comboBox.Items[comboBox.SelectedIndex] = comboBox.Items[comboBox.SelectedIndex - 1];
-                        comboBox.Items[comboBox.SelectedIndex - 1] = save;
+                        comboBox.Items[comboBox.SelectedIndex - 1] = saveName;
                         comboBox.SelectedIndex--;
                         richTextBox.SelectionStart = cursorSave;
                     }
@@ -456,7 +459,10 @@ namespace MakeReportWord
                     if (comboBox.SelectedIndex < comboBox.Items.Count - 1)
                     {
                         int cursorSave = richTextBox.SelectionStart;
-                        string save = comboBox.Items[comboBox.SelectedIndex].ToString();
+                        string[] save = dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex];
+                        dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex] = dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex + 1];
+                        dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex + 1] = save;
+                        string saveName = comboBox.Items[comboBox.SelectedIndex].ToString();
                         comboBox.Items[comboBox.SelectedIndex] = comboBox.Items[comboBox.SelectedIndex + 1];
                         comboBox.Items[comboBox.SelectedIndex + 1] = save;
                         comboBox.SelectedIndex++;

@@ -112,7 +112,10 @@ namespace MakeReportWord
             {
                MessageBox.Show("Файл повреждён");
             }
-            richTextBox.Text = text;
+            if(DownPanelMI==TextMenuItem)
+            {
+                richTextBox.Text = text;
+            }
             reader.Close();
         }
 
