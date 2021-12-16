@@ -110,6 +110,7 @@ namespace MakeReportWord
                             }
                         }
                     }
+                    this.Text = Path.GetFileName(fileName);
                 }
                 if(text.Length>0)
                 {
@@ -196,6 +197,7 @@ namespace MakeReportWord
                 output.Write("1\r\n" + EncodingDecoding.MegaConvertE(save));
             }
             output.Close();
+            this.Text = Path.GetFileName(nameFile);
         }
 
         string SaveCombobox(StreamWriter output, ElementComboBox comboBox, string name)

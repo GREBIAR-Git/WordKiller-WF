@@ -1423,6 +1423,7 @@ namespace MakeReportWord
                 }
             }
             fileNames = null;
+            this.Text = "Сотворение документа из небытия";
             ClearGlobal();
             text = "";
             textDragOnDrop = "";
