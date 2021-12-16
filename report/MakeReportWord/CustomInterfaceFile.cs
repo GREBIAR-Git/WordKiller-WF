@@ -28,7 +28,15 @@ namespace MakeReportWord
             try
             {
                 string data = reader.ReadToEnd();
-                data = EncodingDecoding.MegaConvertD(data);
+                if(data[0]=='1'&& data[1] == '\r' && data[2] == '\n')
+                {
+                    data = EncodingDecoding.MegaConvertD(data.Substring(3));
+                }
+                else if (data[0] == '0' && data[1] == '\r' && data[2] == '\n')
+                {
+                    data = data.Substring(3);
+                    data = data.Replace("\n", "\r\n");
+            }
                 for (int i = 1; i < data.Length; i++)
                 {
                     if (data[i - 1] == '\r')
@@ -112,7 +120,7 @@ namespace MakeReportWord
             {
                MessageBox.Show("Файл повреждён");
             }
-            if(DownPanelMI==TextMenuItem)
+            if (DownPanelMI==TextMenuItem)
             {
                 richTextBox.Text = text;
             }
@@ -179,7 +187,14 @@ namespace MakeReportWord
             save += "☺TextStart☺" + "\n";
             save += text + "\n";
             save += "☺TextEnd☺" + "\n";
-            output.Write(EncodingDecoding.MegaConvert(save));
+            if (Encoding0MenuItem.Checked)
+            {
+                output.Write("0\r\n" + save);
+            }
+            else if (Encoding1MenuItem.Checked)
+            {
+                output.Write("1\r\n" + EncodingDecoding.MegaConvertE(save));
+            }
             output.Close();
         }
 

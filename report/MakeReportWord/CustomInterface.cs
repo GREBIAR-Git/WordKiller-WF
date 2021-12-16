@@ -1501,6 +1501,18 @@ namespace MakeReportWord
             }
         }
 
+        private void Encoding0MenuItem_Click(object sender, EventArgs e)
+        {
+            Encoding1MenuItem.Checked = false;
+            Encoding0MenuItem.Checked = true;
+        }
+
+        private void Encoding1MenuItem_Click(object sender, EventArgs e)
+        {
+            Encoding1MenuItem.Checked = true;
+            Encoding0MenuItem.Checked = false;
+        }
+
         // основателями поведенческой школы в психологии являются: павлов, уотсон, скиннер/спиннер
     }
 }

@@ -6,131 +6,79 @@ namespace MakeReportWord
 {
     class EncodingDecoding
     {
-        static string abc = "abcdefghij";
-        public static char DigitToLetter(char digit)
+        public static string MegaConvertE(string str)
         {
-            return abc[digit - 48];
+            StringToBinaryString(ref str);
+            str = RepeatEncodingBinary(str);
+            DigitsToAbc(ref str);
+            return str;
         }
 
-        public static char LetterToDigit(char letter)
+        public static void StringToBinaryString(ref string str)
         {
-            if (letter != '\r'&&letter!='\n')
-            {
-                return abc.IndexOf(letter).ToString()[0];
-            }
-            return letter;
-        }
-
-        public static string DigitsToAbc(string digits)
-        {
-            string abc = "";
-            for (int i = 0; i < digits.Length; i++)
-            {
-                abc += DigitToLetter(digits[i]);
-            }
-            return abc;
-        }
-
-        public static string AbcToDigits(string abc)
-        {
-            string digits = "";
-            for (int i = 0; i < abc.Length; i++)
-            {
-                digits += LetterToDigit(abc[i]);
-            }
-            return digits;
-        }
-
-        public static string StringToBinaryString(string str)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (byte b in Encoding.UTF8.GetBytes(str))
-                sb.Append(Convert.ToString(b, 2).PadLeft(8, '0'));
-            return sb.ToString();
-        }
-
-        public static string BinaryStringToString(string binary)
-        {
-            string normal = "";
-
-            binary = binary.Replace("\r", "");
-            string[] binaryLines = binary.Split('\n');
-            
-            foreach(string line in binaryLines)
-            {
-                var stringArray = Enumerable.Range(0, line.Length / 8).Select(i => Convert.ToByte(line.Substring(i * 8, 8), 2)).ToArray();
-                normal += Encoding.UTF8.GetString(stringArray);
-                normal += "\n";
-            }
-            normal = normal.Remove(normal.Length-1);
-            normal = normal.Replace("\n","\r\n");
-
-            return normal;
+            str = String.Join("", Encoding.UTF8.GetBytes(str).Select(x => Convert.ToString(x, 2).PadLeft(8, '0')));
         }
 
         public static string RepeatEncodingBinary(string binarystring)
         {
-            string encoded = "";
-            for(int i=0;i< binarystring.Length;i++)
+            StringBuilder str = new StringBuilder(binarystring);
+            StringBuilder encoded = new StringBuilder();
+            for (int i = 0; i < str.Length; i++)
             {
-                int f=1;
-                for (;f<10&& binarystring.Length>i+f; f++)
+                int f = 1;
+                for (; f < 10 && i + f < str.Length; f++)
                 {
-                    if(binarystring[i] != binarystring[f+i])
+                    if (str[i] != str[f + i])
                     {
                         break;
                     }
                 }
-                encoded += (f).ToString() + binarystring[i];
-                i += f-1;
+                encoded.Append(f.ToString() + str[i]);
+                i += f - 1;
             }
-            return encoded;
+            return encoded.ToString();
         }
 
-        public static string RepeatDecodingBinary(string repeated_digit)
+        public static void DigitsToAbc(ref string digits)
         {
-            string decoded = "";
-            for (int index = 0; index + 1 < repeated_digit.Length; index+=2)
-            {
-                string digit = repeated_digit[index].ToString();
-                if (digit != "\r" && digit != "\n")
-                {
-                    for (int i = 0; i < int.Parse(repeated_digit[index].ToString()); i++)
-                    {
-                        decoded += repeated_digit[index + 1];
-                    }
-                }
-                else
-                {
-                    string digit2 = repeated_digit[index + 1].ToString();
-                    if (digit2 == "\r" || digit2 == "\n")
-                    {
-                        decoded += digit+ digit2;
-                    }
-                    else
-                    {
-                        index--;
-                        decoded += digit;
-                    }
-                }
-            }
-            return decoded;
-        }
-
-        public static string MegaConvert(string str)
-        {
-            str = StringToBinaryString(str);
-            str = RepeatEncodingBinary(str);
-            str = DigitsToAbc(str);
-            return str;
+            string dictionary = "abcdefghij";
+            digits = new string(digits.Select(x => dictionary[x - 48]).ToArray());
         }
 
         public static string MegaConvertD(string str)
         {
-            str = AbcToDigits(str);
+            AbcToDigits(ref str);
             str = RepeatDecodingBinary(str);
             str = BinaryStringToString(str);
             return str;
         }
+
+        public static void AbcToDigits(ref string abc)
+        {
+            string dictionary = "abcdefghij";
+            abc = new string(abc.Select(x => dictionary.IndexOf(x).ToString()[0]).ToArray());
+        }
+
+        public static string RepeatDecodingBinary(string repeated_digit)
+        {
+            StringBuilder str = new StringBuilder(repeated_digit);
+            StringBuilder decoded = new StringBuilder();
+            for (int index = 1; index < str.Length; index += 2)
+            {
+                decoded.Append(new string(str[index], str[index-1] - 48));
+            }
+            return decoded.ToString();
+        }
+
+        public static string BinaryStringToString(string binary)
+        {
+            string normal = Encoding.UTF8.GetString(Enumerable.Range(0, binary.Length / 8).Select(i => Convert.ToByte(binary.Substring(i * 8, 8), 2)).ToArray());
+            normal = normal.Remove(normal.Length - 1, 1);
+            normal = normal.Replace("\n", "\r\n");
+            return normal;
+        }
     }
 }
+
+
+
