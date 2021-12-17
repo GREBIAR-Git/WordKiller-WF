@@ -40,11 +40,6 @@ namespace WordKiller
             SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_IDLIST, IntPtr.Zero, IntPtr.Zero);
         }
 
-        public static bool IsAssociated
-        {
-            get { return (Registry.ClassesRoot.OpenSubKey(FILE_EXTENSION, false) != null); }
-        }
-
         public static void Remove()
         {
             Registry.ClassesRoot.DeleteSubKeyTree(FILE_EXTENSION);

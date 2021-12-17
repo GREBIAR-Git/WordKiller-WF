@@ -126,6 +126,7 @@ namespace WordKiller
             this.Reference = new System.Windows.Forms.ToolStripMenuItem();
             this.DocumentationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutProgramMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoveAsDefaultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -1367,6 +1368,7 @@ namespace WordKiller
             // 
             this.Misc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SetAsDefaultMenuItem,
+            this.RemoveAsDefaultMenuItem,
             this.ChangeUserMenuItem,
             this.EncodingMenuItem});
             this.Misc.Name = "Misc";
@@ -1434,6 +1436,13 @@ namespace WordKiller
             this.AboutProgramMenuItem.Size = new System.Drawing.Size(154, 22);
             this.AboutProgramMenuItem.Text = "О программе";
             this.AboutProgramMenuItem.Click += new System.EventHandler(this.AboutProgramMenuItem_Click);
+            // 
+            // RemoveAsDefaultMenuItem
+            // 
+            this.RemoveAsDefaultMenuItem.Name = "RemoveAsDefaultMenuItem";
+            this.RemoveAsDefaultMenuItem.Size = new System.Drawing.Size(333, 22);
+            this.RemoveAsDefaultMenuItem.Text = "Сбросить приложение по умолчанию для .wkr";
+            this.RemoveAsDefaultMenuItem.Click += new System.EventHandler(this.RemoveAsDefaultMenuItem_Click);
             // 
             // CustomInterface
             // 
@@ -1584,6 +1593,7 @@ namespace WordKiller
         private System.Windows.Forms.ToolStripMenuItem Encoding1MenuItem;
         private System.Windows.Forms.TableLayoutPanel CursorLocationPanel;
         private System.Windows.Forms.Label label_CursorLocation;
+        private System.Windows.Forms.ToolStripMenuItem RemoveAsDefaultMenuItem;
     }
 }
 

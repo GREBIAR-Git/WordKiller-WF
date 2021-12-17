@@ -11,10 +11,18 @@ namespace WordKiller
         [STAThread]
         static void Main(string[] str)
         {
-            if (str.Length > 0 && str[0] == "FileAssociation" && FileAssociation.IsRunAsAdmin())
+            if (str.Length > 0 && FileAssociation.IsRunAsAdmin())
             {
-                FileAssociation.Associate("WordKiller", null);
-                System.Environment.Exit(0);
+                if(str[0] == "FileAssociation")
+                {
+                    FileAssociation.Associate("WordKiller", null);
+                    System.Environment.Exit(0);
+                }
+                else if (str[0] == "RemoveFileAssociation")
+                {
+                    FileAssociation.Remove();
+                    System.Environment.Exit(0);
+                }
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

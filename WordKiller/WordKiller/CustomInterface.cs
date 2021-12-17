@@ -1492,6 +1492,31 @@ namespace WordKiller
             }
         }
 
+        void RemoveAsDefaultMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!FileAssociation.IsRunAsAdmin())
+            {
+                ProcessStartInfo proc = new ProcessStartInfo();
+                proc.UseShellExecute = true;
+                proc.WorkingDirectory = Environment.CurrentDirectory;
+                proc.FileName = Application.ExecutablePath;
+                proc.Verb = "runas";
+                proc.Arguments += "RemoveFileAssociation";
+                try
+                {
+                    Process.Start(proc);
+                }
+                catch
+                {
+                    MessageBox.Show("Мы не можем это сделать на вашем устройстве, обновите ОС", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                }
+            }
+            else
+            {
+                FileAssociation.Remove();
+            }
+        }
+
         void DocumentationMenuItem_Click(object sender, EventArgs e)
         {
             Documentation form = new Documentation();
@@ -1587,6 +1612,8 @@ namespace WordKiller
         {
             return specialBefore + str + specialAfter;
         }
+
+
     }
 }
 
