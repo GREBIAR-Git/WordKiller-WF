@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
@@ -155,8 +156,52 @@ namespace WordKiller
             }
             else if (DownPanelMI == TextMenuItem)
             {
-                text = richTextBox.Text;
+                string item = elementComboBox.SelectedItem.ToString();
+                if (item == "Весь текст")
+                {
+                    text = richTextBox.Text;
+                }
+                else
+                {
+                    string str = text;
+                    int indexStart = 0;
+                    int indexEnd = 0;
+                    if (item.StartsWith(specialBefore + "h1"))
+                    {
+                        for (int i = 0; i < elementComboBox.SelectedIndex; i++)
+                        {
+                            str = str.Substring(str.IndexOf(specialBefore + "h1"));
+                            indexStart += str.IndexOf(specialBefore + "h1");
+                        }
+                        str = str.Substring(0, str.IndexOf(specialBefore + "h1"));
+                            indexEnd += str.IndexOf(specialBefore + "h1");
+                    }
+                    else
+                    {
+                        for (int i = 0; i < elementComboBox.SelectedIndex; i++)
+                        {
+                            str = str.Substring(str.IndexOf(specialBefore + "h2"));
+                            indexStart += str.IndexOf(specialBefore + "h2");
+                        }
+                        int h1Pos = str.IndexOf(specialBefore + "h1");
+                        h1Pos = h1Pos == -1 ? int.MaxValue : h1Pos;
+                        int h2Pos = str.IndexOf(specialBefore + "h2");
+                        h2Pos = h2Pos == -1 ? int.MaxValue : h2Pos;
+                        if (h1Pos < h2Pos)
+                        {
+                            str = str.Substring(0, h1Pos);
+                            indexEnd += str.IndexOf(specialBefore + "h1");
+                        }
+                        else
+                        {
+                            str = str.Substring(0, h2Pos);
+                            indexEnd += str.IndexOf(specialBefore + "h2");
+                        }
+                    }
+                    richTextBox.Text = text.Substring(0, indexStart) + richTextBox.Text + text.Substring(indexEnd);
+                }
                 UpdateTypeButton();
+                ElementComboBoxUpdate();
             }
         }
 
@@ -228,6 +273,40 @@ namespace WordKiller
             }
             richTextBox.Focus();
             richTextBox.SelectionStart = index + symbol.Length + 1;
+
+        }
+
+        void ElementComboBoxUpdate()
+        {
+            int indexSave = elementComboBox.SelectedIndex;
+            elementComboBox.Items.Clear();
+            this.elementComboBox.Items.Add("Весь текст");
+            string text = this.text;
+            string str = text;
+            int h1Count = 0; int h2Count = 0;
+            while (str.Contains(specialBefore + "h1") || str.Contains(specialBefore + "h2"))
+            {
+                int h1Pos = str.IndexOf(specialBefore + "h1");
+                h1Pos = h1Pos == -1 ? int.MaxValue : h1Pos;
+                int h2Pos = str.IndexOf(specialBefore + "h2");
+                h2Pos = h2Pos == -1 ? int.MaxValue : h2Pos;
+                if (h1Pos < h2Pos)
+                {
+                    this.elementComboBox.Items.Add("h1: " + dataComboBox.ComboBox["h1"].Form.Items[h1Count]);
+                    str = str.Substring(h1Pos + 1 + 2);
+                    h1Count++;
+                }
+                else
+                {
+                    this.elementComboBox.Items.Add("h2: " + dataComboBox.ComboBox["h2"].Form.Items[h2Count]);
+                    str = str.Substring(h2Pos + 1 + 2);
+                    h2Count++;
+                }
+            }
+            if (indexSave < elementComboBox.Items.Count)
+            {
+                elementComboBox.SelectedIndex = indexSave;
+            }
         }
 
         void buttonForward_MouseUp(object sender, MouseEventArgs e)
@@ -1531,9 +1610,42 @@ namespace WordKiller
 
         private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (elementComboBox.SelectedIndex == 0)
+            string item = elementComboBox.SelectedItem.ToString();
+            if (item == "Весь текст")
             {
                 richTextBox.Text = text;
+            }
+            else
+            {
+                string str = text;
+                if (item.StartsWith(specialBefore + "h1"))
+                {
+                    for (int i = 0; i < elementComboBox.SelectedIndex; i++)
+                    {
+                        str = str.Substring(str.IndexOf(specialBefore + "h1"));
+                    }
+                    str = str.Substring(0, str.IndexOf(specialBefore + "h1"));
+                }
+                else
+                {
+                    for (int i = 0; i < elementComboBox.SelectedIndex; i++)
+                    {
+                        str = str.Substring(str.IndexOf(specialBefore + "h2"));
+                    }
+                    int h1Pos = str.IndexOf(specialBefore + "h1");
+                    h1Pos = h1Pos == -1 ? int.MaxValue : h1Pos;
+                    int h2Pos = str.IndexOf(specialBefore + "h2");
+                    h2Pos = h2Pos == -1 ? int.MaxValue : h2Pos;
+                    if (h1Pos < h2Pos)
+                    {
+                        str = str.Substring(0, str.IndexOf(specialBefore + "h1"));
+                    }
+                    else
+                    {
+                        str = str.Substring(0, str.IndexOf(specialBefore + "h2"));
+                    }
+                }
+                richTextBox.Text = str;
             }
         }
 

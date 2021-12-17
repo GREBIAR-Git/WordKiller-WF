@@ -119,6 +119,7 @@ namespace WordKiller
             this.NumberHeadingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Misc = new System.Windows.Forms.ToolStripMenuItem();
             this.SetAsDefaultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoveAsDefaultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChangeUserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EncodingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Encoding0MenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,7 +127,6 @@ namespace WordKiller
             this.Reference = new System.Windows.Forms.ToolStripMenuItem();
             this.DocumentationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutProgramMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.RemoveAsDefaultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -1382,6 +1382,13 @@ namespace WordKiller
             this.SetAsDefaultMenuItem.Text = "Сделать приложением по умолчанию для .wkr";
             this.SetAsDefaultMenuItem.Click += new System.EventHandler(this.SetAsDefaultMenuItem_Click);
             // 
+            // RemoveAsDefaultMenuItem
+            // 
+            this.RemoveAsDefaultMenuItem.Name = "RemoveAsDefaultMenuItem";
+            this.RemoveAsDefaultMenuItem.Size = new System.Drawing.Size(333, 22);
+            this.RemoveAsDefaultMenuItem.Text = "Сбросить приложение по умолчанию для .wkr";
+            this.RemoveAsDefaultMenuItem.Click += new System.EventHandler(this.RemoveAsDefaultMenuItem_Click);
+            // 
             // ChangeUserMenuItem
             // 
             this.ChangeUserMenuItem.Name = "ChangeUserMenuItem";
@@ -1436,13 +1443,6 @@ namespace WordKiller
             this.AboutProgramMenuItem.Size = new System.Drawing.Size(154, 22);
             this.AboutProgramMenuItem.Text = "О программе";
             this.AboutProgramMenuItem.Click += new System.EventHandler(this.AboutProgramMenuItem_Click);
-            // 
-            // RemoveAsDefaultMenuItem
-            // 
-            this.RemoveAsDefaultMenuItem.Name = "RemoveAsDefaultMenuItem";
-            this.RemoveAsDefaultMenuItem.Size = new System.Drawing.Size(333, 22);
-            this.RemoveAsDefaultMenuItem.Text = "Сбросить приложение по умолчанию для .wkr";
-            this.RemoveAsDefaultMenuItem.Click += new System.EventHandler(this.RemoveAsDefaultMenuItem_Click);
             // 
             // CustomInterface
             // 
