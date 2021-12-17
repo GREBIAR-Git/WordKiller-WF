@@ -166,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="256x256.ico" />
+    <None Include="Resources\75x75.png" />
     <None Include="Resources\256x256.png" />
     <None Include="Resources\Btn.png" />
     <None Include="Resources\BtnPressed.png" />

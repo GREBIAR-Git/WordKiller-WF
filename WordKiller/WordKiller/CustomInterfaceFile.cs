@@ -125,6 +125,7 @@ namespace WordKiller
             if (DownPanelMI == TextMenuItem)
             {
                 richTextBox.Text = text;
+                UpdateTypeButton();
             }
             reader.Close();
         }

@@ -26,7 +26,7 @@ namespace WordKiller
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CustomInterface(new string[] { "FileAssociation" }));
+            Application.Run(new CustomInterface(str));
         }
     }
 }

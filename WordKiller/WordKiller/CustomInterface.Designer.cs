@@ -1269,7 +1269,6 @@ namespace WordKiller
             // 
             // FromNumberingTextBoxMenuItem
             // 
-            this.FromNumberingTextBoxMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FromNumberingTextBoxMenuItem.Name = "FromNumberingTextBoxMenuItem";
             this.FromNumberingTextBoxMenuItem.Size = new System.Drawing.Size(150, 23);
             this.FromNumberingTextBoxMenuItem.Text = "1";

@@ -63,6 +63,16 @@ namespace WordKiller.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _75x75 {
+            get {
+                object obj = ResourceManager.GetObject("75x75", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrowsDown {
             get {
                 object obj = ResourceManager.GetObject("arrowsDown", resourceCulture);

@@ -84,7 +84,7 @@ namespace WordKiller
                 }
                 else
                 {
-                    //throw new Exception("Ошибка открытия файла:\nФайл не найден или формат не поддерживается");
+                    throw new Exception("Ошибка открытия файла:\nФайл не найден или формат не поддерживается");
                 }
             }
             this.saveTimer = InitializeTimer(3000, new ElapsedEventHandler(HideSaveLogo), false);

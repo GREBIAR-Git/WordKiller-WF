@@ -33,10 +33,13 @@ namespace WordKiller
             // 
             // Documentation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(436, 244);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Documentation";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Документация";
             this.ResumeLayout(false);
 
