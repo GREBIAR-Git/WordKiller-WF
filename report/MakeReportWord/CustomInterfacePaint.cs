@@ -1,4 +1,7 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace MakeReportWord
@@ -225,6 +228,56 @@ namespace MakeReportWord
                 Image saveLogo = new Bitmap(Properties.Resources.saveLogo, saveLogoSize);
                 Point saveLogoPos = new Point(menuStrip.Width - 2 * saveLogo.Width, menuStrip.Height / 8);
                 e.Graphics.DrawImage(saveLogo, saveLogoPos);
+            }
+        }
+
+
+        private void CursorLocationPanel_Paint(object sender, PaintEventArgs e)
+        {
+            Rectangle area = new Rectangle(new Point(0, 0), CursorLocationPanel.Size);
+            if (this.richTextBox.SelectionStart > 0)
+            {
+                string str = this.richTextBox.Text.Substring(0, this.richTextBox.SelectionStart);
+                int h1Count = Regex.Matches(str, "☺h1").Count;
+                if (h1Count > 0)
+                {
+                    string h1 = dataComboBox.ComboBox["h1"].Form.Items[h1Count - 1].ToString();
+                    string h2 = "";
+                    if (str.Substring(str.LastIndexOf("☺h1")).Contains("☺h2"))
+                    {
+                        h2 = " : " + dataComboBox.ComboBox["h2"].Form.Items[Regex.Matches(str, "☺h2").Count - 1].ToString();
+                    }
+                    DrawText(e, h1 + h2, Color.White, area, 10);
+                }
+                else
+                {
+                    DrawText(e, "До заголовков", Color.White, area, 10);
+                }
+            }
+            else
+            {
+                DrawText(e, "Начало", Color.White, area, 10);
+            }
+        }
+
+
+        void DrawText(PaintEventArgs e, string text, Color color, Rectangle area, int fontSize)
+        {
+            Point areaCenter = new Point(area.X + area.Width / 2, area.Y + area.Height / 2);
+            text.Replace("\r", "");
+            string[] line = text.Split('\n');
+            int lineHeight = 25;
+            for (int i = 0; i < line.Length; i++)
+            {
+                Font ourFont = new Font(GlobalFont.GetFont().Name, fontSize);
+                SizeF stringSize = e.Graphics.MeasureString(line[i], ourFont);
+                int middleLineIndex = (int)Math.Round((double)line.Length / 2, MidpointRounding.AwayFromZero);
+                int y = areaCenter.Y + (i + 1 - middleLineIndex) * lineHeight - lineHeight / 2;
+                if (line.Length % 2 == 0)
+                {
+                    y -= lineHeight / 2;
+                }
+                e.Graphics.DrawString(line[i], ourFont, new SolidBrush(color), new Point((int)(areaCenter.X - stringSize.Width / 2), y));
             }
         }
     }

@@ -42,7 +42,7 @@ namespace MakeReportWord
             {
                 TextHeader("документа");
                 TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
-                ShowingTitelPanel();
+                ShowintTitlePanel();
             }
             else if (LabMenuItem.Checked)
             {
@@ -739,13 +739,13 @@ namespace MakeReportWord
             {
                 TextHeader("документа");
                 TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
-                ShowingTitelPanel();
+                ShowintTitlePanel();
             }
             else
             {
                 TitleOffOnMenuItem.Visible = true;
                 TitleOffOnMenuItem.Checked = false;
-                ShowingTitelPanel();
+                ShowintTitlePanel();
                 if (toolStripMenuItem.Text == "Лабораторная работа")
                 {
                     TextHeader("лабораторной работы");
@@ -848,6 +848,8 @@ namespace MakeReportWord
             }
             else if (MenuItem == TextMenuItem)
             {
+                MainPanel.RowStyles[MainPanel.RowCount - 2].Height = 0;
+                CursorLocationPanel.Visible = false;
                 wndSize.Text.Current = this.Size;
                 this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 richTextBox.EnableAutoDragDrop = false;
@@ -933,6 +935,8 @@ namespace MakeReportWord
                 richTextBox.Focus();
                 elementComboBox.Visible = true;
                 elementLabel.Visible = false;
+                MainPanel.RowStyles[MainPanel.RowCount - 2].Height = 20;
+                CursorLocationPanel.Visible = true;
             }
             if(MenuItem!=null)
             {
@@ -1400,10 +1404,10 @@ namespace MakeReportWord
 
         void TitleOffOnMenuItem_Click(object sender, EventArgs e)
         {
-            ShowingTitelPanel();
+            ShowintTitlePanel();
         }
 
-        void ShowingTitelPanel()
+        void ShowintTitlePanel()
         {
             if (TitleOffOnMenuItem.Checked && TitlePageMenuItem.Checked)
             {
@@ -1531,7 +1535,18 @@ namespace MakeReportWord
             Encoding0MenuItem.Checked = false;
         }
 
-        
+        private void richTextBox_SelectionChanged(object sender, EventArgs e)
+        {
+            this.CursorLocationPanel.Refresh();
+        }
+
+        private void CursorLocationPanel_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.CursorLocationPanel.Visible)
+            {
+                this.CursorLocationPanel.Refresh();
+            }
+        }
     }
 }
 
