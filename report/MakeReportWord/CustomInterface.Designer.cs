@@ -449,7 +449,7 @@ namespace MakeReportWord
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.MainPanel.Size = new System.Drawing.Size(934, 846);
             this.MainPanel.TabIndex = 1;
@@ -477,7 +477,7 @@ namespace MakeReportWord
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.DownPanel.Size = new System.Drawing.Size(928, 406);
+            this.DownPanel.Size = new System.Drawing.Size(928, 426);
             this.DownPanel.TabIndex = 2;
             // 
             // elementVisiblePanel
@@ -808,7 +808,7 @@ namespace MakeReportWord
             this.textPicturePanel.RowCount = 1;
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 243F));
-            this.textPicturePanel.Size = new System.Drawing.Size(872, 243);
+            this.textPicturePanel.Size = new System.Drawing.Size(872, 263);
             this.textPicturePanel.TabIndex = 32;
             this.textPicturePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.textPicturePanel_Paint);
             // 
@@ -820,7 +820,7 @@ namespace MakeReportWord
             this.richTextBox.Location = new System.Drawing.Point(3, 3);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBox.Size = new System.Drawing.Size(517, 237);
+            this.richTextBox.Size = new System.Drawing.Size(517, 257);
             this.richTextBox.TabIndex = 18;
             this.richTextBox.Text = "";
             this.richTextBox.SelectionChanged += new System.EventHandler(this.richTextBox_SelectionChanged);
@@ -837,7 +837,7 @@ namespace MakeReportWord
             this.DragNDropPanel.Location = new System.Drawing.Point(523, 3);
             this.DragNDropPanel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.DragNDropPanel.Name = "DragNDropPanel";
-            this.DragNDropPanel.Size = new System.Drawing.Size(349, 237);
+            this.DragNDropPanel.Size = new System.Drawing.Size(349, 257);
             this.DragNDropPanel.TabIndex = 19;
             this.DragNDropPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragDrop);
             this.DragNDropPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragEnter);
@@ -853,7 +853,7 @@ namespace MakeReportWord
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 1, 3);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(349, 237);
+            this.pictureBox.Size = new System.Drawing.Size(349, 257);
             this.pictureBox.TabIndex = 32;
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
@@ -1076,14 +1076,15 @@ namespace MakeReportWord
             this.CursorLocationPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.CursorLocationPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.CursorLocationPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CursorLocationPanel.Location = new System.Drawing.Point(0, 805);
+            this.CursorLocationPanel.Location = new System.Drawing.Point(0, 825);
             this.CursorLocationPanel.Margin = new System.Windows.Forms.Padding(0);
             this.CursorLocationPanel.Name = "CursorLocationPanel";
             this.CursorLocationPanel.RowCount = 1;
             this.CursorLocationPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.CursorLocationPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.CursorLocationPanel.Size = new System.Drawing.Size(934, 20);
+            this.CursorLocationPanel.Size = new System.Drawing.Size(934, 1);
             this.CursorLocationPanel.TabIndex = 9;
+            this.CursorLocationPanel.Visible = false;
             this.CursorLocationPanel.VisibleChanged += new System.EventHandler(this.CursorLocationPanel_VisibleChanged);
             this.CursorLocationPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.CursorLocationPanel_Paint);
             // 
@@ -1250,7 +1251,6 @@ namespace MakeReportWord
             // 
             // FromNumberingTextBoxMenuItem
             // 
-            this.FromNumberingTextBoxMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FromNumberingTextBoxMenuItem.Name = "FromNumberingTextBoxMenuItem";
             this.FromNumberingTextBoxMenuItem.Size = new System.Drawing.Size(150, 23);
             this.FromNumberingTextBoxMenuItem.Text = "1";
