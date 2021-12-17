@@ -255,7 +255,7 @@ namespace MakeReportWord
                 {
                     label_CursorLocation.Text = "До заголовков";
                 }
-                label_CursorLocation.Text += "  -  " + CursorPosExtra(str);
+                label_CursorLocation.Text += CursorPosExtra(str);
             }
             else
             {
@@ -273,7 +273,7 @@ namespace MakeReportWord
                 if (str.Substring(str.Length - key.Length - 1).StartsWith("☺" + key))
                 {
                     int pCount = Regex.Matches(str, "☺" + key).Count;
-                    extra = dataComboBox.ComboBox[key].Form.Items[pCount - 1].ToString();
+                    extra = "  -  " + dataComboBox.ComboBox[key].Form.Items[pCount - 1].ToString();
                     break;
                 }
             }

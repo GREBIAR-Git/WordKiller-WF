@@ -836,7 +836,7 @@ namespace MakeReportWord
             this.textPicturePanel.Name = "textPicturePanel";
             this.textPicturePanel.RowCount = 1;
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 456F));
+            this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 481F));
             this.textPicturePanel.Size = new System.Drawing.Size(1596, 481);
             this.textPicturePanel.TabIndex = 32;
             this.textPicturePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.textPicturePanel_Paint);
@@ -1113,7 +1113,7 @@ namespace MakeReportWord
             this.CursorLocationPanel.Name = "CursorLocationPanel";
             this.CursorLocationPanel.RowCount = 1;
             this.CursorLocationPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.CursorLocationPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.CursorLocationPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.CursorLocationPanel.Size = new System.Drawing.Size(1712, 1);
             this.CursorLocationPanel.TabIndex = 9;
             this.CursorLocationPanel.Visible = false;
@@ -1406,14 +1406,14 @@ namespace MakeReportWord
             // SetAsDefaultMenuItem
             // 
             this.SetAsDefaultMenuItem.Name = "SetAsDefaultMenuItem";
-            this.SetAsDefaultMenuItem.Size = new System.Drawing.Size(637, 40);
+            this.SetAsDefaultMenuItem.Size = new System.Drawing.Size(580, 40);
             this.SetAsDefaultMenuItem.Text = "Сделать приложением по умолчанию для .wkr";
             this.SetAsDefaultMenuItem.Click += new System.EventHandler(this.SetAsDefaultMenuItem_Click);
             // 
             // ChangeUserMenuItem
             // 
             this.ChangeUserMenuItem.Name = "ChangeUserMenuItem";
-            this.ChangeUserMenuItem.Size = new System.Drawing.Size(637, 40);
+            this.ChangeUserMenuItem.Size = new System.Drawing.Size(580, 40);
             this.ChangeUserMenuItem.Text = "Поменять пользователя";
             this.ChangeUserMenuItem.Click += new System.EventHandler(this.ChangeUserMenuItem_Click);
             // 
@@ -1423,7 +1423,7 @@ namespace MakeReportWord
             this.Encoding0MenuItem,
             this.Encoding1MenuItem});
             this.EncodingMenuItem.Name = "EncodingMenuItem";
-            this.EncodingMenuItem.Size = new System.Drawing.Size(637, 40);
+            this.EncodingMenuItem.Size = new System.Drawing.Size(580, 40);
             this.EncodingMenuItem.Text = "Кодировка";
             // 
             // Encoding0MenuItem
