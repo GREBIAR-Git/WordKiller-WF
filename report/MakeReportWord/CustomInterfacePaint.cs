@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -252,6 +254,7 @@ namespace MakeReportWord
                 {
                     label_CursorLocation.Text = "До заголовков";
                 }
+                label_CursorLocation.Text += "  -  " + CursorPosExtra(str);
             }
             else
             {
@@ -259,6 +262,22 @@ namespace MakeReportWord
             }
         }
 
+
+        string CursorPosExtra(string str)
+        {
+            string extra = "";
+            for (int i = 2; i < dataComboBox.ComboBox.Keys.Count; i++)
+            {
+                string key = dataComboBox.ComboBox.Keys.ElementAt(i);
+                if (str.Substring(str.Length - key.Length - 1).StartsWith("☺" + key))
+                {
+                    int pCount = Regex.Matches(str, "☺" + key).Count;
+                    extra = dataComboBox.ComboBox[key].Form.Items[pCount - 1].ToString();
+                    break;
+                }
+            }
+            return extra;
+        }
 
         void DrawText(PaintEventArgs e, string text, Color color, Rectangle area, int fontSize)
         {
