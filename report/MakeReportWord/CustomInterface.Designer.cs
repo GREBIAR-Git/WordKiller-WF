@@ -508,14 +508,14 @@ namespace MakeReportWord
             // 
             this.elementComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.elementComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.elementComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.elementComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.elementComboBox.FormattingEnabled = true;
             this.elementComboBox.Items.AddRange(new object[] {
             "Весь текст"});
             this.elementComboBox.Location = new System.Drawing.Point(173, 7);
             this.elementComboBox.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.elementComboBox.Name = "elementComboBox";
-            this.elementComboBox.Size = new System.Drawing.Size(61, 32);
+            this.elementComboBox.Size = new System.Drawing.Size(61, 24);
             this.elementComboBox.TabIndex = 30;
             this.elementComboBox.Visible = false;
             this.elementComboBox.SelectedIndexChanged += new System.EventHandler(this.elementComboBox_SelectedIndexChanged);
@@ -1228,7 +1228,6 @@ namespace MakeReportWord
             // 
             // FromNumberingTextBoxMenuItem
             // 
-            this.FromNumberingTextBoxMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FromNumberingTextBoxMenuItem.Name = "FromNumberingTextBoxMenuItem";
             this.FromNumberingTextBoxMenuItem.Size = new System.Drawing.Size(150, 23);
             this.FromNumberingTextBoxMenuItem.Text = "1";
