@@ -1493,7 +1493,7 @@ namespace MakeReportWord
         {
             saveLogoVisible = false;
             System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Elapsed += new ElapsedEventHandler(HideSaveLogo);
+            timer.Elapsed += function;
             timer.Interval = 1500;
             timer.AutoReset = autoReset;
             return timer;
