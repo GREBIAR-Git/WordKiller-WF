@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace MakeReportWord
+namespace WordKiller
 {
     public partial class CustomInterface
     {

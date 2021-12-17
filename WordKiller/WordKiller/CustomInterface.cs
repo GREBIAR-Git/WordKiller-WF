@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
 
-namespace MakeReportWord
+namespace WordKiller
 {
     public partial class CustomInterface : Form
     {

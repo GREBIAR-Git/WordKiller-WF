@@ -1,4 +1,4 @@
-﻿namespace MakeReportWord
+﻿namespace WordKiller
 {
     partial class AboutProgram
     {

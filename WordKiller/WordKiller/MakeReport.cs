@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.Office.Interop.Word;
 
-namespace MakeReportWord
+namespace WordKiller
 {
     class MakeReport
     {

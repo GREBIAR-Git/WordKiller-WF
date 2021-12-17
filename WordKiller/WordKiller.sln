@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31105.61
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeReportWord", "MakeReportWord\MakeReportWord.csproj", "{BA58A3CE-2170-42EE-BF6D-B1F219678764}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordKiller", "WordKiller\WordKiller.csproj", "{BA58A3CE-2170-42EE-BF6D-B1F219678764}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

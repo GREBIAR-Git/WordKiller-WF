@@ -1,5 +1,5 @@
 ﻿
-namespace MakeReportWord
+namespace WordKiller
 {
     partial class CustomInterface
     {
@@ -595,7 +595,7 @@ namespace MakeReportWord
             // 
             // buttonBack
             // 
-            this.buttonBack.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsLeft;
+            this.buttonBack.BackgroundImage = global::WordKiller.Properties.Resources.arrowsLeft;
             this.buttonBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonBack.Location = new System.Drawing.Point(6, 6);
@@ -806,7 +806,7 @@ namespace MakeReportWord
             // 
             // buttonForward
             // 
-            this.buttonForward.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsRight;
+            this.buttonForward.BackgroundImage = global::WordKiller.Properties.Resources.arrowsRight;
             this.buttonForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonForward.Location = new System.Drawing.Point(1391, 6);
@@ -877,7 +877,7 @@ namespace MakeReportWord
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.Color.Maroon;
-            this.pictureBox.BackgroundImage = global::MakeReportWord.Properties.Resources.DragNDrop;
+            this.pictureBox.BackgroundImage = global::WordKiller.Properties.Resources.DragNDrop;
             this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
@@ -1047,7 +1047,7 @@ namespace MakeReportWord
             // buttonUp
             // 
             this.buttonUp.BackColor = System.Drawing.Color.Transparent;
-            this.buttonUp.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsUp;
+            this.buttonUp.BackgroundImage = global::WordKiller.Properties.Resources.arrowsUp;
             this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonUp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -1066,7 +1066,7 @@ namespace MakeReportWord
             // buttonDown
             // 
             this.buttonDown.BackColor = System.Drawing.Color.Transparent;
-            this.buttonDown.BackgroundImage = global::MakeReportWord.Properties.Resources.arrowsDown;
+            this.buttonDown.BackgroundImage = global::WordKiller.Properties.Resources.arrowsDown;
             this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -1085,7 +1085,7 @@ namespace MakeReportWord
             // CustomSizeGrip
             // 
             this.CustomSizeGrip.BackColor = System.Drawing.Color.Transparent;
-            this.CustomSizeGrip.BackgroundImage = global::MakeReportWord.Properties.Resources.ResizeGrip;
+            this.CustomSizeGrip.BackgroundImage = global::WordKiller.Properties.Resources.ResizeGrip;
             this.CustomSizeGrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CustomSizeGrip.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.CustomSizeGrip.Dock = System.Windows.Forms.DockStyle.Fill;

@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace MakeReportWord
+namespace WordKiller
 {
     class WindowSize
     {

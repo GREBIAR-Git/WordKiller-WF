@@ -1,5 +1,5 @@
 ﻿
-namespace MakeReportWord
+namespace WordKiller
 {
     partial class Documentation
     {
