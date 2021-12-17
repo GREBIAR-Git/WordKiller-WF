@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -99,11 +97,11 @@ namespace WordKiller
                 {
                     e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
                     int index = dataComboBox.ComboBox["h1"].Form.SelectedIndex;
-                    if (index!=-1)
+                    if (index != -1)
                     {
-                        if(NumberHeadingMenuItem.Checked)
+                        if (NumberHeadingMenuItem.Checked)
                         {
-                            DrawText((index+1).ToString() + " " + dataComboBox.ComboBox["h1"].Data[index][1].ToUpper(), e);
+                            DrawText((index + 1).ToString() + " " + dataComboBox.ComboBox["h1"].Data[index][1].ToUpper(), e);
                         }
                         else
                         {

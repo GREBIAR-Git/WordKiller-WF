@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Word;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using Microsoft.Office.Interop.Word;
 
 namespace WordKiller
 {
@@ -18,10 +18,10 @@ namespace WordKiller
             pageMargins = new Dictionary<string, float>() { { "top", 2 }, { "bottom", 2 }, { "left", 3 }, { "right", 1.5f } };
         }
 
-        public void CreateReport(DataComboBox dataMainPart, bool numbering, bool content,bool title, int fromNumbering, bool numberHeading, string typeDocument, string[] dataTitle)
+        public void CreateReport(DataComboBox dataMainPart, bool numbering, bool content, bool title, int fromNumbering, bool numberHeading, string typeDocument, string[] dataTitle)
         {
             Beginning();
-            if(title)
+            if (title)
             {
                 dataTitle[dataTitle.Length - 1] = SpaceForYear(dataTitle[dataTitle.Length - 1], '_');
                 TitlePart(typeDocument, dataTitle);
@@ -39,12 +39,12 @@ namespace WordKiller
             return text;
         }
 
-        void RemoveENDLs(ref string text,string symbol)
+        void RemoveENDLs(ref string text, string symbol)
         {
             string[] str = text.Split(new string[] { symbol }, StringSplitOptions.None);
             for (int i = 0; i < str.Length; i++)
             {
-                if(str[i].Length>0 && str[i][0]== '\n')
+                if (str[i].Length > 0 && str[i][0] == '\n')
                 {
                     str[i] = str[i].Remove(0, 1);
                 }
@@ -64,7 +64,7 @@ namespace WordKiller
             word = null;
         }
 
-        void TitlePart(string typeDocument,string[] dataTitle)
+        void TitlePart(string typeDocument, string[] dataTitle)
         {
             Ministry(dataTitle[0]);
             if (typeDocument == "Сотворение лабораторной работы из небытия")
@@ -155,7 +155,7 @@ namespace WordKiller
             }
             else if (typeDocument == "Сотворение курсовой работы из небытия")
             {
-                string text = "Работа допущена к защите" + SkipLine(1) + "______________Руководитель" + SkipLine(1) + "«____»_____________"+ dataTitle[dataTitle.Length - 1] + "г.";
+                string text = "Работа допущена к защите" + SkipLine(1) + "______________Руководитель" + SkipLine(1) + "«____»_____________" + dataTitle[dataTitle.Length - 1] + "г.";
                 WriteTextWord(text);
                 word.Font.Size = 14;
                 word.Font.Bold = 0;
@@ -215,7 +215,7 @@ namespace WordKiller
             else if (typeDocument == "Сотворение РГР из небытия")
             {
             }
-            Orel(dataTitle[dataTitle.Length-1]);
+            Orel(dataTitle[dataTitle.Length - 1]);
         }
 
         void Ministry(string faculty)
@@ -241,7 +241,7 @@ namespace WordKiller
 
         string SpaceForYear(string year, char spaceCharacter)
         {
-            for(int i = 0; i < 4-year.Length; i++)
+            for (int i = 0; i < 4 - year.Length; i++)
             {
                 year += spaceCharacter;
             }
@@ -265,7 +265,7 @@ namespace WordKiller
             }
             if (content.Text != null)
             {
-                if(numberHeading)
+                if (numberHeading)
                 {
                     ProcessContent(content);
                 }
@@ -303,21 +303,21 @@ namespace WordKiller
             int t = 1;
             int c = 1;
             string def = string.Empty;
-            for (int i = 0; i<content.Text.Length;i++)
+            for (int i = 0; i < content.Text.Length; i++)
             {
-                if(content.Text[i]== specialBefore)
+                if (content.Text[i] == specialBefore)
                 {
-                    if(def!=string.Empty)
+                    if (def != string.Empty)
                     {
                         DefaultText(def);
                         def = string.Empty;
                     }
-                    if (content.Text[i+1] == 'h')
+                    if (content.Text[i + 1] == 'h')
                     {
                         if (content.Text[i + 2] == '1')
                         {
                             i += 2;
-                            string text = h1.ToString() + " " + ProcessSpecial(h1,"h1", content)[0];
+                            string text = h1.ToString() + " " + ProcessSpecial(h1, "h1", content)[0];
                             Heading1(text);
                             h1++;
                             h2 = 1;
@@ -325,7 +325,7 @@ namespace WordKiller
                         else if (content.Text[i + 2] == '2')
                         {
                             i += 2;
-                            string text = (h1-1).ToString() + "." + h2.ToString() + " " + ProcessSpecial(h2all,"h2", content)[0];
+                            string text = (h1 - 1).ToString() + "." + h2.ToString() + " " + ProcessSpecial(h2all, "h2", content)[0];
                             Heading2(text);
                             h2all++;
                             h2++;
@@ -483,7 +483,7 @@ namespace WordKiller
 
         void WriteTextWord(string text)
         {
-            
+
             Range wordTemp = doc.Range();
             int Length = wordTemp.Text.Length;
             if (word == null)
@@ -495,13 +495,13 @@ namespace WordKiller
             {
                 word.Text += text;
             }
-            if(pgBreak)
+            if (pgBreak)
             {
                 word = doc.Range(Length, Type.Missing);
             }
             else
             {
-                word = doc.Range(Length-1, Type.Missing);
+                word = doc.Range(Length - 1, Type.Missing);
                 pgBreak = true;
             }
         }
@@ -581,7 +581,7 @@ namespace WordKiller
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
             Range wordTemp = doc.Range();
             int Length = wordTemp.Text.Length;
-            word = doc.Range(Length-1, Type.Missing);
+            word = doc.Range(Length - 1, Type.Missing);
         }
 
         /*public int SizePicture(int max,int current)
@@ -604,7 +604,7 @@ namespace WordKiller
             word.Font.Size = 14;
             word.Font.Bold = 0;
             word.Font.ColorIndex = 0;
-            word.Paragraphs.SpaceAfter= 8;
+            word.Paragraphs.SpaceAfter = 8;
             word.Paragraphs.Space15();
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
         }
@@ -650,7 +650,7 @@ namespace WordKiller
             {
                 return;
             }
-            string text = SkipLine(number-1);
+            string text = SkipLine(number - 1);
             WriteTextWord(text);
             word.Paragraphs.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
             word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
@@ -666,6 +666,6 @@ namespace WordKiller
             }
             return str;
         }
-        
+
     }
 }

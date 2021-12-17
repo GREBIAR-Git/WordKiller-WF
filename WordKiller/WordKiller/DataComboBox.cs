@@ -5,12 +5,12 @@ namespace WordKiller
 {
     class DataComboBox
     {
-        public Dictionary<string, ElementComboBox> ComboBox { get;set; }
-        public string Text { get; set; } 
-        
+        public Dictionary<string, ElementComboBox> ComboBox { get; set; }
+        public string Text { get; set; }
+
         public ElementComboBox SearchComboBox(ComboBox comboBoxForm)
         {
-            foreach(KeyValuePair<string,ElementComboBox> comboBox in ComboBox)
+            foreach (KeyValuePair<string, ElementComboBox> comboBox in ComboBox)
             {
                 if (comboBox.Value.Form == comboBoxForm)
                 {
@@ -22,7 +22,7 @@ namespace WordKiller
 
         public int Sum()
         {
-            int sum=0;
+            int sum = 0;
             foreach (KeyValuePair<string, ElementComboBox> comboBox in ComboBox)
             {
                 sum += comboBox.Value.Data.Count;

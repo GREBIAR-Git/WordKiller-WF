@@ -4,8 +4,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Timers;
+using System.Windows.Forms;
 
 namespace WordKiller
 {
@@ -30,7 +30,7 @@ namespace WordKiller
         public CustomInterface(string[] fileName)
         {
             InitializeComponent();
-            dataComboBox = new DataComboBox(h1ComboBox,h2ComboBox,lComboBox,pComboBox,tComboBox,cComboBox);
+            dataComboBox = new DataComboBox(h1ComboBox, h2ComboBox, lComboBox, pComboBox, tComboBox, cComboBox);
             replaceMenu();
             menuLeftIndex = 1;
             wndSize = new WindowSize();
@@ -163,7 +163,7 @@ namespace WordKiller
         bool SaveComboBoxData(ElementComboBox comboBox)
         {
             int index = comboBox.Form.SelectedIndex;
-            if(index != -1)
+            if (index != -1)
             {
                 string[] lines = richTextBox.Text.Split('\n');
                 if (comboBox.Data[index][0] != lines[1])
@@ -179,12 +179,12 @@ namespace WordKiller
 
         void UpdateTypeButton()
         {
-            if (dataComboBox.Sum()>0)
+            if (dataComboBox.Sum() > 0)
             {
                 ShowSpecials();
                 foreach (KeyValuePair<string, ElementComboBox> comboBox in dataComboBox.ComboBox)
                 {
-                    CountTypeText(comboBox.Value,comboBox.Key);
+                    CountTypeText(comboBox.Value, comboBox.Key);
                 }
             }
         }
@@ -217,7 +217,7 @@ namespace WordKiller
 
         void AddSpecialSymbol(string symbol, int index)
         {
-            if (richTextBox.SelectionStart == 0 || richTextBox.Text[richTextBox.SelectionStart-1]=='\n')
+            if (richTextBox.SelectionStart == 0 || richTextBox.Text[richTextBox.SelectionStart - 1] == '\n')
             {
                 richTextBox.Text = richTextBox.Text.Insert(index, symbol.ToLower() + "\n");
             }
@@ -369,7 +369,7 @@ namespace WordKiller
                 }
                 else if (str == AddSpecialСharacterAB("c"))
                 {
-                    if(System.IO.File.Exists(SplitMainText()))
+                    if (System.IO.File.Exists(SplitMainText()))
                     {
                         return true;
                     }
@@ -415,7 +415,7 @@ namespace WordKiller
 
         void DataComboBoxToRichBox(ElementComboBox comboBox)
         {
-            richTextBox.Text = AddSpecialСharacterAB(dataComboBox.ComboBox.FirstOrDefault(x => x.Value == comboBox).Key) +"\n" + comboBox.Data[comboBox.Form.SelectedIndex][0] + "\n"+ AddSpecialСharacterAB("Содержимое") + "\n" + comboBox.Data[comboBox.Form.SelectedIndex][1];
+            richTextBox.Text = AddSpecialСharacterAB(dataComboBox.ComboBox.FirstOrDefault(x => x.Value == comboBox).Key) + "\n" + comboBox.Data[comboBox.Form.SelectedIndex][0] + "\n" + AddSpecialСharacterAB("Содержимое") + "\n" + comboBox.Data[comboBox.Form.SelectedIndex][1];
             richTextBox.SelectionStart = 5 + comboBox.Data[comboBox.Form.SelectedIndex][0].Length;
         }
 
@@ -444,7 +444,7 @@ namespace WordKiller
         void ComboBox_MouseDown(object sender, MouseEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            if (e.Button == MouseButtons.Right&& ComboBoxSelected())
+            if (e.Button == MouseButtons.Right && ComboBoxSelected())
             {
                 if (Control.ModifierKeys != Keys.Shift && Control.ModifierKeys != Keys.Control && Control.ModifierKeys != Keys.Alt)
                 {
@@ -509,7 +509,7 @@ namespace WordKiller
             AddTitleData(ref titleData);
             try
             {
-                await Task.Run(() => report.CreateReport(dataComboBox, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text), NumberHeadingMenuItem.Checked,  this.Text.ToString(), titleData.ToArray()));
+                await Task.Run(() => report.CreateReport(dataComboBox, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text), NumberHeadingMenuItem.Checked, this.Text.ToString(), titleData.ToArray()));
             }
             catch
             {
@@ -526,16 +526,16 @@ namespace WordKiller
             List<Control> controls = new List<Control>();
             foreach (Control control in titlepagePanel.Controls)
             {
-                if(control.GetType().ToString() != "System.Windows.Forms.Label")
+                if (control.GetType().ToString() != "System.Windows.Forms.Label")
                 {
                     controls.Add(control);
                 }
             }
-            for(int i=1;i<controls.Count;i++)
+            for (int i = 1; i < controls.Count; i++)
             {
-                for(int f=0; f < controls.Count-i;f++)
+                for (int f = 0; f < controls.Count - i; f++)
                 {
-                    if(controls[f].TabIndex > controls[f+1].TabIndex)
+                    if (controls[f].TabIndex > controls[f + 1].TabIndex)
                     {
                         Control kek = controls[f];
                         controls[f] = controls[f + 1];
@@ -894,7 +894,7 @@ namespace WordKiller
             }
             else if (MenuItem == SubstitutionMenuItem)
             {
-                if(TitleOffOnMenuItem.Checked)
+                if (TitleOffOnMenuItem.Checked)
                 {
                     buttonUp.Visible = true;
                 }
@@ -938,7 +938,7 @@ namespace WordKiller
                 MainPanel.RowStyles[MainPanel.RowCount - 2].Height = 25;
                 CursorLocationPanel.Visible = true;
             }
-            if(MenuItem!=null)
+            if (MenuItem != null)
             {
                 MenuItem.Checked = true;
             }
@@ -948,7 +948,7 @@ namespace WordKiller
         {
             int left = 3 + (richTextBox.Width - 790) / 2 + 76;
             int right = 3 + (richTextBox.Width - 790) / 2 + 56 - 16; // 16 is scrollbar width
-            richTextBox.Margin = new Padding(left,richTextBox.Margin.Top, right, richTextBox.Margin.Bottom);
+            richTextBox.Margin = new Padding(left, richTextBox.Margin.Top, right, richTextBox.Margin.Bottom);
         }
 
         void refreshMenu()
@@ -1171,7 +1171,7 @@ namespace WordKiller
             {
                 DefaultTypeRichBox("h1");
             }
-            else if(control.Name == "Заголовок 2")
+            else if (control.Name == "Заголовок 2")
             {
                 DefaultTypeRichBox("h2");
             }
@@ -1198,7 +1198,7 @@ namespace WordKiller
         void DefaultTypeRichBox(string type)
         {
             string beginning = AddSpecialСharacterAB(type);
-            richTextBox.Text = beginning + "\n\n"+ AddSpecialСharacterAB("Содержимое")+"\n";
+            richTextBox.Text = beginning + "\n\n" + AddSpecialСharacterAB("Содержимое") + "\n";
             richTextBox.SelectionStart = beginning.Length + 1;
         }
 
@@ -1262,12 +1262,12 @@ namespace WordKiller
                     e.Handled = true;
                 }
                 else if (e.KeyCode == Keys.Enter && line == 2 || e.KeyCode == Keys.Delete && EndSecondLines(lines, index) ||
-                        (e.KeyCode == Keys.Back || Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.X) && 
+                        (e.KeyCode == Keys.Back || Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.X) &&
                         (BeginningSecondLines(lines, index) || BeginningFourthLines(lines, index)) && richTextBox.SelectionLength == 0)
                 {
                     e.Handled = true;
                 }
-                else if (e.KeyCode == Keys.Down &&( line == 2 || BeginningSecondLines(lines, index) || EndSecondLines(lines, index)))
+                else if (e.KeyCode == Keys.Down && (line == 2 || BeginningSecondLines(lines, index) || EndSecondLines(lines, index)))
                 {
                     richTextBox.SelectionStart += lines[1].Length + lines[2].Length + 2;
                     e.Handled = true;
@@ -1279,7 +1279,7 @@ namespace WordKiller
                 }
                 else if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V)
                 {
-                    if(line == 2)
+                    if (line == 2)
                     {
                         if (richTextBox.SelectedText.Contains("\n"))
                         {
@@ -1287,7 +1287,7 @@ namespace WordKiller
                         }
                         else if (Clipboard.GetText().Contains("\n"))
                         {
-                            Clipboard.SetText(Clipboard.GetText().Replace("\r","").Replace('\n', ' '));
+                            Clipboard.SetText(Clipboard.GetText().Replace("\r", "").Replace('\n', ' '));
                         }
                     }
                 }
@@ -1296,7 +1296,7 @@ namespace WordKiller
 
         bool BeginningSecondLines(string[] lines, int index)
         {
-            if(lines[0].Length == index - 1)
+            if (lines[0].Length == index - 1)
             {
                 return true;
             }
@@ -1348,7 +1348,7 @@ namespace WordKiller
             }
             else if (Control.ModifierKeys == Keys.Control)
             {
-                if(e.KeyCode == Keys.S)
+                if (e.KeyCode == Keys.S)
                 {
                     if (Control.ModifierKeys != Keys.Shift)
                     {
@@ -1367,7 +1367,7 @@ namespace WordKiller
                 {
                     CreateMenuItem_Click(sender, e);
                 }
-                else if(e.KeyCode == Keys.Q)
+                else if (e.KeyCode == Keys.Q)
                 {
                     Application.Exit();
                 }
@@ -1422,7 +1422,7 @@ namespace WordKiller
         void CreateMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Нужно ли сохранить?", "Нужно ли сохранить?", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-            if(result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 if (!string.IsNullOrEmpty(fileNames))
                 {
@@ -1439,9 +1439,9 @@ namespace WordKiller
             text = "";
             textDragOnDrop = "";
             menuLeftIndex = 1;
-            dataComboBox = new DataComboBox(h1ComboBox,h2ComboBox,lComboBox,pComboBox,tComboBox,cComboBox);
+            dataComboBox = new DataComboBox(h1ComboBox, h2ComboBox, lComboBox, pComboBox, tComboBox, cComboBox);
             richTextBox.Text = "";
-            if(DownPanelMI==TextMenuItem)
+            if (DownPanelMI == TextMenuItem)
             {
                 HideSpecials();
             }
@@ -1481,7 +1481,7 @@ namespace WordKiller
 
         private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(elementComboBox.SelectedIndex==0)
+            if (elementComboBox.SelectedIndex == 0)
             {
                 richTextBox.Text = text;
             }
@@ -1505,7 +1505,7 @@ namespace WordKiller
 
         void ChangeUser(ElementComboBox elementComboBox)
         {
-            for(int i=0;i< elementComboBox.Data.Count(); i++)
+            for (int i = 0; i < elementComboBox.Data.Count(); i++)
             {
                 if (elementComboBox.Data[i][1].Contains(":\\Users\\"))
                 {
@@ -1518,7 +1518,7 @@ namespace WordKiller
                             break;
                         }
                     }
-                    elementComboBox.Data[i][1] = String.Join("\\",directory);
+                    elementComboBox.Data[i][1] = String.Join("\\", directory);
                 }
             }
         }

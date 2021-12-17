@@ -11,7 +11,7 @@ namespace WordKiller
         void DragNDropPanel_DragEnter(object sender, DragEventArgs e)
         {
             string str = TypeRichBox();
-            if (str != AddSpecialСharacterAB("h1") && str != AddSpecialСharacterAB("h2")&& str != AddSpecialСharacterAB("l") && str != AddSpecialСharacterAB("t"))
+            if (str != AddSpecialСharacterAB("h1") && str != AddSpecialСharacterAB("h2") && str != AddSpecialСharacterAB("l") && str != AddSpecialСharacterAB("t"))
             {
                 textDragOnDrop = richTextBox.Text;
                 richTextBox.Text = string.Empty;
@@ -60,11 +60,11 @@ namespace WordKiller
                         Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
                         if (controlRelatedCoords.X < 148)
                         {
-                            richTextBox.Text = AddSpecialСharacterAB("p")+"\n" + nameFile + "\n"+ AddSpecialСharacterAB("Содержимое")+ "\n" + fileNames;
+                            richTextBox.Text = AddSpecialСharacterAB("p") + "\n" + nameFile + "\n" + AddSpecialСharacterAB("Содержимое") + "\n" + fileNames;
                         }
                         else
                         {
-                            richTextBox.Text = AddSpecialСharacterAB("c") + "\n" + nameFile + "\n"+ AddSpecialСharacterAB("Содержимое") + "\n" + fileNames;
+                            richTextBox.Text = AddSpecialСharacterAB("c") + "\n" + nameFile + "\n" + AddSpecialСharacterAB("Содержимое") + "\n" + fileNames;
                         }
                     }
                 }

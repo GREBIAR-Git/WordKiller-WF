@@ -65,7 +65,7 @@ namespace WordKiller
             StringBuilder decoded = new StringBuilder();
             for (int index = 1; index < str.Length; index += 2)
             {
-                decoded.Append(new string(str[index], str[index-1] - 48));
+                decoded.Append(new string(str[index], str[index - 1] - 48));
             }
             return decoded.ToString();
         }

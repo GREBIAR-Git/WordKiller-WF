@@ -29,7 +29,7 @@ namespace WordKiller
             try
             {
                 string data = reader.ReadToEnd();
-                if(data[0]=='1'&& data[1] == '\r' && data[2] == '\n')
+                if (data[0] == '1' && data[1] == '\r' && data[2] == '\n')
                 {
                     data = EncodingDecoding.MegaConvertD(data.Substring(3));
                 }
@@ -37,7 +37,7 @@ namespace WordKiller
                 {
                     data = data.Substring(3);
                     data = data.Replace("\n", "\r\n");
-            }
+                }
                 for (int i = 1; i < data.Length; i++)
                 {
                     if (data[i - 1] == '\r')
@@ -113,16 +113,16 @@ namespace WordKiller
                     }
                     this.Text = Path.GetFileName(fileName);
                 }
-                if(text.Length>0)
+                if (text.Length > 0)
                 {
                     text = text.Remove(text.Length - 1);
                 }
             }
             catch
             {
-               MessageBox.Show("Файл повреждён");
+                MessageBox.Show("Файл повреждён");
             }
-            if (DownPanelMI==TextMenuItem)
+            if (DownPanelMI == TextMenuItem)
             {
                 richTextBox.Text = text;
             }
@@ -171,7 +171,7 @@ namespace WordKiller
             {
                 if (item.Checked)
                 {
-                    save += AddSpecialСharacterAB("Menu") + item.Name.ToString() + "!" + NumberHeadingMenuItem.Checked.ToString()+"\n";
+                    save += AddSpecialСharacterAB("Menu") + item.Name.ToString() + "!" + NumberHeadingMenuItem.Checked.ToString() + "\n";
                 }
             }
             save += AddSpecialСharacterA("facultyComboBox") + facultyComboBox.Text + "\n";
@@ -214,7 +214,8 @@ namespace WordKiller
         {
             saveLogoVisible = false;
             this.saveTimer.Stop();
-            this.menuStrip.Invoke((MethodInvoker)delegate {
+            this.menuStrip.Invoke((MethodInvoker)delegate
+            {
                 this.menuStrip.Refresh();
             });
         }
@@ -224,7 +225,7 @@ namespace WordKiller
             string comboBoxSave = string.Empty;
             for (int i = 0; i < comboBox.Form.Items.Count; i++)
             {
-                comboBoxSave+=name + "ComboBox" + AddSpecialСharacterAB(comboBox.Form.Items[i].ToString()) + comboBox.Data[i][1] + "\n";
+                comboBoxSave += name + "ComboBox" + AddSpecialСharacterAB(comboBox.Form.Items[i].ToString()) + comboBox.Data[i][1] + "\n";
             }
             return comboBoxSave;
         }
