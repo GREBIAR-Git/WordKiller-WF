@@ -12,7 +12,7 @@ namespace MakeReportWord
         void Open_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "|*.wordkiller;";
+            openFileDialog.Filter = "|*.wkr;";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 OpenWordKiller(openFileDialog.FileName);
@@ -154,7 +154,7 @@ namespace MakeReportWord
         void SaveAsMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "|*.wordkiller;";
+            saveFileDialog.Filter = "|*.wkr;";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 saveFileName = saveFileDialog.FileName;

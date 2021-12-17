@@ -26,22 +26,20 @@ namespace MakeReportWord
                 dataTitle[dataTitle.Length - 1] = SpaceForYear(dataTitle[dataTitle.Length - 1], '_');
                 TitlePart(typeDocument, dataTitle);
             }
-            dataMainPart.Text = rr(dataMainPart.Text);
+            dataMainPart.Text = ProcessSpecials(dataMainPart.Text, dataMainPart);
             MainPart(dataMainPart, content, numbering, fromNumbering, numberHeading);
         }
 
-        string rr(string text)
+        string ProcessSpecials(string text, DataComboBox data)
         {
-            tt(ref text, "☺h1");
-            tt(ref text, "☺h2");
-            tt(ref text, "☺l");
-            tt(ref text, "☺p");
-            tt(ref text, "☺t");
-            tt(ref text, "☺c");
+            foreach (string key in data.ComboBox.Keys)
+            {
+                RemoveENDLs(ref text, "☺" + key);
+            }
             return text;
         }
 
-        void tt(ref string text,string symbol)
+        void RemoveENDLs(ref string text,string symbol)
         {
             string[] str = text.Split(new string[] { symbol }, StringSplitOptions.None);
             for (int i = 0; i < str.Length; i++)

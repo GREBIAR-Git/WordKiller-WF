@@ -226,7 +226,8 @@ namespace MakeReportWord
         {
             if (saveLogoVisible)
             {
-                Size saveLogoSize = new Size(menuStrip.Height * 6 / 8, menuStrip.Height * 6 / 8);
+                int side = (int)(Math.Round(menuStrip.Height * 3 / (float)4, MidpointRounding.AwayFromZero));
+                Size saveLogoSize = new Size(side, side);
                 Image saveLogo = new Bitmap(Properties.Resources.saveLogo, saveLogoSize);
                 Point saveLogoPos = new Point(menuStrip.Width - 2 * saveLogo.Width, menuStrip.Height / 8);
                 e.Graphics.DrawImage(saveLogo, saveLogoPos);

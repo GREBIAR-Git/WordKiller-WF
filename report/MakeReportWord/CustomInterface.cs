@@ -77,7 +77,7 @@ namespace MakeReportWord
             }
             if (fileName.Length > 0)
             {
-                if (fileName[0].EndsWith(".wordkiller") && System.IO.File.Exists(fileName[0]))
+                if (fileName[0].EndsWith(".wkr") && System.IO.File.Exists(fileName[0]))
                 {
                     OpenWordKiller(fileName[0]);
                 }
