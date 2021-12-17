@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace MakeReportWord
 {
@@ -21,6 +22,11 @@ namespace MakeReportWord
         Control[] DEFAULTtitlepagePanelControls;
         int[] rows;
         int[] columns;
+        System.Timers.Timer saveTimer;
+        bool saveLogoVisible;
+
+        
+
         public CustomInterface(string[] fileName)
         {
             InitializeComponent();
@@ -80,6 +86,7 @@ namespace MakeReportWord
                     throw new Exception("Ошибка открытия файла:\nФайл не найден или формат не поддерживается");
                 }
             }
+            this.saveTimer = InitializeTimer(3000, new ElapsedEventHandler(HideSaveLogo), false);
         }
 
         void TextHeader(string type)
@@ -1482,6 +1489,16 @@ namespace MakeReportWord
             ChangeUser(dataComboBox.ComboBox["c"]);
         }
 
+        System.Timers.Timer InitializeTimer(int interval, ElapsedEventHandler function, bool autoReset)
+        {
+            saveLogoVisible = false;
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Elapsed += new ElapsedEventHandler(HideSaveLogo);
+            timer.Interval = 1500;
+            timer.AutoReset = autoReset;
+            return timer;
+        }
+
         void ChangeUser(ElementComboBox elementComboBox)
         {
             for(int i=0;i< elementComboBox.Data.Count(); i++)
@@ -1514,7 +1531,7 @@ namespace MakeReportWord
             Encoding0MenuItem.Checked = false;
         }
 
-        // основателями поведенческой школы в психологии являются: павлов, уотсон, скиннер/спиннер
+        
     }
 }
 

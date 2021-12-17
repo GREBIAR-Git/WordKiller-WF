@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace MakeReportWord
@@ -198,6 +199,24 @@ namespace MakeReportWord
             }
             output.Close();
             this.Text = Path.GetFileName(nameFile);
+
+            ShowSaveLogo();
+        }
+        void ShowSaveLogo()
+        {
+            saveLogoVisible = true;
+            this.saveTimer.Stop();
+            this.saveTimer.Start();
+            this.menuStrip.Refresh();
+        }
+
+        void HideSaveLogo(Object source, ElapsedEventArgs e)
+        {
+            saveLogoVisible = false;
+            this.saveTimer.Stop();
+            this.menuStrip.Invoke((MethodInvoker)delegate {
+                this.menuStrip.Refresh();
+            });
         }
 
         string SaveCombobox(StreamWriter output, ElementComboBox comboBox, string name)

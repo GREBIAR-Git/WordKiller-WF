@@ -216,5 +216,16 @@ namespace MakeReportWord
             stringSize = e.Graphics.MeasureString(str1, new Font("Microsoft Sans Serif", 14));
             e.Graphics.DrawString(str1, new Font("Microsoft Sans Serif", 14), new SolidBrush(code), new Point((int)(3 * pictureBox.Width / 4 - stringSize.Width / 2), pictureBox.Height / 2 + 50));
         }
+
+        private void menuStrip_Paint(object sender, PaintEventArgs e)
+        {
+            if (saveLogoVisible)
+            {
+                Size saveLogoSize = new Size(menuStrip.Height * 6 / 8, menuStrip.Height * 6 / 8);
+                Image saveLogo = new Bitmap(Properties.Resources.saveLogo, saveLogoSize);
+                Point saveLogoPos = new Point(menuStrip.Width - 2 * saveLogo.Width, menuStrip.Height / 8);
+                e.Graphics.DrawImage(saveLogo, saveLogoPos);
+            }
+        }
     }
 }
