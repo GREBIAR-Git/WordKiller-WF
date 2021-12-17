@@ -231,7 +231,6 @@ namespace MakeReportWord
             }
         }
 
-
         private void CursorLocationPanel_Paint(object sender, PaintEventArgs e)
         {
             Rectangle area = new Rectangle(new Point(0, 0), CursorLocationPanel.Size);
@@ -247,16 +246,16 @@ namespace MakeReportWord
                     {
                         h2 = " : " + dataComboBox.ComboBox["h2"].Form.Items[Regex.Matches(str, "☺h2").Count - 1].ToString();
                     }
-                    DrawText(e, h1 + h2, Color.White, area, 10);
+                    label_CursorLocation.Text = h1 + h2;
                 }
                 else
                 {
-                    DrawText(e, "До заголовков", Color.White, area, 10);
+                    label_CursorLocation.Text = "До заголовков";
                 }
             }
             else
             {
-                DrawText(e, "Начало", Color.White, area, 10);
+                label_CursorLocation.Text = "Начало";
             }
         }
 

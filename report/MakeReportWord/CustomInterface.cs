@@ -935,7 +935,7 @@ namespace MakeReportWord
                 richTextBox.Focus();
                 elementComboBox.Visible = true;
                 elementLabel.Visible = false;
-                MainPanel.RowStyles[MainPanel.RowCount - 2].Height = 20;
+                MainPanel.RowStyles[MainPanel.RowCount - 2].Height = 25;
                 CursorLocationPanel.Visible = true;
             }
             if(MenuItem!=null)
