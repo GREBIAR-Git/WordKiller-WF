@@ -83,7 +83,7 @@ namespace WordKiller
                 }
                 else
                 {
-                    throw new Exception("Ошибка открытия файла:\nФайл не найден или формат не поддерживается");
+                    //throw new Exception("Ошибка открытия файла:\nФайл не найден или формат не поддерживается");
                 }
             }
             this.saveTimer = InitializeTimer(3000, new ElapsedEventHandler(HideSaveLogo), false);
@@ -1419,7 +1419,7 @@ namespace WordKiller
             TitleOffOnMenuItem.Checked = !TitleOffOnMenuItem.Checked;
         }
 
-        void CreateMenuItem_Click(object sender, EventArgs e)
+        bool NeedSave()
         {
             DialogResult result = MessageBox.Show("Нужно ли сохранить?", "Нужно ли сохранить?", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             if (result == DialogResult.Yes)
@@ -1430,9 +1430,16 @@ namespace WordKiller
                 }
                 else
                 {
-                    SaveAsMenuItem_Click(sender, e);
+                    SaveAsMenuItem_Click(0,new EventArgs());
                 }
+                return true;
             }
+            return false;
+        }
+
+        void CreateMenuItem_Click(object sender, EventArgs e)
+        {
+            NeedSave();
             fileNames = null;
             this.Text = "Сотворение документа из небытия";
             ClearGlobal();
@@ -1462,9 +1469,27 @@ namespace WordKiller
 
         void SetAsDefaultMenuItem_Click(object sender, EventArgs e)
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo("computerdefaults");
-            startInfo.UseShellExecute = true;
-            Process.Start(startInfo);
+            if (!FileAssociation.IsRunAsAdmin())
+            {
+                ProcessStartInfo proc = new ProcessStartInfo();
+                proc.UseShellExecute = true;
+                proc.WorkingDirectory = Environment.CurrentDirectory;
+                proc.FileName = Application.ExecutablePath;
+                proc.Verb = "runas";
+                proc.Arguments += "FileAssociation";
+                try
+                {
+                    Process.Start(proc);
+                }
+                catch
+                {
+                    MessageBox.Show("Мы не можем это сделать на вашем устройстве, обновите ОС", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                }
+            }
+            else
+            {
+                FileAssociation.Associate("WordKiller", null);
+            }
         }
 
         void DocumentationMenuItem_Click(object sender, EventArgs e)

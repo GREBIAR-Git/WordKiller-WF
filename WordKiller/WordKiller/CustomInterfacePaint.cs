@@ -268,7 +268,8 @@ namespace WordKiller
             for (int i = 2; i < dataComboBox.ComboBox.Keys.Count; i++)
             {
                 string key = dataComboBox.ComboBox.Keys.ElementAt(i);
-                if (str.Substring(str.Length - key.Length - 1).StartsWith(specialBefore + key))
+                int count = str.Length - key.Length - 1;
+                if (count>0 && str.Substring(count).StartsWith(specialBefore + key))
                 {
                     int pCount = Regex.Matches(str, AddSpecialСharacterAB(key)).Count;
                     extra = "  -  " + dataComboBox.ComboBox[key].Form.Items[pCount - 1].ToString();
