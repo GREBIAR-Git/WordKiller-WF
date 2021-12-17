@@ -24,8 +24,8 @@ namespace WordKiller
         int[] columns;
         System.Timers.Timer saveTimer;
         bool saveLogoVisible;
-
-        
+        char specialBefore = '◄';
+        char specialAfter = '►';
 
         public CustomInterface(string[] fileName)
         {
@@ -191,7 +191,7 @@ namespace WordKiller
 
         void CountTypeText(ElementComboBox comboBox, string name)
         {
-            if (comboBox.Data.Count <= (richTextBox.Text.Length - richTextBox.Text.Replace(("☺" + name), "").Length) / (name.Length + 1))
+            if (comboBox.Data.Count <= (richTextBox.Text.Length - richTextBox.Text.Replace(AddSpecialСharacterB(name), "").Length) / (name.Length + 1))
             {
                 tableTypeInserts.Controls[name.ToUpper()].Visible = false;
             }
@@ -205,13 +205,13 @@ namespace WordKiller
         {
             PictureBox button = (PictureBox)sender;
             int cursorSave = richTextBox.SelectionStart;
-            if (richTextBox.Text.Length > 0 && cursorSave > 0 && richTextBox.Text[cursorSave - 1] == '☺')
+            if (richTextBox.Text.Length > 0 && cursorSave > 0 && richTextBox.Text[cursorSave - 1] == specialBefore)
             {
                 AddSpecialSymbol(button.Name.ToLower(), cursorSave);
             }
             else
             {
-                AddSpecialSymbol("☺"+button.Name.ToLower(), cursorSave);
+                AddSpecialSymbol(AddSpecialСharacterB(button.Name.ToLower()), cursorSave);
             }
         }
 
@@ -314,7 +314,7 @@ namespace WordKiller
                 element.BackgroundImage = Properties.Resources.BtnSelected;
                 if (element.Name == "Добавить" && ValidAddInput())
                 {
-                    string str = richTextBox.Text.Split('\n')[0].Replace("☺","");
+                    string str = richTextBox.Text.Split('\n')[0].Replace(specialBefore.ToString(), "").Replace(specialAfter.ToString(), "");
                     string[] data = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
                     AddToComboBox(dataComboBox.ComboBox[str], data);
                 }
@@ -346,28 +346,28 @@ namespace WordKiller
         bool ValidAddInput()
         {
             string str = richTextBox.Text.Split('\n')[0];
-            if (richTextBox.Text.Split('\n').Length >= 4 && richTextBox.Text.Split('\n')[2] == "☺Содержимое☺")
+            if (richTextBox.Text.Split('\n').Length >= 4 && richTextBox.Text.Split('\n')[2] == AddSpecialСharacterAB("Содержимое"))
             {
-                if (str == "☺h1☺" || str == "☺h2☺")
+                if (str == AddSpecialСharacterAB("h1") || str == AddSpecialСharacterAB("h2"))
                 {
                     return true;
                 }
-                else if (str == "☺l☺")
+                else if (str == AddSpecialСharacterAB("l"))
                 {
                     // ???
                 }
-                else if (str == "☺p☺")
+                else if (str == AddSpecialСharacterAB("p"))
                 {
                     if (System.IO.File.Exists(SplitMainText()))
                     {
                         return true;
                     }
                 }
-                else if (str == "☺t☺")
+                else if (str == AddSpecialСharacterAB("t"))
                 {
                     // ???
                 }
-                else if (str == "☺c☺")
+                else if (str == AddSpecialСharacterAB("c"))
                 {
                     if(System.IO.File.Exists(SplitMainText()))
                     {
@@ -415,7 +415,7 @@ namespace WordKiller
 
         void DataComboBoxToRichBox(ElementComboBox comboBox)
         {
-            richTextBox.Text = "☺" + dataComboBox.ComboBox.FirstOrDefault(x => x.Value == comboBox).Key + "☺\n" + comboBox.Data[comboBox.Form.SelectedIndex][0] + "\n☺Содержимое☺\n" + comboBox.Data[comboBox.Form.SelectedIndex][1];
+            richTextBox.Text = AddSpecialСharacterAB(dataComboBox.ComboBox.FirstOrDefault(x => x.Value == comboBox).Key) +"\n" + comboBox.Data[comboBox.Form.SelectedIndex][0] + "\n"+ AddSpecialСharacterAB("Содержимое") + "\n" + comboBox.Data[comboBox.Form.SelectedIndex][1];
             richTextBox.SelectionStart = 5 + comboBox.Data[comboBox.Form.SelectedIndex][0].Length;
         }
 
@@ -1197,8 +1197,8 @@ namespace WordKiller
 
         void DefaultTypeRichBox(string type)
         {
-            string beginning = "☺" + type + "☺";
-            richTextBox.Text = beginning + "\n\n☺Содержимое☺\n";
+            string beginning = AddSpecialСharacterAB(type);
+            richTextBox.Text = beginning + "\n\n"+ AddSpecialСharacterAB("Содержимое")+"\n";
             richTextBox.SelectionStart = beginning.Length + 1;
         }
 
@@ -1546,6 +1546,21 @@ namespace WordKiller
             {
                 this.CursorLocationPanel.Refresh();
             }
+        }
+
+        string AddSpecialСharacterB(string str)
+        {
+            return specialBefore + str;
+        }
+
+        string AddSpecialСharacterA(string str)
+        {
+            return str + specialAfter;
+        }
+
+        string AddSpecialСharacterAB(string str)
+        {
+            return specialBefore + str + specialAfter;
         }
     }
 }

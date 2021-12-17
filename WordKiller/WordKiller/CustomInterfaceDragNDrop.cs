@@ -11,7 +11,7 @@ namespace WordKiller
         void DragNDropPanel_DragEnter(object sender, DragEventArgs e)
         {
             string str = TypeRichBox();
-            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+            if (str != AddSpecialСharacterAB("h1") && str != AddSpecialСharacterAB("h2")&& str != AddSpecialСharacterAB("l") && str != AddSpecialСharacterAB("t"))
             {
                 textDragOnDrop = richTextBox.Text;
                 richTextBox.Text = string.Empty;
@@ -27,7 +27,7 @@ namespace WordKiller
         void DragNDropPanel_DragLeave(object sender, EventArgs e)
         {
             string str = TypeRichBox();
-            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+            if (str != AddSpecialСharacterAB("h1") && str != AddSpecialСharacterAB("h2") && str != AddSpecialСharacterAB("l") && str != AddSpecialСharacterAB("t"))
             {
                 richTextBox.Text = textDragOnDrop;
                 Point absCoords = pictureBox.PointToScreen(pictureBox.Location);
@@ -47,7 +47,7 @@ namespace WordKiller
         void DragNDropPanel_DragDrop(object sender, DragEventArgs e)
         {
             string str = TypeRichBox();
-            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+            if (str != AddSpecialСharacterAB("h1") && str != AddSpecialСharacterAB("h2") && str != AddSpecialСharacterAB("l") && str != AddSpecialСharacterAB("t"))
             {
                 var data = e.Data.GetData(DataFormats.FileDrop);
                 if (data != null)
@@ -60,11 +60,11 @@ namespace WordKiller
                         Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
                         if (controlRelatedCoords.X < 148)
                         {
-                            richTextBox.Text = "☺p☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames;
+                            richTextBox.Text = AddSpecialСharacterAB("p")+"\n" + nameFile + "\n"+ AddSpecialСharacterAB("Содержимое")+ "\n" + fileNames;
                         }
                         else
                         {
-                            richTextBox.Text = "☺c☺\n" + nameFile + "\n☺Содержимое☺\n" + fileNames;
+                            richTextBox.Text = AddSpecialСharacterAB("c") + "\n" + nameFile + "\n"+ AddSpecialСharacterAB("Содержимое") + "\n" + fileNames;
                         }
                     }
                 }
@@ -75,7 +75,7 @@ namespace WordKiller
         void DragNDropPanel_DragOver(object sender, DragEventArgs e)
         {
             string str = TypeRichBox();
-            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+            if (str != AddSpecialСharacterAB("h1") && str != AddSpecialСharacterAB("h2") && str != AddSpecialСharacterAB("l") && str != AddSpecialСharacterAB("t"))
             {
                 Point controlRelatedCoords = this.DragNDropPanel.PointToClient(new Point(e.X, e.Y));
                 if (controlRelatedCoords.X <= 154)
@@ -93,7 +93,7 @@ namespace WordKiller
         void CustomInterface_DragEnter(object sender, DragEventArgs e)
         {
             string str = TypeRichBox();
-            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+            if (str != AddSpecialСharacterAB("h1") && str != AddSpecialСharacterAB("h2") && str != AddSpecialСharacterAB("l") && str != AddSpecialСharacterAB("t"))
             {
                 fileNames = null;
                 textDragOnDrop = richTextBox.Text;
@@ -105,7 +105,7 @@ namespace WordKiller
         void CustomInterface_DragOver(object sender, DragEventArgs e)
         {
             string str = TypeRichBox();
-            if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+            if (str != AddSpecialСharacterAB("h1") && str != AddSpecialСharacterAB("h2") && str != AddSpecialСharacterAB("l") && str != AddSpecialСharacterAB("t"))
             {
                 dragging = 3;
             }
@@ -118,7 +118,7 @@ namespace WordKiller
             if (Cursor.Position.X < absCoords.X || Cursor.Position.X > absCoords.X + pictureBox.Width || Cursor.Position.Y < absCoords.Y || Cursor.Position.Y > absCoords.Y + pictureBox.Height)
             {
                 string str = TypeRichBox();
-                if (str != "☺h1☺" && str != "☺h2☺" && str != "☺l☺" && str != "☺t☺")
+                if (str != AddSpecialСharacterAB("h1") && str != AddSpecialСharacterAB("h2") && str != AddSpecialСharacterAB("l") && str != AddSpecialСharacterAB("t"))
                 {
                     richTextBox.Text = textDragOnDrop;
                     dragging = 0;

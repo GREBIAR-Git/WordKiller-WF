@@ -28,33 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelQuestion = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // labelQuestion
-            // 
-            this.labelQuestion.AutoSize = true;
-            this.labelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelQuestion.Location = new System.Drawing.Point(120, 31);
-            this.labelQuestion.Name = "labelQuestion";
-            this.labelQuestion.Size = new System.Drawing.Size(93, 32);
-            this.labelQuestion.TabIndex = 2;
-            this.labelQuestion.Text = "label1";
             // 
             // AboutProgram
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(332, 151);
-            this.Controls.Add(this.labelQuestion);
             this.MaximizeBox = false;
             this.Name = "AboutProgram";
+            this.Text = "О программе";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label labelQuestion;
     }
 }

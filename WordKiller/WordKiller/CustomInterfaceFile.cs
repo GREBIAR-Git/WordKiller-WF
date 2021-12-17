@@ -51,7 +51,7 @@ namespace WordKiller
                 List<Control> controls = new List<Control>();
                 foreach (string line in lines)
                 {
-                    if (line.StartsWith("☺Menu☺"))
+                    if (line.StartsWith(AddSpecialСharacterAB("Menu")))
                     {
                         string[] menuItem = line.Remove(0, 6).Split('!');
                         work_Click(TypeMenuItem.DropDown.Items.Find(menuItem[0], false)[0], new EventArgs());
@@ -68,13 +68,13 @@ namespace WordKiller
                         NumberHeadingMenuItem.Checked = bool.Parse(menuItem[1]);
                     }
 
-                    if (line.StartsWith("☺TextStart☺"))
+                    if (line.StartsWith(AddSpecialСharacterAB("TextStart")))
                     {
                         readingText = true;
                     }
                     else if (readingText)
                     {
-                        if (line.StartsWith("☺TextEnd☺"))
+                        if (line.StartsWith(AddSpecialСharacterAB("TextEnd")))
                         {
                             readingText = false;
                         }
@@ -85,7 +85,7 @@ namespace WordKiller
                     }
                     else
                     {
-                        string[] variable_value = line.Split('☺');
+                        string[] variable_value = line.Split(new char[] { specialBefore, specialAfter });
                         if (variable_value.Length == 2)
                         {
                             for (int i = 0; i < controls.Count; i++)
@@ -171,24 +171,24 @@ namespace WordKiller
             {
                 if (item.Checked)
                 {
-                    save += "☺Menu☺" + item.Name.ToString() + "!" + NumberHeadingMenuItem.Checked.ToString()+"\n";
+                    save += AddSpecialСharacterAB("Menu") + item.Name.ToString() + "!" + NumberHeadingMenuItem.Checked.ToString()+"\n";
                 }
             }
-            save += "facultyComboBox☺" + facultyComboBox.Text + "\n";
-            save += "numberTextBox☺" + numberTextBox.Text + "\n";
-            save += "themeTextBox☺" + themeTextBox.Text + "\n";
-            save += "disciplineTextBox☺" + disciplineTextBox.Text + "\n";
-            save += "professorComboBox☺" + professorComboBox.Text + "\n";
-            save += "yearTextBox☺" + yearTextBox.Text + "\n";
-            save += "shifrTextBox☺" + shifrTextBox.Text + "\n";
-            save += "studentsTextBox☺" + studentsTextBox.Text + "\n";
+            save += AddSpecialСharacterA("facultyComboBox") + facultyComboBox.Text + "\n";
+            save += AddSpecialСharacterA("numberTextBox") + numberTextBox.Text + "\n";
+            save += AddSpecialСharacterA("themeTextBox") + themeTextBox.Text + "\n";
+            save += AddSpecialСharacterA("disciplineTextBox") + disciplineTextBox.Text + "\n";
+            save += AddSpecialСharacterA("professorComboBox") + professorComboBox.Text + "\n";
+            save += AddSpecialСharacterA("yearTextBox") + yearTextBox.Text + "\n";
+            save += AddSpecialСharacterA("shifrTextBox") + shifrTextBox.Text + "\n";
+            save += AddSpecialСharacterA("studentsTextBox") + studentsTextBox.Text + "\n";
             foreach (KeyValuePair<string, ElementComboBox> comboBox in dataComboBox.ComboBox)
             {
                 save += SaveCombobox(output, comboBox.Value, comboBox.Key);
             }
-            save += "☺TextStart☺" + "\n";
+            save += AddSpecialСharacterAB("TextStart") + "\n";
             save += text + "\n";
-            save += "☺TextEnd☺" + "\n";
+            save += AddSpecialСharacterAB("TextEnd") + "\n";
             if (Encoding0MenuItem.Checked)
             {
                 output.Write("0\r\n" + save);
@@ -224,7 +224,7 @@ namespace WordKiller
             string comboBoxSave = string.Empty;
             for (int i = 0; i < comboBox.Form.Items.Count; i++)
             {
-                comboBoxSave+=name + "ComboBox" + "☺" + comboBox.Form.Items[i].ToString() + "☺" + comboBox.Data[i][1] + "\n";
+                comboBoxSave+=name + "ComboBox" + AddSpecialСharacterAB(comboBox.Form.Items[i].ToString()) + comboBox.Data[i][1] + "\n";
             }
             return comboBoxSave;
         }
