@@ -25,10 +25,12 @@ namespace WordKiller
         bool saveLogoVisible;
         char specialBefore = '◄';
         char specialAfter = '►';
+        string saveFileName;
 
         public CustomInterface(string[] fileName)
         {
             InitializeComponent();
+            saveFileName = string.Empty;
             dataComboBox = new DataComboBox(h1ComboBox, h2ComboBox, lComboBox, pComboBox, tComboBox, cComboBox);
             replaceMenu();
             menuLeftIndex = 1;
@@ -1492,9 +1494,9 @@ namespace WordKiller
             DialogResult result = MessageBox.Show("Нужно ли сохранить?", "Нужно ли сохранить?", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             if (result == DialogResult.Yes)
             {
-                if (!string.IsNullOrEmpty(fileNames))
+                if (!string.IsNullOrEmpty(saveFileName))
                 {
-                    SaveWordKiller(fileNames);
+                    SaveWordKiller(saveFileName);
                 }
                 else
                 {

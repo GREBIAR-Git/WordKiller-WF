@@ -8,7 +8,6 @@ namespace WordKiller
 {
     public partial class CustomInterface
     {
-        string saveFileName = string.Empty;
         void Open_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();

@@ -38,6 +38,7 @@ namespace WordKiller
             ComboBox["p"] = new ElementComboBox(p);
             ComboBox["t"] = new ElementComboBox(t);
             ComboBox["c"] = new ElementComboBox(c);
+            Text = string.Empty;
         }
     }
 }
