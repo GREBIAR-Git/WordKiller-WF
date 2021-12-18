@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
@@ -12,7 +11,6 @@ namespace WordKiller
 {
     public partial class CustomInterface : Form
     {
-        string text = string.Empty;
         string textDragOnDrop;
         int menuLeftIndex;
         string[] menuLabels;
@@ -156,14 +154,15 @@ namespace WordKiller
             }
             else if (DownPanelMI == TextMenuItem)
             {
-                string item = elementComboBox.SelectedItem.ToString();
+                dataComboBox.Text = richTextBox.Text;
+                /*string item = elementComboBox.SelectedItem.ToString();
                 if (item == "Весь текст")
                 {
-                    text = richTextBox.Text;
+                    dataComboBox.Text = richTextBox.Text;
                 }
                 else
                 {
-                    string str = text;
+                    string str = dataComboBox.Text;
                     int indexStart = 0;
                     int indexEnd = 0;
                     if (item.StartsWith(specialBefore + "h1"))
@@ -198,10 +197,10 @@ namespace WordKiller
                             indexEnd += str.IndexOf(specialBefore + "h2");
                         }
                     }
-                    richTextBox.Text = text.Substring(0, indexStart) + richTextBox.Text + text.Substring(indexEnd);
-                }
+                    richTextBox.Text = dataComboBox.Text.Substring(0, indexStart) + richTextBox.Text + dataComboBox.Text.Substring(indexEnd);
+                }*/
                 UpdateTypeButton();
-                ElementComboBoxUpdate();
+                //ElementComboBoxUpdate();
             }
         }
 
@@ -281,8 +280,7 @@ namespace WordKiller
             int indexSave = elementComboBox.SelectedIndex;
             elementComboBox.Items.Clear();
             this.elementComboBox.Items.Add("Весь текст");
-            string text = this.text;
-            string str = text;
+            string str = dataComboBox.Text;
             int h1Count = 0; int h2Count = 0;
             while (str.Contains(specialBefore + "h1") || str.Contains(specialBefore + "h2"))
             {
@@ -576,14 +574,6 @@ namespace WordKiller
         async void ReadScroll_Click(object sender, EventArgs e)
         {
             MakeReport report = new MakeReport();
-            if (TextMenuItem.Checked)
-            {
-                dataComboBox.Text = richTextBox.Text;
-            }
-            else
-            {
-                dataComboBox.Text = text;
-            }
             List<string> titleData = new List<string>();
             AddTitleData(ref titleData);
             try
@@ -1007,7 +997,7 @@ namespace WordKiller
                 textPicturePanel.ColumnStyles[0].Width = 100;
                 DownPanelMI = TextMenuItem;
                 this.AutoSizeMode = AutoSizeMode.GrowOnly;
-                richTextBox.Text = text;
+                richTextBox.Text = dataComboBox.Text;
                 richTextBox.SelectionStart = richTextBox.Text.Length;
                 UpdateTypeButton();
                 //MatchWordPage();
@@ -1324,11 +1314,10 @@ namespace WordKiller
         {
             if (DownPanelMI == SubstitutionMenuItem && ComboBoxSelected())
             {
-                string text = richTextBox.Text;
                 int line = GetLineOfCursor(richTextBox);
-                string[] lines = text.Split('\n');
+                string[] lines = dataComboBox.Text.Split('\n');
                 int index = richTextBox.SelectionStart;
-                if (text == richTextBox.SelectedText && (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete))
+                if (dataComboBox.Text == richTextBox.SelectedText && (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete))
                 {
                     lines[1] = "";
                     lines[3] = "";
@@ -1522,7 +1511,6 @@ namespace WordKiller
             fileNames = null;
             this.Text = "Сотворение документа из небытия";
             ClearGlobal();
-            text = "";
             textDragOnDrop = "";
             menuLeftIndex = 1;
             dataComboBox = new DataComboBox(h1ComboBox, h2ComboBox, lComboBox, pComboBox, tComboBox, cComboBox);
@@ -1613,11 +1601,11 @@ namespace WordKiller
             string item = elementComboBox.SelectedItem.ToString();
             if (item == "Весь текст")
             {
-                richTextBox.Text = text;
+                richTextBox.Text = dataComboBox.Text;
             }
             else
             {
-                string str = text;
+                string str = dataComboBox.Text;
                 if (item.StartsWith(specialBefore + "h1"))
                 {
                     for (int i = 0; i < elementComboBox.SelectedIndex; i++)

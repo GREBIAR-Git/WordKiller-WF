@@ -21,7 +21,7 @@ namespace WordKiller
 
         void OpenWordKiller(string fileName)
         {
-            text = String.Empty;
+            dataComboBox.Text = String.Empty;
             saveFileName = fileName;
             ClearGlobal();
             FileStream file = new FileStream(fileName, FileMode.Open);
@@ -80,7 +80,7 @@ namespace WordKiller
                         }
                         else
                         {
-                            text += line + "\n";
+                            dataComboBox.Text += line + "\n";
                         }
                     }
                     else
@@ -113,9 +113,9 @@ namespace WordKiller
                     }
                     this.Text = Path.GetFileName(fileName);
                 }
-                if (text.Length > 0)
+                if (dataComboBox.Text.Length > 0)
                 {
-                    text = text.Remove(text.Length - 1);
+                    dataComboBox.Text = dataComboBox.Text.Remove(dataComboBox.Text.Length - 1);
                 }
             }
             catch
@@ -124,7 +124,7 @@ namespace WordKiller
             }
             if (DownPanelMI == TextMenuItem)
             {
-                richTextBox.Text = text;
+                richTextBox.Text = dataComboBox.Text;
                 UpdateTypeButton();
             }
             reader.Close();
@@ -188,7 +188,7 @@ namespace WordKiller
                 save += SaveCombobox(output, comboBox.Value, comboBox.Key);
             }
             save += AddSpecialСharacterAB("TextStart") + "\n";
-            save += text + "\n";
+            save += dataComboBox.Text + "\n";
             save += AddSpecialСharacterAB("TextEnd") + "\n";
             if (Encoding0MenuItem.Checked)
             {
