@@ -190,7 +190,7 @@ namespace WordKiller
             if (name == "h1" || name == "h2" || name == "c" || name == "p" || name == "t" || name == "l")
             {
                 int index = Regex.Matches(richTextBox.Text, AddSpecialСharacterB(name)).Count;
-                label_CursorLocation.Text = "Добавить " + dataComboBox.ComboBox[name].Form.Items[index] + " в " + label_CursorLocation.Text;
+                label_CursorLocation.Text = "Добавить " + data.ComboBox[name].Form.Items[index] + " в " + label_CursorLocation.Text;
                 // работает но сразу стирается при следующем вызове paint
             }
         }

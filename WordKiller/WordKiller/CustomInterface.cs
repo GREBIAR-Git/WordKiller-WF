@@ -11,27 +11,27 @@ namespace WordKiller
 {
     public partial class CustomInterface : Form
     {
+        const char specialBefore = '◄';
+        const char specialAfter = '►';
         string textDragOnDrop;
         int menuLeftIndex;
         string[] menuLabels;
         string fileNames;
         ToolStripMenuItem DownPanelMI;
-        DataComboBox dataComboBox;
+        DataComboBox data;
         WindowSize wndSize;
         Control[] DEFAULTtitlepagePanelControls;
         int[] rows;
         int[] columns;
         System.Timers.Timer saveTimer;
         bool saveLogoVisible;
-        char specialBefore = '◄';
-        char specialAfter = '►';
         string saveFileName;
 
         public CustomInterface(string[] fileName)
         {
             InitializeComponent();
             saveFileName = string.Empty;
-            dataComboBox = new DataComboBox(h1ComboBox, h2ComboBox, lComboBox, pComboBox, tComboBox, cComboBox);
+            data = new DataComboBox(h1ComboBox, h2ComboBox, lComboBox, pComboBox, tComboBox, cComboBox);
             replaceMenu();
             menuLeftIndex = 1;
             wndSize = new WindowSize();
@@ -115,16 +115,16 @@ namespace WordKiller
             {
                 if (ComboBoxSelected() && richTextBox.Text != string.Empty)
                 {
-                    if (SaveComboBoxData(dataComboBox.ComboBox["h1"]))
+                    if (SaveComboBoxData(data.ComboBox["h1"]))
                     {
                     }
-                    else if (SaveComboBoxData(dataComboBox.ComboBox["h2"]))
+                    else if (SaveComboBoxData(data.ComboBox["h2"]))
                     {
                     }
-                    else if (SaveComboBoxData(dataComboBox.ComboBox["l"]))
+                    else if (SaveComboBoxData(data.ComboBox["l"]))
                     {
                     }
-                    else if (SaveComboBoxData(dataComboBox.ComboBox["p"]))
+                    else if (SaveComboBoxData(data.ComboBox["p"]))
                     {
                         string mainText = SplitMainText();
                         if (!System.IO.File.Exists(mainText))
@@ -136,10 +136,10 @@ namespace WordKiller
                             fileNames = mainText;
                         }
                     }
-                    else if (SaveComboBoxData(dataComboBox.ComboBox["t"]))
+                    else if (SaveComboBoxData(data.ComboBox["t"]))
                     {
                     }
-                    else if (SaveComboBoxData(dataComboBox.ComboBox["c"]))
+                    else if (SaveComboBoxData(data.ComboBox["c"]))
                     {
                         string mainText = SplitMainText();
                         if (!System.IO.File.Exists(mainText))
@@ -154,17 +154,16 @@ namespace WordKiller
                 }
                 pictureBox.Refresh();
             }
-            else if (DownPanelMI == TextMenuItem)
+            else
             {
-                dataComboBox.Text = richTextBox.Text;
-                /*string item = elementComboBox.SelectedItem.ToString();
+                string item = elementComboBox.SelectedItem.ToString();
                 if (item == "Весь текст")
                 {
-                    dataComboBox.Text = richTextBox.Text;
+                    data.Text = richTextBox.Text;
                 }
                 else
                 {
-                    string str = dataComboBox.Text;
+                    /*string str = data.Text;
                     int indexStart = 0;
                     int indexEnd = 0;
                     if (item.StartsWith(specialBefore + "h1"))
@@ -199,8 +198,8 @@ namespace WordKiller
                             indexEnd += str.IndexOf(specialBefore + "h2");
                         }
                     }
-                    richTextBox.Text = dataComboBox.Text.Substring(0, indexStart) + richTextBox.Text + dataComboBox.Text.Substring(indexEnd);
-                }*/
+                    richTextBox.Text = data.Text.Substring(0, indexStart) + richTextBox.Text + data.Text.Substring(indexEnd);*/
+                }
                 UpdateTypeButton();
                 //ElementComboBoxUpdate();
             }
@@ -225,13 +224,9 @@ namespace WordKiller
 
         void UpdateTypeButton()
         {
-            if (dataComboBox.Sum() > 0)
+            foreach (KeyValuePair<string, ElementComboBox> comboBox in data.ComboBox)
             {
-                ShowSpecials();
-                foreach (KeyValuePair<string, ElementComboBox> comboBox in dataComboBox.ComboBox)
-                {
-                    CountTypeText(comboBox.Value, comboBox.Key);
-                }
+                CountTypeText(comboBox.Value, comboBox.Key);
             }
         }
 
@@ -279,10 +274,11 @@ namespace WordKiller
 
         void ElementComboBoxUpdate()
         {
+            int index = richTextBox.SelectionStart;
             int indexSave = elementComboBox.SelectedIndex;
             elementComboBox.Items.Clear();
             this.elementComboBox.Items.Add("Весь текст");
-            string str = dataComboBox.Text;
+            string str = data.Text;
             int h1Count = 0; int h2Count = 0;
             while (str.Contains(specialBefore + "h1") || str.Contains(specialBefore + "h2"))
             {
@@ -292,13 +288,13 @@ namespace WordKiller
                 h2Pos = h2Pos == -1 ? int.MaxValue : h2Pos;
                 if (h1Pos < h2Pos)
                 {
-                    this.elementComboBox.Items.Add("h1: " + dataComboBox.ComboBox["h1"].Form.Items[h1Count]);
+                    this.elementComboBox.Items.Add("h1: " + data.ComboBox["h1"].Form.Items[h1Count]);
                     str = str.Substring(h1Pos + 1 + 2);
                     h1Count++;
                 }
                 else
                 {
-                    this.elementComboBox.Items.Add("h2: " + dataComboBox.ComboBox["h2"].Form.Items[h2Count]);
+                    this.elementComboBox.Items.Add("h2: " + data.ComboBox["h2"].Form.Items[h2Count]);
                     str = str.Substring(h2Pos + 1 + 2);
                     h2Count++;
                 }
@@ -307,6 +303,7 @@ namespace WordKiller
             {
                 elementComboBox.SelectedIndex = indexSave;
             }
+            richTextBox.SelectionStart = index;
         }
 
         void buttonForward_MouseUp(object sender, MouseEventArgs e)
@@ -394,8 +391,8 @@ namespace WordKiller
                 if (element.Name == "Добавить" && ValidAddInput())
                 {
                     string str = richTextBox.Text.Split('\n')[0].Replace(specialBefore.ToString(), "").Replace(specialAfter.ToString(), "");
-                    string[] data = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
-                    AddToComboBox(dataComboBox.ComboBox[str], data);
+                    string[] text = new string[] { richTextBox.Text.Split('\n')[1], SplitMainText() };
+                    AddToComboBox(data.ComboBox[str], text);
                 }
                 else if (element.Name == "КнопкаТекст")
                 {
@@ -488,13 +485,13 @@ namespace WordKiller
                     }
                 }
                 richTextBox.Focus();
-                DataComboBoxToRichBox(dataComboBox.SearchComboBox(comboBox));
+                DataComboBoxToRichBox(data.SearchComboBox(comboBox));
             }
         }
 
         void DataComboBoxToRichBox(ElementComboBox comboBox)
         {
-            richTextBox.Text = AddSpecialСharacterAB(dataComboBox.ComboBox.FirstOrDefault(x => x.Value == comboBox).Key) + "\n" + comboBox.Data[comboBox.Form.SelectedIndex][0] + "\n" + AddSpecialСharacterAB("Содержимое") + "\n" + comboBox.Data[comboBox.Form.SelectedIndex][1];
+            richTextBox.Text = AddSpecialСharacterAB(data.ComboBox.FirstOrDefault(x => x.Value == comboBox).Key) + "\n" + comboBox.Data[comboBox.Form.SelectedIndex][0] + "\n" + AddSpecialСharacterAB("Содержимое") + "\n" + comboBox.Data[comboBox.Form.SelectedIndex][1];
             richTextBox.SelectionStart = 5 + comboBox.Data[comboBox.Form.SelectedIndex][0].Length;
         }
 
@@ -538,9 +535,9 @@ namespace WordKiller
                     if (comboBox.SelectedIndex > 0)
                     {
                         int cursorSave = richTextBox.SelectionStart;
-                        string[] save = dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex];
-                        dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex] = dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex - 1];
-                        dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex - 1] = save;
+                        string[] save = data.SearchComboBox(comboBox).Data[comboBox.SelectedIndex];
+                        data.SearchComboBox(comboBox).Data[comboBox.SelectedIndex] = data.SearchComboBox(comboBox).Data[comboBox.SelectedIndex - 1];
+                        data.SearchComboBox(comboBox).Data[comboBox.SelectedIndex - 1] = save;
                         string saveName = comboBox.Items[comboBox.SelectedIndex].ToString();
                         comboBox.Items[comboBox.SelectedIndex] = comboBox.Items[comboBox.SelectedIndex - 1];
                         comboBox.Items[comboBox.SelectedIndex - 1] = saveName;
@@ -553,9 +550,9 @@ namespace WordKiller
                     if (comboBox.SelectedIndex < comboBox.Items.Count - 1)
                     {
                         int cursorSave = richTextBox.SelectionStart;
-                        string[] save = dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex];
-                        dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex] = dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex + 1];
-                        dataComboBox.SearchComboBox(comboBox).Data[comboBox.SelectedIndex + 1] = save;
+                        string[] save = data.SearchComboBox(comboBox).Data[comboBox.SelectedIndex];
+                        data.SearchComboBox(comboBox).Data[comboBox.SelectedIndex] = data.SearchComboBox(comboBox).Data[comboBox.SelectedIndex + 1];
+                        data.SearchComboBox(comboBox).Data[comboBox.SelectedIndex + 1] = save;
                         string saveName = comboBox.Items[comboBox.SelectedIndex].ToString();
                         comboBox.Items[comboBox.SelectedIndex] = comboBox.Items[comboBox.SelectedIndex + 1];
                         comboBox.Items[comboBox.SelectedIndex + 1] = save;
@@ -565,7 +562,7 @@ namespace WordKiller
                 }
                 else if (Control.ModifierKeys == Keys.Alt)
                 {
-                    dataComboBox.SearchComboBox(comboBox).Data.RemoveAt(comboBox.SelectedIndex);
+                    data.SearchComboBox(comboBox).Data.RemoveAt(comboBox.SelectedIndex);
                     comboBox.Items.RemoveAt(comboBox.SelectedIndex);
                     ComboBoxIndexChange(comboBox);
                     ComboBox_SelectedIndexChanged(comboBox, e);
@@ -580,7 +577,7 @@ namespace WordKiller
             AddTitleData(ref titleData);
             try
             {
-                await Task.Run(() => report.CreateReport(dataComboBox, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text), NumberHeadingMenuItem.Checked, this.Text.ToString(), titleData.ToArray()));
+                await Task.Run(() => report.CreateReport(data, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text), NumberHeadingMenuItem.Checked, this.Text.ToString(), titleData.ToArray()));
             }
             catch
             {
@@ -999,8 +996,9 @@ namespace WordKiller
                 textPicturePanel.ColumnStyles[0].Width = 100;
                 DownPanelMI = TextMenuItem;
                 this.AutoSizeMode = AutoSizeMode.GrowOnly;
-                richTextBox.Text = dataComboBox.Text;
+                richTextBox.Text = data.Text;
                 richTextBox.SelectionStart = richTextBox.Text.Length;
+                ShowSpecials();
                 UpdateTypeButton();
                 //MatchWordPage();
                 richTextBox.Focus();
@@ -1317,9 +1315,9 @@ namespace WordKiller
             if (DownPanelMI == SubstitutionMenuItem && ComboBoxSelected())
             {
                 int line = GetLineOfCursor(richTextBox);
-                string[] lines = dataComboBox.Text.Split('\n');
+                string[] lines = data.Text.Split('\n');
                 int index = richTextBox.SelectionStart;
-                if (dataComboBox.Text == richTextBox.SelectedText && (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete))
+                if (data.Text == richTextBox.SelectedText && (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete))
                 {
                     lines[1] = "";
                     lines[3] = "";
@@ -1515,11 +1513,11 @@ namespace WordKiller
             ClearGlobal();
             textDragOnDrop = "";
             menuLeftIndex = 1;
-            dataComboBox = new DataComboBox(h1ComboBox, h2ComboBox, lComboBox, pComboBox, tComboBox, cComboBox);
+            data = new DataComboBox(h1ComboBox, h2ComboBox, lComboBox, pComboBox, tComboBox, cComboBox);
             richTextBox.Text = "";
             if (DownPanelMI == TextMenuItem)
             {
-                HideSpecials();
+                UpdateTypeButton();
             }
             foreach (Control control in titlepagePanel.Controls)
             {
@@ -1603,11 +1601,11 @@ namespace WordKiller
             string item = elementComboBox.SelectedItem.ToString();
             if (item == "Весь текст")
             {
-                richTextBox.Text = dataComboBox.Text;
+                richTextBox.Text = data.Text;
             }
             else
             {
-                string str = dataComboBox.Text;
+                string str = data.Text;
                 if (item.StartsWith(specialBefore + "h1"))
                 {
                     for (int i = 0; i < elementComboBox.SelectedIndex; i++)
@@ -1641,8 +1639,8 @@ namespace WordKiller
 
         private void ChangeUserMenuItem_Click(object sender, EventArgs e)
         {
-            ChangeUser(dataComboBox.ComboBox["p"]);
-            ChangeUser(dataComboBox.ComboBox["c"]);
+            ChangeUser(data.ComboBox["p"]);
+            ChangeUser(data.ComboBox["c"]);
         }
 
         System.Timers.Timer InitializeTimer(int interval, ElapsedEventHandler function, bool autoReset)

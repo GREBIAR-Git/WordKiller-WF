@@ -96,16 +96,16 @@ namespace WordKiller
                 if (str == AddSpecialСharacterAB("h1"))
                 {
                     e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
-                    int index = dataComboBox.ComboBox["h1"].Form.SelectedIndex;
+                    int index = data.ComboBox["h1"].Form.SelectedIndex;
                     if (index != -1)
                     {
                         if (NumberHeadingMenuItem.Checked)
                         {
-                            DrawText((index + 1).ToString() + " " + dataComboBox.ComboBox["h1"].Data[index][1].ToUpper(), e);
+                            DrawText((index + 1).ToString() + " " + data.ComboBox["h1"].Data[index][1].ToUpper(), e);
                         }
                         else
                         {
-                            DrawText(dataComboBox.ComboBox["h1"].Data[index][1].ToUpper(), e);
+                            DrawText(data.ComboBox["h1"].Data[index][1].ToUpper(), e);
                         }
                     }
                     else
@@ -116,16 +116,16 @@ namespace WordKiller
                 else if (str == AddSpecialСharacterAB("h2"))
                 {
                     e.Graphics.DrawImage(Properties.Resources.Red, 0, 0, pictureBox.Width, pictureBox.Height);
-                    int index = dataComboBox.ComboBox["h2"].Form.SelectedIndex;
+                    int index = data.ComboBox["h2"].Form.SelectedIndex;
                     if (index != -1)
                     {
                         if (NumberHeadingMenuItem.Checked)
                         {
-                            DrawText("H1." + (index + 1).ToString() + " " + dataComboBox.ComboBox["h2"].Data[index][1], e);
+                            DrawText("H1." + (index + 1).ToString() + " " + data.ComboBox["h2"].Data[index][1], e);
                         }
                         else
                         {
-                            DrawText(dataComboBox.ComboBox["h2"].Data[index][1], e);
+                            DrawText(data.ComboBox["h2"].Data[index][1], e);
                         }
                     }
                     else
@@ -241,11 +241,11 @@ namespace WordKiller
                 int h1Count = Regex.Matches(str, AddSpecialСharacterB("h1")).Count;
                 if (h1Count > 0)
                 {
-                    string h1 = dataComboBox.ComboBox["h1"].Form.Items[h1Count - 1].ToString();
+                    string h1 = data.ComboBox["h1"].Form.Items[h1Count - 1].ToString();
                     string h2 = "";
                     if (str.Substring(str.LastIndexOf(AddSpecialСharacterB("h1"))).Contains(AddSpecialСharacterB("h2")))
                     {
-                        h2 = " : " + dataComboBox.ComboBox["h2"].Form.Items[Regex.Matches(str, AddSpecialСharacterB("h2")).Count - 1].ToString();
+                        h2 = " : " + data.ComboBox["h2"].Form.Items[Regex.Matches(str, AddSpecialСharacterB("h2")).Count - 1].ToString();
                     }
                     label_CursorLocation.Text = h1 + h2;
                 }
@@ -265,14 +265,14 @@ namespace WordKiller
         string CursorPosExtra(string str)
         {
             string extra = "";
-            for (int i = 2; i < dataComboBox.ComboBox.Keys.Count; i++)
+            for (int i = 2; i < data.ComboBox.Keys.Count; i++)
             {
-                string key = dataComboBox.ComboBox.Keys.ElementAt(i);
+                string key = data.ComboBox.Keys.ElementAt(i);
                 int count = str.Length - key.Length - 1;
                 if (count>0 && str.Substring(count).StartsWith(specialBefore + key))
                 {
                     int pCount = Regex.Matches(str, AddSpecialСharacterAB(key)).Count;
-                    extra = "  -  " + dataComboBox.ComboBox[key].Form.Items[pCount - 1].ToString();
+                    extra = "  -  " + data.ComboBox[key].Form.Items[pCount - 1].ToString();
                     break;
                 }
             }

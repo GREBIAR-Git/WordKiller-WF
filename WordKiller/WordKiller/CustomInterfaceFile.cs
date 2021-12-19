@@ -20,31 +20,31 @@ namespace WordKiller
 
         void OpenWordKiller(string fileName)
         {
-            dataComboBox.Text = String.Empty;
+            data.Text = String.Empty;
             saveFileName = fileName;
             ClearGlobal();
             FileStream file = new FileStream(fileName, FileMode.Open);
             StreamReader reader = new StreamReader(file);
             try
             {
-                string data = reader.ReadToEnd();
-                if (data[0] == '1' && data[1] == '\r' && data[2] == '\n')
+                string text = reader.ReadToEnd();
+                if (text[0] == '1' && text[1] == '\r' && text[2] == '\n')
                 {
-                    data = EncodingDecoding.MegaConvertD(data.Substring(3));
+                    text = EncodingDecoding.MegaConvertD(text.Substring(3));
                 }
-                else if (data[0] == '0' && data[1] == '\r' && data[2] == '\n')
+                else if (text[0] == '0' && text[1] == '\r' && text[2] == '\n')
                 {
-                    data = data.Substring(3);
-                    data = data.Replace("\n", "\r\n");
+                    text = text.Substring(3);
+                    text = text.Replace("\n", "\r\n");
                 }
-                for (int i = 1; i < data.Length; i++)
+                for (int i = 1; i < text.Length; i++)
                 {
-                    if (data[i - 1] == '\r')
+                    if (text[i - 1] == '\r')
                     {
-                        data = data.Remove(i, 1);
+                        text = text.Remove(i, 1);
                     }
                 }
-                string[] lines = data.Split('\r');
+                string[] lines = text.Split('\r');
 
                 bool readingText = false;
                 List<Control> controls = new List<Control>();
@@ -79,7 +79,7 @@ namespace WordKiller
                         }
                         else
                         {
-                            dataComboBox.Text += line + "\n";
+                            data.Text += line + "\n";
                         }
                     }
                     else
@@ -98,7 +98,7 @@ namespace WordKiller
                         }
                         else if (variable_value.Length == 3)
                         {
-                            foreach (KeyValuePair<string, ElementComboBox> comboBox in dataComboBox.ComboBox)
+                            foreach (KeyValuePair<string, ElementComboBox> comboBox in data.ComboBox)
                             {
                                 if (variable_value[0].StartsWith(comboBox.Key + "ComboBox"))
                                 {
@@ -112,9 +112,9 @@ namespace WordKiller
                     }
                     this.Text = Path.GetFileName(fileName);
                 }
-                if (dataComboBox.Text.Length > 0)
+                if (data.Text.Length > 0)
                 {
-                    dataComboBox.Text = dataComboBox.Text.Remove(dataComboBox.Text.Length - 1);
+                    data.Text = data.Text.Remove(data.Text.Length - 1);
                 }
             }
             catch
@@ -123,7 +123,7 @@ namespace WordKiller
             }
             if (DownPanelMI == TextMenuItem)
             {
-                richTextBox.Text = dataComboBox.Text;
+                richTextBox.Text = data.Text;
                 UpdateTypeButton();
             }
             reader.Close();
@@ -182,12 +182,12 @@ namespace WordKiller
             save += AddSpecialСharacterA("yearTextBox") + yearTextBox.Text + "\n";
             save += AddSpecialСharacterA("shifrTextBox") + shifrTextBox.Text + "\n";
             save += AddSpecialСharacterA("studentsTextBox") + studentsTextBox.Text + "\n";
-            foreach (KeyValuePair<string, ElementComboBox> comboBox in dataComboBox.ComboBox)
+            foreach (KeyValuePair<string, ElementComboBox> comboBox in data.ComboBox)
             {
                 save += SaveCombobox(output, comboBox.Value, comboBox.Key);
             }
             save += AddSpecialСharacterAB("TextStart") + "\n";
-            save += dataComboBox.Text + "\n";
+            save += data.Text + "\n";
             save += AddSpecialСharacterAB("TextEnd") + "\n";
             if (Encoding0MenuItem.Checked)
             {
@@ -232,7 +232,7 @@ namespace WordKiller
 
         void ClearGlobal()
         {
-            dataComboBox = new DataComboBox(h1ComboBox, h2ComboBox, lComboBox, pComboBox, tComboBox, cComboBox);
+            data = new DataComboBox(h1ComboBox, h2ComboBox, lComboBox, pComboBox, tComboBox, cComboBox);
             for (int i = elementPanel.ColumnCount - 1; i < elementPanel.Controls.Count - 1; i++)
             {
                 ComboBox cmbBox = (ComboBox)elementPanel.Controls[i];
