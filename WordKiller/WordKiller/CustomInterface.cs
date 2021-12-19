@@ -39,43 +39,7 @@ namespace WordKiller
             SaveTitlePagePanelCells();
             DEFAULTtitlepagePanelControls = CopyControls(titlepagePanel, 0, titlepagePanel.Controls.Count - 1);
             elementComboBox.SelectedIndex = 0;
-            if (DefaultDocumentMenuItem.Checked)
-            {
-                TextHeader("документа");
-                TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
-                ShowintTitlePanel();
-            }
-            else if (LabMenuItem.Checked)
-            {
-                TextHeader("лабораторной работы");
-                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-            }
-            else if (PracticeMenuItem.Checked)
-            {
-                TextHeader("практической работы");
-                ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-            }
-            else if (KursMenuItem.Checked)
-            {
-                TextHeader("курсовой работы");
-                ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-            }
-            else if (RefMenuItem.Checked)
-            {
-                TextHeader("реферата");
-            }
-            else if (DiplomMenuItem.Checked)
-            {
-                TextHeader("дипломной работы");
-            }
-            else if (VKRMenuItem.Checked)
-            {
-                TextHeader("ВКР");
-            }
-            else if (RGRMenuItem.Checked)
-            {
-                TextHeader("РГР");
-            }
+            TextHeaderUpdate();
             if (fileName.Length > 0)
             {
                 if (fileName[0].EndsWith(".wkr") && System.IO.File.Exists(fileName[0]))
@@ -803,49 +767,6 @@ namespace WordKiller
             {
                 return;
             }
-            if (toolStripMenuItem.Text == "Обычный документ")
-            {
-                TextHeader("документа");
-                TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
-                ShowintTitlePanel();
-            }
-            else
-            {
-                TitleOffOnMenuItem.Visible = true;
-                TitleOffOnMenuItem.Checked = false;
-                ShowintTitlePanel();
-                if (toolStripMenuItem.Text == "Лабораторная работа")
-                {
-                    TextHeader("лабораторной работы");
-                    ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-                }
-                else if (toolStripMenuItem.Text == "Практическая работа")
-                {
-                    TextHeader("практической работы");
-                    ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-                }
-                else if (toolStripMenuItem.Text == "Курсовая работа")
-                {
-                    TextHeader("курсовой работы");
-                    ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-                }
-                else if (toolStripMenuItem.Text == "Реферат")
-                {
-                    TextHeader("реферата");
-                }
-                else if (toolStripMenuItem.Text == "Дипломная работа")
-                {
-                    TextHeader("дипломной работы");
-                }
-                else if (toolStripMenuItem.Text == "ВКР")
-                {
-                    TextHeader("ВКР");
-                }
-                else if (toolStripMenuItem.Text == "РГР")
-                {
-                    TextHeader("РГР");
-                }
-            }
             DefaultDocumentMenuItem.Checked = false;
             LabMenuItem.Checked = false;
             PracticeMenuItem.Checked = false;
@@ -855,6 +776,7 @@ namespace WordKiller
             VKRMenuItem.Checked = false;
             RGRMenuItem.Checked = false;
             toolStripMenuItem.Checked = true;
+            TextHeaderUpdate();
         }
 
         void View_MenuItem_Click(object sender, EventArgs e)
@@ -1596,7 +1518,7 @@ namespace WordKiller
             form.ShowDialog();
         }
 
-        private void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string item = elementComboBox.SelectedItem.ToString();
             if (item == "Весь текст")
@@ -1637,7 +1559,7 @@ namespace WordKiller
             }
         }
 
-        private void ChangeUserMenuItem_Click(object sender, EventArgs e)
+        void ChangeUserMenuItem_Click(object sender, EventArgs e)
         {
             ChangeUser(data.ComboBox["p"]);
             ChangeUser(data.ComboBox["c"]);
@@ -1673,24 +1595,24 @@ namespace WordKiller
             }
         }
 
-        private void Encoding0MenuItem_Click(object sender, EventArgs e)
+        void Encoding0MenuItem_Click(object sender, EventArgs e)
         {
             Encoding1MenuItem.Checked = false;
             Encoding0MenuItem.Checked = true;
         }
 
-        private void Encoding1MenuItem_Click(object sender, EventArgs e)
+        void Encoding1MenuItem_Click(object sender, EventArgs e)
         {
             Encoding1MenuItem.Checked = true;
             Encoding0MenuItem.Checked = false;
         }
 
-        private void richTextBox_SelectionChanged(object sender, EventArgs e)
+        void richTextBox_SelectionChanged(object sender, EventArgs e)
         {
             this.CursorLocationPanel.Refresh();
         }
 
-        private void CursorLocationPanel_VisibleChanged(object sender, EventArgs e)
+        void CursorLocationPanel_VisibleChanged(object sender, EventArgs e)
         {
             if (this.CursorLocationPanel.Visible)
             {
@@ -1713,7 +1635,52 @@ namespace WordKiller
             return specialBefore + str + specialAfter;
         }
 
-
+        void TextHeaderUpdate()
+        {
+            if (DefaultDocumentMenuItem.Checked)
+            {
+                TextHeader("документа");
+                TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
+                ShowintTitlePanel();
+            }
+            else
+            {
+                TitleOffOnMenuItem.Visible = true;
+                TitleOffOnMenuItem.Checked = false;
+                ShowintTitlePanel();
+                if (LabMenuItem.Checked)
+                {
+                    TextHeader("лабораторной работы");
+                    ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+                }
+                else if (PracticeMenuItem.Checked)
+                {
+                    TextHeader("практической работы");
+                    ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+                }
+                else if (KursMenuItem.Checked)
+                {
+                    TextHeader("курсовой работы");
+                    ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
+                }
+                else if (RefMenuItem.Checked)
+                {
+                    TextHeader("реферата");
+                }
+                else if (DiplomMenuItem.Checked)
+                {
+                    TextHeader("дипломной работы");
+                }
+                else if (VKRMenuItem.Checked)
+                {
+                    TextHeader("ВКР");
+                }
+                else if (RGRMenuItem.Checked)
+                {
+                    TextHeader("РГР");
+                }
+            }
+        }
     }
 }
 
