@@ -797,13 +797,16 @@ namespace WordKiller
 
         void SwitchRTB()
         {
-            if (elementComboBox.SelectedItem.ToString() == "Весь текст")
+            string item = elementComboBox.SelectedItem.ToString();
+            if (item == "Весь текст")
             {
                 SwitchToPrimaryRTB();
             }
             else
             {
+                item = item.Substring(item.IndexOf(" ") + 1);
                 SwitchToSecondaryRTB();
+                richTextBoxSecondary.Text = GetSelectedSection(item);
             }
         }
 
