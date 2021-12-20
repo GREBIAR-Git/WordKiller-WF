@@ -510,7 +510,7 @@ namespace WordKiller
             AddTitleData(ref titleData);
             try
             {
-                await Task.Run(() => report.CreateReport(data, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text), NumberHeadingMenuItem.Checked, typeDocument, titleData.ToArray()));
+                await Task.Run(() => report.CreateReport(data, NumberingMenuItem.Checked, ContentMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text), NumberHeadingMenuItem.Checked, typeDocument, titleData.ToArray()));
             }
             catch
             {
@@ -888,7 +888,7 @@ namespace WordKiller
             }
             else if (MenuItem == SubstitutionMenuItem)
             {
-                if (TitleOffOnMenuItem.Checked)
+                if (typeDocument != TypeDocument.DefaultDocument)
                 {
                     buttonUp.Visible = true;
                 }
@@ -911,7 +911,7 @@ namespace WordKiller
             else if (MenuItem == TextMenuItem)
             {
                 richTextBox.EnableAutoDragDrop = true;
-                if (TitleOffOnMenuItem.Checked)
+                if (typeDocument != TypeDocument.DefaultDocument)
                 {
                     buttonUp.Visible = true;
                 }
@@ -1398,21 +1398,15 @@ namespace WordKiller
             FromNumberingTextBoxMenuItem.Visible = true;
         }
 
-        void TitleOffOnMenuItem_Click(object sender, EventArgs e)
+        void HideTitlePanel()
         {
-            ShowintTitlePanel();
-        }
-
-        void ShowintTitlePanel()
-        {
-            if (TitleOffOnMenuItem.Checked && TitlePageMenuItem.Checked)
+            if (DefaultDocumentMenuItem.Checked && TitlePageMenuItem.Checked)
             {
                 HideElements(TitlePageMenuItem);
                 ShowElements(DownPanelMI);
             }
-            TitlePageMenuItem.Visible = !TitleOffOnMenuItem.Checked;
-            buttonUp.Visible = !TitleOffOnMenuItem.Checked;
-            TitleOffOnMenuItem.Checked = !TitleOffOnMenuItem.Checked;
+            TitlePageMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
+            buttonUp.Visible = !DefaultDocumentMenuItem.Checked;
         }
 
         bool NeedSave()

@@ -18,10 +18,10 @@ namespace WordKiller
             pageMargins = new Dictionary<string, float>() { { "top", 2 }, { "bottom", 2 }, { "left", 3 }, { "right", 1.5f } };
         }
 
-        public void CreateReport(DataComboBox dataMainPart, bool numbering, bool content, bool title, int fromNumbering, bool numberHeading, TypeDocument typeDocument, string[] dataTitle)
+        public void CreateReport(DataComboBox dataMainPart, bool numbering, bool content, int fromNumbering, bool numberHeading, TypeDocument typeDocument, string[] dataTitle)
         {
             Beginning();
-            if (title)
+            if (typeDocument!=TypeDocument.DefaultDocument)
             {
                 dataTitle[dataTitle.Length - 1] = SpaceForYear(dataTitle[dataTitle.Length - 1], '_');
                 TitlePart(typeDocument, dataTitle);
@@ -44,13 +44,16 @@ namespace WordKiller
             string[] str = text.Split(new string[] { symbol }, StringSplitOptions.None);
             for (int i = 0; i < str.Length; i++)
             {
-                if (str[i].Length > 0 && str[i][0] == '\n')
+                if (str[i].Length > 0)
                 {
-                    str[i] = str[i].Remove(0, 1);
-                }
-                if (str[i].Length > 0 && str[i][str[i].Length - 1] == '\n')
-                {
-                    str[i] = str[i].Remove(str[i].Length - 1, 1);
+                    if (str[i][0] == '\n')
+                    {
+                        str[i] = str[i].Remove(0, 1);
+                    }
+                    if (str[i][str[i].Length - 1] == '\n')
+                    {
+                        str[i] = str[i].Remove(str[i].Length - 1, 1);
+                    }
                 }
             }
             text = String.Join(symbol, str);
@@ -486,7 +489,6 @@ namespace WordKiller
 
         void WriteTextWord(string text)
         {
-
             Range wordTemp = doc.Range();
             int Length = wordTemp.Text.Length;
             if (word == null)

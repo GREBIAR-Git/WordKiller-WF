@@ -104,30 +104,34 @@ namespace WordKiller
             this.SubstitutionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Document = new System.Windows.Forms.ToolStripMenuItem();
-            this.TitleOffOnMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.NumberingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FromNumberingTextBoxMenuItem = new System.Windows.Forms.ToolStripTextBox();
             this.TypeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefaultDocumentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LabMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PracticeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CourseworkMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ControlWorkMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RefMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DiplomMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VKRMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RGRMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.NumberingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FromNumberingTextBoxMenuItem = new System.Windows.Forms.ToolStripTextBox();
             this.ContentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NumberHeadingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Misc = new System.Windows.Forms.ToolStripMenuItem();
             this.SetAsDefaultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveAsDefaultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ChangeUserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.EncodingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Encoding0MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Encoding1MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Reference = new System.Windows.Forms.ToolStripMenuItem();
             this.DocumentationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutProgramMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -1285,39 +1289,14 @@ namespace WordKiller
             // Document
             // 
             this.Document.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TitleOffOnMenuItem,
-            this.NumberingMenuItem,
             this.TypeMenuItem,
+            this.toolStripSeparator1,
+            this.NumberingMenuItem,
             this.ContentMenuItem,
             this.NumberHeadingMenuItem});
             this.Document.Name = "Document";
             this.Document.Size = new System.Drawing.Size(125, 34);
             this.Document.Text = "Документ";
-            // 
-            // TitleOffOnMenuItem
-            // 
-            this.TitleOffOnMenuItem.Checked = true;
-            this.TitleOffOnMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TitleOffOnMenuItem.Name = "TitleOffOnMenuItem";
-            this.TitleOffOnMenuItem.Size = new System.Drawing.Size(332, 40);
-            this.TitleOffOnMenuItem.Text = "Титульник";
-            this.TitleOffOnMenuItem.Click += new System.EventHandler(this.TitleOffOnMenuItem_Click);
-            // 
-            // NumberingMenuItem
-            // 
-            this.NumberingMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FromNumberingTextBoxMenuItem});
-            this.NumberingMenuItem.Name = "NumberingMenuItem";
-            this.NumberingMenuItem.Size = new System.Drawing.Size(332, 40);
-            this.NumberingMenuItem.Text = "Нумерация";
-            this.NumberingMenuItem.Click += new System.EventHandler(this.NumberingMenuItem_Click);
-            // 
-            // FromNumberingTextBoxMenuItem
-            // 
-            this.FromNumberingTextBoxMenuItem.Name = "FromNumberingTextBoxMenuItem";
-            this.FromNumberingTextBoxMenuItem.Size = new System.Drawing.Size(150, 35);
-            this.FromNumberingTextBoxMenuItem.Text = "1";
-            this.FromNumberingTextBoxMenuItem.Visible = false;
             // 
             // TypeMenuItem
             // 
@@ -1326,6 +1305,7 @@ namespace WordKiller
             this.LabMenuItem,
             this.PracticeMenuItem,
             this.CourseworkMenuItem,
+            this.ControlWorkMenuItem,
             this.RefMenuItem,
             this.DiplomMenuItem,
             this.VKRMenuItem,
@@ -1364,6 +1344,13 @@ namespace WordKiller
             this.CourseworkMenuItem.Text = "Курсовая работа";
             this.CourseworkMenuItem.Click += new System.EventHandler(this.Work_Click);
             // 
+            // ControlWorkMenuItem
+            // 
+            this.ControlWorkMenuItem.Name = "ControlWorkMenuItem";
+            this.ControlWorkMenuItem.Size = new System.Drawing.Size(343, 40);
+            this.ControlWorkMenuItem.Text = "Контрольная работа";
+            this.ControlWorkMenuItem.Click += new System.EventHandler(this.Work_Click);
+            // 
             // RefMenuItem
             // 
             this.RefMenuItem.Name = "RefMenuItem";
@@ -1392,6 +1379,27 @@ namespace WordKiller
             this.RGRMenuItem.Text = "РГР";
             this.RGRMenuItem.Click += new System.EventHandler(this.Work_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(329, 6);
+            // 
+            // NumberingMenuItem
+            // 
+            this.NumberingMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FromNumberingTextBoxMenuItem});
+            this.NumberingMenuItem.Name = "NumberingMenuItem";
+            this.NumberingMenuItem.Size = new System.Drawing.Size(332, 40);
+            this.NumberingMenuItem.Text = "Нумерация";
+            this.NumberingMenuItem.Click += new System.EventHandler(this.NumberingMenuItem_Click);
+            // 
+            // FromNumberingTextBoxMenuItem
+            // 
+            this.FromNumberingTextBoxMenuItem.Name = "FromNumberingTextBoxMenuItem";
+            this.FromNumberingTextBoxMenuItem.Size = new System.Drawing.Size(150, 35);
+            this.FromNumberingTextBoxMenuItem.Text = "1";
+            this.FromNumberingTextBoxMenuItem.Visible = false;
+            // 
             // ContentMenuItem
             // 
             this.ContentMenuItem.Name = "ContentMenuItem";
@@ -1413,7 +1421,9 @@ namespace WordKiller
             this.Misc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SetAsDefaultMenuItem,
             this.RemoveAsDefaultMenuItem,
+            this.toolStripSeparator2,
             this.ChangeUserMenuItem,
+            this.toolStripSeparator3,
             this.EncodingMenuItem});
             this.Misc.Name = "Misc";
             this.Misc.Size = new System.Drawing.Size(98, 34);
@@ -1433,12 +1443,22 @@ namespace WordKiller
             this.RemoveAsDefaultMenuItem.Text = "Сбросить приложение по умолчанию для .wkr";
             this.RemoveAsDefaultMenuItem.Click += new System.EventHandler(this.RemoveAsDefaultMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(577, 6);
+            // 
             // ChangeUserMenuItem
             // 
             this.ChangeUserMenuItem.Name = "ChangeUserMenuItem";
             this.ChangeUserMenuItem.Size = new System.Drawing.Size(580, 40);
             this.ChangeUserMenuItem.Text = "Поменять пользователя";
             this.ChangeUserMenuItem.Click += new System.EventHandler(this.ChangeUserMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(577, 6);
             // 
             // EncodingMenuItem
             // 
@@ -1469,6 +1489,7 @@ namespace WordKiller
             // 
             this.Reference.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DocumentationMenuItem,
+            this.toolStripSeparator4,
             this.AboutProgramMenuItem});
             this.Reference.Name = "Reference";
             this.Reference.Size = new System.Drawing.Size(111, 34);
@@ -1477,16 +1498,21 @@ namespace WordKiller
             // DocumentationMenuItem
             // 
             this.DocumentationMenuItem.Name = "DocumentationMenuItem";
-            this.DocumentationMenuItem.Size = new System.Drawing.Size(272, 40);
+            this.DocumentationMenuItem.Size = new System.Drawing.Size(315, 40);
             this.DocumentationMenuItem.Text = "Документация";
             this.DocumentationMenuItem.Click += new System.EventHandler(this.DocumentationMenuItem_Click);
             // 
             // AboutProgramMenuItem
             // 
             this.AboutProgramMenuItem.Name = "AboutProgramMenuItem";
-            this.AboutProgramMenuItem.Size = new System.Drawing.Size(272, 40);
+            this.AboutProgramMenuItem.Size = new System.Drawing.Size(315, 40);
             this.AboutProgramMenuItem.Text = "О программе";
             this.AboutProgramMenuItem.Click += new System.EventHandler(this.AboutProgramMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(312, 6);
             // 
             // CustomInterface
             // 
@@ -1602,7 +1628,6 @@ namespace WordKiller
         private System.Windows.Forms.Button buttonSpecialC;
         private System.Windows.Forms.PictureBox CustomSizeGrip;
         private System.Windows.Forms.ToolStripMenuItem Document;
-        private System.Windows.Forms.ToolStripMenuItem TitleOffOnMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NumberingMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TypeMenuItem;
         private System.Windows.Forms.ToolStripMenuItem LabMenuItem;
@@ -1640,6 +1665,11 @@ namespace WordKiller
         private System.Windows.Forms.Label label_CursorLocation;
         private System.Windows.Forms.ToolStripMenuItem RemoveAsDefaultMenuItem;
         private System.Windows.Forms.RichTextBox richTextBoxSecondary;
+        private System.Windows.Forms.ToolStripMenuItem ControlWorkMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 
