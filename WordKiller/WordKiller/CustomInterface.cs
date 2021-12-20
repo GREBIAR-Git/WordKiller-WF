@@ -120,52 +120,8 @@ namespace WordKiller
             }
             else
             {
-                string item = elementComboBox.SelectedItem.ToString();
-                if (item == "Весь текст")
-                {
-                    data.Text = richTextBox.Text;
-                }
-                else
-                {
-                    /*string str = data.Text;
-                    int indexStart = 0;
-                    int indexEnd = 0;
-                    if (item.StartsWith(specialBefore + "h1"))
-                    {
-                        for (int i = 0; i < elementComboBox.SelectedIndex; i++)
-                        {
-                            str = str.Substring(str.IndexOf(specialBefore + "h1"));
-                            indexStart += str.IndexOf(specialBefore + "h1");
-                        }
-                        str = str.Substring(0, str.IndexOf(specialBefore + "h1"));
-                            indexEnd += str.IndexOf(specialBefore + "h1");
-                    }
-                    else
-                    {
-                        for (int i = 0; i < elementComboBox.SelectedIndex; i++)
-                        {
-                            str = str.Substring(str.IndexOf(specialBefore + "h2"));
-                            indexStart += str.IndexOf(specialBefore + "h2");
-                        }
-                        int h1Pos = str.IndexOf(specialBefore + "h1");
-                        h1Pos = h1Pos == -1 ? int.MaxValue : h1Pos;
-                        int h2Pos = str.IndexOf(specialBefore + "h2");
-                        h2Pos = h2Pos == -1 ? int.MaxValue : h2Pos;
-                        if (h1Pos < h2Pos)
-                        {
-                            str = str.Substring(0, h1Pos);
-                            indexEnd += str.IndexOf(specialBefore + "h1");
-                        }
-                        else
-                        {
-                            str = str.Substring(0, h2Pos);
-                            indexEnd += str.IndexOf(specialBefore + "h2");
-                        }
-                    }
-                    richTextBox.Text = data.Text.Substring(0, indexStart) + richTextBox.Text + data.Text.Substring(indexEnd);*/
-                }
-                UpdateTypeButton();
-                //ElementComboBoxUpdate();
+                data.Text = richTextBox.Text;
+                ElementComboBoxUpdate();
             }
         }
 
@@ -234,6 +190,24 @@ namespace WordKiller
             richTextBox.Focus();
             richTextBox.SelectionStart = index + symbol.Length + 1;
 
+        }
+
+        string GetSelectedSection(string section)
+        {
+            string str = "";
+            string text = richTextBox.Text;
+            int sectionStart = text.Substring(0, richTextBox.SelectionStart).LastIndexOf(section);
+            int sectionEnd = text.Substring(richTextBox.SelectionStart + 1).IndexOf(section);
+            if (section == "h2")
+            {
+                int h1End = text.Substring(richTextBox.SelectionStart + 1).IndexOf("h1");
+                if (h1End < sectionEnd)
+                {
+                    sectionEnd = h1End;
+                }
+            }
+            str = text.Substring(sectionStart, sectionEnd - sectionStart);
+            return str;
         }
 
         void ElementComboBoxUpdate()
@@ -821,6 +795,58 @@ namespace WordKiller
             PanelWithButton.Controls.Find("Добавить", true)[0].Visible = true;
         }
 
+        void SwitchRTB()
+        {
+            if (elementComboBox.SelectedItem.ToString() == "Весь текст")
+            {
+                SwitchToPrimaryRTB();
+            }
+            else
+            {
+                SwitchToSecondaryRTB();
+            }
+        }
+
+        void SwitchToPrimaryRTB()
+        {
+            richTextBoxSecondary.Visible = false;
+            textPicturePanel.ColumnStyles[1].SizeType = SizeType.Absolute;
+            textPicturePanel.ColumnStyles[1].Width = 0;
+            textPicturePanel.ColumnStyles[0].SizeType = SizeType.Percent;
+            richTextBox.Visible = true;
+            textPicturePanel.ColumnStyles[2].SizeType = SizeType.Percent;
+            if (pictureBox.Visible)
+            {
+                textPicturePanel.ColumnStyles[0].Width = 60;
+                textPicturePanel.ColumnStyles[2].Width = 40;
+            }
+            else
+            {
+                textPicturePanel.ColumnStyles[0].Width = 100;
+                textPicturePanel.ColumnStyles[2].Width = 0;
+            }
+        }
+
+        void SwitchToSecondaryRTB()
+        {
+            richTextBox.Visible = false;
+            textPicturePanel.ColumnStyles[0].SizeType = SizeType.Absolute;
+            textPicturePanel.ColumnStyles[0].Width = 0;
+            textPicturePanel.ColumnStyles[1].SizeType = SizeType.Percent;
+            richTextBoxSecondary.Visible = true;
+            textPicturePanel.ColumnStyles[2].SizeType = SizeType.Percent;
+            if (pictureBox.Visible)
+            {
+                textPicturePanel.ColumnStyles[1].Width = 60;
+                textPicturePanel.ColumnStyles[2].Width = 40;
+            }
+            else
+            {
+                textPicturePanel.ColumnStyles[1].Width = 100;
+                textPicturePanel.ColumnStyles[2].Width = 0;
+            }
+        }
+
         void HideElements(ToolStripMenuItem MenuItem)
         {
             if (MenuItem == TitlePageMenuItem)
@@ -846,7 +872,6 @@ namespace WordKiller
                 CustomSizeGrip.Visible = false;
                 HideSpecials();
                 DownPanelMI = TextMenuItem;
-                richTextBox.Margin = new Padding(3, 3, 3, 3);
             }
             MenuItem.Checked = false;
         }
@@ -893,8 +918,9 @@ namespace WordKiller
                 elementPanel.Visible = true;
                 elementLabel.Text = "нечто";
                 buttonText.Text = "К тексту";
+                SwitchToPrimaryRTB();
                 textPicturePanel.ColumnStyles[0].Width = 60;
-                textPicturePanel.ColumnStyles[1].Width = 40;
+                textPicturePanel.ColumnStyles[2].Width = 40;
                 DownPanelMI = SubstitutionMenuItem;
                 ShowAddButton();
                 UnselectComboBoxes();
@@ -914,7 +940,8 @@ namespace WordKiller
                 CustomSizeGrip.Visible = true;
                 buttonText.Text = "К подстановкам";
                 elementLabel.Text = "текст";
-                textPicturePanel.ColumnStyles[1].Width = 0;
+                SwitchRTB();
+                textPicturePanel.ColumnStyles[2].Width = 0;
                 textPicturePanel.ColumnStyles[0].Width = 100;
                 DownPanelMI = TextMenuItem;
                 this.AutoSizeMode = AutoSizeMode.GrowOnly;
@@ -1520,43 +1547,7 @@ namespace WordKiller
 
         void elementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string item = elementComboBox.SelectedItem.ToString();
-            if (item == "Весь текст")
-            {
-                richTextBox.Text = data.Text;
-            }
-            else
-            {
-                string str = data.Text;
-                if (item.StartsWith(specialBefore + "h1"))
-                {
-                    for (int i = 0; i < elementComboBox.SelectedIndex; i++)
-                    {
-                        str = str.Substring(str.IndexOf(specialBefore + "h1"));
-                    }
-                    str = str.Substring(0, str.IndexOf(specialBefore + "h1"));
-                }
-                else
-                {
-                    for (int i = 0; i < elementComboBox.SelectedIndex; i++)
-                    {
-                        str = str.Substring(str.IndexOf(specialBefore + "h2"));
-                    }
-                    int h1Pos = str.IndexOf(specialBefore + "h1");
-                    h1Pos = h1Pos == -1 ? int.MaxValue : h1Pos;
-                    int h2Pos = str.IndexOf(specialBefore + "h2");
-                    h2Pos = h2Pos == -1 ? int.MaxValue : h2Pos;
-                    if (h1Pos < h2Pos)
-                    {
-                        str = str.Substring(0, str.IndexOf(specialBefore + "h1"));
-                    }
-                    else
-                    {
-                        str = str.Substring(0, str.IndexOf(specialBefore + "h2"));
-                    }
-                }
-                richTextBox.Text = str;
-            }
+            SwitchRTB();
         }
 
         void ChangeUserMenuItem_Click(object sender, EventArgs e)
