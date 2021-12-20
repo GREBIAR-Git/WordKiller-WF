@@ -53,7 +53,7 @@ namespace WordKiller
                     if (line.StartsWith(AddSpecialСharacterAB("Menu")))
                     {
                         string[] menuItem = line.Remove(0, 6).Split('!');
-                        work_Click(TypeMenuItem.DropDown.Items.Find(menuItem[0], false)[0], new EventArgs());
+                        Work_Click(TypeMenuItem.DropDown.Items.Find(menuItem[0], false)[0], new EventArgs());
                         if (menuItem[0] != "DefaultDocumentMenuItem")
                         {
                             foreach (Control control in titlepagePanel.Controls)

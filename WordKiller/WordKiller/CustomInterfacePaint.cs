@@ -286,7 +286,7 @@ namespace WordKiller
                 int count = str.Length - key.Length - 1;
                 if (count>0 && str.Substring(count).StartsWith(specialBefore + key))
                 {
-                    int pCount = Regex.Matches(str, AddSpecialСharacterAB(key)).Count;
+                    int pCount = Regex.Matches(str, AddSpecialСharacterB(key)).Count;
                     extra = "  -  " + data.ComboBox[key].Form.Items[pCount - 1].ToString();
                     break;
                 }

@@ -54,11 +54,6 @@ namespace WordKiller
             this.saveTimer = InitializeTimer(3000, new ElapsedEventHandler(HideSaveLogo), false);
         }
 
-        void TextHeader(string type)
-        {
-            this.Text = "Сотворение " + type + " из небытия";
-        }
-
         void buttonText_Click(object sender, EventArgs e)
         {
             if (DownPanelMI == SubstitutionMenuItem)
@@ -515,7 +510,7 @@ namespace WordKiller
             AddTitleData(ref titleData);
             try
             {
-                await Task.Run(() => report.CreateReport(data, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text), NumberHeadingMenuItem.Checked, this.Text.ToString(), titleData.ToArray()));
+                await Task.Run(() => report.CreateReport(data, NumberingMenuItem.Checked, ContentMenuItem.Checked, TitleOffOnMenuItem.Checked, int.Parse(FromNumberingTextBoxMenuItem.Text), NumberHeadingMenuItem.Checked, typeDocument, titleData.ToArray()));
             }
             catch
             {
@@ -732,25 +727,6 @@ namespace WordKiller
                 tableLayoutPanel.Controls.Add(controls[i], columns[i], rows[i]);
             }
             return true;
-        }
-
-        void work_Click(object sender, EventArgs e)
-        {
-            ToolStripMenuItem toolStripMenuItem = (ToolStripMenuItem)sender;
-            if (toolStripMenuItem.Checked)
-            {
-                return;
-            }
-            DefaultDocumentMenuItem.Checked = false;
-            LabMenuItem.Checked = false;
-            PracticeMenuItem.Checked = false;
-            KursMenuItem.Checked = false;
-            RefMenuItem.Checked = false;
-            DiplomMenuItem.Checked = false;
-            VKRMenuItem.Checked = false;
-            RGRMenuItem.Checked = false;
-            toolStripMenuItem.Checked = true;
-            TextHeaderUpdate();
         }
 
         void View_MenuItem_Click(object sender, EventArgs e)
@@ -1267,9 +1243,9 @@ namespace WordKiller
             if (DownPanelMI == SubstitutionMenuItem && ComboBoxSelected())
             {
                 int line = GetLineOfCursor(richTextBox);
-                string[] lines = data.Text.Split('\n');
+                string[] lines = richTextBox.Text.Split('\n');
                 int index = richTextBox.SelectionStart;
-                if (data.Text == richTextBox.SelectedText && (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete))
+                if (richTextBox.Text == richTextBox.SelectedText && (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete))
                 {
                     lines[1] = "";
                     lines[3] = "";
@@ -1627,53 +1603,6 @@ namespace WordKiller
         string AddSpecialСharacterAB(string str)
         {
             return specialBefore + str + specialAfter;
-        }
-
-        void TextHeaderUpdate()
-        {
-            if (DefaultDocumentMenuItem.Checked)
-            {
-                TextHeader("документа");
-                TitleOffOnMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
-                ShowintTitlePanel();
-            }
-            else
-            {
-                TitleOffOnMenuItem.Visible = true;
-                TitleOffOnMenuItem.Checked = false;
-                ShowintTitlePanel();
-                if (LabMenuItem.Checked)
-                {
-                    TextHeader("лабораторной работы");
-                    ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-                }
-                else if (PracticeMenuItem.Checked)
-                {
-                    TextHeader("практической работы");
-                    ShowTitleElems("0.0 1.0 2.1 3.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-                }
-                else if (KursMenuItem.Checked)
-                {
-                    TextHeader("курсовой работы");
-                    ShowTitleElems("0.0 1.0 0.1 1.1 4.1 5.1 0.3 1.3 0.4 1.4 0.6 1.6 0.7 1.7");
-                }
-                else if (RefMenuItem.Checked)
-                {
-                    TextHeader("реферата");
-                }
-                else if (DiplomMenuItem.Checked)
-                {
-                    TextHeader("дипломной работы");
-                }
-                else if (VKRMenuItem.Checked)
-                {
-                    TextHeader("ВКР");
-                }
-                else if (RGRMenuItem.Checked)
-                {
-                    TextHeader("РГР");
-                }
-            }
         }
     }
 }

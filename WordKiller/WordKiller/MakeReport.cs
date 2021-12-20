@@ -18,7 +18,7 @@ namespace WordKiller
             pageMargins = new Dictionary<string, float>() { { "top", 2 }, { "bottom", 2 }, { "left", 3 }, { "right", 1.5f } };
         }
 
-        public void CreateReport(DataComboBox dataMainPart, bool numbering, bool content, bool title, int fromNumbering, bool numberHeading, string typeDocument, string[] dataTitle)
+        public void CreateReport(DataComboBox dataMainPart, bool numbering, bool content, bool title, int fromNumbering, bool numberHeading, TypeDocument typeDocument, string[] dataTitle)
         {
             Beginning();
             if (title)
@@ -64,10 +64,10 @@ namespace WordKiller
             word = null;
         }
 
-        void TitlePart(string typeDocument, string[] dataTitle)
+        void TitlePart(TypeDocument typeDocument, string[] dataTitle)
         {
             Ministry(dataTitle[0]);
-            if (typeDocument == "Сотворение лабораторной работы из небытия")
+            if (typeDocument == TypeDocument.LaboratoryWork)
             {
                 string text = "ОТЧЁТ";
                 WriteTextWord(text);
@@ -110,7 +110,7 @@ namespace WordKiller
 
                 SkipLinesSingle(8);
             }
-            else if (typeDocument == "Сотворение практической работы из небытия")
+            else if (typeDocument == TypeDocument.PracticalWork)
             {
                 string text = "ОТЧЁТ";
                 WriteTextWord(text);
@@ -153,7 +153,7 @@ namespace WordKiller
 
                 SkipLinesSingle(8);
             }
-            else if (typeDocument == "Сотворение курсовой работы из небытия")
+            else if (typeDocument == TypeDocument.Coursework)
             {
                 string text = "Работа допущена к защите" + SkipLine(1) + "______________Руководитель" + SkipLine(1) + "«____»_____________" + dataTitle[dataTitle.Length - 1] + "г.";
                 WriteTextWord(text);
@@ -203,16 +203,16 @@ namespace WordKiller
 
                 SkipLinesSingle(2);
             }
-            else if (typeDocument == "Сотворение реферата из небытия")
+            else if (typeDocument == TypeDocument.Report)
             {
             }
-            else if (typeDocument == "Сотворение дипломной работы из небытия")
+            else if (typeDocument == TypeDocument.GraduateWork)
             {
             }
-            else if (typeDocument == "Сотворение ВКР из небытия")
+            else if (typeDocument == TypeDocument.VKR)
             {
             }
-            else if (typeDocument == "Сотворение РГР из небытия")
+            else if (typeDocument == TypeDocument.RGR)
             {
             }
             Orel(dataTitle[dataTitle.Length - 1]);
@@ -357,6 +357,7 @@ namespace WordKiller
                     {
                         i += 1;
                         string[] text = ProcessSpecial(c, "c", content);
+                        Heading1(text[1]);
                         Code(text[0]);
                         c++;
                     }
@@ -434,6 +435,7 @@ namespace WordKiller
                     {
                         i += 1;
                         string[] text = ProcessSpecial(c, "c", content);
+                        Heading1(text[1]);
                         Code(text[0]);
                         c++;
                     }
@@ -477,6 +479,7 @@ namespace WordKiller
             else if (special == "c")
             {
                 text[0] = content.ComboBox["c"].Data[i - 1][1];
+                text[1] = content.ComboBox["c"].Data[i - 1][0];
             }
             return text;
         }
@@ -619,7 +622,6 @@ namespace WordKiller
             FileStream file = new FileStream(text, FileMode.Open);
             StreamReader reader = new StreamReader(file);
             string data = reader.ReadToEnd();
-            Heading1(text.Split('\\')[text.Split('\\').Length - 1] + SkipLine(1));
             WriteTextWord(data);
             word.Paragraphs.FirstLineIndent = CentimetersToPoints(0f);
             word.Font.AllCaps = 0;

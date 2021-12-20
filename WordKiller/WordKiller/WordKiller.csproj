@@ -118,6 +118,9 @@
     </Compile>
     <Compile Include="StringArraySearcher.cs" />
     <Compile Include="DataComboBox.cs" />
+    <Compile Include="TypeDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WindowSize.cs" />
     <Compile Include="AboutProgram.cs">
       <SubType>Form</SubType>
