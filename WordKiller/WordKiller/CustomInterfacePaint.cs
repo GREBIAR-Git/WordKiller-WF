@@ -259,6 +259,21 @@ namespace WordKiller
             {
                 label_CursorLocation.Text = "Начало";
             }
+            foreach(Control button in tableTypeInserts.Controls)
+            {
+                PictureBox pb = (PictureBox)button;
+                if (pb.Visible && MouseIsOverControl(pb))
+                {
+                    string name = pb.Name.ToLower();
+                    int index = Regex.Matches(richTextBox.Text.Substring(0, richTextBox.SelectionStart), AddSpecialСharacterB(name)).Count;
+                    string str = "Вставить " + data.ComboBox[name].Form.Items[index] + " в " + label_CursorLocation.Text;
+                    if (Regex.Matches(richTextBox.Text.Substring(richTextBox.SelectionStart), AddSpecialСharacterB(name)).Count > 0)
+                    {
+                        str += ", последующие сместить";
+                    }
+                    label_CursorLocation.Text = str;
+                }
+            }
         }
 
 
