@@ -456,8 +456,8 @@ namespace WordKiller
             this.MainPanel.Padding = new System.Windows.Forms.Padding(0, 27, 0, 0);
             this.MainPanel.RowCount = 6;
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
             this.MainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
@@ -480,14 +480,14 @@ namespace WordKiller
             this.DownPanel.Controls.Add(this.textPicturePanel, 0, 2);
             this.DownPanel.Controls.Add(this.PanelWithButton, 2, 1);
             this.DownPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DownPanel.Location = new System.Drawing.Point(3, 396);
+            this.DownPanel.Location = new System.Drawing.Point(3, 384);
             this.DownPanel.Name = "DownPanel";
             this.DownPanel.Padding = new System.Windows.Forms.Padding(25, 15, 25, 5);
             this.DownPanel.RowCount = 3;
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.DownPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.DownPanel.Size = new System.Drawing.Size(929, 350);
+            this.DownPanel.Size = new System.Drawing.Size(929, 362);
             this.DownPanel.TabIndex = 2;
             // 
             // elementVisiblePanel
@@ -819,7 +819,7 @@ namespace WordKiller
             this.textPicturePanel.Name = "textPicturePanel";
             this.textPicturePanel.RowCount = 1;
             this.textPicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.textPicturePanel.Size = new System.Drawing.Size(873, 187);
+            this.textPicturePanel.Size = new System.Drawing.Size(873, 199);
             this.textPicturePanel.TabIndex = 32;
             this.textPicturePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.textPicturePanel_Paint);
             // 
@@ -831,7 +831,7 @@ namespace WordKiller
             this.richTextBoxSecondary.Location = new System.Drawing.Point(514, 3);
             this.richTextBoxSecondary.Name = "richTextBoxSecondary";
             this.richTextBoxSecondary.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBoxSecondary.Size = new System.Drawing.Size(14, 181);
+            this.richTextBoxSecondary.Size = new System.Drawing.Size(14, 193);
             this.richTextBoxSecondary.TabIndex = 20;
             this.richTextBoxSecondary.Text = "";
             // 
@@ -843,7 +843,7 @@ namespace WordKiller
             this.richTextBox.Location = new System.Drawing.Point(3, 3);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBox.Size = new System.Drawing.Size(505, 181);
+            this.richTextBox.Size = new System.Drawing.Size(505, 193);
             this.richTextBox.TabIndex = 18;
             this.richTextBox.Text = "";
             this.richTextBox.SelectionChanged += new System.EventHandler(this.richTextBox_SelectionChanged);
@@ -860,7 +860,7 @@ namespace WordKiller
             this.DragNDropPanel.Location = new System.Drawing.Point(531, 3);
             this.DragNDropPanel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.DragNDropPanel.Name = "DragNDropPanel";
-            this.DragNDropPanel.Size = new System.Drawing.Size(342, 181);
+            this.DragNDropPanel.Size = new System.Drawing.Size(342, 193);
             this.DragNDropPanel.TabIndex = 19;
             this.DragNDropPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragDrop);
             this.DragNDropPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.DragNDropPanel_DragEnter);
@@ -876,7 +876,7 @@ namespace WordKiller
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 1, 3);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(342, 181);
+            this.pictureBox.Size = new System.Drawing.Size(342, 193);
             this.pictureBox.TabIndex = 32;
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
@@ -1043,10 +1043,10 @@ namespace WordKiller
             this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonUp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonUp.Location = new System.Drawing.Point(128, 361);
+            this.buttonUp.Location = new System.Drawing.Point(128, 357);
             this.buttonUp.Margin = new System.Windows.Forms.Padding(128, 18, 128, 3);
             this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(679, 29);
+            this.buttonUp.Size = new System.Drawing.Size(679, 21);
             this.buttonUp.TabIndex = 7;
             this.buttonUp.TabStop = false;
             this.buttonUp.Text = " ";
@@ -1065,7 +1065,7 @@ namespace WordKiller
             this.buttonDown.Location = new System.Drawing.Point(128, 312);
             this.buttonDown.Margin = new System.Windows.Forms.Padding(128, 3, 128, 3);
             this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(679, 28);
+            this.buttonDown.Size = new System.Drawing.Size(679, 24);
             this.buttonDown.TabIndex = 7;
             this.buttonDown.TabStop = false;
             this.buttonDown.Text = " ";
@@ -1376,6 +1376,7 @@ namespace WordKiller
             // 
             // FromNumberingTextBoxMenuItem
             // 
+            this.FromNumberingTextBoxMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FromNumberingTextBoxMenuItem.Name = "FromNumberingTextBoxMenuItem";
             this.FromNumberingTextBoxMenuItem.Size = new System.Drawing.Size(150, 23);
             this.FromNumberingTextBoxMenuItem.Text = "1";

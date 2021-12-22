@@ -612,9 +612,13 @@ namespace WordKiller
                 }
             }
             titlepagePanel.ResumeLayout();
-            int titleHeight = rows.Length * 38 / 2 + 42;
-            int baseHeight = 155;
+            int titleHeight = rows.Length * 35 / 2 + 42;
+            int baseHeight = 130;
             wndSize.Title = new MinMax(new Size(wndSize.Title.Min.Width, baseHeight + titleHeight));
+            if (TitlePageMenuItem.Checked)
+            {
+                UpdateSize(TitlePageMenuItem);
+            }
         }
 
         void ShowAllChildControls(Control control)
@@ -836,6 +840,14 @@ namespace WordKiller
             {
                 buttonDown.Visible = false;
                 titlepagePanel.Visible = false;
+                buttonDown.Visible = false;
+                MainPanel.RowStyles[1].Height = 0;
+                if (typeDocument != TypeDocument.DefaultDocument)
+                {
+                    MainPanel.RowStyles[2].Height = 45;
+                    buttonUp.Visible = true;
+                }
+                MainPanel.RowStyles[MainPanel.RowCount - 1].Height = 21;
                 refreshMenu();
             }
             else if (MenuItem == SubstitutionMenuItem)
@@ -865,45 +877,53 @@ namespace WordKiller
             {
                 this.MinimumSize = wndSize.Title.Min;
                 this.MaximumSize = wndSize.Title.Max;
+                MainPanel.RowStyles[0].SizeType = SizeType.Percent;
+                MainPanel.RowStyles[3].Height = 0;
+                MainPanel.RowStyles[0].Height = 100;
             }
             else if (MenuItem == SubstitutionMenuItem)
             {
                 this.MinimumSize = wndSize.Subst.Min;
                 this.MaximumSize = wndSize.Subst.Max;
+                MainPanel.RowStyles[0].Height = 0;
+                MainPanel.RowStyles[3].Height = 100;
             }
             else if (MenuItem == TextMenuItem)
             {
                 this.MinimumSize = wndSize.Text.Min;
                 this.MaximumSize = wndSize.Text.Max;
                 this.Size = wndSize.Text.Current;
+                MainPanel.RowStyles[0].Height = 0;
+                MainPanel.RowStyles[3].Height = 100;
             }
         }
 
         void ShowElements(ToolStripMenuItem MenuItem)
         {
+            if (MenuItem != null)
+            {
+                MenuItem.Checked = true;
+            }
             UpdateSize(MenuItem);
             if (MenuItem == TitlePageMenuItem)
             {
+                MainPanel.RowStyles[1].Height = 30;
                 buttonDown.Visible = true;
                 titlepagePanel.Visible = true;
                 DownPanel.Visible = false;
                 buttonUp.Visible = false;
+                MainPanel.RowStyles[2].Height = 0;
+                MainPanel.RowStyles[MainPanel.RowCount - 1].Height = 5;
                 facultyLabel.Focus();
             }
             else if (MenuItem == SubstitutionMenuItem)
             {
-                if (typeDocument != TypeDocument.DefaultDocument)
-                {
-                    buttonUp.Visible = true;
-                }
                 DownPanel.Visible = true;
                 pictureBox.Visible = true;
                 elementPanel.Visible = true;
                 elementLabel.Text = "нечто";
                 buttonText.Text = "К тексту";
                 SwitchToPrimaryRTB();
-                //textPicturePanel.ColumnStyles[0].Width = 60;
-                //textPicturePanel.ColumnStyles[2].Width = 40;
                 DownPanelMI = SubstitutionMenuItem;
                 ShowAddButton();
                 UnselectComboBoxes();
@@ -915,18 +935,12 @@ namespace WordKiller
             else if (MenuItem == TextMenuItem)
             {
                 richTextBox.EnableAutoDragDrop = true;
-                if (typeDocument != TypeDocument.DefaultDocument)
-                {
-                    buttonUp.Visible = true;
-                }
                 DownPanel.Visible = true;
                 CustomSizeGrip.Visible = true;
                 buttonText.Text = "К подстановкам";
                 elementLabel.Text = "текст";
-                SwitchRTB();
-                textPicturePanel.ColumnStyles[2].Width = 0;
-                textPicturePanel.ColumnStyles[0].Width = 100;
                 DownPanelMI = TextMenuItem;
+                SwitchRTB();
                 this.AutoSizeMode = AutoSizeMode.GrowOnly;
                 richTextBox.Text = data.Text;
                 richTextBox.SelectionStart = richTextBox.Text.Length;
@@ -938,10 +952,6 @@ namespace WordKiller
                 elementLabel.Visible = false;
                 MainPanel.RowStyles[MainPanel.RowCount - 2].Height = 25;
                 CursorLocationPanel.Visible = true;
-            }
-            if (MenuItem != null)
-            {
-                MenuItem.Checked = true;
             }
         }
         //нужнл переделать
@@ -1404,13 +1414,25 @@ namespace WordKiller
 
         void HideTitlePanel()
         {
-            if (DefaultDocumentMenuItem.Checked && TitlePageMenuItem.Checked)
+            if (TitlePageMenuItem.Checked && DefaultDocumentMenuItem.Checked)
             {
                 HideElements(TitlePageMenuItem);
                 ShowElements(DownPanelMI);
             }
+            if (!TitlePageMenuItem.Checked)
+            {
+                if (typeDocument == TypeDocument.DefaultDocument)
+                {
+                    buttonUp.Visible = false;
+                    MainPanel.RowStyles[2].Height = 0;
+                }
+                else
+                {
+                    MainPanel.RowStyles[2].Height = 45;
+                    buttonUp.Visible = true;
+                }
+            }
             TitlePageMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
-            buttonUp.Visible = !DefaultDocumentMenuItem.Checked;
         }
 
         bool NeedSave()
