@@ -65,11 +65,13 @@ namespace WordKiller
             else if(ControlWorkMenuItem.Checked)
             {
                 typeDocument = TypeDocument.ControlWork;
+                ShowTitleElems("0.0 1.0 0.1 1.1 0.4 1.4 0.6 1.6 0.7 1.7");
                 TextHeader("контрольной работы");
             }
             else if (RefMenuItem.Checked)
             {
                 typeDocument = TypeDocument.Report;
+                ShowTitleElems("0.0 1.0 0.1 0.3 1.3 1.1 0.4 1.4 0.6 1.6 0.7 1.7");
                 TextHeader("реферата");
             }
             else if (DiplomMenuItem.Checked)

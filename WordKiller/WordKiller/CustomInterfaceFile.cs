@@ -167,11 +167,14 @@ namespace WordKiller
             FileStream fileStream = System.IO.File.Open(nameFile, FileMode.Create);
             StreamWriter output = new StreamWriter(fileStream);
             string save = string.Empty;
-            foreach (ToolStripMenuItem item in TypeMenuItem.DropDown.Items)
+            foreach (ToolStripItem item in TypeMenuItem.DropDown.Items)
             {
-                if (item.Checked)
+                if (item.GetType() == typeof(ToolStripMenuItem))
                 {
-                    save += AddSpecialСharacterAB("Menu") + item.Name.ToString() + "!" + NumberHeadingMenuItem.Checked.ToString() + "\n";
+                    if (((ToolStripMenuItem)item).Checked)
+                    {
+                        save += AddSpecialСharacterAB("Menu") + item.Name.ToString() + "!" + NumberHeadingMenuItem.Checked.ToString() + "\n";
+                    }
                 }
             }
             save += AddSpecialСharacterA("facultyComboBox") + facultyComboBox.Text + "\n";

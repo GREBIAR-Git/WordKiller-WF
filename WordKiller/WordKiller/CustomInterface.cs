@@ -116,6 +116,7 @@ namespace WordKiller
             else
             {
                 data.Text = richTextBox.Text;
+                UpdateTypeButton();
                 ElementComboBoxUpdate();
             }
         }
@@ -611,6 +612,9 @@ namespace WordKiller
                 }
             }
             titlepagePanel.ResumeLayout();
+            int titleHeight = rows.Length * 38 / 2 + 42;
+            int baseHeight = 155;
+            wndSize.Title = new MinMax(new Size(wndSize.Title.Min.Width, baseHeight + titleHeight));
         }
 
         void ShowAllChildControls(Control control)
@@ -794,12 +798,12 @@ namespace WordKiller
             textPicturePanel.ColumnStyles[0].SizeType = SizeType.Percent;
             richTextBox.Visible = true;
             textPicturePanel.ColumnStyles[2].SizeType = SizeType.Percent;
-            if (pictureBox.Visible)
+            if (SubstitutionMenuItem.Checked)
             {
                 textPicturePanel.ColumnStyles[0].Width = 60;
                 textPicturePanel.ColumnStyles[2].Width = 40;
             }
-            else
+            else if (TextMenuItem.Checked)
             {
                 textPicturePanel.ColumnStyles[0].Width = 100;
                 textPicturePanel.ColumnStyles[2].Width = 0;
@@ -814,12 +818,12 @@ namespace WordKiller
             textPicturePanel.ColumnStyles[1].SizeType = SizeType.Percent;
             richTextBoxSecondary.Visible = true;
             textPicturePanel.ColumnStyles[2].SizeType = SizeType.Percent;
-            if (pictureBox.Visible)
+            if (SubstitutionMenuItem.Checked)
             {
                 textPicturePanel.ColumnStyles[1].Width = 60;
                 textPicturePanel.ColumnStyles[2].Width = 40;
             }
-            else
+            else if (TextMenuItem.Checked)
             {
                 textPicturePanel.ColumnStyles[1].Width = 100;
                 textPicturePanel.ColumnStyles[2].Width = 0;
@@ -898,8 +902,8 @@ namespace WordKiller
                 elementLabel.Text = "нечто";
                 buttonText.Text = "К тексту";
                 SwitchToPrimaryRTB();
-                textPicturePanel.ColumnStyles[0].Width = 60;
-                textPicturePanel.ColumnStyles[2].Width = 40;
+                //textPicturePanel.ColumnStyles[0].Width = 60;
+                //textPicturePanel.ColumnStyles[2].Width = 40;
                 DownPanelMI = SubstitutionMenuItem;
                 ShowAddButton();
                 UnselectComboBoxes();
