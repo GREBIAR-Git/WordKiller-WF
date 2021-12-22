@@ -135,7 +135,7 @@ namespace WordKiller
                 word.Font.Size = 16;
                 word.Font.Bold = 1;
 
-                text = "по дисциплине: «" + dataTitle[3] + "»";
+                text = "по дисциплине: «" + dataTitle[2] + "»";
                 WriteTextWord(text);
                 word.Font.Size = 14;
                 word.Font.Bold = 0;
@@ -143,14 +143,14 @@ namespace WordKiller
 
                 SkipLinesSingle(10);
 
-                text = "Выполнил: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
+                text = "Выполнил:"+ dataTitle[1] + SkipLine(1) +
                     "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
                     "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
                     "Группа: 92ПГ";
                 WriteTextWord(text);
                 word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
 
-                text = "Проверил: " + dataTitle[4];
+                text = "Проверил: " + dataTitle[3];
                 WriteTextWord(text);
                 word.Paragraphs.SpaceAfter = 10;
 
@@ -161,7 +161,7 @@ namespace WordKiller
                 word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
                 word.Paragraphs.SpaceAfter = 0;
 
-                text = "Дата: «____» __________ " + dataTitle[5] + "г.";
+                text = "Дата: «____» __________ " + dataTitle[4] + "г.";
                 WriteTextWord(text);
                 word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
 
@@ -172,15 +172,15 @@ namespace WordKiller
                 SkipLinesSingle(1);
 
                 string text = "Реферат по дисциплине: «" + dataTitle[3] + "»" + SkipLine(1) +
-                "Тема: «" + dataTitle[4] + "»";
+                "Тема: «" + dataTitle[2] + "»";
                 WriteTextWord(text);
                 word.Font.Size = 14;
                 SkipLinesSingle(16);
 
                 text = "Выполнил: студент группы 92ПГ" + SkipLine(1) +
-                "Фамилия И.О." + SkipLine(1) +
+                dataTitle[1] + SkipLine(1) +
                 "Проверил: ст. преподаватель кафедры физического воспитания" + SkipLine(1) +
-                "Фамилия Имя Отчество";
+                dataTitle[4];
                 WriteTextWord(text);
                 word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
 
