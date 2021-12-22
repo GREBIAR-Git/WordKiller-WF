@@ -72,89 +72,11 @@ namespace WordKiller
             Ministry(dataTitle[0]);
             if (typeDocument == TypeDocument.LaboratoryWork)
             {
-                string text = "ОТЧЁТ";
-                WriteTextWord(text);
-                word.Font.Size = 16;
-                word.Font.Bold = 1;
-
-                text = "По лабораторной работе №" + dataTitle[1];
-                WriteTextWord(text);
-                word.Paragraphs.SpaceAfter = 10;
-                word.Font.Bold = 0;
-
-                text = "на тему: «" + dataTitle[2] + "»" + SkipLine(1) + "по дисциплине: «" + dataTitle[3] + "»";
-                WriteTextWord(text);
-                word.Font.Size = 14;
-                word.Paragraphs.SpaceAfter = 0;
-
-                SkipLinesSingle(8);
-
-                text = "Выполнили: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
-                    "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
-                    "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
-                    "Группа: 92ПГ";
-                WriteTextWord(text);
-                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-
-                text = "Проверил: " + dataTitle[4];
-                WriteTextWord(text);
-                word.Paragraphs.SpaceAfter = 10;
-
-                SkipLinesSingle(1);
-
-                text = "Отметка о зачёте: ";
-                WriteTextWord(text);
-                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-                word.Paragraphs.SpaceAfter = 0;
-
-                text = "Дата: «____» __________ " + dataTitle[5] + "г.";
-                WriteTextWord(text);
-                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-
-                SkipLinesSingle(8);
+                LabPra("лабораторной", dataTitle);
             }
             else if (typeDocument == TypeDocument.PracticalWork)
             {
-                string text = "ОТЧЁТ";
-                WriteTextWord(text);
-                word.Font.Size = 16;
-                word.Font.Bold = 1;
-
-                text = "По практической работе №" + dataTitle[1];
-                WriteTextWord(text);
-                word.Paragraphs.SpaceAfter = 10;
-                word.Font.Bold = 0;
-
-                text = "на тему: «" + dataTitle[2] + "»" + SkipLine(1) + "по дисциплине: «" + dataTitle[3] + "»";
-                WriteTextWord(text);
-                word.Font.Size = 14;
-                word.Paragraphs.SpaceAfter = 0;
-
-                SkipLinesSingle(8);
-
-                text = "Выполнили: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
-                    "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
-                    "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
-                    "Группа: 92ПГ";
-                WriteTextWord(text);
-                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-
-                text = "Проверил: " + dataTitle[4];
-                WriteTextWord(text);
-                word.Paragraphs.SpaceAfter = 10;
-
-                SkipLinesSingle(1);
-
-                text = "Отметка о зачёте: ";
-                WriteTextWord(text);
-                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-                word.Paragraphs.SpaceAfter = 0;
-
-                text = "Дата: «____» __________ " + dataTitle[5] + "г.";
-                WriteTextWord(text);
-                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-
-                SkipLinesSingle(8);
+                LabPra("практической", dataTitle);
             }
             else if (typeDocument == TypeDocument.Coursework)
             {
@@ -206,8 +128,64 @@ namespace WordKiller
 
                 SkipLinesSingle(2);
             }
+            else if (typeDocument == TypeDocument.ControlWork)
+            {
+                string text = "Контрольная работа";
+                WriteTextWord(text);
+                word.Font.Size = 16;
+                word.Font.Bold = 1;
+
+                text = "по дисциплине: «" + dataTitle[3] + "»";
+                WriteTextWord(text);
+                word.Font.Size = 14;
+                word.Font.Bold = 0;
+                word.Paragraphs.SpaceAfter = 0;
+
+                SkipLinesSingle(10);
+
+                text = "Выполнил: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
+                    "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
+                    "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
+                    "Группа: 92ПГ";
+                WriteTextWord(text);
+                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+
+                text = "Проверил: " + dataTitle[4];
+                WriteTextWord(text);
+                word.Paragraphs.SpaceAfter = 10;
+
+                SkipLinesSingle(1);
+
+                text = "Отметка о зачёте: ";
+                WriteTextWord(text);
+                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                word.Paragraphs.SpaceAfter = 0;
+
+                text = "Дата: «____» __________ " + dataTitle[5] + "г.";
+                WriteTextWord(text);
+                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+
+                SkipLinesSingle(9);
+            }
             else if (typeDocument == TypeDocument.Report)
             {
+                SkipLinesSingle(1);
+
+                string text = "Реферат по дисциплине: «" + dataTitle[3] + "»" + SkipLine(1) +
+                "Тема: «" + dataTitle[4] + "»";
+                WriteTextWord(text);
+                word.Font.Size = 14;
+                SkipLinesSingle(16);
+
+                text = "Выполнил: студент группы 92ПГ" + SkipLine(1) +
+                "Фамилия И.О." + SkipLine(1) +
+                "Проверил: ст. преподаватель кафедры физического воспитания" + SkipLine(1) +
+                "Фамилия Имя Отчество";
+                WriteTextWord(text);
+                word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+
+                SkipLinesSingle(6);
+
             }
             else if (typeDocument == TypeDocument.GraduateWork)
             {
@@ -215,10 +193,51 @@ namespace WordKiller
             else if (typeDocument == TypeDocument.VKR)
             {
             }
-            else if (typeDocument == TypeDocument.RGR)
-            {
-            }
             Orel(dataTitle[dataTitle.Length - 1]);
+        }
+
+        void LabPra(string type, string[] dataTitle)
+        {
+            string text = "ОТЧЁТ";
+            WriteTextWord(text);
+            word.Font.Size = 16;
+            word.Font.Bold = 1;
+
+            text = "По " + type + " работе №" + dataTitle[1];
+            WriteTextWord(text);
+            word.Paragraphs.SpaceAfter = 10;
+            word.Font.Bold = 0;
+
+            text = "на тему: «" + dataTitle[2] + "»" + SkipLine(1) + "по дисциплине: «" + dataTitle[3] + "»";
+            WriteTextWord(text);
+            word.Font.Size = 14;
+            word.Paragraphs.SpaceAfter = 0;
+
+            SkipLinesSingle(8);
+
+            text = "Выполнили: Музалевский Н.С., Аллянов М.Д." + SkipLine(1) +
+                "Институт приборостроения, автоматизации и информационных технологий" + SkipLine(1) +
+                "Направление: 09.03.04 «Программная инженерия»" + SkipLine(1) +
+                "Группа: 92ПГ";
+            WriteTextWord(text);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+
+            text = "Проверил: " + dataTitle[4];
+            WriteTextWord(text);
+            word.Paragraphs.SpaceAfter = 10;
+
+            SkipLinesSingle(1);
+
+            text = "Отметка о зачёте: ";
+            WriteTextWord(text);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            word.Paragraphs.SpaceAfter = 0;
+
+            text = "Дата: «____» __________ " + dataTitle[5] + "г.";
+            WriteTextWord(text);
+            word.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+
+            SkipLinesSingle(8);
         }
 
         void Ministry(string faculty)

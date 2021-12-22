@@ -12,8 +12,7 @@ namespace WordKiller
         ControlWork,
         Report,
         GraduateWork,
-        VKR,
-        RGR
+        VKR
     }
     public partial class CustomInterface
     {
@@ -34,7 +33,6 @@ namespace WordKiller
             RefMenuItem.Checked = false;
             DiplomMenuItem.Checked = false;
             VKRMenuItem.Checked = false;
-            RGRMenuItem.Checked = false;
             toolStripMenuItem.Checked = true;
             TextHeaderUpdate();
         }
@@ -83,11 +81,6 @@ namespace WordKiller
             {
                 typeDocument = TypeDocument.VKR;
                 TextHeader("ВКР");
-            }
-            else if (RGRMenuItem.Checked)
-            {
-                typeDocument = TypeDocument.RGR;
-                TextHeader("РГР");
             }
             HideTitlePanel();
 

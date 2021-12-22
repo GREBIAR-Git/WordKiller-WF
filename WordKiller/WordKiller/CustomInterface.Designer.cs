@@ -113,7 +113,6 @@ namespace WordKiller
             this.RefMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DiplomMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VKRMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.RGRMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.NumberingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FromNumberingTextBoxMenuItem = new System.Windows.Forms.ToolStripTextBox();
@@ -130,8 +129,11 @@ namespace WordKiller
             this.Encoding1MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Reference = new System.Windows.Forms.ToolStripMenuItem();
             this.DocumentationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AboutProgramMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.AboutProgramMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.titlepagePanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
@@ -1302,14 +1304,16 @@ namespace WordKiller
             // 
             this.TypeMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DefaultDocumentMenuItem,
+            this.toolStripSeparator7,
             this.LabMenuItem,
             this.PracticeMenuItem,
-            this.CourseworkMenuItem,
             this.ControlWorkMenuItem,
             this.RefMenuItem,
+            this.toolStripSeparator5,
+            this.CourseworkMenuItem,
+            this.toolStripSeparator6,
             this.DiplomMenuItem,
-            this.VKRMenuItem,
-            this.RGRMenuItem});
+            this.VKRMenuItem});
             this.TypeMenuItem.Name = "TypeMenuItem";
             this.TypeMenuItem.Size = new System.Drawing.Size(332, 40);
             this.TypeMenuItem.Text = "Тип";
@@ -1371,13 +1375,6 @@ namespace WordKiller
             this.VKRMenuItem.Size = new System.Drawing.Size(343, 40);
             this.VKRMenuItem.Text = "ВКР";
             this.VKRMenuItem.Click += new System.EventHandler(this.Work_Click);
-            // 
-            // RGRMenuItem
-            // 
-            this.RGRMenuItem.Name = "RGRMenuItem";
-            this.RGRMenuItem.Size = new System.Drawing.Size(343, 40);
-            this.RGRMenuItem.Text = "РГР";
-            this.RGRMenuItem.Click += new System.EventHandler(this.Work_Click);
             // 
             // toolStripSeparator1
             // 
@@ -1498,21 +1495,36 @@ namespace WordKiller
             // DocumentationMenuItem
             // 
             this.DocumentationMenuItem.Name = "DocumentationMenuItem";
-            this.DocumentationMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.DocumentationMenuItem.Size = new System.Drawing.Size(272, 40);
             this.DocumentationMenuItem.Text = "Документация";
             this.DocumentationMenuItem.Click += new System.EventHandler(this.DocumentationMenuItem_Click);
-            // 
-            // AboutProgramMenuItem
-            // 
-            this.AboutProgramMenuItem.Name = "AboutProgramMenuItem";
-            this.AboutProgramMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.AboutProgramMenuItem.Text = "О программе";
-            this.AboutProgramMenuItem.Click += new System.EventHandler(this.AboutProgramMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(312, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(269, 6);
+            // 
+            // AboutProgramMenuItem
+            // 
+            this.AboutProgramMenuItem.Name = "AboutProgramMenuItem";
+            this.AboutProgramMenuItem.Size = new System.Drawing.Size(272, 40);
+            this.AboutProgramMenuItem.Text = "О программе";
+            this.AboutProgramMenuItem.Click += new System.EventHandler(this.AboutProgramMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(340, 6);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(340, 6);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(340, 6);
             // 
             // CustomInterface
             // 
@@ -1636,7 +1648,6 @@ namespace WordKiller
         private System.Windows.Forms.ToolStripMenuItem RefMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DiplomMenuItem;
         private System.Windows.Forms.ToolStripMenuItem VKRMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem RGRMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ContentMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DefaultDocumentMenuItem;
         private System.Windows.Forms.ToolStripTextBox FromNumberingTextBoxMenuItem;
@@ -1670,6 +1681,9 @@ namespace WordKiller
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
     }
 }
 
