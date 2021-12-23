@@ -570,73 +570,6 @@ namespace WordKiller
                 columns = ArrayPushBack<int>(columns, titlepagePanel.GetCellPosition(titlepagePanel.Controls[i]).Column);
             }
         }
-        void ShowTitleElems(string cells)
-        {
-            titlepagePanel.SuspendLayout();
-            titlepagePanel.Controls.Clear();
-            PushbackControls(DEFAULTtitlepagePanelControls, titlepagePanel, 0, DEFAULTtitlepagePanelControls.Length - 1, this.rows, this.columns);
-
-            ShowAllChildControls(titlepagePanel);
-            ResetAllChildColumnSpans(titlepagePanel);
-            string[] column_row = cells.Split(' ');
-            int[] columns = new int[column_row.Length];
-            int[] rows = new int[column_row.Length];
-            for (int i = 0; i < column_row.Length; i++)
-            {
-                columns[i] = int.Parse(column_row[i].Split('.')[0]);
-                rows[i] = int.Parse(column_row[i].Split('.')[1]);
-            }
-            Control[] titleSave = CopyControls(titlepagePanel, rows, columns);
-            titlepagePanel.Controls.Clear();
-            for (int i = 0; i < titleSave.Length; i++)
-            {
-                if (columns[i] >= 4 && RowElemCounter(rows, rows[i]) <= 4)
-                {
-                    columns[i] -= 2;
-                }
-                if (columns[i] >= 2 && RowElemCounter(rows, rows[i]) <= 2)
-                {
-                    columns[i] -= 2;
-                }
-            }
-            PushbackControls(titleSave, titlepagePanel, 0, titleSave.Length - 1, rows, columns);
-            for (int i = 0; i < titlepagePanel.Controls.Count; i++)
-            {
-                if (columns[i] == 3 && RowElemCounter(rows, rows[i]) <= 4)
-                {
-                    titlepagePanel.SetColumnSpan(titlepagePanel.Controls[i], 3);
-                }
-                else if (columns[i] == 1 && RowElemCounter(rows, rows[i]) <= 2)
-                {
-                    titlepagePanel.SetColumnSpan(titlepagePanel.Controls[i], 5);
-                }
-            }
-            titlepagePanel.ResumeLayout();
-            int rowCount = 0;
-            for (int i = 0; i < rows.Length; i++)
-            {
-                bool unique = true;
-                for (int j = 0; j < i; j++)
-                {
-                    if (rows[i] == rows[j])
-                    {
-                        unique = false;
-                        break;
-                    }
-                }
-                if (unique)
-                {
-                    rowCount++;
-                }
-            }
-            int titleHeight = rowCount * 35 + 42;
-            int baseHeight = 130;
-            wndSize.Title = new MinMax(new Size(wndSize.Title.Min.Width, baseHeight + titleHeight));
-            if (TitlePageMenuItem.Checked)
-            {
-                UpdateSize(TitlePageMenuItem);
-            }
-        }
 
         void ShowAllChildControls(Control control)
         {
@@ -754,36 +687,6 @@ namespace WordKiller
             return true;
         }
 
-        void View_MenuItem_Click(object sender, EventArgs e)
-        {
-            ToolStripMenuItem ClickMenuItem = (ToolStripMenuItem)sender;
-            if (TitlePageMenuItem.Checked)
-            {
-                HideElements(TitlePageMenuItem);
-                ShowElements(ClickMenuItem);
-            }
-            else if (SubstitutionMenuItem.Checked)
-            {
-                HideElements(SubstitutionMenuItem);
-                ShowElements(ClickMenuItem);
-            }
-            else if (TextMenuItem.Checked)
-            {
-                HideElements(TextMenuItem);
-                ShowElements(ClickMenuItem);
-            }
-        }
-
-        void HideSpecials()
-        {
-            tableTypeInserts.Visible = false;
-        }
-
-        void ShowSpecials()
-        {
-            tableTypeInserts.Visible = true;
-        }
-
         void HideAddButton()
         {
             PanelWithButton.Controls.Find("Добавить", true)[0].Visible = false;
@@ -794,41 +697,6 @@ namespace WordKiller
         {
             PanelWithButton.ColumnStyles[1].Width = 151;
             PanelWithButton.Controls.Find("Добавить", true)[0].Visible = true;
-        }
-
-        void SwitchRTB()
-        {
-            string item = elementComboBox.SelectedItem.ToString();
-            if (item == "Весь текст")
-            {
-                SwitchToPrimaryRTB();
-            }
-            else
-            {
-                item = item.Substring(item.IndexOf(" ") + 1);
-                SwitchToSecondaryRTB();
-                richTextBoxSecondary.Text = GetSelectedSection(item);
-            }
-        }
-
-        void SwitchToPrimaryRTB()
-        {
-            richTextBoxSecondary.Visible = false;
-            textPicturePanel.ColumnStyles[1].SizeType = SizeType.Absolute;
-            textPicturePanel.ColumnStyles[1].Width = 0;
-            textPicturePanel.ColumnStyles[0].SizeType = SizeType.Percent;
-            richTextBox.Visible = true;
-            textPicturePanel.ColumnStyles[2].SizeType = SizeType.Percent;
-            if (SubstitutionMenuItem.Checked)
-            {
-                textPicturePanel.ColumnStyles[0].Width = 60;
-                textPicturePanel.ColumnStyles[2].Width = 40;
-            }
-            else if (TextMenuItem.Checked)
-            {
-                textPicturePanel.ColumnStyles[0].Width = 100;
-                textPicturePanel.ColumnStyles[2].Width = 0;
-            }
         }
 
         void SwitchToSecondaryRTB()
@@ -849,134 +717,6 @@ namespace WordKiller
                 textPicturePanel.ColumnStyles[1].Width = 100;
                 textPicturePanel.ColumnStyles[2].Width = 0;
             }
-        }
-
-        void HideElements(ToolStripMenuItem MenuItem)
-        {
-            if (MenuItem == TitlePageMenuItem)
-            {
-                buttonDown.Visible = false;
-                titlepagePanel.Visible = false;
-                buttonDown.Visible = false;
-                MainPanel.RowStyles[1].Height = 0;
-                if (typeDocument != TypeDocument.DefaultDocument)
-                {
-                    MainPanel.RowStyles[2].Height = 45;
-                    buttonUp.Visible = true;
-                }
-                MainPanel.RowStyles[MainPanel.RowCount - 1].Height = 21;
-                refreshMenu();
-            }
-            else if (MenuItem == SubstitutionMenuItem)
-            {
-                elementPanel.Visible = false;
-                pictureBox.Visible = false;
-                HideAddButton();
-                DownPanelMI = SubstitutionMenuItem;
-            }
-            else if (MenuItem == TextMenuItem)
-            {
-                MainPanel.RowStyles[MainPanel.RowCount - 2].Height = 0;
-                CursorLocationPanel.Visible = false;
-                wndSize.Text.Current = this.Size;
-                this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                richTextBox.EnableAutoDragDrop = false;
-                CustomSizeGrip.Visible = false;
-                HideSpecials();
-                DownPanelMI = TextMenuItem;
-            }
-            MenuItem.Checked = false;
-        }
-
-        void UpdateSize(ToolStripMenuItem MenuItem)
-        {
-            if (MenuItem == TitlePageMenuItem)
-            {
-                this.MinimumSize = wndSize.Title.Min;
-                this.MaximumSize = wndSize.Title.Max;
-                MainPanel.RowStyles[0].SizeType = SizeType.Percent;
-                MainPanel.RowStyles[3].Height = 0;
-                MainPanel.RowStyles[0].Height = 100;
-            }
-            else if (MenuItem == SubstitutionMenuItem)
-            {
-                this.MinimumSize = wndSize.Subst.Min;
-                this.MaximumSize = wndSize.Subst.Max;
-                MainPanel.RowStyles[0].Height = 0;
-                MainPanel.RowStyles[3].Height = 100;
-            }
-            else if (MenuItem == TextMenuItem)
-            {
-                this.MinimumSize = wndSize.Text.Min;
-                this.MaximumSize = wndSize.Text.Max;
-                this.Size = wndSize.Text.Current;
-                MainPanel.RowStyles[0].Height = 0;
-                MainPanel.RowStyles[3].Height = 100;
-            }
-        }
-
-        void ShowElements(ToolStripMenuItem MenuItem)
-        {
-            if (MenuItem != null)
-            {
-                MenuItem.Checked = true;
-            }
-            UpdateSize(MenuItem);
-            if (MenuItem == TitlePageMenuItem)
-            {
-                MainPanel.RowStyles[1].Height = 30;
-                buttonDown.Visible = true;
-                titlepagePanel.Visible = true;
-                DownPanel.Visible = false;
-                buttonUp.Visible = false;
-                MainPanel.RowStyles[2].Height = 0;
-                MainPanel.RowStyles[MainPanel.RowCount - 1].Height = 5;
-                facultyLabel.Focus();
-            }
-            else if (MenuItem == SubstitutionMenuItem)
-            {
-                DownPanel.Visible = true;
-                pictureBox.Visible = true;
-                elementPanel.Visible = true;
-                elementLabel.Text = "нечто";
-                buttonText.Text = "К тексту";
-                SwitchToPrimaryRTB();
-                DownPanelMI = SubstitutionMenuItem;
-                ShowAddButton();
-                UnselectComboBoxes();
-                richTextBox.Text = string.Empty;
-                richTextBox.Focus();
-                elementComboBox.Visible = false;
-                elementLabel.Visible = true;
-            }
-            else if (MenuItem == TextMenuItem)
-            {
-                richTextBox.EnableAutoDragDrop = true;
-                DownPanel.Visible = true;
-                CustomSizeGrip.Visible = true;
-                buttonText.Text = "К подстановкам";
-                elementLabel.Text = "текст";
-                DownPanelMI = TextMenuItem;
-                SwitchRTB();
-                this.AutoSizeMode = AutoSizeMode.GrowOnly;
-                richTextBox.Text = data.Text;
-                richTextBox.SelectionStart = richTextBox.Text.Length;
-                ShowSpecials();
-                UpdateTypeButton();
-                //MatchWordPage();
-                richTextBox.Focus();
-                elementComboBox.Visible = true;
-                elementLabel.Visible = false;
-                MainPanel.RowStyles[MainPanel.RowCount - 2].Height = 25;
-                CursorLocationPanel.Visible = true;
-            }
-        }
-        //нужнл переделать
-        void MatchWordPage()
-        {
-            int left = 3 + (richTextBox.Width - 790) / 2 + 76;
-            int right = 3 + (richTextBox.Width - 790) / 2 + 56 - 16; // 16 is scrollbar width
-            richTextBox.Margin = new Padding(left, richTextBox.Margin.Top, right, richTextBox.Margin.Bottom);
         }
 
         void refreshMenu()
@@ -1330,6 +1070,86 @@ namespace WordKiller
             return false;
         }
 
+        void ShowTitleElems(string str)
+        {
+            titlepagePanel.SuspendLayout();
+            titlepagePanel.Controls.Clear();
+            PushbackControls(DEFAULTtitlepagePanelControls, titlepagePanel, 0, DEFAULTtitlepagePanelControls.Length - 1, this.rows, this.columns);
+
+            ShowAllChildControls(titlepagePanel);
+            ResetAllChildColumnSpans(titlepagePanel);
+            string[] cells;
+            if (str!=string.Empty)
+            {
+                cells = str.Split(' ');
+            }
+            else
+            {
+                cells = new string[0];
+            }
+            int[] columns = new int[cells.Length];
+            int[] rows = new int[cells.Length];
+            for (int i = 0; i < cells.Length; i++)
+            {
+                string[] cell = cells[i].Split('.');
+                if(cell.Length>1)
+                {
+                    columns[i] = int.Parse(cell[0]);
+                    rows[i] = int.Parse(cell[1]);
+                }
+            }
+            Control[] titleSave = CopyControls(titlepagePanel, rows, columns);
+            titlepagePanel.Controls.Clear();
+            for (int i = 0; i < titleSave.Length; i++)
+            {
+                if (columns[i] >= 4 && RowElemCounter(rows, rows[i]) <= 4)
+                {
+                    columns[i] -= 2;
+                }
+                if (columns[i] >= 2 && RowElemCounter(rows, rows[i]) <= 2)
+                {
+                    columns[i] -= 2;
+                }
+            }
+            PushbackControls(titleSave, titlepagePanel, 0, titleSave.Length - 1, rows, columns);
+            for (int i = 0; i < titlepagePanel.Controls.Count; i++)
+            {
+                if (columns[i] == 3 && RowElemCounter(rows, rows[i]) <= 4)
+                {
+                    titlepagePanel.SetColumnSpan(titlepagePanel.Controls[i], 3);
+                }
+                else if (columns[i] == 1 && RowElemCounter(rows, rows[i]) <= 2)
+                {
+                    titlepagePanel.SetColumnSpan(titlepagePanel.Controls[i], 5);
+                }
+            }
+            titlepagePanel.ResumeLayout();
+            int rowCount = 0;
+            for (int i = 0; i < rows.Length; i++)
+            {
+                bool unique = true;
+                for (int j = 0; j < i; j++)
+                {
+                    if (rows[i] == rows[j])
+                    {
+                        unique = false;
+                        break;
+                    }
+                }
+                if (unique)
+                {
+                    rowCount++;
+                }
+            }
+            int titleHeight = rowCount * 35 + 42;
+            int baseHeight = 130;
+            wndSize.Title = new MinMax(new Size(wndSize.Title.Min.Width, baseHeight + titleHeight));
+            if (TitlePageMenuItem.Checked)
+            {
+                UpdateSize(TitlePageMenuItem);
+            }
+        }
+
         bool BeginningFourthLines(string[] lines, int index)
         {
             if (lines[0].Length + lines[1].Length + lines[2].Length == index - 3)
@@ -1427,47 +1247,6 @@ namespace WordKiller
             Document.ShowDropDown();
             NumberingMenuItem.Select();
             FromNumberingTextBoxMenuItem.Visible = true;
-        }
-
-        void HideTitlePanel()
-        {
-            if (TitlePageMenuItem.Checked && DefaultDocumentMenuItem.Checked)
-            {
-                HideElements(TitlePageMenuItem);
-                ShowElements(DownPanelMI);
-            }
-            if (!TitlePageMenuItem.Checked)
-            {
-                if (typeDocument == TypeDocument.DefaultDocument)
-                {
-                    buttonUp.Visible = false;
-                    MainPanel.RowStyles[2].Height = 0;
-                }
-                else
-                {
-                    MainPanel.RowStyles[2].Height = 45;
-                    buttonUp.Visible = true;
-                }
-            }
-            TitlePageMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
-        }
-
-        bool NeedSave()
-        {
-            DialogResult result = MessageBox.Show("Нужно ли сохранить?", "Нужно ли сохранить?", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-            if (result == DialogResult.Yes)
-            {
-                if (!string.IsNullOrEmpty(saveFileName))
-                {
-                    SaveWordKiller(saveFileName);
-                }
-                else
-                {
-                    SaveAsMenuItem_Click(0,new EventArgs());
-                }
-                return true;
-            }
-            return false;
         }
 
         void CreateMenuItem_Click(object sender, EventArgs e)

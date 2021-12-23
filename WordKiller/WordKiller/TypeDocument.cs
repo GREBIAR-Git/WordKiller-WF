@@ -78,14 +78,38 @@ namespace WordKiller
             {
                 typeDocument = TypeDocument.GraduateWork;
                 TextHeader("дипломной работы");
+                ShowTitleElems("");
             }
             else if (VKRMenuItem.Checked)
             {
                 typeDocument = TypeDocument.VKR;
                 TextHeader("ВКР");
+                ShowTitleElems("");
             }
             HideTitlePanel();
+        }
 
+        void HideTitlePanel()
+        {
+            if (TitlePageMenuItem.Checked && DefaultDocumentMenuItem.Checked)
+            {
+                HideElements(TitlePageMenuItem);
+                ShowElements(DownPanelMI);
+            }
+            if (!TitlePageMenuItem.Checked)
+            {
+                if (typeDocument == TypeDocument.DefaultDocument)
+                {
+                    buttonUp.Visible = false;
+                    MainPanel.RowStyles[2].Height = 0;
+                }
+                else
+                {
+                    MainPanel.RowStyles[2].Height = 45;
+                    buttonUp.Visible = true;
+                }
+            }
+            TitlePageMenuItem.Visible = !DefaultDocumentMenuItem.Checked;
         }
 
         void TextHeader(string type)

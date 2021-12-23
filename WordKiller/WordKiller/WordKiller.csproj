@@ -96,6 +96,10 @@
       <DependentUpon>CustomInterface.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Transition.cs">
+      <DependentUpon>CustomInterface.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TypeDocument.cs">
       <DependentUpon>CustomInterface.cs</DependentUpon>
       <SubType>Form</SubType>

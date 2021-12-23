@@ -242,5 +242,23 @@ namespace WordKiller
                 cmbBox.Items.Clear();
             }
         }
+
+        bool NeedSave()
+        {
+            DialogResult result = MessageBox.Show("Нужно ли сохранить?", "Нужно ли сохранить?", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            if (result == DialogResult.Yes)
+            {
+                if (!string.IsNullOrEmpty(saveFileName))
+                {
+                    SaveWordKiller(saveFileName);
+                }
+                else
+                {
+                    SaveAsMenuItem_Click(0, new EventArgs());
+                }
+                return true;
+            }
+            return false;
+        }
     }
 }
