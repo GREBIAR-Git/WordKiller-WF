@@ -612,7 +612,24 @@ namespace WordKiller
                 }
             }
             titlepagePanel.ResumeLayout();
-            int titleHeight = rows.Length * 35 / 2 + 42;
+            int rowCount = 0;
+            for (int i = 0; i < rows.Length; i++)
+            {
+                bool unique = true;
+                for (int j = 0; j < i; j++)
+                {
+                    if (rows[i] == rows[j])
+                    {
+                        unique = false;
+                        break;
+                    }
+                }
+                if (unique)
+                {
+                    rowCount++;
+                }
+            }
+            int titleHeight = rowCount * 35 + 42;
             int baseHeight = 130;
             wndSize.Title = new MinMax(new Size(wndSize.Title.Min.Width, baseHeight + titleHeight));
             if (TitlePageMenuItem.Checked)
