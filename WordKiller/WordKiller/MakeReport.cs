@@ -50,9 +50,12 @@ namespace WordKiller
                     {
                         str[i] = str[i].Remove(0, 1);
                     }
-                    if (str[i][str[i].Length - 1] == '\n')
+                    if(str[i].Length - 1>=0)
                     {
-                        str[i] = str[i].Remove(str[i].Length - 1, 1);
+                        if (str[i][str[i].Length - 1] == '\n')
+                        {
+                            str[i] = str[i].Remove(str[i].Length - 1, 1);
+                        }
                     }
                 }
             }
